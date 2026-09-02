@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guarda-chuva Viana · Case</title>
-<meta name="description" content="Proposta de arquitetura de produtos para o ecossistema Viana: da Cozinha à Consultoria Individualizada, com a Batalha de Shapes como motor de conversão.">
+<meta name="description" content="Arquitetura de produtos para o ecossistema Viana: da Cozinha à Consultoria, com a Batalha de Shapes como motor de conversão, esteira de captura, matriz de upsell e plano de 12 meses.">
+<meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="Guarda-chuva Viana">
 <meta property="og:description" content="Como estruturar o ecossistema de produtos do Viana, do ticket de R$14,90 ao de R$1.152.">
 <meta property="og:type" content="website">
@@ -15,35 +16,20 @@
 
 <style>
 /* ============================================================
-   Sistema visual herdado da própria marca Viana:
-   magenta #CA195D amostrado das peças, preto #070807 de fundo,
-   condensada pesada em caixa alta, corpo em Barlow.
-   Tema único escuro por decisão: é o mundo da marca.
+   Sistema herdado da marca Viana. Magenta #CA195D amostrado
+   das peças reais, preto #070807, condensada pesada em caixa
+   alta. Tema único escuro: é o mundo visual da marca.
    ============================================================ */
 
 :root{
-  --ground:#070807;
-  --surface:#111010;
-  --surface2:#1A1817;
-  --surface3:#232020;
-  --ink:#F4F1F0;
-  --ink2:#A49B99;
-  --ink3:#6E6663;
-  --rule:#2A2524;
-  --rule2:#3C3533;
-
-  --viana:#CA195D;
-  --viana-deep:#85113E;
-  --viana-soft:#2A0E1A;
-
-  --cozinha:#FF2D00;
-  --gold:#E0A32B;
-  --ok:#3FA46B;
-
+  --ground:#070807; --surface:#111010; --surface2:#1A1817; --surface3:#242020;
+  --ink:#F4F1F0; --ink2:#A49B99; --ink3:#6E6663;
+  --rule:#2A2524; --rule2:#3C3533;
+  --viana:#CA195D; --viana-deep:#85113E; --viana-soft:#2A0E1A;
+  --cozinha:#FF2D00; --gold:#E0A32B; --ok:#3FA46B;
   --f-disp:"Barlow Condensed","Arial Narrow",sans-serif;
   --f-body:"Barlow","Helvetica Neue",Arial,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
-
   --pad:clamp(20px,5vw,64px);
 }
 
@@ -55,15 +41,11 @@ html{scroll-behavior:smooth;}
 }
 
 body{
-  margin:0;
-  background:var(--ground);
-  color:var(--ink);
-  font-family:var(--f-body);
-  font-size:17px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--f-body);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
+body.locked{overflow:hidden;}
 
 p{margin:0 0 15px;max-width:66ch;}
 strong{font-weight:600;color:var(--ink);}
@@ -72,413 +54,267 @@ a{color:var(--viana);}
 ul,ol{margin:0 0 16px;padding-left:20px;max-width:66ch;}
 li{margin-bottom:8px;}
 li::marker{color:var(--ink3);}
-.mono{font-family:var(--f-mono);font-size:.86em;letter-spacing:.01em;}
+.mono{font-family:var(--f-mono);font-size:.86em;}
+button{font:inherit;color:inherit;}
 
-/* ---------- chrome de navegação ---------- */
+/* ---------- chrome ---------- */
 
-#progress{
-  position:fixed;top:0;left:0;height:3px;width:0%;
-  background:var(--viana);z-index:120;transition:width .18s linear;
-}
+#progress{position:fixed;top:0;left:0;height:3px;width:0%;background:var(--viana);z-index:120;transition:width .18s linear;}
 
 #topbar{
   position:fixed;top:0;left:0;right:0;height:56px;z-index:110;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 var(--pad);
-  background:rgba(7,8,7,.86);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:0 var(--pad);background:rgba(7,8,7,.88);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);
 }
 .brandmark{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);}
 .brandmark svg{width:19px;height:19px;flex:none;}
-.brandmark span{
-  font-family:var(--f-disp);font-weight:900;font-size:17px;
-  letter-spacing:.05em;text-transform:uppercase;line-height:1;
-}
-.brandmark b{color:var(--viana);font-weight:900;}
-
-#counter{
-  font-family:var(--f-mono);font-size:11px;letter-spacing:.13em;
-  color:var(--ink3);text-transform:uppercase;
-}
+.brandmark span{font-family:var(--f-disp);font-weight:900;font-size:17px;letter-spacing:.05em;text-transform:uppercase;line-height:1;}
+.brandmark b{color:var(--viana);}
+.bar-right{display:flex;align-items:center;gap:16px;}
+#counter{font-family:var(--f-mono);font-size:11px;letter-spacing:.13em;color:var(--ink3);text-transform:uppercase;white-space:nowrap;}
 #counter b{color:var(--ink);font-weight:600;}
+#helpbtn{
+  width:26px;height:26px;border-radius:50%;border:1px solid var(--rule2);
+  background:transparent;color:var(--ink2);cursor:pointer;font-size:13px;
+  font-family:var(--f-mono);line-height:1;padding:0;transition:.18s;
+}
+#helpbtn:hover{border-color:var(--viana);color:var(--viana);}
+#helpbtn:focus-visible{outline:2px solid var(--viana);outline-offset:2px;}
 
-#dots{
-  position:fixed;right:14px;top:50%;transform:translateY(-50%);
-  z-index:110;display:flex;flex-direction:column;gap:9px;
-}
-#dots button{
-  width:9px;height:9px;padding:0;border-radius:50%;cursor:pointer;
-  border:1px solid var(--rule2);background:transparent;
-  transition:background .2s,border-color .2s,transform .2s;
-}
-#dots button:hover{border-color:var(--viana);transform:scale(1.3);}
+#dots{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:105;display:flex;flex-direction:column;gap:8px;}
+#dots button{width:9px;height:9px;padding:0;border-radius:50%;cursor:pointer;border:1px solid var(--rule2);background:transparent;transition:.2s;}
+#dots button:hover{border-color:var(--viana);transform:scale(1.35);}
 #dots button[aria-current="true"]{background:var(--viana);border-color:var(--viana);}
 #dots button:focus-visible{outline:2px solid var(--viana);outline-offset:3px;}
 
 .hint{
-  position:fixed;left:var(--pad);bottom:16px;z-index:110;
-  font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;
-  text-transform:uppercase;color:var(--ink3);
-  display:flex;align-items:center;gap:8px;
-  transition:opacity .4s;
+  position:fixed;left:var(--pad);bottom:16px;z-index:105;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink3);display:flex;align-items:center;gap:8px;transition:opacity .4s;
 }
-.hint kbd{
-  font-family:var(--f-mono);border:1px solid var(--rule2);
-  border-radius:3px;padding:1px 5px;color:var(--ink2);font-size:10px;
-}
+.hint kbd{font-family:var(--f-mono);border:1px solid var(--rule2);border-radius:3px;padding:1px 5px;color:var(--ink2);font-size:10px;}
 
-/* ---------- estrutura de seção ---------- */
+/* ---------- seções ---------- */
 
 section{
-  min-height:100vh;
-  padding:96px var(--pad) 72px;
+  min-height:100vh;padding:96px var(--pad) 76px;
   display:flex;flex-direction:column;justify-content:center;
-  scroll-snap-align:start;
-  border-bottom:1px solid var(--rule);
-  position:relative;
+  border-bottom:1px solid var(--rule);position:relative;
 }
-.inner{width:100%;max-width:1080px;margin:0 auto;}
-.narrow{max-width:800px;}
+.inner{width:100%;max-width:1120px;margin:0 auto;}
+.narrow{max-width:820px;}
 
 .eyebrow{
-  font-family:var(--f-mono);font-size:11px;font-weight:500;
-  letter-spacing:.17em;text-transform:uppercase;color:var(--viana);
-  margin:0 0 18px;
+  font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--viana);margin:0 0 18px;
 }
 .eyebrow .sep{color:var(--ink3);}
+.eyebrow .act{color:var(--ink3);}
 
-h1{
-  font-family:var(--f-disp);font-weight:900;
-  font-size:clamp(48px,10.5vw,116px);line-height:.9;
-  letter-spacing:-.006em;text-transform:uppercase;
-  margin:0 0 24px;text-wrap:balance;
-}
+h1{font-family:var(--f-disp);font-weight:900;font-size:clamp(44px,9.6vw,108px);line-height:.9;letter-spacing:-.006em;text-transform:uppercase;margin:0 0 24px;text-wrap:balance;}
 h1 .hl{color:var(--viana);}
-
-h2{
-  font-family:var(--f-disp);font-weight:900;
-  font-size:clamp(32px,6vw,62px);line-height:.96;
-  letter-spacing:-.004em;text-transform:uppercase;
-  margin:0 0 20px;text-wrap:balance;
-}
+h2{font-family:var(--f-disp);font-weight:900;font-size:clamp(30px,5.6vw,58px);line-height:.96;letter-spacing:-.004em;text-transform:uppercase;margin:0 0 20px;text-wrap:balance;}
 h2 .hl{color:var(--viana);}
-
-h3{
-  font-family:var(--f-disp);font-weight:700;font-size:22px;
-  letter-spacing:.02em;text-transform:uppercase;margin:0 0 10px;
-}
-
-.lead{font-size:clamp(18px,2.2vw,22px);color:var(--ink2);max-width:60ch;}
+h3{font-family:var(--f-disp);font-weight:700;font-size:21px;letter-spacing:.02em;text-transform:uppercase;margin:0 0 10px;}
+.lead{font-size:clamp(17px,2.1vw,21px);color:var(--ink2);max-width:62ch;}
 .lead strong{color:var(--ink);font-weight:600;}
+
+/* afordância de clique, explicada no onboarding */
+.clickable{position:relative;}
+.clickable::after{
+  content:"+";position:absolute;top:10px;right:12px;
+  font-family:var(--f-mono);font-size:14px;line-height:1;color:var(--viana);
+  opacity:.55;transition:.18s;pointer-events:none;
+}
+.clickable:hover::after,.clickable:focus-visible::after{opacity:1;transform:rotate(90deg);}
 
 /* ---------- capa ---------- */
 
-#capa{justify-content:center;}
-.xmark{
-  position:absolute;right:-4%;top:50%;transform:translateY(-50%);
-  width:min(52vw,620px);opacity:.13;pointer-events:none;z-index:0;
-}
-#capa .inner{position:relative;z-index:1;}
-.capa-meta{
-  display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:38px;
-  padding-top:22px;border-top:1px solid var(--rule2);
-  font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink3);
-}
+#capa{overflow:hidden;}
+.capa-wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,5vw,64px);align-items:center;}
+.capa-photo{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--surface);}
+.capa-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:grayscale(1) contrast(1.15) brightness(.82);}
+.capa-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(202,25,93,.34),transparent 62%);mix-blend-mode:screen;}
+.capa-photo .xover{position:absolute;inset:8%;opacity:.42;}
+.capa-meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:34px;padding-top:20px;border-top:1px solid var(--rule2);font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);}
 
-/* ---------- o abismo ---------- */
+/* ---------- abismo ---------- */
 
-.gap-viz{margin:34px 0 10px;display:flex;flex-direction:column;gap:2px;}
-.rung{
-  display:grid;grid-template-columns:minmax(120px,180px) 1fr;
-  gap:0 22px;align-items:center;
-  background:var(--surface);padding:18px 22px;
-  border-left:3px solid var(--rule2);
-}
-.rung .tick{
-  font-family:var(--f-disp);font-weight:900;font-size:clamp(22px,3.2vw,32px);
-  line-height:1;letter-spacing:-.01em;
-}
-.rung .what{font-size:15.5px;color:var(--ink2);}
-.rung .what b{color:var(--ink);font-weight:600;display:block;
-  font-family:var(--f-disp);font-size:19px;text-transform:uppercase;letter-spacing:.02em;}
-.rung.free{border-left-color:var(--ink3);}
-.rung.free .tick{color:var(--ink3);}
-.rung.coz{border-left-color:var(--cozinha);}
-.rung.coz .tick{color:var(--cozinha);}
-.rung.cons{border-left-color:var(--viana);}
-.rung.cons .tick{color:var(--viana);}
+.gap-viz{margin:32px 0 8px;display:flex;flex-direction:column;gap:2px;}
+.rung{display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:0 22px;align-items:center;background:var(--surface);padding:17px 22px;border-left:3px solid var(--rule2);}
+.rung .tick{font-family:var(--f-disp);font-weight:900;font-size:clamp(21px,3vw,30px);line-height:1;}
+.rung .tick small{font-size:14px;color:var(--ink3);font-weight:600;}
+.rung .what{font-size:15px;color:var(--ink2);}
+.rung .what b{color:var(--ink);font-weight:600;display:block;font-family:var(--f-disp);font-size:19px;text-transform:uppercase;letter-spacing:.02em;}
+.rung.free{border-left-color:var(--ink3);} .rung.free .tick{color:var(--ink3);}
+.rung.coz{border-left-color:var(--cozinha);} .rung.coz .tick{color:var(--cozinha);}
+.rung.cons{border-left-color:var(--viana);} .rung.cons .tick{color:var(--viana);}
+.void{border:1px dashed var(--rule2);padding:24px 22px;text-align:center;font-family:var(--f-mono);font-size:12px;letter-spacing:.19em;text-transform:uppercase;color:var(--ink3);}
 
-.void{
-  border:1px dashed var(--rule2);background:transparent;
-  padding:26px 22px;text-align:center;
-  font-family:var(--f-mono);font-size:12px;letter-spacing:.19em;
-  text-transform:uppercase;color:var(--ink3);
-}
+.bignum{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 20px;margin-top:30px;padding-top:24px;border-top:1px solid var(--rule2);}
+.bignum .n{font-family:var(--f-disp);font-weight:900;font-size:clamp(58px,12vw,136px);line-height:.82;color:var(--viana);letter-spacing:-.02em;}
+.bignum .t{font-size:16.5px;color:var(--ink2);max-width:36ch;}
 
-.bignum{
-  display:flex;flex-wrap:wrap;align-items:baseline;gap:0 20px;
-  margin-top:34px;padding-top:26px;border-top:1px solid var(--rule2);
-}
-.bignum .n{
-  font-family:var(--f-disp);font-weight:900;
-  font-size:clamp(64px,13vw,150px);line-height:.82;color:var(--viana);
-  letter-spacing:-.02em;
-}
-.bignum .t{font-size:17px;color:var(--ink2);max-width:34ch;}
+/* ---------- grades de cards ---------- */
 
-/* ---------- inventário ---------- */
+.grid{display:grid;gap:2px;}
+.g-auto{grid-template-columns:repeat(auto-fit,minmax(228px,1fr));}
+.g-wide{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
 
-.assets{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));
-  gap:2px;margin-top:30px;
+.card{
+  background:var(--surface);padding:20px 20px 18px;border-top:3px solid var(--rule2);
+  display:flex;flex-direction:column;gap:8px;text-align:left;
+  border-left:0;border-right:0;border-bottom:0;
 }
-.asset{
-  background:var(--surface);padding:20px 20px 18px;
-  border-top:3px solid var(--rule2);
-  display:flex;flex-direction:column;gap:8px;
-}
-.asset .nm{
-  font-family:var(--f-disp);font-weight:900;font-size:20px;
-  text-transform:uppercase;letter-spacing:.02em;line-height:1.06;
-}
-.asset .num{
-  font-family:var(--f-mono);font-size:12.5px;font-weight:600;color:var(--viana);
-  letter-spacing:.04em;
-}
-.asset .ds{font-size:14.5px;color:var(--ink2);line-height:1.5;}
-.asset .st{
-  margin-top:auto;padding-top:11px;border-top:1px solid var(--rule);
-  font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;
-  text-transform:uppercase;
-}
-.st.on{color:var(--ok);}
-.st.weak{color:var(--gold);}
-.st.off{color:var(--ink3);}
-.asset.hero{border-top-color:var(--viana);}
-.asset.warm{border-top-color:var(--cozinha);}
+button.card{cursor:pointer;transition:background .18s;width:100%;}
+button.card:hover{background:var(--surface2);}
+button.card:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
+.card .nm{font-family:var(--f-disp);font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:.02em;line-height:1.06;padding-right:20px;}
+.card .num{font-family:var(--f-mono);font-size:12.5px;font-weight:600;color:var(--viana);letter-spacing:.04em;}
+.card .ds{font-size:14.5px;color:var(--ink2);line-height:1.5;}
+.card .st{margin-top:auto;padding-top:11px;border-top:1px solid var(--rule);font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;}
+.st.on{color:var(--ok);} .st.weak{color:var(--gold);} .st.off{color:var(--ink3);}
+.card.hero{border-top-color:var(--viana);} .card.warm{border-top-color:var(--cozinha);}
 
-/* ---------- escada do guarda-chuva ---------- */
+/* ---------- escada ---------- */
 
-.ladder{display:flex;flex-direction:column;gap:2px;margin-top:28px;}
-.lvl{
-  background:var(--surface);border-left:3px solid var(--rule2);
-  cursor:pointer;text-align:left;width:100%;
-  border-top:0;border-right:0;border-bottom:0;
-  font:inherit;color:inherit;padding:0;
-  transition:background .18s;
-}
+.ladder{display:flex;flex-direction:column;gap:2px;margin-top:26px;}
+.lvl{background:var(--surface);border:0;border-left:3px solid var(--rule2);cursor:pointer;text-align:left;width:100%;padding:0;transition:background .18s;}
 .lvl:hover{background:var(--surface2);}
 .lvl:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
-.lvl-head{
-  display:grid;grid-template-columns:52px 1fr auto;
-  gap:0 20px;align-items:center;padding:18px 22px;
-}
-.lvl-n{
-  font-family:var(--f-disp);font-weight:900;font-size:32px;
-  line-height:1;color:var(--rule2);font-variant-numeric:tabular-nums;
-  transition:color .18s;
-}
-.lvl-t{
-  font-family:var(--f-disp);font-weight:900;font-size:clamp(19px,2.6vw,26px);
-  text-transform:uppercase;letter-spacing:.02em;line-height:1.06;
-}
-.lvl-t small{
-  display:block;font-family:var(--f-body);font-weight:400;
-  font-size:14px;text-transform:none;letter-spacing:0;
-  color:var(--ink2);margin-top:3px;line-height:1.45;
-}
-.lvl-p{
-  font-family:var(--f-mono);font-size:13px;font-weight:600;
-  color:var(--ink2);text-align:right;white-space:nowrap;
-}
-.lvl-p em{display:block;font-style:normal;font-size:9.5px;letter-spacing:.11em;
-  text-transform:uppercase;color:var(--ink3);margin-top:4px;}
-.lvl[aria-expanded="true"]{border-left-color:var(--viana);background:var(--surface2);}
-.lvl[aria-expanded="true"] .lvl-n{color:var(--viana);}
+.lvl-head{display:grid;grid-template-columns:52px 1fr auto;gap:0 20px;align-items:center;padding:17px 22px;}
+.lvl-n{font-family:var(--f-disp);font-weight:900;font-size:32px;line-height:1;color:var(--rule2);font-variant-numeric:tabular-nums;transition:color .18s;}
+.lvl:hover .lvl-n{color:var(--viana);}
+.lvl-t{font-family:var(--f-disp);font-weight:900;font-size:clamp(18px,2.5vw,25px);text-transform:uppercase;letter-spacing:.02em;line-height:1.06;}
+.lvl-t small{display:block;font-family:var(--f-body);font-weight:400;font-size:14px;text-transform:none;letter-spacing:0;color:var(--ink2);margin-top:3px;line-height:1.45;}
+.lvl-p{font-family:var(--f-mono);font-size:13px;font-weight:600;color:var(--ink2);text-align:right;white-space:nowrap;}
+.lvl-p em{display:block;font-style:normal;font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);margin-top:4px;}
 .lvl.novo{border-left-style:dashed;}
-.lvl.novo .lvl-t::after{
-  content:"a construir";font-family:var(--f-mono);font-size:9px;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--ground);
-  background:var(--viana);padding:2px 7px;margin-left:10px;
-  vertical-align:middle;display:inline-block;
-}
-.lvl-body{
-  display:none;padding:0 22px 22px 94px;
-  border-top:1px solid var(--rule);margin-top:-1px;
-}
-.lvl-body.open{display:block;}
-.lvl-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;padding-top:18px;
-}
-.lvl-grid h4{
-  font-family:var(--f-mono);font-size:10px;font-weight:600;
-  letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);
-  margin:0 0 7px;
-}
-.lvl-grid p{font-size:14.5px;color:var(--ink2);margin:0;line-height:1.5;}
-.lvl-grid p strong{color:var(--ink);}
+.tagnew{font-family:var(--f-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ground);background:var(--viana);padding:2px 7px;margin-left:10px;vertical-align:middle;display:inline-block;}
 
-/* ---------- motor / ciclo ---------- */
+/* ---------- motor ---------- */
 
-.engine{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:2px;margin-top:30px;
-}
 .cog{background:var(--surface);padding:22px;border-top:3px solid var(--viana);}
-.cog .step{
-  font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--viana);margin-bottom:12px;
-}
-.cog .flow{
-  font-family:var(--f-disp);font-weight:900;font-size:20px;
-  text-transform:uppercase;letter-spacing:.02em;line-height:1.15;margin-bottom:10px;
-}
+.cog .step{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--viana);margin-bottom:12px;}
+.cog .flow{font-family:var(--f-disp);font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:.02em;line-height:1.15;margin-bottom:10px;}
 .cog .flow i{font-style:normal;color:var(--viana);}
 .cog p{font-size:14.5px;color:var(--ink2);margin:0;line-height:1.5;}
 
-.quote{
-  border-left:3px solid var(--viana);padding:4px 0 4px 22px;
-  margin:30px 0 0;font-family:var(--f-disp);font-weight:700;
-  font-size:clamp(20px,3vw,30px);line-height:1.16;text-transform:uppercase;
-  letter-spacing:.01em;max-width:24ch;
-}
+.quote{border-left:3px solid var(--viana);padding:4px 0 4px 22px;margin:28px 0 0;font-family:var(--f-disp);font-weight:700;font-size:clamp(19px,2.8vw,28px);line-height:1.16;text-transform:uppercase;letter-spacing:.01em;max-width:26ch;}
 .quote i{font-style:normal;color:var(--viana);}
+
+/* ---------- esteira / torneiras ---------- */
+
+.taps{display:flex;flex-direction:column;gap:2px;margin-top:26px;}
+.tap{display:grid;grid-template-columns:44px 1fr 132px;gap:0 20px;align-items:center;background:var(--surface);padding:16px 22px;border-left:3px solid var(--viana);}
+.tap .ic{font-family:var(--f-disp);font-weight:900;font-size:26px;color:var(--viana);line-height:1;}
+.tap .tx b{display:block;font-family:var(--f-disp);font-size:19px;text-transform:uppercase;letter-spacing:.02em;line-height:1.1;margin-bottom:3px;}
+.tap .tx span{font-size:14.5px;color:var(--ink2);line-height:1.5;}
+.tap .tag{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;text-align:right;line-height:1.5;}
+.tag.perene{color:var(--ok);} .tag.ciclo{color:var(--gold);}
+
+/* ---------- matriz upsell ---------- */
+
+.matrix{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;margin-top:24px;}
+.mx{background:var(--surface);border:0;border-left:3px solid var(--rule2);padding:17px 19px;cursor:pointer;text-align:left;transition:background .18s;}
+.mx:hover{background:var(--surface2);border-left-color:var(--viana);}
+.mx:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
+.mx .route{font-family:var(--f-disp);font-weight:900;font-size:17px;text-transform:uppercase;letter-spacing:.02em;line-height:1.15;margin-bottom:7px;padding-right:18px;}
+.mx .route i{font-style:normal;color:var(--viana);}
+.mx .trg{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink3);line-height:1.6;}
+.mx .trg b{color:var(--ink2);font-weight:500;}
+.mx.up{border-left-color:var(--viana);}
+.mx.cross{border-left-color:var(--cozinha);}
+.mx.back{border-left-color:var(--gold);}
+
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);}
+.legend span{display:flex;align-items:center;gap:7px;}
+.legend i{width:16px;height:3px;display:block;}
+
+/* ---------- tabs materiais ---------- */
+
+.tabs{display:flex;gap:2px;margin-top:26px;overflow-x:auto;padding-bottom:4px;}
+.tabs button{flex:0 0 auto;background:var(--surface);border:0;border-top:3px solid var(--rule2);padding:13px 18px 15px;cursor:pointer;color:var(--ink3);text-align:left;transition:.18s;white-space:nowrap;}
+.tabs button:hover{background:var(--surface2);color:var(--ink2);}
+.tabs button:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
+.tabs button[aria-selected="true"]{border-top-color:var(--viana);background:var(--surface2);color:var(--ink);}
+.tabs .lb{font-family:var(--f-disp);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.03em;display:block;}
+.tabs .sb{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-top:4px;opacity:.7;}
+
+.tabpanel{background:var(--surface);border-left:3px solid var(--viana);padding:26px;margin-top:2px;min-height:280px;}
+.tabpanel .ttl{font-family:var(--f-disp);font-weight:900;font-size:clamp(22px,3.4vw,32px);text-transform:uppercase;letter-spacing:.01em;line-height:1.05;margin-bottom:6px;}
+.tabpanel .kind{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--viana);margin-bottom:14px;}
+.tp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px;margin-top:18px;padding-top:18px;border-top:1px solid var(--rule);}
+.tp-grid h4{font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin:0 0 7px;}
+.tp-grid p,.tp-grid ul{font-size:14.5px;color:var(--ink2);margin:0;line-height:1.55;}
+.tp-grid ul{padding-left:17px;}
+.tp-grid li{margin-bottom:5px;}
+.tp-grid strong{color:var(--ink);}
+
+/* ---------- benchmarks ---------- */
+
+.bench{background:var(--surface);border:0;border-top:3px solid var(--viana);padding:22px 20px 18px;cursor:pointer;text-align:left;transition:background .18s;display:flex;flex-direction:column;gap:9px;}
+.bench:hover{background:var(--surface2);}
+.bench:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
+.bench .who{font-family:var(--f-disp);font-weight:900;font-size:23px;text-transform:uppercase;letter-spacing:.02em;line-height:1.03;padding-right:20px;}
+.bench .geo{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);}
+.bench .big{font-family:var(--f-disp);font-weight:900;font-size:clamp(26px,3.6vw,38px);color:var(--viana);line-height:1;letter-spacing:-.01em;}
+.bench .cap{font-size:14px;color:var(--ink2);line-height:1.5;}
+.bench .steal{margin-top:auto;padding-top:12px;border-top:1px solid var(--rule);font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--viana);}
 
 /* ---------- simulador ---------- */
 
-.sim{display:grid;grid-template-columns:minmax(280px,380px) 1fr;gap:2px;margin-top:26px;}
+.sim{display:grid;grid-template-columns:minmax(280px,380px) 1fr;gap:2px;margin-top:24px;}
 .sim-in{background:var(--surface);padding:24px;}
 .sim-out{background:var(--surface2);padding:24px;}
-
-.ctrl{margin-bottom:24px;}
-.ctrl:last-child{margin-bottom:0;}
-.ctrl label{
-  display:flex;justify-content:space-between;align-items:baseline;gap:12px;
-  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink3);margin-bottom:9px;
-}
-.ctrl label output{
-  font-size:15px;font-weight:600;color:var(--viana);letter-spacing:.02em;
-  font-variant-numeric:tabular-nums;
-}
-input[type=range]{
-  -webkit-appearance:none;appearance:none;width:100%;height:3px;
-  background:var(--rule2);border-radius:2px;outline:none;cursor:pointer;
-}
-input[type=range]::-webkit-slider-thumb{
-  -webkit-appearance:none;appearance:none;width:17px;height:17px;
-  border-radius:50%;background:var(--viana);cursor:pointer;
-  border:3px solid var(--ground);box-shadow:0 0 0 1px var(--viana);
-}
-input[type=range]::-moz-range-thumb{
-  width:17px;height:17px;border-radius:50%;background:var(--viana);
-  cursor:pointer;border:3px solid var(--ground);box-shadow:0 0 0 1px var(--viana);
-}
+.ctrl{margin-bottom:23px;}
+.ctrl:last-of-type{margin-bottom:0;}
+.ctrl label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:9px;}
+.ctrl label output{font-size:15px;font-weight:600;color:var(--viana);font-variant-numeric:tabular-nums;}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;background:var(--rule2);border-radius:2px;outline:none;cursor:pointer;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:17px;height:17px;border-radius:50%;background:var(--viana);cursor:pointer;border:3px solid var(--ground);box-shadow:0 0 0 1px var(--viana);}
+input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:var(--viana);cursor:pointer;border:3px solid var(--ground);box-shadow:0 0 0 1px var(--viana);}
 input[type=range]:focus-visible{outline:2px solid var(--viana);outline-offset:6px;}
-
-.fixed-note{
-  margin-top:26px;padding-top:16px;border-top:1px solid var(--rule);
-  font-family:var(--f-mono);font-size:10.5px;line-height:1.85;color:var(--ink3);
-  letter-spacing:.03em;
-}
+.fixed-note{margin-top:24px;padding-top:16px;border-top:1px solid var(--rule);font-family:var(--f-mono);font-size:10.5px;line-height:1.85;color:var(--ink3);}
 .fixed-note b{color:var(--ink2);font-weight:500;}
-
-.res{display:flex;flex-direction:column;gap:2px;}
-.res-row{
-  display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;
-  padding:13px 0;border-bottom:1px solid var(--rule);
-}
-.res-row .rl{font-size:15px;color:var(--ink2);}
-.res-row .rl b{display:block;color:var(--ink);font-weight:600;
-  font-family:var(--f-disp);font-size:17px;text-transform:uppercase;letter-spacing:.02em;}
-.res-row .rv{
-  font-family:var(--f-mono);font-size:17px;font-weight:600;
-  font-variant-numeric:tabular-nums;white-space:nowrap;
-}
-.res-total{
-  margin-top:16px;padding-top:20px;border-top:2px solid var(--viana);
-  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px;
-}
-.res-total .lab{
-  font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ink3);
-}
-.res-total .big{
-  font-family:var(--f-disp);font-weight:900;font-size:clamp(34px,5.5vw,58px);
-  line-height:.95;color:var(--viana);font-variant-numeric:tabular-nums;
-  letter-spacing:-.01em;
-}
-.delta{
-  margin-top:14px;padding:13px 16px;background:var(--viana-soft);
-  font-size:14.5px;color:var(--ink2);line-height:1.5;
-}
+.res-row{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--rule);}
+.res-row .rl{font-size:14.5px;color:var(--ink2);}
+.res-row .rl b{display:block;color:var(--ink);font-weight:600;font-family:var(--f-disp);font-size:17px;text-transform:uppercase;letter-spacing:.02em;}
+.res-row .rv{font-family:var(--f-mono);font-size:17px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.res-total{margin-top:16px;padding-top:20px;border-top:2px solid var(--viana);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px;}
+.res-total .lab{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);}
+.res-total .big{font-family:var(--f-disp);font-weight:900;font-size:clamp(32px,5.2vw,56px);line-height:.95;color:var(--viana);font-variant-numeric:tabular-nums;letter-spacing:-.01em;}
+.delta{margin-top:14px;padding:13px 16px;background:var(--viana-soft);font-size:14.5px;color:var(--ink2);line-height:1.55;}
 .delta b{color:var(--viana);font-family:var(--f-mono);font-weight:600;}
 
 /* ---------- timeline ---------- */
 
-.tl{display:flex;gap:2px;margin-top:28px;overflow-x:auto;padding-bottom:6px;}
-.tl button{
-  flex:1 0 76px;background:var(--surface);border:0;cursor:pointer;
-  border-top:3px solid var(--rule2);padding:14px 10px 16px;
-  font:inherit;color:var(--ink3);text-align:left;transition:background .18s;
-}
+.tl{display:flex;gap:2px;margin-top:26px;overflow-x:auto;padding-bottom:6px;}
+.tl button{flex:1 0 74px;background:var(--surface);border:0;cursor:pointer;border-top:3px solid var(--rule2);padding:13px 10px 15px;color:var(--ink3);text-align:left;transition:.18s;}
 .tl button:hover{background:var(--surface2);color:var(--ink2);}
 .tl button:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
-.tl button[aria-current="true"]{border-top-color:var(--viana);background:var(--surface2);color:var(--ink);}
-.tl .m{
-  font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;
-  text-transform:uppercase;display:block;margin-bottom:6px;
-}
-.tl .h{
-  font-family:var(--f-disp);font-weight:700;font-size:14px;
-  text-transform:uppercase;letter-spacing:.02em;line-height:1.1;
-}
-.tl-detail{
-  background:var(--surface);border-left:3px solid var(--viana);
-  padding:24px;margin-top:2px;min-height:190px;
-}
+.tl button[aria-selected="true"]{border-top-color:var(--viana);background:var(--surface2);color:var(--ink);}
+.tl .m{font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;display:block;margin-bottom:6px;}
+.tl .h{font-family:var(--f-disp);font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.02em;line-height:1.1;}
+.tl-detail{background:var(--surface);border-left:3px solid var(--viana);padding:24px;margin-top:2px;min-height:200px;}
 .tl-detail h3{color:var(--viana);margin-bottom:6px;}
-.tl-detail .ph{
-  font-family:var(--f-mono);font-size:10px;letter-spacing:.13em;
-  text-transform:uppercase;color:var(--ink3);margin-bottom:14px;
-}
-.tl-detail ul{margin:0;max-width:70ch;}
+.tl-detail .ph{font-family:var(--f-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;}
 .tl-detail li{font-size:15px;color:var(--ink2);}
 .tl-detail li strong{color:var(--ink);}
 
 /* ---------- kpi ---------- */
 
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;margin-top:28px;}
 .kpi{background:var(--surface);padding:20px;border-top:3px solid var(--rule2);}
-.kpi .lv{
-  font-family:var(--f-mono);font-size:10px;letter-spacing:.13em;
-  text-transform:uppercase;color:var(--ink3);margin-bottom:11px;
-}
-.kpi .mother{
-  font-family:var(--f-disp);font-weight:900;font-size:20px;
-  text-transform:uppercase;letter-spacing:.02em;line-height:1.1;
-  color:var(--viana);margin-bottom:9px;
-}
+.kpi .lv{font-family:var(--f-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin-bottom:11px;}
+.kpi .mother{font-family:var(--f-disp);font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:.02em;line-height:1.1;color:var(--viana);margin-bottom:9px;}
 .kpi p{font-size:14px;color:var(--ink2);margin:0;line-height:1.5;}
-.kpi .sec{
-  margin-top:12px;padding-top:11px;border-top:1px solid var(--rule);
-  font-family:var(--f-mono);font-size:10.5px;color:var(--ink3);line-height:1.75;
-}
+.kpi .sec{margin-top:12px;padding-top:11px;border-top:1px solid var(--rule);font-family:var(--f-mono);font-size:10.5px;color:var(--ink3);line-height:1.75;}
 
 /* ---------- 90 dias ---------- */
 
-.phases{display:flex;flex-direction:column;gap:2px;margin-top:26px;}
-.ph-row{
-  display:grid;grid-template-columns:112px 1fr;gap:0 24px;
-  background:var(--surface);padding:20px 22px;border-left:3px solid var(--viana);
-}
-.ph-row .when{
-  font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.11em;
-  text-transform:uppercase;color:var(--viana);line-height:1.5;
-}
+.ph-row{display:grid;grid-template-columns:112px 1fr;gap:0 24px;background:var(--surface);padding:20px 22px;border-left:3px solid var(--viana);}
+.ph-row .when{font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--viana);line-height:1.5;}
 .ph-row h3{margin-bottom:8px;font-size:19px;}
 .ph-row ol{margin:0;padding-left:18px;}
 .ph-row li{font-size:15px;color:var(--ink2);}
@@ -486,41 +322,83 @@ input[type=range]:focus-visible{outline:2px solid var(--viana);outline-offset:6p
 
 /* ---------- fecho ---------- */
 
-#fecho{text-align:left;}
-.close-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:2px;margin-top:34px;
-}
-.close-grid > div{background:var(--surface);padding:22px;border-top:3px solid var(--viana);}
-.close-grid .k{
-  font-family:var(--f-disp);font-weight:900;font-size:clamp(30px,4.6vw,46px);
-  line-height:.98;color:var(--viana);margin-bottom:9px;letter-spacing:-.01em;
-}
+.close-grid .k{font-family:var(--f-disp);font-weight:900;font-size:clamp(30px,4.4vw,44px);line-height:.98;color:var(--viana);margin-bottom:9px;letter-spacing:-.01em;}
 .close-grid p{font-size:14.5px;color:var(--ink2);margin:0;line-height:1.5;}
 
-footer{
-  padding:44px var(--pad) 56px;
-  font-family:var(--f-mono);font-size:11px;line-height:1.9;color:var(--ink3);
-  border-top:3px solid var(--viana);
+footer{padding:44px var(--pad) 60px;font-family:var(--f-mono);font-size:11px;line-height:1.9;color:var(--ink3);border-top:3px solid var(--viana);}
+footer .inner{max-width:1120px;}
+
+/* ---------- modal ---------- */
+
+#scrim{
+  position:fixed;inset:0;z-index:200;background:rgba(4,4,4,.86);
+  backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;
+  padding:clamp(16px,4vw,48px);
 }
-footer .inner{max-width:1080px;margin:0 auto;}
+#scrim.open{display:flex;}
+.modal{
+  background:var(--surface);border-top:4px solid var(--viana);
+  max-width:720px;width:100%;max-height:88vh;overflow-y:auto;
+  padding:clamp(24px,4vw,40px);position:relative;
+}
+.modal h3{font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:8px;line-height:1.02;}
+.modal .mkind{font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--viana);margin-bottom:14px;}
+.modal .mlead{font-size:16.5px;color:var(--ink2);margin-bottom:20px;}
+.modal h4{font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin:22px 0 8px;}
+.modal p,.modal ul{font-size:15.5px;color:var(--ink2);line-height:1.6;}
+.modal strong{color:var(--ink);}
+.mclose{
+  position:absolute;top:14px;right:14px;width:32px;height:32px;
+  background:transparent;border:1px solid var(--rule2);color:var(--ink2);
+  cursor:pointer;font-size:16px;line-height:1;padding:0;transition:.18s;
+}
+.mclose:hover{border-color:var(--viana);color:var(--viana);}
+.mclose:focus-visible{outline:2px solid var(--viana);outline-offset:2px;}
+
+.howto{display:flex;flex-direction:column;gap:2px;margin:20px 0 4px;}
+.howto div{display:grid;grid-template-columns:96px 1fr;gap:0 18px;align-items:center;background:var(--surface2);padding:13px 16px;}
+.howto .glyph{font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;color:var(--viana);text-transform:uppercase;}
+.howto .exp{font-size:14.5px;color:var(--ink2);line-height:1.45;}
+.btn{
+  display:inline-block;margin-top:22px;background:var(--viana);color:#fff;border:0;
+  padding:13px 26px;font-family:var(--f-disp);font-weight:900;font-size:16px;
+  text-transform:uppercase;letter-spacing:.06em;cursor:pointer;transition:.18s;
+}
+.btn:hover{background:var(--viana-deep);}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+
+/* ---------- imagem tratada ---------- */
+
+.plate{position:relative;overflow:hidden;background:var(--surface);}
+.plate img{width:100%;display:block;filter:grayscale(.85) contrast(1.1) brightness(.86);}
+.plate::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(202,25,93,.3),transparent 60%);mix-blend-mode:screen;pointer-events:none;}
+.plate figcaption{
+  position:absolute;left:0;bottom:0;right:0;padding:14px 16px;
+  background:linear-gradient(to top,rgba(7,8,7,.94),transparent);
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px);align-items:center;}
 
 /* ---------- responsivo ---------- */
 
-@media (max-width:900px){
+@media (max-width:960px){
   .sim{grid-template-columns:1fr;}
+  .capa-wrap{grid-template-columns:1fr;}
+  .capa-photo{max-height:38vh;aspect-ratio:auto;height:38vh;}
   #dots{display:none;}
+  .split{grid-template-columns:1fr;}
 }
 @media (max-width:680px){
   body{font-size:16px;}
-  section{padding:88px var(--pad) 60px;min-height:auto;}
+  section{padding:86px var(--pad) 58px;min-height:auto;}
   .rung{grid-template-columns:1fr;gap:8px;}
   .lvl-head{grid-template-columns:38px 1fr;}
   .lvl-p{grid-column:2;text-align:left;margin-top:8px;}
-  .lvl-body{padding-left:22px;}
+  .tap{grid-template-columns:34px 1fr;gap:0 14px;}
+  .tap .tag{grid-column:2;text-align:left;margin-top:7px;}
   .ph-row{grid-template-columns:1fr;gap:10px;}
+  .howto div{grid-template-columns:1fr;gap:5px;}
   .hint{display:none;}
-  .xmark{opacity:.07;}
 }
 </style>
 </head>
@@ -530,228 +408,263 @@ footer .inner{max-width:1080px;margin:0 auto;}
 
 <header id="topbar">
   <a class="brandmark" href="#capa">
-    <svg viewBox="0 0 100 100" aria-hidden="true">
-      <path d="M20 18 L80 82 M80 18 L20 82" stroke="#CA195D" stroke-width="17" stroke-linecap="round"/>
-    </svg>
+    <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M20 18 L80 82 M80 18 L20 82" stroke="#CA195D" stroke-width="17" stroke-linecap="round"/></svg>
     <span>Guarda-chuva <b>Viana</b></span>
   </a>
-  <div id="counter"><b>01</b> / 11</div>
+  <div class="bar-right">
+    <div id="counter"><b>01</b> / 16</div>
+    <button id="helpbtn" type="button" aria-label="Como navegar nesta apresentação">?</button>
+  </div>
 </header>
 
 <nav id="dots" aria-label="Navegação entre seções"></nav>
-
 <p class="hint"><kbd>←</kbd><kbd>→</kbd> navegar</p>
 
-<!-- ================= 01 CAPA ================= -->
+<!-- ============ 01 CAPA ============ -->
 <section id="capa" data-nav="Capa">
-  <svg class="xmark" viewBox="0 0 100 100" aria-hidden="true">
-    <path d="M16 14 L84 86 M84 14 L16 86" stroke="#CA195D" stroke-width="13" stroke-linecap="round"/>
-  </svg>
   <div class="inner">
-    <p class="eyebrow">Case de marketing <span class="sep">·</span> Consultoria do Viana</p>
-    <h1>Três produtos<br>que não se<br><span class="hl">conhecem</span></h1>
-    <p class="lead">
-      Como transformar a Cozinha, a Batalha de Shapes e a Consultoria Individualizada
-      em <strong>uma escada única</strong>, onde cada degrau existe para levar ao próximo.
-    </p>
-    <div class="capa-meta">
-      <span>Lucas Bergman</span>
-      <span>Setembro 2026</span>
-      <span>Use as setas do teclado</span>
+    <div class="capa-wrap">
+      <div>
+        <p class="eyebrow">Case de marketing <span class="sep">·</span> Consultoria do Viana</p>
+        <h1>Três produtos<br>que não se<br><span class="hl">conhecem</span></h1>
+        <p class="lead">
+          Como transformar a Cozinha, a Batalha de Shapes e a Consultoria Individualizada
+          em <strong>uma escada única</strong>, onde cada degrau existe para levar ao próximo.
+        </p>
+        <div class="capa-meta">
+          <span>Lucas Bergman</span><span>Setembro 2026</span><span>Clique no <b style="color:var(--viana)">?</b> no topo</span>
+        </div>
+      </div>
+      <figure class="capa-photo" style="margin:0">
+        <img src="img/hero-marcos.webp" alt="Marcos Viana, fundador da Consultoria do Viana" loading="eager">
+        <svg class="xover" viewBox="0 0 100 100" aria-hidden="true"><path d="M14 12 L86 88 M86 12 L14 88" stroke="#CA195D" stroke-width="9" stroke-linecap="round"/></svg>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- ================= 02 O ABISMO ================= -->
+<!-- ============ 02 O ABISMO ============ -->
 <section id="abismo" data-nav="O abismo">
   <div class="inner">
-    <p class="eyebrow">01 <span class="sep">·</span> Diagnóstico</p>
+    <p class="eyebrow"><span class="act">Ato 1 · Diagnóstico</span> <span class="sep">·</span> 01</p>
     <h2>O problema não é falta de produto.<br>É <span class="hl">falta de degrau</span>.</h2>
-    <p class="lead">
-      Hoje o ecossistema tem exatamente dois pontos de venda, e um abismo entre eles.
-    </p>
+    <p class="lead">Hoje o ecossistema tem exatamente dois pontos de venda, e um abismo entre eles.</p>
 
     <div class="gap-viz">
-      <div class="rung free">
-        <span class="tick">Grátis</span>
-        <span class="what"><b>Blog e Instagram</b>88,1 mil e 217 mil seguidores. Não levam a lugar nenhum: o site da Consultoria não linka para nada.</span>
-      </div>
-      <div class="rung coz">
-        <span class="tick">R$ 14,90<small style="font-size:14px;color:var(--ink3)">/mês</small></span>
-        <span class="what"><b>Cozinha do Viana</b>Mais de 13 mil receitas com macros. Aponta para a Consultoria, mas a Consultoria nunca aponta de volta.</span>
-      </div>
+      <div class="rung free"><span class="tick">Grátis</span><span class="what"><b>Blog e Instagram</b>88,1 mil e 217 mil seguidores. Não levam a lugar nenhum: o site da Consultoria não linka para nada.</span></div>
+      <div class="rung coz"><span class="tick">R$ 14,90<small>/mês</small></span><span class="what"><b>Cozinha do Viana</b>Mais de 13 mil receitas com macros. Aponta para a Consultoria, mas a Consultoria nunca aponta de volta.</span></div>
       <div class="void">nada aqui · nenhum produto · nenhuma oferta · nenhum motivo para voltar</div>
-      <div class="rung cons">
-        <span class="tick">R$ 384<small style="font-size:14px;color:var(--ink3)">/mês</small></span>
-        <span class="what"><b>Consultoria Individualizada</b>R$ 1.152 por ciclo de 3 meses. Turma fechada. Quando termina, o aluno não tem para onde ir.</span>
-      </div>
+      <div class="rung cons"><span class="tick">R$ 384<small>/mês</small></span><span class="what"><b>Consultoria Individualizada</b>R$ 1.152 por ciclo de 3 meses. Turma fechada. Quando termina, o aluno não tem para onde ir.</span></div>
     </div>
 
     <div class="bignum">
       <span class="n">26<span style="font-size:.42em">x</span></span>
-      <span class="t">
-        é o salto de ticket mensal entre um degrau e o outro. Ninguém sobe um degrau desse tamanho.
-        Quem não pode pagar R$&nbsp;384 por mês simplesmente sai do ecossistema.
-      </span>
+      <span class="t">é o salto de ticket mensal entre um degrau e o outro. Ninguém sobe um degrau desse tamanho. Quem não pode pagar R$&nbsp;384 por mês simplesmente sai do ecossistema.</span>
     </div>
   </div>
 </section>
 
-<!-- ================= 03 INVENTÁRIO ================= -->
+<!-- ============ 03 INVENTÁRIO ============ -->
 <section id="inventario" data-nav="O que existe">
   <div class="inner">
-    <p class="eyebrow">02 <span class="sep">·</span> Inventário</p>
+    <p class="eyebrow"><span class="act">Ato 1 · Diagnóstico</span> <span class="sep">·</span> 02</p>
     <h2>O que já existe<br>e o que está <span class="hl">parado</span></h2>
-    <p class="lead">Antes de propor, mapear. Sete ativos vivos, quase nenhum conectado ao outro.</p>
-
-    <div class="assets">
-      <div class="asset hero">
-        <span class="nm">Consultoria Individualizada</span>
-        <span class="num">R$ 1.152 / ciclo · 650 alunos</span>
-        <span class="ds">Carro-chefe. 7 métricas, revisão a cada 15 dias, plano em vídeo, 6 especialistas.</span>
-        <span class="st on">Rodando</span>
-      </div>
-      <div class="asset warm">
-        <span class="nm">Cozinha do Viana</span>
-        <span class="num">R$ 14,90 / mês · +13 mil receitas</span>
-        <span class="ds">Assinatura com macros, filtros e planner. Produto de hábito diário.</span>
-        <span class="st on">Rodando</span>
-      </div>
-      <div class="asset">
-        <span class="nm">Batalha de Shapes</span>
-        <span class="num">Mensal · sem monetização</span>
-        <span class="ds">Dá nome ao site inteiro e vive numa página com três miniaturas de vencedores.</span>
-        <span class="st weak">Subaproveitado</span>
-      </div>
-      <div class="asset">
-        <span class="nm">Blog do Viana</span>
-        <span class="num">Semanal · Ghost</span>
-        <span class="ds">Linha editorial boa e consistente. Invisível: a Consultoria não linka para ele.</span>
-        <span class="st weak">Isolado</span>
-      </div>
-      <div class="asset">
-        <span class="nm">App do aluno</span>
-        <span class="num">Uso diário · 650 alunos</span>
-        <span class="ds">Maior frequência de contato do ecossistema. Nenhuma oferta roda por ali.</span>
-        <span class="st weak">Sem camada comercial</span>
-      </div>
-      <div class="asset">
-        <span class="nm">Base de ex-alunos</span>
-        <span class="num">~4.000 pessoas</span>
-        <span class="ds">Já compraram, já confiam, já sabem o preço. Não existe produto de retorno.</span>
-        <span class="st off">Dormente</span>
-      </div>
-      <div class="asset">
-        <span class="nm">Bônus empacotáveis</span>
-        <span class="num">+30 e-books, mobilidade</span>
-        <span class="ds">Conteúdo pronto usado só como bônus de fechamento. Nunca vendido sozinho.</span>
-        <span class="st off">Sem uso próprio</span>
-      </div>
-    </div>
+    <p class="lead">Sete ativos vivos, quase nenhum conectado ao outro. Clique em qualquer um para o detalhe.</p>
+    <div class="grid g-auto" id="assets" style="margin-top:28px"></div>
   </div>
 </section>
 
-<!-- ================= 04 A TESE ================= -->
+<!-- ============ 04 BENCHMARKS ============ -->
+<section id="benchmarks" data-nav="Benchmarks">
+  <div class="inner">
+    <p class="eyebrow"><span class="act">Ato 2 · Referência</span> <span class="sep">·</span> 03</p>
+    <h2>Quem já resolveu<br>esse <span class="hl">problema</span></h2>
+    <p class="lead">
+      Quatro operações que enfrentaram exatamente a mesma questão de arquitetura de produto.
+      Clique para ver o número e o que dá para trazer.
+    </p>
+    <div class="grid g-auto" id="benches" style="margin-top:28px"></div>
+  </div>
+</section>
+
+<!-- ============ 05 A TESE ============ -->
 <section id="tese" data-nav="A tese">
-  <div class="inner narrow">
-    <p class="eyebrow">03 <span class="sep">·</span> A tese</p>
-    <h2>Organizar por profundidade<br>de <span class="hl">acompanhamento</span></h2>
-    <p class="lead" style="margin-bottom:26px;">
-      O erro seria organizar o guarda-chuva por tipo de conteúdo: receita aqui, treino ali, conteúdo acolá.
-      Isso cria catálogo, não escada.
-    </p>
-    <p>
-      A marca já escolheu a metáfora certa quando se chamou de <strong>Alfaiates de Shapes</strong>.
-      Alfaiataria tem uma progressão natural e conhecida: do pronto para vestir até o sob medida.
-      É por aí que o ecossistema deve ser organizado, porque é o eixo que o cliente entende sem
-      precisar de explicação e é o eixo em que o preço cresce junto com a entrega.
-    </p>
-    <p>
-      Cada degrau responde a uma pergunta diferente. O grátis responde <em>"esse cara sabe do que
-      fala?"</em>. A Cozinha responde <em>"consigo executar no meu dia?"</em>. O degrau novo responde
-      <em>"o método funciona pra mim?"</em>. A Consultoria responde <em>"quero alguém olhando só pra
-      mim"</em>. E a continuidade responde <em>"como eu não perco o que conquistei?"</em>.
-    </p>
-    <div class="quote">
-      Ninguém compra sob medida<br>sem antes ter provado<br><i>o pronto para vestir</i>
+  <div class="inner">
+    <div class="split">
+      <div>
+        <p class="eyebrow"><span class="act">Ato 3 · Arquitetura</span> <span class="sep">·</span> 04</p>
+        <h2>Organizar por profundidade<br>de <span class="hl">acompanhamento</span></h2>
+        <p>
+          O erro seria organizar o guarda-chuva por tipo de conteúdo: receita aqui, treino ali,
+          conteúdo acolá. Isso cria catálogo, não escada.
+        </p>
+        <p>
+          A marca já escolheu a metáfora certa quando se chamou de <strong>Alfaiates de Shapes</strong>.
+          Alfaiataria tem uma progressão que o cliente entende sem explicação: do pronto para vestir
+          até o sob medida. É o eixo em que o preço cresce junto com a entrega.
+        </p>
+        <p>
+          Cada degrau responde a uma pergunta diferente. O grátis responde <em>"esse cara sabe do que
+          fala?"</em>. A Cozinha responde <em>"consigo executar no meu dia?"</em>. O degrau novo responde
+          <em>"o método funciona pra mim?"</em>. A Consultoria responde <em>"quero alguém olhando só
+          pra mim"</em>. E a continuidade responde <em>"como eu não perco o que conquistei?"</em>.
+        </p>
+        <div class="quote">Ninguém compra sob medida<br>sem antes ter provado<br><i>o pronto para vestir</i></div>
+      </div>
+      <figure class="plate" style="margin:0">
+        <img src="img/entregaveis.webp" alt="Peça de entregáveis da Consultoria do Viana" loading="lazy">
+        <figcaption>Peça atual de entregáveis · a promessa já é boa, o problema é que ela existe só dentro de uma imagem</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- ================= 05 A ESCADA ================= -->
+<!-- ============ 06 A ESCADA ============ -->
 <section id="escada" data-nav="O guarda-chuva">
   <div class="inner">
-    <p class="eyebrow">04 <span class="sep">·</span> Arquitetura</p>
+    <p class="eyebrow"><span class="act">Ato 3 · Arquitetura</span> <span class="sep">·</span> 05</p>
     <h2>O guarda-chuva <span class="hl">VianaFit</span></h2>
-    <p class="lead">Cinco degraus. Dois deles ainda não existem, e são justamente os que sustentam o negócio. Clique para abrir.</p>
-
+    <p class="lead">Cinco degraus. Dois ainda não existem, e são justamente os que sustentam o negócio. Clique em cada um.</p>
     <div class="ladder" id="ladder"></div>
   </div>
 </section>
 
-<!-- ================= 06 O MOTOR ================= -->
+<!-- ============ 07 O MOTOR ============ -->
 <section id="motor" data-nav="O motor">
   <div class="inner">
-    <p class="eyebrow">05 <span class="sep">·</span> O mecanismo</p>
+    <p class="eyebrow"><span class="act">Ato 3 · Arquitetura</span> <span class="sep">·</span> 06</p>
     <h2>A Batalha de Shapes não é<br>um produto. É o <span class="hl">motor</span>.</h2>
-    <p class="lead">
-      Um único mecanismo fazendo três trabalhos ao mesmo tempo. É o que transforma
-      cinco produtos soltos em um sistema que gira sozinho.
-    </p>
+    <p class="lead">Um mecanismo fazendo três trabalhos ao mesmo tempo. É o que transforma cinco produtos soltos num sistema que gira sozinho.</p>
 
-    <div class="engine">
+    <div class="grid g-auto" style="margin-top:28px">
       <div class="cog">
         <span class="step">Trabalho 1 · Entrada</span>
         <span class="flow">Cozinha <i>→</i> Batalha</span>
-        <p>Participar exige assinatura ativa da Cozinha. Isso dá um motivo concreto e datado para
-        alguém pagar os R$ 14,90, que hoje é uma decisão sem urgência nenhuma.</p>
+        <p>Participar exige assinatura ativa da Cozinha. Isso dá um motivo concreto e datado para alguém pagar os R$ 14,90, que hoje é uma decisão sem urgência nenhuma.</p>
       </div>
       <div class="cog">
         <span class="step">Trabalho 2 · Subida</span>
         <span class="flow">Batalha <i>→</i> Consultoria</span>
-        <p>O prêmio do vencedor é bolsa na Consultoria, e todo finalista recebe condição especial
-        na turma seguinte. A premiação deixa de ser custo e vira mecanismo de conversão.</p>
+        <p>O prêmio do vencedor é bolsa na Consultoria, e todo finalista recebe condição especial na turma seguinte. A premiação deixa de ser custo e vira mecanismo de conversão.</p>
       </div>
       <div class="cog">
         <span class="step">Trabalho 3 · Combustível</span>
         <span class="flow">Batalha <i>→</i> Conteúdo</span>
-        <p>Cada edição gera antes e depois com nome e número, entrevistas com finalistas e ranking
-        público. Uma edição abastece o mês inteiro de conteúdo do topo do funil.</p>
+        <p>Cada edição gera antes e depois com nome e número, entrevistas com finalistas e ranking público. Uma edição abastece o mês inteiro de conteúdo do topo do funil.</p>
       </div>
     </div>
 
-    <div class="quote" style="max-width:34ch;">
-      A campanha deixa de ser<br>despesa de marketing<br>e vira <i>a engrenagem do funil</i>
+    <div class="quote" style="max-width:36ch">A campanha deixa de ser<br>despesa de marketing<br>e vira <i>a engrenagem do funil</i></div>
+  </div>
+</section>
+
+<!-- ============ 08 ESTEIRA DE CAPTURA ============ -->
+<section id="esteira" data-nav="Esteira de captura">
+  <div class="inner">
+    <p class="eyebrow"><span class="act">Ato 4 · Motor de marketing</span> <span class="sep">·</span> 07</p>
+    <h2>Esteira de captura<br>que não <span class="hl">acaba</span></h2>
+    <p class="lead">
+      Campanha capta enquanto roda e para quando acaba. O que sustenta um funil de verdade são
+      fontes que continuam captando sozinhas. Cinco torneiras, três delas perenes.
+    </p>
+
+    <div class="taps">
+      <div class="tap">
+        <span class="ic">01</span>
+        <span class="tx"><b>Cada artigo termina numa isca</b><span>O artigo sobre calorias termina na calculadora de macros. O de treino, na planilha de progressão. Publicado uma vez, captura por anos.</span></span>
+        <span class="tag perene">Perene<br>custo marginal zero</span>
+      </div>
+      <div class="tap">
+        <span class="ic">02</span>
+        <span class="tx"><b>Ferramentas gratuitas, não e-books</b><span>Calculadora de TMB e macros, simulador de tempo até a meta, quiz de perfil. Ferramenta entrega valor na hora, então o e-mail vira troca justa. E rankeia em busca.</span></span>
+        <span class="tag perene">Perene<br>+ tráfego orgânico</span>
+      </div>
+      <div class="tap">
+        <span class="ic">03</span>
+        <span class="tx"><b>Cases com nome próprio, em página indexável</b><span>Cada transformação vira página com nome, número e foto. Quem busca "consultoria do viana funciona" encontra a resposta na fonte, não no concorrente.</span></span>
+        <span class="tag perene">Perene<br>prova + busca</span>
+      </div>
+      <div class="tap">
+        <span class="ic">04</span>
+        <span class="tx"><b>Automação de comentário para DM</b><span>Palavra-chave no comentário dispara a conversa no direct. Vale para o post de hoje e para o Reel de oito meses atrás, que continua rodando.</span></span>
+        <span class="tag ciclo">Semi-perene<br>305 mil seguidores</span>
+      </div>
+      <div class="tap">
+        <span class="ic">05</span>
+        <span class="tx"><b>UGC da Batalha</b><span>Cada participante posta a própria evolução e marca a marca. Alcance que a empresa não compra e não produz, e que se renova a cada edição.</span></span>
+        <span class="tag ciclo">Cíclico<br>12 edições/ano</span>
+      </div>
+    </div>
+
+    <p style="margin-top:26px;max-width:70ch">
+      <strong>A régua de pedido importa tanto quanto a isca.</strong> No topo se pede só o primeiro nome e o e-mail.
+      No meio, o WhatsApp, em troca de algo com data marcada. No fundo, os dados de perfil, que a pessoa
+      já quer entregar porque quer o plano certo. Pedir tudo na primeira tela é o erro mais caro e mais comum.
+    </p>
+  </div>
+</section>
+
+<!-- ============ 09 ATIVAÇÃO DA BASE ============ -->
+<section id="ativacao" data-nav="Ativar a base">
+  <div class="inner">
+    <p class="eyebrow"><span class="act">Ato 4 · Motor de marketing</span> <span class="sep">·</span> 08</p>
+    <h2>A receita mais barata<br>já está na <span class="hl">base</span></h2>
+    <p class="lead">
+      Antes de comprar um lead novo, falar com quem já levantou a mão. Cinco segmentos,
+      cinco conversas diferentes. Clique para ver a régua de cada um.
+    </p>
+    <div class="grid g-auto" id="segments" style="margin-top:28px"></div>
+
+    <p style="margin-top:26px;max-width:70ch">
+      <strong>O gatilho não é o calendário, é o comportamento.</strong> Parou de fazer check-in por cinco dias,
+      cancelou a Cozinha, terminou o ciclo há noventa dias, abriu a página de preço e não comprou.
+      Cada um desses eventos dispara uma conversa diferente, e nenhum deles depende de alguém lembrar de disparar.
+    </p>
+  </div>
+</section>
+
+<!-- ============ 10 UPSELL / CROSS-SELL ============ -->
+<section id="matriz" data-nav="Upsell e cross-sell">
+  <div class="inner">
+    <p class="eyebrow"><span class="act">Ato 4 · Motor de marketing</span> <span class="sep">·</span> 09</p>
+    <h2>Nenhum degrau existe<br><span class="hl">sozinho</span></h2>
+    <p class="lead">
+      Sete rotas entre os produtos, cada uma com um gatilho e um momento. Clique em qualquer rota
+      para ver a mecânica.
+    </p>
+    <div class="matrix" id="matrix"></div>
+    <div class="legend">
+      <span><i style="background:var(--viana)"></i> Upsell · sobe de degrau</span>
+      <span><i style="background:var(--cozinha)"></i> Cross-sell · amplia o mesmo degrau</span>
+      <span><i style="background:var(--gold)"></i> Winback · traz de volta</span>
     </div>
   </div>
 </section>
 
-<!-- ================= 07 SIMULADOR ================= -->
+<!-- ============ 11 MATERIAIS E CAMPANHAS ============ -->
+<section id="materiais" data-nav="Materiais e campanhas">
+  <div class="inner">
+    <p class="eyebrow"><span class="act">Ato 4 · Motor de marketing</span> <span class="sep">·</span> 10</p>
+    <h2>Materiais de ativação<br>e as <span class="hl">campanhas</span> que eles sustentam</h2>
+    <p class="lead">Seis materiais produzíveis com o time que já existe. Cada aba traz o material, a campanha e o que ele alimenta depois.</p>
+    <div class="tabs" id="mat-tabs" role="tablist" aria-label="Materiais de ativação"></div>
+    <div class="tabpanel" id="mat-panel" role="tabpanel"></div>
+  </div>
+</section>
+
+<!-- ============ 12 SIMULADOR ============ -->
 <section id="simulador" data-nav="Simulador">
   <div class="inner">
-    <p class="eyebrow">06 <span class="sep">·</span> Modelo</p>
+    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 11</p>
     <h2>O que essa escada<br>vale por <span class="hl">ano</span></h2>
-    <p class="lead">Mexa nas premissas. O modelo recalcula na hora.</p>
+    <p class="lead">Arraste as premissas. O modelo recalcula na hora.</p>
 
     <div class="sim">
       <div class="sim-in">
-        <div class="ctrl">
-          <label for="s-assin">Assinantes da Cozinha <output id="o-assin">3.000</output></label>
-          <input type="range" id="s-assin" min="500" max="20000" step="100" value="3000">
-        </div>
-        <div class="ctrl">
-          <label for="s-preco">Preço da Batalha <output id="o-preco">R$ 147</output></label>
-          <input type="range" id="s-preco" min="47" max="397" step="10" value="147">
-        </div>
-        <div class="ctrl">
-          <label for="s-c1">Assinantes que entram na Batalha <output id="o-c1">8%</output></label>
-          <input type="range" id="s-c1" min="1" max="30" step="1" value="8">
-        </div>
-        <div class="ctrl">
-          <label for="s-c2">Participantes que viram aluno <output id="o-c2">10%</output></label>
-          <input type="range" id="s-c2" min="1" max="30" step="1" value="10">
-        </div>
-
+        <div class="ctrl"><label for="s-assin">Assinantes da Cozinha <output id="o-assin">3.000</output></label><input type="range" id="s-assin" min="500" max="20000" step="100" value="3000"></div>
+        <div class="ctrl"><label for="s-preco">Preço da Batalha <output id="o-preco">R$ 147</output></label><input type="range" id="s-preco" min="47" max="397" step="10" value="147"></div>
+        <div class="ctrl"><label for="s-c1">Assinantes que entram na Batalha <output id="o-c1">8%</output></label><input type="range" id="s-c1" min="1" max="30" step="1" value="8"></div>
+        <div class="ctrl"><label for="s-c2">Participantes que viram aluno <output id="o-c2">10%</output></label><input type="range" id="s-c2" min="1" max="30" step="1" value="10"></div>
         <p class="fixed-note">
           Fixos, apurados nos ativos públicos:<br>
           <b>Cozinha</b> R$ 14,90/mês · <b>Consultoria</b> R$ 1.152/ciclo<br>
@@ -759,163 +672,99 @@ footer .inner{max-width:1080px;margin:0 auto;}
           <b>Batalha</b> 12 edições/ano
         </p>
       </div>
-
       <div class="sim-out">
-        <div class="res">
-          <div class="res-row">
-            <span class="rl"><b>Nível 1 · Cozinha</b><span id="d-n1">3.000 assinantes × 12 meses</span></span>
-            <span class="rv" id="v-n1">R$ 0</span>
-          </div>
-          <div class="res-row">
-            <span class="rl"><b>Nível 2 · Batalha</b><span id="d-n2">240 participantes × 12 edições</span></span>
-            <span class="rv" id="v-n2">R$ 0</span>
-          </div>
-          <div class="res-row">
-            <span class="rl"><b>Nível 3 · Consultoria</b><span id="d-n3">2.600 vagas base + 288 novos</span></span>
-            <span class="rv" id="v-n3">R$ 0</span>
-          </div>
+        <div>
+          <div class="res-row"><span class="rl"><b>Nível 1 · Cozinha</b><span id="d-n1"></span></span><span class="rv" id="v-n1">R$ 0</span></div>
+          <div class="res-row"><span class="rl"><b>Nível 2 · Batalha</b><span id="d-n2"></span></span><span class="rv" id="v-n2">R$ 0</span></div>
+          <div class="res-row"><span class="rl"><b>Nível 3 · Consultoria</b><span id="d-n3"></span></span><span class="rv" id="v-n3">R$ 0</span></div>
         </div>
-        <div class="res-total">
-          <span class="lab">Receita anual do ecossistema</span>
-          <span class="big" id="v-total">R$ 0</span>
-        </div>
+        <div class="res-total"><span class="lab">Receita anual do ecossistema</span><span class="big" id="v-total">R$ 0</span></div>
         <p class="delta" id="v-delta"></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= 08 CALENDÁRIO ================= -->
+<!-- ============ 13 CALENDÁRIO ============ -->
 <section id="calendario" data-nav="12 meses">
   <div class="inner">
-    <p class="eyebrow">07 <span class="sep">·</span> Execução</p>
+    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 12</p>
     <h2>Doze meses,<br>três <span class="hl">ondas</span></h2>
     <p class="lead">Nada de lançar tudo junto. A ordem importa: primeiro medir, depois capturar, depois vender o degrau novo.</p>
-
     <div class="tl" id="tl" role="tablist" aria-label="Calendário de 12 meses"></div>
     <div class="tl-detail" id="tl-detail" role="tabpanel"></div>
   </div>
 </section>
 
-<!-- ================= 09 MÉTRICAS ================= -->
+<!-- ============ 14 MÉTRICAS ============ -->
 <section id="metricas" data-nav="Métricas">
   <div class="inner">
-    <p class="eyebrow">08 <span class="sep">·</span> Governança</p>
+    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 13</p>
     <h2>Uma métrica-mãe<br>por <span class="hl">degrau</span></h2>
-    <p class="lead">
-      Painel único, atualizado sozinho. Cada nível tem um número que decide se ele está saudável,
-      e nenhum nível é avaliado pela métrica do vizinho.
-    </p>
+    <p class="lead">Painel único, atualizado sozinho. Nenhum nível é avaliado pela métrica do vizinho.</p>
 
-    <div class="kpis">
-      <div class="kpi" style="border-top-color:#6E6663">
-        <span class="lv">Nível 0 · Grátis</span>
-        <span class="mother">Leads por mês</span>
-        <p>Não seguidores. Contato com e-mail ou WhatsApp que entrou na base.</p>
-        <span class="sec">Apoio: alcance, custo por lead, taxa de captura por canal</span>
-      </div>
-      <div class="kpi" style="border-top-color:#FF2D00">
-        <span class="lv">Nível 1 · Cozinha</span>
-        <span class="mother">Churn mensal</span>
-        <p>Assinatura de R$ 14,90 só faz sentido se as pessoas ficarem. Retenção é o negócio inteiro.</p>
-        <span class="sec">Apoio: assinantes ativos, receitas salvas por usuário, uso semanal</span>
-      </div>
-      <div class="kpi">
-        <span class="lv">Nível 2 · Batalha</span>
-        <span class="mother">Conversão para o nível 3</span>
-        <p>A Batalha não existe para dar lucro próprio. Existe para produzir aluno de Consultoria.</p>
-        <span class="sec">Apoio: inscritos por edição, taxa de conclusão, peças de conteúdo geradas</span>
-      </div>
-      <div class="kpi">
-        <span class="lv">Nível 3 · Consultoria</span>
-        <span class="mother">Taxa de renovação de ciclo</span>
-        <p>Num modelo de turma de 3 meses, cada ponto de renovação vale mais que qualquer ganho de topo.</p>
-        <span class="sec">Apoio: alunos ativos, NPS, ocupação da turma, carga por especialista</span>
-      </div>
-      <div class="kpi">
-        <span class="lv">Nível 4 · Continuidade</span>
-        <span class="mother">Reativação de ex-alunos</span>
-        <p>Aproximadamente 4.000 pessoas que já compraram. É a receita mais barata disponível.</p>
-        <span class="sec">Apoio: base ativa, retorno por campanha, tempo médio até o retorno</span>
-      </div>
-      <div class="kpi" style="border-top-color:#CA195D">
-        <span class="lv">Transversal</span>
-        <span class="mother">Receita por lead</span>
-        <p>O número que amarra a escada inteira e mostra se os degraus estão realmente conectados.</p>
-        <span class="sec">Apoio: LTV por origem, tempo médio entre níveis, migração entre degraus</span>
-      </div>
+    <div class="grid g-auto" style="margin-top:26px">
+      <div class="kpi" style="border-top-color:#6E6663"><span class="lv">Nível 0 · Grátis</span><span class="mother">Leads por mês</span><p>Não seguidores. Contato com e-mail ou WhatsApp que entrou na base.</p><span class="sec">Apoio: alcance, custo por lead, taxa de captura por canal</span></div>
+      <div class="kpi" style="border-top-color:#FF2D00"><span class="lv">Nível 1 · Cozinha</span><span class="mother">Churn mensal</span><p>Assinatura de R$ 14,90 só faz sentido se as pessoas ficarem. Retenção é o negócio inteiro.</p><span class="sec">Apoio: assinantes ativos, receitas salvas, uso semanal</span></div>
+      <div class="kpi"><span class="lv">Nível 2 · Batalha</span><span class="mother">Conversão para o nível 3</span><p>A Batalha não existe para dar lucro próprio. Existe para produzir aluno de Consultoria.</p><span class="sec">Apoio: inscritos por edição, taxa de conclusão, peças geradas</span></div>
+      <div class="kpi"><span class="lv">Nível 3 · Consultoria</span><span class="mother">Taxa de renovação de ciclo</span><p>Num modelo de turma de 3 meses, cada ponto de renovação vale mais que qualquer ganho de topo.</p><span class="sec">Apoio: alunos ativos, NPS, ocupação, carga por especialista</span></div>
+      <div class="kpi"><span class="lv">Nível 4 · Continuidade</span><span class="mother">Reativação de ex-alunos</span><p>Aproximadamente 4.000 pessoas que já compraram. A receita mais barata disponível.</p><span class="sec">Apoio: base ativa, retorno por campanha, tempo até o retorno</span></div>
+      <div class="kpi" style="border-top-color:#CA195D"><span class="lv">Transversal</span><span class="mother">Receita por lead</span><p>O número que amarra a escada e mostra se os degraus estão de fato conectados.</p><span class="sec">Apoio: LTV por origem, tempo entre níveis, migração entre degraus</span></div>
     </div>
   </div>
 </section>
 
-<!-- ================= 10 90 DIAS ================= -->
+<!-- ============ 15 90 DIAS ============ -->
 <section id="noventa" data-nav="90 dias">
   <div class="inner">
-    <p class="eyebrow">09 <span class="sep">·</span> Primeiros passos</p>
+    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 14</p>
     <h2>O que eu faria nos<br>primeiros <span class="hl">90 dias</span></h2>
     <p class="lead">A ordem é deliberada: instrumentar, capturar, conectar, então lançar.</p>
 
-    <div class="phases">
+    <div class="grid" style="margin-top:24px;gap:2px">
       <div class="ph-row">
         <span class="when">Semana<br>1 a 2</span>
-        <div>
-          <h3>Instrumentar</h3>
-          <ol>
-            <li><strong>Instalar GA4, Meta Pixel e Clarity.</strong> Hoje não há nenhum rastreamento no site da Consultoria. Sem isso nenhuma métrica desta apresentação é verificável.</li>
-            <li><strong>Padrão de UTM</strong> entre as três propriedades e os dois perfis.</li>
-            <li><strong>Painel único</strong> ligando Cozinha, Consultoria e Batalha numa visão só.</li>
-          </ol>
-        </div>
+        <div><h3>Instrumentar</h3><ol>
+          <li><strong>GA4, Meta Pixel e Clarity.</strong> Hoje não há nenhum rastreamento no site da Consultoria. Sem isso nenhuma métrica desta apresentação é verificável.</li>
+          <li><strong>Padrão de UTM</strong> entre as três propriedades e os dois perfis.</li>
+          <li><strong>Painel único</strong> ligando Cozinha, Consultoria e Batalha numa visão só.</li>
+        </ol></div>
       </div>
       <div class="ph-row">
         <span class="when">Semana<br>3 a 6</span>
-        <div>
-          <h3>Capturar e conectar</h3>
-          <ol start="4">
-            <li><strong>Rodapé compartilhado</strong> entre as três propriedades. É o conserto mais barato do ecossistema: hoje quem entra pelo produto principal nunca descobre que existem os outros.</li>
-            <li><strong>Captura de e-mail</strong> em todas as páginas, com a lista de espera da próxima turma como isca.</li>
-            <li><strong>Automação de comentário para DM</strong> no Instagram, ligando os 217 mil seguidores do perfil pessoal a uma base própria.</li>
-          </ol>
-        </div>
+        <div><h3>Capturar e conectar</h3><ol start="4">
+          <li><strong>Rodapé compartilhado</strong> entre as três propriedades. É o conserto mais barato do ecossistema.</li>
+          <li><strong>Primeiras duas ferramentas gratuitas</strong> no ar, com captura de e-mail no resultado.</li>
+          <li><strong>Automação de comentário para DM</strong> nos dois perfis, ligando 305 mil seguidores a uma base própria.</li>
+        </ol></div>
       </div>
       <div class="ph-row">
         <span class="when">Semana<br>7 a 12</span>
-        <div>
-          <h3>Lançar o degrau novo</h3>
-          <ol start="7">
-            <li><strong>Regulamento e landing page</strong> da Batalha de Shapes, com inscrição paga e integração ao CRM.</li>
-            <li><strong>Primeira edição paga</strong>, com meta declarada de conversão para a turma seguinte.</li>
-            <li><strong>Fluxo de reativação</strong> para a base de ex-alunos, ancorado na primeira edição.</li>
-          </ol>
-        </div>
+        <div><h3>Lançar o degrau novo</h3><ol start="7">
+          <li><strong>Regulamento e landing page</strong> da Batalha, com inscrição paga integrada ao CRM.</li>
+          <li><strong>Primeira edição paga</strong>, com meta declarada de conversão para a turma seguinte.</li>
+          <li><strong>Campanha de reativação</strong> dos ex-alunos ancorada nessa primeira edição.</li>
+        </ol></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= 11 FECHO ================= -->
+<!-- ============ 16 FECHO ============ -->
 <section id="fecho" data-nav="Fecho">
   <div class="inner">
-    <p class="eyebrow">10 <span class="sep">·</span> Em uma frase</p>
+    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 15</p>
     <h2>A marca resolveu a parte difícil.<br>Falta resolver a <span class="hl">parte fácil</span>.</h2>
     <p class="lead">
       Posicionamento, método e voz estão maduros e são difíceis de copiar. Quinze anos construíram isso.
       O que falta é arquitetura, e arquitetura é decisão, não talento.
     </p>
 
-    <div class="close-grid">
-      <div>
-        <span class="k">2</span>
-        <p>degraus a construir: o produto de entrada no método e o de continuidade. Os outros três já existem e só precisam ser conectados.</p>
-      </div>
-      <div>
-        <span class="k">1</span>
-        <p>mecanismo que resolve os dois: a Batalha de Shapes deixando de ser vitrine para virar motor.</p>
-      </div>
-      <div>
-        <span class="k">90</span>
-        <p>dias para sair do zero de rastreamento até a primeira edição paga rodando com meta declarada.</p>
-      </div>
+    <div class="grid g-auto close-grid" style="margin-top:32px">
+      <div class="card" style="border-top-color:var(--viana)"><span class="k">2</span><p>degraus a construir: o produto de entrada no método e o de continuidade. Os outros três já existem e só precisam ser conectados.</p></div>
+      <div class="card" style="border-top-color:var(--viana)"><span class="k">1</span><p>mecanismo que resolve os dois: a Batalha de Shapes deixando de ser vitrine para virar motor.</p></div>
+      <div class="card" style="border-top-color:var(--viana)"><span class="k">5</span><p>torneiras de captura, três delas perenes, para o funil parar de depender de campanha nova todo mês.</p></div>
+      <div class="card" style="border-top-color:var(--viana)"><span class="k">90</span><p>dias do zero de rastreamento até a primeira edição paga rodando com meta declarada.</p></div>
     </div>
   </div>
 </section>
@@ -924,265 +773,542 @@ footer .inner{max-width:1080px;margin:0 auto;}
   <div class="inner">
     <p>
       Case preparado por Lucas Bergman, setembro de 2026.<br>
-      Números de preço, base de alunos, seguidores e catálogo apurados nos ativos públicos do
-      ecossistema: consultoriadoviana.com, cozinhadoviana.com.br, blog.vianafit.com.br e os perfis
-      @consultoriadoviana e @mvianara.
+      Preço, base de alunos, seguidores e catálogo apurados nos ativos públicos do ecossistema:
+      consultoriadoviana.com, cozinhadoviana.com.br, blog.vianafit.com.br e os perfis @consultoriadoviana e @mvianara.
+      As imagens são peças da própria marca, recomprimidas: as mesmas artes que pesam 23 MB no site original
+      ocupam 424 KB aqui.
     </p>
-    <p style="margin-top:14px;">
-      Ressalva de método: o simulador é um modelo direcional, não uma projeção. As taxas de conversão
-      são premissas ajustáveis e não dados da empresa. A base de aproximadamente 4.000 ex-alunos deriva
-      do próprio claim público de mais de 5.000 alunos transformados, descontados os 650 ativos.
+    <p style="margin-top:14px">
+      Ressalva de método: o simulador é um modelo direcional, não uma projeção. As taxas de conversão são
+      premissas ajustáveis e não dados da empresa. A base de aproximadamente 4.000 ex-alunos deriva do claim
+      público de mais de 5.000 alunos transformados, descontados os 650 ativos. Os benchmarks citam números
+      publicados pelas próprias empresas ou por imprensa, com a fonte indicada em cada card.
     </p>
   </div>
 </footer>
 
+<!-- ============ MODAL ============ -->
+<div id="scrim" role="dialog" aria-modal="true" aria-labelledby="m-title" tabindex="-1">
+  <div class="modal">
+    <button class="mclose" type="button" aria-label="Fechar">✕</button>
+    <div id="m-body"></div>
+  </div>
+</div>
+
 <script>
 (function(){
-  "use strict";
+"use strict";
 
-  var BRL = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
-  var NUM = new Intl.NumberFormat('pt-BR');
+var BRL = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+var NUM = new Intl.NumberFormat('pt-BR');
+var esc = function(s){ return String(s); };
 
-  /* ---------------- navegação ---------------- */
+/* ================= MODAL ================= */
 
-  var sections = Array.prototype.slice.call(document.querySelectorAll('section'));
-  var dots = document.getElementById('dots');
-  var counter = document.getElementById('counter');
-  var progress = document.getElementById('progress');
-  var current = 0;
+var scrim = document.getElementById('scrim');
+var mBody = document.getElementById('m-body');
+var mClose = scrim.querySelector('.mclose');
+var lastFocus = null;
 
-  sections.forEach(function(sec,i){
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.setAttribute('aria-label', sec.dataset.nav || ('Seção '+(i+1)));
-    b.title = sec.dataset.nav || '';
-    b.addEventListener('click', function(){ go(i); });
-    dots.appendChild(b);
-  });
-  var dotBtns = Array.prototype.slice.call(dots.children);
+function openModal(html){
+  lastFocus = document.activeElement;
+  mBody.innerHTML = html;
+  scrim.classList.add('open');
+  document.body.classList.add('locked');
+  mClose.focus();
+}
+function closeModal(){
+  scrim.classList.remove('open');
+  document.body.classList.remove('locked');
+  if(lastFocus && lastFocus.focus) lastFocus.focus();
+}
+mClose.addEventListener('click', closeModal);
+scrim.addEventListener('click', function(e){ if(e.target === scrim) closeModal(); });
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape' && scrim.classList.contains('open')){ e.preventDefault(); closeModal(); }
+});
+// foco preso no modal
+scrim.addEventListener('keydown', function(e){
+  if(e.key !== 'Tab') return;
+  var f = scrim.querySelectorAll('button, a[href], input, [tabindex]:not([tabindex="-1"])');
+  if(!f.length) return;
+  var first = f[0], last = f[f.length-1];
+  if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+  else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+});
 
-  function go(i){
-    i = Math.max(0, Math.min(sections.length-1, i));
-    sections[i].scrollIntoView({behavior:'smooth', block:'start'});
+/* ================= ONBOARDING ================= */
+
+var HOWTO =
+  '<p class="mkind">Antes de começar</p>' +
+  '<h3 id="m-title">Esta apresentação<br>é para clicar</h3>' +
+  '<p class="mlead">Ela funciona como deck quando eu apresento e como documento quando você abrir sozinho depois. Quatro coisas para saber:</p>' +
+  '<div class="howto">' +
+    '<div><span class="glyph">← →</span><span class="exp">As setas do teclado avançam e voltam de seção. A barra lateral direita salta para qualquer uma.</span></div>' +
+    '<div><span class="glyph">+ no canto</span><span class="exp">Todo card com um <b style="color:var(--viana)">+</b> no canto abre em detalhe. São os aprofundamentos que não cabem na tela.</span></div>' +
+    '<div><span class="glyph">Sliders</span><span class="exp">O simulador de receita é editável. Mexa nas premissas e teste as suas, não as minhas.</span></div>' +
+    '<div><span class="glyph">Abas</span><span class="exp">Materiais de ativação e o calendário de 12 meses são navegáveis mês a mês e peça a peça.</span></div>' +
+  '</div>' +
+  '<button class="btn" type="button" data-close>Começar</button>';
+
+document.getElementById('helpbtn').addEventListener('click', function(){ openModal(HOWTO); });
+mBody.addEventListener('click', function(e){ if(e.target.hasAttribute('data-close')) closeModal(); });
+
+try{
+  if(!localStorage.getItem('viana-onboarded')){
+    setTimeout(function(){ openModal(HOWTO); }, 700);
+    localStorage.setItem('viana-onboarded','1');
   }
+}catch(err){ /* modo privado: segue sem onboarding automático */ }
 
-  function setActive(i){
-    if(i === current) return;
-    current = i;
-    counter.innerHTML = '<b>'+String(i+1).padStart(2,'0')+'</b> / '+String(sections.length).padStart(2,'0');
-    dotBtns.forEach(function(b,j){ b.setAttribute('aria-current', j===i ? 'true' : 'false'); });
-  }
+/* ================= NAVEGAÇÃO ================= */
 
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting) setActive(sections.indexOf(e.target));
-    });
-  }, {threshold:0.35});
-  sections.forEach(function(s){ io.observe(s); });
-  setActive(0);
-  counter.innerHTML = '<b>01</b> / '+String(sections.length).padStart(2,'0');
+var sections = Array.prototype.slice.call(document.querySelectorAll('section'));
+var dots = document.getElementById('dots');
+var counter = document.getElementById('counter');
+var progress = document.getElementById('progress');
+var current = 0;
 
-  window.addEventListener('scroll', function(){
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    progress.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
-  }, {passive:true});
+sections.forEach(function(sec,i){
+  var b = document.createElement('button');
+  b.type='button'; b.title = sec.dataset.nav || '';
+  b.setAttribute('aria-label', sec.dataset.nav || ('Seção '+(i+1)));
+  b.addEventListener('click', function(){ go(i); });
+  dots.appendChild(b);
+});
+var dotBtns = Array.prototype.slice.call(dots.children);
 
-  document.addEventListener('keydown', function(e){
-    var t = e.target.tagName;
-    if(t === 'INPUT' || t === 'TEXTAREA') return;
-    if(e.key === 'ArrowRight' || e.key === 'PageDown'){ e.preventDefault(); go(current+1); }
-    if(e.key === 'ArrowLeft'  || e.key === 'PageUp'){ e.preventDefault(); go(current-1); }
-    if(e.key === 'Home'){ e.preventDefault(); go(0); }
-    if(e.key === 'End'){ e.preventDefault(); go(sections.length-1); }
+function go(i){
+  i = Math.max(0, Math.min(sections.length-1, i));
+  sections[i].scrollIntoView({behavior:'smooth', block:'start'});
+}
+function setActive(i){
+  if(i === current) return;
+  current = i;
+  counter.innerHTML = '<b>'+String(i+1).padStart(2,'0')+'</b> / '+String(sections.length).padStart(2,'0');
+  dotBtns.forEach(function(b,j){ b.setAttribute('aria-current', j===i?'true':'false'); });
+}
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting) setActive(sections.indexOf(e.target)); });
+},{threshold:0.3});
+sections.forEach(function(s){ io.observe(s); });
+counter.innerHTML = '<b>01</b> / '+String(sections.length).padStart(2,'0');
+dotBtns[0].setAttribute('aria-current','true');
+
+window.addEventListener('scroll', function(){
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (h>0 ? (window.scrollY/h)*100 : 0) + '%';
+  document.querySelector('.hint').style.opacity = window.scrollY > 400 ? '0' : '1';
+}, {passive:true});
+
+document.addEventListener('keydown', function(e){
+  if(scrim.classList.contains('open')) return;
+  var t = e.target.tagName;
+  if(t==='INPUT'||t==='TEXTAREA') return;
+  if(e.key==='ArrowRight'||e.key==='PageDown'){ e.preventDefault(); go(current+1); }
+  if(e.key==='ArrowLeft' ||e.key==='PageUp'){ e.preventDefault(); go(current-1); }
+  if(e.key==='Home'){ e.preventDefault(); go(0); }
+  if(e.key==='End'){ e.preventDefault(); go(sections.length-1); }
+});
+
+/* ================= INVENTÁRIO ================= */
+
+var ASSETS = [
+  {nm:'Consultoria Individualizada', num:'R$ 1.152 / ciclo · 650 alunos', ds:'Carro-chefe. 7 métricas, revisão a cada 15 dias, plano em vídeo, 6 especialistas.', st:'Rodando', cls:'on', hero:'hero',
+   kind:'Nível 3 · o carro-chefe',
+   lead:'O produto mais maduro do ecossistema e o único que realmente vende hoje.',
+   body:'<h4>O que está bom</h4><p>Metodologia proprietária de verdade: sete métricas acompanhadas, revisão quinzenal, plano entregue em vídeo por um especialista com nome e rosto. Isso é difícil de copiar e justifica o preço.</p>'+
+        '<h4>O que trava</h4><p>Turma fechada sem lista de espera funcionando. Fora da janela de venda, quem chega não tem o que fazer. E o argumento mais forte da marca, as sete métricas, existe apenas dentro de imagens fechadas, invisível para busca e para quem só passa o olho.</p>'+
+        '<h4>O movimento</h4><p><strong>Página com texto real</strong> descrevendo o método, e lista de espera ativa entre as turmas.</p>'},
+  {nm:'Cozinha do Viana', num:'R$ 14,90 / mês · +13 mil receitas', ds:'Assinatura com macros, filtros e planner. Produto de hábito diário.', st:'Rodando', cls:'on', hero:'warm',
+   kind:'Nível 1 · a porta de entrada',
+   lead:'O produto certo, no preço certo, no lugar errado do funil.',
+   body:'<h4>O que está bom</h4><p>Mais de 13 mil receitas com macros calculados, filtros por objetivo e planner. Preço de impulso, entrega diária, e um site bem construído.</p>'+
+        '<h4>O que trava</h4><p>É uma ilha. Não é oferecida dentro do app do aluno, não aparece no fim dos artigos do blog, e a Consultoria nunca aponta para ela. Um assinante da Cozinha não tem nenhum caminho natural para subir.</p>'+
+        '<h4>O movimento</h4><p>Virar <strong>pré-requisito da Batalha de Shapes</strong>, o que dá urgência a uma decisão que hoje pode ser adiada para sempre.</p>'},
+  {nm:'Batalha de Shapes', num:'Mensal · sem monetização', ds:'Dá nome ao site inteiro e vive numa página com três miniaturas de vencedores.', st:'Subaproveitado', cls:'weak',
+   kind:'O ativo mais desperdiçado',
+   lead:'A campanha que batiza o site inteiro e não fatura um real.',
+   body:'<h4>O que existe hoje</h4><p>Uma página com três miniaturas de vencedores, de maio, junho e julho. Sem regulamento em texto, sem landing page, sem inscrição e sem histórico indexável. O título da home de consultoriadoviana.com é literalmente "Batalha de Shapes".</p>'+
+        '<h4>Por que é o ativo mais valioso parado</h4><p>Tem nome forte, cadência mensal, prova social embutida e mecânica de competição. É o único elemento do ecossistema que já gera comportamento coletivo.</p>'+
+        '<h4>O movimento</h4><p>Virar o <strong>nível 2 pago</strong> e, ao mesmo tempo, o motor de conversão entre os outros níveis.</p>'},
+  {nm:'Blog do Viana', num:'Semanal · Ghost', ds:'Linha editorial boa e consistente. Invisível: a Consultoria não linka para ele.', st:'Isolado', cls:'weak',
+   kind:'Nível 0 · autoridade',
+   lead:'Conteúdo bom, cadência real, alcance quase zero.',
+   body:'<h4>O que está bom</h4><p>Fórmula editorial consistente e eficaz: pergunta que o leitor já se fez, seguida de uma quebra do senso comum. "A balança travou? Cortar comida e aumentar cardio nem sempre é a resposta." Categorias em Treino, Nutrição, Cases e Estilo de Vida.</p>'+
+        '<h4>O que trava</h4><p>Vive num subdomínio que nenhuma das outras propriedades linka. Nenhum artigo termina em captura. É conteúdo de qualidade fazendo trabalho de diário pessoal.</p>'+
+        '<h4>O movimento</h4><p>Cada artigo termina numa <strong>ferramenta gratuita contextual</strong>, e o blog entra no rodapé compartilhado.</p>'},
+  {nm:'App do aluno', num:'Uso diário · 650 alunos', ds:'Maior frequência de contato do ecossistema. Nenhuma oferta roda por ali.', st:'Sem camada comercial', cls:'weak',
+   kind:'O canal de maior frequência',
+   lead:'O ponto de contato mais frequente da marca não vende nada.',
+   body:'<h4>O que ele é</h4><p>Onde o aluno registra peso, fotos, passos e água. Todo dia. Nenhum outro canal da marca tem essa frequência.</p>'+
+        '<h4>O que trava</h4><p>Não roda nenhuma oferta. Nem Cozinha, nem renovação, nem indicação. E visualmente ele está fora da marca: usa um gradiente coral e laranja que não existe em nenhuma outra superfície do ecossistema.</p>'+
+        '<h4>O movimento</h4><p>Camada comercial leve e contextual: <strong>Cozinha na semana 2</strong> do ciclo, <strong>renovação na semana 11</strong>, indicação depois do primeiro resultado registrado.</p>'},
+  {nm:'Base de ex-alunos', num:'~4.000 pessoas', ds:'Já compraram, já confiam, já sabem o preço. Não existe produto de retorno.', st:'Dormente', cls:'off',
+   kind:'A receita mais barata da casa',
+   lead:'Quatro mil pessoas que já pagaram R$ 1.152 e não têm para onde voltar.',
+   body:'<h4>De onde vem o número</h4><p>Do claim público de mais de 5.000 alunos transformados, descontados os cerca de 650 ativos. É estimativa, não dado da empresa, e deve ser apresentada como tal.</p>'+
+        '<h4>Por que é a receita mais barata</h4><p>Custo de aquisição zero. Já conhecem o método, já confiam no especialista, já aceitaram o preço uma vez. A objeção de confiança, que é a mais cara de vencer, já foi vencida.</p>'+
+        '<h4>O movimento</h4><p>Régua de reativação segmentada por resultado obtido e por tempo fora, ancorada na primeira edição paga da Batalha.</p>'},
+  {nm:'Bônus empacotáveis', num:'+30 e-books, mobilidade', ds:'Conteúdo pronto usado só como bônus de fechamento. Nunca vendido sozinho.', st:'Sem uso próprio', cls:'off',
+   kind:'Estoque de conteúdo',
+   lead:'Mais de trinta e-books que só existem como argumento de fechamento.',
+   body:'<h4>O que existe</h4><p>Mais de 30 e-books de treino e dieta, um programa de alongamento e mobilidade, e acesso a conteúdo de nutrição. Hoje aparecem apenas como Bônus #1, #2 e #3 na página de vendas.</p>'+
+        '<h4>O desperdício</h4><p>Conteúdo já produzido e pago, servindo só para engordar a percepção de valor de uma oferta que já converte.</p>'+
+        '<h4>O movimento</h4><p>Recortar em <strong>iscas de captura</strong> por tema e por objetivo, alimentando a esteira do nível 0 sem custo de produção novo.</p>'}
+];
+
+var assetsEl = document.getElementById('assets');
+ASSETS.forEach(function(A){
+  var b = document.createElement('button');
+  b.type='button';
+  b.className = 'card clickable' + (A.hero ? ' '+A.hero : '');
+  b.innerHTML = '<span class="nm">'+A.nm+'</span><span class="num">'+A.num+'</span>'+
+                '<span class="ds">'+A.ds+'</span><span class="st '+A.cls+'">'+A.st+'</span>';
+  b.addEventListener('click', function(){
+    openModal('<p class="mkind">'+A.kind+'</p><h3 id="m-title">'+A.nm+'</h3><p class="mlead">'+A.lead+'</p>'+A.body);
   });
+  assetsEl.appendChild(b);
+});
 
-  var hint = document.querySelector('.hint');
-  window.addEventListener('scroll', function(){
-    if(window.scrollY > 400) hint.style.opacity = '0';
-    else hint.style.opacity = '1';
-  }, {passive:true});
+/* ================= BENCHMARKS ================= */
 
-  /* ---------------- escada de níveis ---------------- */
+var BENCH = [
+  {who:'RP Strength', geo:'Estados Unidos · Renaissance Periodization', big:'US$ 20 a 30 mi', cap:'de receita anual, bootstrapped, com cerca de 80% vindo dos aplicativos e não do coaching.', steal:'A escada inteira, provada',
+   kind:'Benchmark 01 · a escada completa',
+   lead:'A prova de que o degrau barato é que carrega o negócio.',
+   body:'<h4>A escada deles</h4><ul><li><strong>Grátis</strong>: YouTube, e-books e guias. Educação aberta que constrói a autoridade.</li><li><strong>Baixo ticket</strong>: RP Hypertrophy e RP Diet Coach, assinatura a partir de US$ 24,99/mês.</li><li><strong>Alto ticket</strong>: coaching individual a partir de US$ 599/mês, com coaches de nome cobrando por volta de US$ 2.000.</li></ul>'+
+        '<h4>O que isso prova</h4><p>Cerca de 80% da receita vem dos apps, não do coaching. O produto barato não canibaliza o caro: ele financia a operação e alimenta o caro. É exatamente o argumento contra o medo de que a Batalha roube venda da Consultoria.</p>'+
+        '<h4>Trazendo para o Viana</h4><p>A Cozinha e a Batalha não são distração do carro-chefe. São a base que sustenta o carro-chefe, e podem crescer mais rápido que ele porque não consomem hora de especialista.</p>'+
+        '<p style="margin-top:18px;font-family:var(--f-mono);font-size:11px;color:var(--ink3)">Fonte: perfis públicos da empresa e cobertura de imprensa de negócios.</p>'},
+  {who:'75 Hard', geo:'Estados Unidos · Andy Frisella', big:'+1 bilhão', cap:'de visualizações na hashtag, a partir de um desafio lançado de graça, sem curso e sem paywall.', steal:'O desafio como motor de UGC',
+   kind:'Benchmark 02 · o desafio como mídia',
+   lead:'O caso que prova que um desafio bem desenhado compra mídia sozinho.',
+   body:'<h4>O que aconteceu</h4><p>Lançado em 2019 completamente de graça, sem produto no dia um. As regras eram públicas e a participação era pessoal e visível. A hashtag passou de um bilhão de visualizações, e cada vídeo de participante virou anúncio gratuito.</p>'+
+        '<h4>O ponto de virada</h4><p>Quando o app pago saiu, em 2020, mais de 100 mil pessoas já tinham completado o programa. Ele foi número um em Saúde e Fitness no primeiro dia. A audiência foi construída antes de existir o que vender.</p>'+
+        '<h4>Trazendo para o Viana</h4><p>A Batalha já tem a mecânica e a cadência mensal. O que falta é o <strong>kit que faz o participante postar</strong>: molduras de story, marca d\'água, checklist diário e uma hashtag própria. Sem isso, o desafio acontece e ninguém vê.</p>'+
+        '<p style="margin-top:18px;font-family:var(--f-mono);font-size:11px;color:var(--ink3)">Fonte: comunicação oficial do programa e cobertura de imprensa.</p>'},
+  {who:'DietBet e HealthyWage', geo:'Estados Unidos', big:'US$ 52 mi', cap:'pagos em prêmios pela HealthyWage, com 77% dos participantes relatando perda de peso.', steal:'A mecânica de prêmio',
+   kind:'Benchmark 03 · a mecânica do prêmio',
+   lead:'Como fazer a premiação se pagar em vez de virar custo.',
+   body:'<h4>Como funciona</h4><p>O participante aposta em si mesmo. Na DietBet a entrada começa em US$ 10 por um desafio de quatro semanas, e quem bate a meta divide o bolo. Na HealthyWage a aposta é mensal e o prêmio máximo chega a US$ 10.000, calculado a partir do perfil de dificuldade de cada pessoa.</p>'+
+        '<h4>O que sustenta o modelo</h4><p>A receita não vem só de quem falha. Vem de parcerias corporativas e de escala de participação. E o compromisso financeiro é ele próprio um mecanismo de adesão: ter dinheiro em jogo aumenta a taxa de conclusão.</p>'+
+        '<h4>Trazendo para o Viana</h4><p>A inscrição paga da Batalha resolve dois problemas de uma vez: <strong>filtra quem está disposto a executar</strong> e financia o prêmio. E o prêmio ser bolsa na Consultoria custa margem, não caixa, o que torna a conta ainda melhor.</p>'+
+        '<p style="margin-top:18px;font-family:var(--f-mono);font-size:11px;color:var(--ink3)">Fonte: páginas oficiais das duas empresas e reviews públicos.</p>'},
+  {who:'O mercado brasileiro', geo:'Brasil · Hotmart e afins', big:'Commodity', cap:'o desafio de 30 dias virou item de prateleira no Brasil, o que muda qual deve ser o diferencial do Viana.', steal:'Onde não competir',
+   kind:'Benchmark 04 · a leitura de mercado',
+   lead:'O desafio de 30 dias já é commodity aqui. Isso é bom para o Viana.',
+   body:'<h4>O cenário</h4><p>Uma busca rápida por "desafio de 30 dias" em português devolve dezenas de infoprodutos com a mesma promessa: e-book, plano alimentar, grupo de WhatsApp. A maioria vende plano genérico com nome de desafio.</p>'+
+        '<h4>Por que isso favorece o Viana</h4><p>Se o formato é commodity, o diferencial não pode ser o formato. Tem que ser o que ninguém consegue copiar: <strong>as sete métricas, o especialista com nome e a revisão quinzenal.</strong></p>'+
+        '<h4>O posicionamento correto</h4><p>A Batalha não deve ser vendida como "mais um desafio de 30 dias". Deve ser vendida como <em>o único desafio em que alguém de verdade olha os seus números</em>. É a mesma promessa da marca, em versão de entrada.</p>'+
+        '<h4>O risco de não fazer</h4><p>Enquanto a Batalha for só uma vitrine de vencedores, alguém com metade do método e o dobro do marketing ocupa esse degrau primeiro.</p>'}
+];
 
-  var LEVELS = [
-    {
-      n:'0', t:'Público', sub:'Blog do Viana, Instagram e newsletter', price:'grátis', unit:'captura',
-      novo:false,
-      quem:'Quem ainda não sabe que precisa de acompanhamento.',
-      papel:'Provar autoridade e capturar contato. Hoje captura zero, porque não existe formulário em lugar nenhum.',
-      metrica:'Leads por mês',
-      falta:'Captura de e-mail em todas as páginas e um rodapé que ligue as três propriedades.'
-    },
-    {
-      n:'1', t:'Cozinha do Viana', sub:'Assinatura de receitas com macros', price:'R$ 14,90', unit:'por mês',
-      novo:false,
-      quem:'Quem já entendeu que dieta é o gargalo e quer executar sem pensar.',
-      papel:'Criar hábito diário a preço de impulso e gerar dado de comportamento alimentar.',
-      metrica:'Churn mensal',
-      falta:'Ser oferecida dentro do app do aluno e no fim de cada artigo do blog. Hoje é uma ilha.'
-    },
-    {
-      n:'2', t:'Batalha de Shapes', sub:'Desafio pago de 30 dias, com ranking e premiação', price:'R$ 147', unit:'por edição',
-      novo:true,
-      quem:'Quem quer testar o método antes de pagar R$ 1.152.',
-      papel:'Ser a prova barata de que o método funciona, e o gerador de conteúdo do ecossistema inteiro.',
-      metrica:'Conversão para a Consultoria',
-      falta:'Tudo: regulamento, landing page, inscrição, mecânica de ranking e premiação.'
-    },
-    {
-      n:'3', t:'Consultoria Individualizada', sub:'7 métricas, revisão a cada 15 dias, plano em vídeo', price:'R$ 1.152', unit:'por ciclo de 3 meses',
-      novo:false,
-      quem:'Quem quer um especialista olhando só para ele.',
-      papel:'Carro-chefe. Sustenta a receita e produz os cases que alimentam todos os degraus abaixo.',
-      metrica:'Taxa de renovação de ciclo',
-      falta:'Página com texto real. Hoje o argumento mais forte da marca existe só dentro de imagens.'
-    },
-    {
-      n:'4', t:'Continuidade', sub:'Clube de manutenção para quem terminou o ciclo', price:'a definir', unit:'recorrente',
-      novo:true,
-      quem:'Os cerca de 4.000 ex-alunos que já compraram e não têm para onde voltar.',
-      papel:'Impedir que o aluno evapore no fim dos 3 meses e transformar resultado em recorrência.',
-      metrica:'Reativação de ex-alunos',
-      falta:'Definir a entrega mínima viável: acompanhamento em grupo, revisão trimestral ou acesso ao painel.'
-    }
-  ];
-
-  var ladder = document.getElementById('ladder');
-
-  LEVELS.forEach(function(L, i){
-    var wrap = document.createElement('div');
-
-    var btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'lvl' + (L.novo ? ' novo' : '');
-    btn.setAttribute('aria-expanded','false');
-    btn.id = 'lvl-btn-'+i;
-    btn.setAttribute('aria-controls','lvl-body-'+i);
-    btn.innerHTML =
-      '<div class="lvl-head">' +
-        '<span class="lvl-n">'+L.n+'</span>' +
-        '<span class="lvl-t">'+L.t+'<small>'+L.sub+'</small></span>' +
-        '<span class="lvl-p">'+L.price+'<em>'+L.unit+'</em></span>' +
-      '</div>';
-
-    var body = document.createElement('div');
-    body.className = 'lvl-body';
-    body.id = 'lvl-body-'+i;
-    body.setAttribute('role','region');
-    body.setAttribute('aria-labelledby','lvl-btn-'+i);
-    body.innerHTML =
-      '<div class="lvl-grid">' +
-        '<div><h4>Para quem</h4><p>'+L.quem+'</p></div>' +
-        '<div><h4>Papel na escada</h4><p>'+L.papel+'</p></div>' +
-        '<div><h4>Métrica-mãe</h4><p><strong>'+L.metrica+'</strong></p></div>' +
-        '<div><h4>O que falta</h4><p>'+L.falta+'</p></div>' +
-      '</div>';
-
-    btn.addEventListener('click', function(){
-      var open = body.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-
-    wrap.appendChild(btn);
-    wrap.appendChild(body);
-    ladder.appendChild(wrap);
+var benchEl = document.getElementById('benches');
+BENCH.forEach(function(B){
+  var b = document.createElement('button');
+  b.type='button'; b.className='bench clickable';
+  b.innerHTML = '<span class="who">'+B.who+'</span><span class="geo">'+B.geo+'</span>'+
+                '<span class="big">'+B.big+'</span><span class="cap">'+B.cap+'</span>'+
+                '<span class="steal">Trazer: '+B.steal+'</span>';
+  b.addEventListener('click', function(){
+    openModal('<p class="mkind">'+B.kind+'</p><h3 id="m-title">'+B.who+'</h3><p class="mlead">'+B.lead+'</p>'+B.body);
   });
+  benchEl.appendChild(b);
+});
 
-  /* ---------------- simulador ---------------- */
+/* ================= ESCADA ================= */
 
-  var P_COZ = 14.90, P_CONS = 1152, BASE = 650, CICLOS = 4, EDICOES = 12;
-  var BASELINE = BASE * CICLOS * P_CONS;
+var LEVELS = [
+  {n:'0',t:'Público',sub:'Blog do Viana, Instagram e newsletter',price:'grátis',unit:'captura',novo:false,
+   quem:'Quem ainda não sabe que precisa de acompanhamento.',
+   papel:'Provar autoridade e capturar contato. Hoje captura zero, porque não existe formulário em lugar nenhum.',
+   metrica:'Leads por mês',
+   falta:'Captura em todas as páginas, ferramentas gratuitas e um rodapé que ligue as três propriedades.'},
+  {n:'1',t:'Cozinha do Viana',sub:'Assinatura de receitas com macros',price:'R$ 14,90',unit:'por mês',novo:false,
+   quem:'Quem já entendeu que dieta é o gargalo e quer executar sem pensar.',
+   papel:'Criar hábito diário a preço de impulso e gerar dado de comportamento alimentar.',
+   metrica:'Churn mensal',
+   falta:'Ser oferecida dentro do app do aluno e no fim de cada artigo. Hoje é uma ilha.'},
+  {n:'2',t:'Batalha de Shapes',sub:'Desafio pago de 30 dias, com ranking e premiação',price:'R$ 147',unit:'por edição',novo:true,
+   quem:'Quem quer testar o método antes de pagar R$ 1.152.',
+   papel:'Ser a prova barata de que o método funciona, e o gerador de conteúdo do ecossistema inteiro.',
+   metrica:'Conversão para a Consultoria',
+   falta:'Tudo: regulamento, landing page, inscrição, ranking, premiação e kit de conteúdo do participante.'},
+  {n:'3',t:'Consultoria Individualizada',sub:'7 métricas, revisão a cada 15 dias, plano em vídeo',price:'R$ 1.152',unit:'por ciclo de 3 meses',novo:false,
+   quem:'Quem quer um especialista olhando só para ele.',
+   papel:'Carro-chefe. Sustenta a receita e produz os cases que alimentam todos os degraus abaixo.',
+   metrica:'Taxa de renovação de ciclo',
+   falta:'Página com texto real e lista de espera funcionando entre as turmas.'},
+  {n:'4',t:'Continuidade',sub:'Clube de manutenção para quem terminou o ciclo',price:'a definir',unit:'recorrente',novo:true,
+   quem:'Os cerca de 4.000 ex-alunos que já compraram e não têm para onde voltar.',
+   papel:'Impedir que o aluno evapore no fim dos 3 meses e transformar resultado em recorrência.',
+   metrica:'Reativação de ex-alunos',
+   falta:'Definir a entrega mínima viável: acompanhamento em grupo, revisão trimestral ou acesso ao painel.'}
+];
 
-  var els = {
-    assin:document.getElementById('s-assin'), preco:document.getElementById('s-preco'),
-    c1:document.getElementById('s-c1'), c2:document.getElementById('s-c2'),
-    oAssin:document.getElementById('o-assin'), oPreco:document.getElementById('o-preco'),
-    oC1:document.getElementById('o-c1'), oC2:document.getElementById('o-c2'),
-    vN1:document.getElementById('v-n1'), vN2:document.getElementById('v-n2'), vN3:document.getElementById('v-n3'),
-    dN1:document.getElementById('d-n1'), dN2:document.getElementById('d-n2'), dN3:document.getElementById('d-n3'),
-    vTotal:document.getElementById('v-total'), vDelta:document.getElementById('v-delta')
-  };
-
-  function calc(){
-    var A  = +els.assin.value;
-    var PB = +els.preco.value;
-    var c1 = +els.c1.value / 100;
-    var c2 = +els.c2.value / 100;
-
-    var partic = Math.round(A * c1);
-    var novos  = Math.round(partic * EDICOES * c2);
-
-    var n1 = A * P_COZ * 12;
-    var n2 = partic * PB * EDICOES;
-    var n3 = (BASE * CICLOS + novos) * P_CONS;
-    var total = n1 + n2 + n3;
-    var lift = ((total - BASELINE) / BASELINE) * 100;
-
-    els.oAssin.textContent = NUM.format(A);
-    els.oPreco.textContent = BRL.format(PB);
-    els.oC1.textContent = els.c1.value + '%';
-    els.oC2.textContent = els.c2.value + '%';
-
-    els.dN1.textContent = NUM.format(A) + ' assinantes × 12 meses';
-    els.dN2.textContent = NUM.format(partic) + ' participantes × ' + EDICOES + ' edições';
-    els.dN3.textContent = NUM.format(BASE*CICLOS) + ' vagas base + ' + NUM.format(novos) + ' novos alunos';
-
-    els.vN1.textContent = BRL.format(n1);
-    els.vN2.textContent = BRL.format(n2);
-    els.vN3.textContent = BRL.format(n3);
-    els.vTotal.textContent = BRL.format(total);
-
-    els.vDelta.innerHTML =
-      'Hoje, só com a Consultoria, o ecossistema roda <b>' + BRL.format(BASELINE) + '</b> por ano. ' +
-      'Com a escada completa nessas premissas, <b>' + (lift >= 0 ? '+' : '') + lift.toFixed(0) + '%</b>, ' +
-      'e a receita passa a ter três fontes em vez de uma.';
-  }
-
-  ['assin','preco','c1','c2'].forEach(function(k){
-    els[k].addEventListener('input', calc);
+var ladder = document.getElementById('ladder');
+LEVELS.forEach(function(L){
+  var b = document.createElement('button');
+  b.type='button'; b.className='lvl clickable'+(L.novo?' novo':'');
+  b.innerHTML = '<div class="lvl-head"><span class="lvl-n">'+L.n+'</span>'+
+    '<span class="lvl-t">'+L.t+(L.novo?'<span class="tagnew">a construir</span>':'')+'<small>'+L.sub+'</small></span>'+
+    '<span class="lvl-p">'+L.price+'<em>'+L.unit+'</em></span></div>';
+  b.addEventListener('click', function(){
+    openModal('<p class="mkind">Nível '+L.n+(L.novo?' · a construir':' · já existe')+'</p>'+
+      '<h3 id="m-title">'+L.t+'</h3><p class="mlead">'+L.sub+' · <strong>'+L.price+'</strong> '+L.unit+'</p>'+
+      '<h4>Para quem</h4><p>'+L.quem+'</p>'+
+      '<h4>Papel na escada</h4><p>'+L.papel+'</p>'+
+      '<h4>Métrica-mãe</h4><p><strong>'+L.metrica+'</strong></p>'+
+      '<h4>O que falta</h4><p>'+L.falta+'</p>');
   });
-  calc();
+  ladder.appendChild(b);
+});
 
-  /* ---------------- calendário ---------------- */
+/* ================= SEGMENTOS DE BASE ================= */
 
-  var MESES = [
-    {m:'Out', onda:'Onda 1 · Fundação', t:'Instrumentar', its:['<strong>GA4, Meta Pixel e Clarity</strong> instalados nas três propriedades','Padrão de UTM e painel único de KPI','Baseline registrado: sem isso não há meta honesta no mês 2']},
-    {m:'Nov', onda:'Onda 1 · Fundação', t:'Conectar', its:['<strong>Rodapé compartilhado</strong> entre Consultoria, Cozinha e blog','Captura de e-mail em todas as páginas','Cozinha ofertada dentro do app do aluno e no fim de cada artigo']},
-    {m:'Dez', onda:'Onda 1 · Fundação', t:'Capturar', its:['<strong>Automação de comentário para DM</strong> nos dois perfis','Lista de espera da turma de janeiro como isca principal','Fluxo de boas-vindas por e-mail, segmentado por homem e mulher']},
-    {m:'Jan', onda:'Onda 2 · O degrau novo', t:'Desenhar a Batalha', its:['<strong>Regulamento escrito</strong>, mecânica de ranking e critério de julgamento','Landing page própria com inscrição paga integrada ao CRM','Identidade visual da campanha fechada com o designer']},
-    {m:'Fev', onda:'Onda 2 · O degrau novo', t:'Primeira edição paga', its:['<strong>Lançamento com meta declarada</strong> de conversão para a turma de abril','Kit de conteúdo para o participante postar, gerando prova social','Entrevistas com finalistas gravadas e reaproveitadas']},
-    {m:'Mar', onda:'Onda 2 · O degrau novo', t:'Ajustar e repetir', its:['Leitura dos números da primeira edição e correção da mecânica','<strong>Segunda edição</strong> já com o aprendizado aplicado','Primeira coorte de participantes convertida em aluno de Consultoria']},
-    {m:'Abr', onda:'Onda 2 · O degrau novo', t:'Provar o ciclo', its:['<strong>Turma de abril</strong> com participantes da Batalha dentro','Medição da conversão real entre nível 2 e nível 3','Ajuste de preço da Batalha com base no comportamento observado']},
-    {m:'Mai', onda:'Onda 3 · Continuidade', t:'Desenhar o nível 4', its:['<strong>Entrevistas com ex-alunos</strong> para definir a entrega mínima viável','Teste de oferta com um grupo pequeno antes de construir','Definição de preço e formato do clube de manutenção']},
-    {m:'Jun', onda:'Onda 3 · Continuidade', t:'Reativar a base', its:['<strong>Campanha para os cerca de 4.000 ex-alunos</strong>','Oferta de retorno ancorada na edição da Batalha do mês','Medição de receita por contato reativado']},
-    {m:'Jul', onda:'Onda 3 · Continuidade', t:'Lançar a continuidade', its:['<strong>Clube de manutenção no ar</strong> para quem termina o ciclo','Oferta apresentada dentro do app, na semana final do ciclo','Renovação deixa de ser conversa individual e vira fluxo']},
-    {m:'Ago', onda:'Onda 3 · Continuidade', t:'Consolidar', its:['Blog e newsletter alimentados pelos cases das edições da Batalha','<strong>Escada completa rodando</strong>, com os cinco degraus ativos','Revisão de preço de cada degrau com dado de um ciclo inteiro']},
-    {m:'Set', onda:'Onda 3 · Continuidade', t:'Fechar o ano', its:['<strong>Relatório anual</strong> com receita por degrau e migração entre níveis','Edição especial da Batalha, de aniversário, com prêmio maior','Planejamento do ano seguinte a partir de dado real, não de premissa']}
-  ];
+var SEGS = [
+  {nm:'Alunos ativos', num:'650 pessoas', ds:'Estão dentro do ciclo agora. A conversa é de ampliação, não de venda nova.', st:'Cross-sell', cls:'on', hero:'hero',
+   kind:'Segmento 01 · quem está dentro',
+   lead:'A oferta certa aqui não é vender de novo. É aumentar o valor do ciclo que já foi comprado.',
+   body:'<h4>Onde acontece</h4><p>Dentro do app, no ponto de maior frequência da marca. Não por e-mail.</p>'+
+        '<h4>A régua</h4><ul><li><strong>Semana 2</strong>: a dieta já apertou. Oferta da Cozinha, ancorada na dor do momento: "sua dieta em receita, não em planilha".</li><li><strong>Semana 6</strong>: primeiro resultado visível. Pedido de indicação, com benefício para os dois lados.</li><li><strong>Semana 11</strong>: uma semana antes do fim. Renovação e o nível 4, antes que o aluno entre no vácuo.</li></ul>'+
+        '<h4>Por que funciona</h4><p>Nenhuma dessas ofertas interrompe. Todas chegam no momento em que a dor correspondente está acontecendo.</p>'},
+  {nm:'Ex-alunos', num:'~4.000 pessoas', ds:'Concluíram e saíram. Nunca receberam uma oferta de retorno.', st:'Winback', cls:'weak',
+   kind:'Segmento 02 · quem já foi',
+   lead:'O ativo mais valioso e mais esquecido do ecossistema.',
+   body:'<h4>Segmentar antes de falar</h4><p>Não é uma base, são três: quem teve resultado e manteve, quem teve e perdeu, e quem não teve. Cada uma exige um ângulo diferente, e mandar o mesmo e-mail para as três queima a base inteira.</p>'+
+        '<h4>A régua de cinco tempos</h4><ul><li><strong>1 · Reconhecimento</strong>: retomar o resultado que a pessoa alcançou, com o número dela. Sem oferta.</li><li><strong>2 · Diagnóstico</strong>: "onde você está hoje?". Um quiz curto que segmenta e reativa.</li><li><strong>3 · Prova</strong>: case de alguém que voltou, do mesmo perfil.</li><li><strong>4 · Convite</strong>: a Batalha como porta de retorno, não a Consultoria. O ticket baixo remove a fricção.</li><li><strong>5 · Escassez real</strong>: fechamento da edição, com vaga contada de verdade.</li></ul>'+
+        '<h4>O erro a evitar</h4><p>Voltar oferecendo o produto de R$ 1.152 para quem já saiu uma vez. O caminho de volta tem que ser mais barato que o de ida.</p>'},
+  {nm:'Assinantes da Cozinha', num:'base a apurar', ds:'Pagam todo mês e nunca receberam uma oferta de subida.', st:'Upsell', cls:'weak', hero:'warm',
+   kind:'Segmento 03 · quem já paga',
+   lead:'Já provaram que confiam na marca com o cartão. Falta um convite.',
+   body:'<h4>O que se sabe deles</h4><p>Quais receitas salvam, qual objetivo declararam, com que frequência usam. É dado de intenção que quase nenhuma empresa de fitness tem, e que hoje não vira oferta nenhuma.</p>'+
+        '<h4>O gatilho</h4><p><strong>30 dias de assinatura ativa</strong> mais uso consistente. Quem usa é quem está executando, e quem está executando é quem quer mais.</p>'+
+        '<h4>A oferta</h4><p>A Batalha, com desconto por já ser assinante. Sobe um degrau, não três, e a inscrição fica coerente com o que a pessoa já paga.</p>'},
+  {nm:'Leads sem compra', num:'a construir', ds:'Entraram na base e nunca compraram. Hoje nem existem, porque não há captura.', st:'Nutrição', cls:'off',
+   kind:'Segmento 04 · quem levantou a mão',
+   lead:'O segmento que não existe ainda, porque não há um formulário no site inteiro.',
+   body:'<h4>O ponto de partida</h4><p>Não há captura de e-mail em nenhuma página do ecossistema da Consultoria. Esse segmento precisa ser criado antes de ser trabalhado, e é por isso que a instrumentação vem primeiro no plano.</p>'+
+        '<h4>A nutrição</h4><p>Sequência por objetivo declarado, não por data de entrada. Quem quer emagrecer e quem quer ganhar massa recebem provas diferentes, na mesma cadência.</p>'+
+        '<h4>O destino</h4><p>A Batalha entre as turmas, e a Consultoria quando a janela abre. Assim o lead nunca fica sem oferta possível, que é o que acontece hoje.</p>'},
+  {nm:'Quase-compradores', num:'a instrumentar', ds:'Chegaram ao checkout e não concluíram. Hoje ninguém sabe quem são.', st:'Recuperação', cls:'off',
+   kind:'Segmento 05 · quem chegou perto',
+   lead:'A conversão mais barata que existe, e a única que hoje é invisível.',
+   body:'<h4>Por que é invisível</h4><p>Sem pixel e sem analytics no site, não há como saber quem abriu a página de preço, quem clicou no botão e quem abandonou o checkout. A informação existe e está sendo jogada fora todo dia.</p>'+
+        '<h4>A recuperação</h4><ul><li><strong>Abandono no checkout</strong>: mensagem em até uma hora, tratando a objeção de preço com o parcelamento e a de confiança com um case.</li><li><strong>Visitou a página e não clicou</strong>: retargeting com prova, não com desconto.</li><li><strong>Entrou na lista e não comprou na abertura</strong>: convite para a Batalha, que é o degrau que ele consegue pagar.</li></ul>'+
+        '<h4>O que isso exige</h4><p>Uma tarde de trabalho instalando rastreamento. É o item mais barato do plano de 90 dias e o que destrava todo o resto.</p>'}
+];
 
-  var tl = document.getElementById('tl');
-  var tlDetail = document.getElementById('tl-detail');
-
-  function renderMes(i){
-    var M = MESES[i];
-    tlDetail.innerHTML =
-      '<p class="ph">'+M.onda+'</p>' +
-      '<h3>'+M.m+' · '+M.t+'</h3>' +
-      '<ul>' + M.its.map(function(x){ return '<li>'+x+'</li>'; }).join('') + '</ul>';
-    Array.prototype.forEach.call(tl.children, function(b,j){
-      b.setAttribute('aria-current', j===i ? 'true' : 'false');
-    });
-  }
-
-  MESES.forEach(function(M,i){
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.setAttribute('role','tab');
-    b.innerHTML = '<span class="m">'+M.m+'</span><span class="h">'+M.t+'</span>';
-    b.addEventListener('click', function(){ renderMes(i); });
-    tl.appendChild(b);
+var segEl = document.getElementById('segments');
+SEGS.forEach(function(S){
+  var b = document.createElement('button');
+  b.type='button'; b.className='card clickable'+(S.hero?' '+S.hero:'');
+  b.innerHTML = '<span class="nm">'+S.nm+'</span><span class="num">'+S.num+'</span>'+
+                '<span class="ds">'+S.ds+'</span><span class="st '+S.cls+'">'+S.st+'</span>';
+  b.addEventListener('click', function(){
+    openModal('<p class="mkind">'+S.kind+'</p><h3 id="m-title">'+S.nm+'</h3><p class="mlead">'+S.lead+'</p>'+S.body);
   });
-  renderMes(0);
+  segEl.appendChild(b);
+});
+
+/* ================= MATRIZ ================= */
+
+var ROUTES = [
+  {from:'Blog',to:'Cozinha',cls:'cross',trigger:'Leu artigo de nutrição',when:'No fim do próprio artigo',
+   lead:'A rota mais barata do ecossistema, e hoje ela simplesmente não existe.',
+   body:'<h4>A mecânica</h4><p>Todo artigo de nutrição termina numa receita real que resolve o problema discutido no texto. A receita é da Cozinha, e o acesso completo exige assinatura. Não é banner, é continuação natural da leitura.</p>'+
+        '<h4>Por que funciona</h4><p>A pessoa acabou de entender que precisa controlar macros. A objeção "como faço isso na prática" está viva naquele segundo. R$ 14,90 é uma decisão pequena diante de uma dor recém-nomeada.</p>'+
+        '<h4>O que precisa</h4><p>Um bloco padrão no fim de cada post e o link que hoje não existe.</p>'},
+  {from:'Cozinha',to:'Batalha',cls:'up',trigger:'30 dias de assinatura ativa e uso consistente',when:'Na abertura de cada edição',
+   lead:'A subida de degrau mais natural, e a que dá urgência à assinatura.',
+   body:'<h4>A mecânica</h4><p>Assinantes ativos recebem a inscrição com desconto e prioridade. Quem não é assinante paga cheio ou precisa assinar para entrar. A assinatura vira pré-requisito, não sugestão.</p>'+
+        '<h4>Por que funciona nos dois sentidos</h4><p>Dá motivo para assinar a Cozinha, que hoje é uma decisão adiável para sempre, e enche a Batalha com gente que já está executando a dieta.</p>'+
+        '<h4>O que precisa</h4><p>Integração entre a base de assinantes e a inscrição da Batalha, com verificação de status.</p>'},
+  {from:'Batalha',to:'Consultoria',cls:'up',trigger:'Terminou o desafio',when:'Nas últimas 72 horas da edição',
+   lead:'A rota que justifica a existência do nível 2.',
+   body:'<h4>A mecânica</h4><p>Nos últimos três dias da edição, quando o participante está no pico de resultado e de identificação com a marca, entra a oferta da turma seguinte com condição de finalista. O vencedor leva bolsa integral.</p>'+
+        '<h4>Por que o momento é esse</h4><p>Depois que o desafio acaba a motivação despenca em dias. A janela de conversão é curta e previsível, o que a torna fácil de automatizar.</p>'+
+        '<h4>A métrica que decide</h4><p>Essa taxa é a métrica-mãe do nível 2. Se ela não existir, a Batalha vira apenas mais um produto, e não um motor.</p>'},
+  {from:'Consultoria',to:'Cozinha',cls:'cross',trigger:'Semana 2 do ciclo',when:'Dentro do app, não por e-mail',
+   lead:'Cross-sell que reduz o atrito do produto principal em vez de competir com ele.',
+   body:'<h4>A mecânica</h4><p>Na semana 2 a dieta apertou e a pergunta "o que eu como hoje" vira diária. A Cozinha aparece no app como solução do problema do momento, com as receitas já filtradas pelos macros do plano do aluno.</p>'+
+        '<h4>Por que não canibaliza</h4><p>Aumenta a chance de o aluno cumprir a dieta, o que melhora o resultado dele, o que melhora o case e a renovação. O cross-sell aqui é retenção disfarçada de venda.</p>'+
+        '<h4>O que precisa</h4><p>Camada de oferta dentro do app e o cruzamento entre plano alimentar e catálogo de receitas.</p>'},
+  {from:'Consultoria',to:'Continuidade',cls:'up',trigger:'Semana 11 de 12',when:'Antes do ciclo acabar, nunca depois',
+   lead:'A rota que resolve o buraco de quatro mil pessoas.',
+   body:'<h4>A mecânica</h4><p>Uma semana antes do fim, com o resultado do ciclo em mãos, o especialista apresenta o plano de manutenção. A conversa não é comercial, é técnica: o que acontece com o corpo se parar agora.</p>'+
+        '<h4>Por que o timing é crítico</h4><p>Depois que o ciclo acaba, o aluno já saiu do ambiente e a conversa vira reconquista. Antes de acabar, ela é continuação. O custo dessas duas conversas é diferente por uma ordem de grandeza.</p>'+
+        '<h4>O que precisa</h4><p>Definir o nível 4 antes de poder ofertá-lo. É o item da onda 3 do calendário.</p>'},
+  {from:'Ex-aluno',to:'Batalha',cls:'back',trigger:'90 dias fora, ou perda de resultado relatada',when:'Na abertura de uma edição',
+   lead:'O caminho de volta precisa ser mais barato que o de ida.',
+   body:'<h4>A mecânica</h4><p>Campanha segmentada por resultado obtido, oferecendo a Batalha e não a Consultoria. Ticket menor, compromisso menor, e a chance de o ex-aluno reentrar no ecossistema sem precisar decidir R$ 1.152 de novo.</p>'+
+        '<h4>Por que a Batalha e não a Consultoria</h4><p>Quem saiu uma vez tem uma objeção nova que não tinha antes: "já tentei". Um desafio de 30 dias contorna isso; um ciclo de 3 meses reforça.</p>'+
+        '<h4>O funil de volta</h4><p>Batalha, e da Batalha para a turma seguinte pela rota que já existe. Duas conversões pequenas em vez de uma grande.</p>'},
+  {from:'App do aluno',to:'Indicação',cls:'cross',trigger:'Primeiro resultado registrado no app',when:'No momento em que o gráfico vira',
+   lead:'O único momento em que pedir indicação não constrange ninguém.',
+   body:'<h4>A mecânica</h4><p>Quando o aluno registra o check-in que confirma a primeira queda relevante, o app reconhece o marco e oferece um convite com benefício para os dois lados: desconto para quem indica e para quem entra.</p>'+
+        '<h4>Por que esse instante</h4><p>É o pico emocional do ciclo. A pessoa acabou de ver a prova de que funcionou e quer contar para alguém. Pedir depois é pedir no vazio.</p>'+
+        '<h4>O que precisa</h4><p>Um gatilho no app ligado ao dado que ele já coleta. Nenhuma métrica nova, só uma leitura nova do que já existe.</p>'}
+];
+
+var mxEl = document.getElementById('matrix');
+ROUTES.forEach(function(R){
+  var b = document.createElement('button');
+  b.type='button'; b.className='mx clickable '+R.cls;
+  b.innerHTML = '<span class="route">'+R.from+' <i>→</i> '+R.to+'</span>'+
+                '<span class="trg"><b>Gatilho:</b> '+R.trigger+'<br><b>Momento:</b> '+R.when+'</span>';
+  b.addEventListener('click', function(){
+    var kind = R.cls==='up' ? 'Upsell · sobe de degrau' : (R.cls==='cross' ? 'Cross-sell · amplia o degrau' : 'Winback · traz de volta');
+    openModal('<p class="mkind">'+kind+'</p><h3 id="m-title">'+R.from+' → '+R.to+'</h3>'+
+      '<p class="mlead">'+R.lead+'</p>'+
+      '<h4>Gatilho</h4><p>'+R.trigger+'</p><h4>Momento</h4><p>'+R.when+'</p>'+R.body);
+  });
+  mxEl.appendChild(b);
+});
+
+/* ================= MATERIAIS ================= */
+
+var MATS = [
+  {lb:'Raio-X do Shape', sb:'Estudo anual', kind:'Material 01 · dado proprietário',
+   ttl:'O Raio-X do Shape Brasileiro',
+   lead:'A empresa está sentada num dado que ninguém no mercado tem e nunca publicou uma linha dele.',
+   o:'Um relatório anual com os dados anonimizados dos 650 alunos: quanto de gordura se perde em média em um ciclo, o que separa quem bate a meta de quem não bate, o impacto real do protocolo de passos, o que acontece com quem para de fazer check-in.',
+   camp:'<strong>Campanha "Os números que ninguém publica".</strong> Lançamento do estudo com assessoria para portais de saúde e fitness, uma série de sete posts com um achado cada, e uma live de apresentação dos dados. O download exige e-mail.',
+   alim:'<ul><li>Autoridade que nenhum concorrente pode comprar</li><li>Captura qualificada no nível 0</li><li>Pauta de blog para o ano inteiro</li><li>Argumento de venda para a Consultoria: "sabemos disso porque medimos"</li></ul>',
+   quem:'Marketing escreve, especialistas validam, designer diagrama. Não exige produção nova, exige leitura do que já está no banco.'},
+  {lb:'Kit da Batalha', sb:'Kit de participante', kind:'Material 02 · motor de UGC',
+   ttl:'Kit do participante da Batalha',
+   lead:'A diferença entre um desafio que ninguém vê e um que vira mídia.',
+   o:'Molduras de story para o check-in semanal, um card de "estou dentro" para o dia da inscrição, contador de dias, marca d\'água discreta, checklist diário para imprimir e um template de antes e depois no formato da marca.',
+   camp:'<strong>Campanha de inscrição com prova em tempo real.</strong> Cada inscrito posta o card de entrada e marca o perfil. O feed vira um mural coletivo, e a inscrição de um vira anúncio para o círculo dele.',
+   alim:'<ul><li>Alcance orgânico que não se compra</li><li>Prova social contínua durante os 30 dias</li><li>Banco de conteúdo para a edição seguinte</li><li>Pressão social que aumenta a taxa de conclusão</li></ul>',
+   quem:'Designer produz uma vez, serve todas as edições. É o material com melhor relação entre esforço e retorno da lista.'},
+  {lb:'Ferramentas', sb:'Iscas funcionais', kind:'Material 03 · captura perene',
+   ttl:'Calculadoras e simuladores',
+   lead:'Ferramenta captura melhor que e-book, porque entrega valor antes de pedir qualquer coisa.',
+   o:'Calculadora de TMB e macros, simulador de "quanto tempo até meu objetivo" alimentado pela média real dos alunos, e um quiz de perfil que devolve o diagnóstico e segmenta a base ao mesmo tempo.',
+   camp:'<strong>Campanha "Descubra o seu número".</strong> Um Reel por ferramenta mostrando o resultado de alguém real, com automação de comentário para direct entregando o link. As ferramentas ficam no ar para sempre e continuam captando.',
+   alim:'<ul><li>Captura perene, com custo marginal zero após publicar</li><li>Tráfego orgânico de busca de cauda longa</li><li>Segmentação automática por objetivo declarado</li><li>Dado de intenção que qualifica o lead antes da venda</li></ul>',
+   quem:'Marketing especifica, um freela de front-end constrói em poucos dias. São páginas simples, não produto.'},
+  {lb:'Cases nomeados', sb:'Prova indexável', kind:'Material 04 · prova e busca',
+   ttl:'Páginas de case com nome próprio',
+   lead:'A prova mais forte da marca hoje está trancada dentro de imagens.',
+   o:'Uma página por transformação, com nome, idade, ponto de partida, números do ciclo, fotos e o depoimento em texto. O blog já faz isso na categoria Cases, e o padrão é bom. Falta escala e falta ligação com o produto.',
+   camp:'<strong>Campanha "Antes eu também achava".</strong> Cada case abre com a objeção que a pessoa tinha antes de entrar, que é a mesma objeção de quem está lendo. O case responde a objeção com dado, não com entusiasmo.',
+   alim:'<ul><li>Resposta na fonte para quem busca se a consultoria funciona</li><li>Material de fechamento para o time comercial</li><li>Conteúdo para o Instagram sem precisar gravar nada novo</li><li>Insumo direto para a nutrição por e-mail, segmentada por perfil</li></ul>',
+   quem:'Marketing entrevista e escreve. Uma entrevista de 30 minutos vira página, Reel, e-mail e post.'},
+  {lb:'Aula do método', sb:'Masterclass', kind:'Material 05 · aquecimento de turma',
+   ttl:'A aula aberta das 7 métricas',
+   lead:'O ativo que transforma a lista de espera em turma cheia.',
+   o:'Uma aula de cerca de 40 minutos em que o Marcos explica as sete métricas e mostra, na tela, o plano real de um aluno. Não é isca disfarçada de aula: é a aula de verdade, com a metodologia aberta.',
+   camp:'<strong>Campanha de abertura de turma.</strong> Aula ao vivo na semana anterior, inscrição por e-mail e WhatsApp, gravação disponível por 48 horas e oferta apresentada no fim. Entre as turmas, a gravação vira isca perene.',
+   alim:'<ul><li>Aquecimento da lista antes de cada abertura</li><li>Conversão mais alta na janela de venda</li><li>Biblioteca de cortes para Reels durante meses</li><li>Prova de método para quem ainda duvida</li></ul>',
+   quem:'Uma gravação por trimestre, alinhada ao calendário de turmas.'},
+  {lb:'Minissérie', sb:'Documentário curto', kind:'Material 06 · narrativa longa',
+   ttl:'Minissérie dos finalistas',
+   lead:'O uso mais alto do videomaker que já está no time.',
+   o:'Três a cinco episódios curtos acompanhando finalistas de uma edição da Batalha do começo ao fim: o antes, a virada da semana 2, a recaída, o resultado. Formato vertical, cortes para Reels e uma versão longa para YouTube.',
+   camp:'<strong>Campanha "30 dias, três pessoas".</strong> Um episódio por semana durante a edição, criando audiência que acompanha em tempo real. O último episódio sai junto com a abertura da turma seguinte.',
+   alim:'<ul><li>Retenção de audiência entre as edições</li><li>Prova emocional que o antes e depois estático não entrega</li><li>Conteúdo para YouTube, canal que a marca ainda não explora</li><li>Fechamento natural para a abertura de turma</li></ul>',
+   quem:'Videomaker grava, marketing dirige a narrativa. É o material mais caro da lista e o de maior alcance potencial.'}
+];
+
+var tabsEl = document.getElementById('mat-tabs');
+var panelEl = document.getElementById('mat-panel');
+
+function renderMat(i){
+  var M = MATS[i];
+  panelEl.innerHTML =
+    '<p class="kind">'+M.kind+'</p><div class="ttl">'+M.ttl+'</div>'+
+    '<p style="color:var(--ink2);font-size:16px;max-width:64ch">'+M.lead+'</p>'+
+    '<div class="tp-grid">'+
+      '<div><h4>O material</h4><p>'+M.o+'</p></div>'+
+      '<div><h4>A campanha</h4><p>'+M.camp+'</p></div>'+
+      '<div><h4>O que ele alimenta depois</h4>'+M.alim+'</div>'+
+      '<div><h4>Quem produz</h4><p>'+M.quem+'</p></div>'+
+    '</div>';
+  Array.prototype.forEach.call(tabsEl.children, function(b,j){
+    b.setAttribute('aria-selected', j===i?'true':'false');
+  });
+}
+MATS.forEach(function(M,i){
+  var b = document.createElement('button');
+  b.type='button'; b.setAttribute('role','tab');
+  b.innerHTML = '<span class="lb">'+M.lb+'</span><span class="sb">'+M.sb+'</span>';
+  b.addEventListener('click', function(){ renderMat(i); });
+  tabsEl.appendChild(b);
+});
+renderMat(0);
+
+/* ================= SIMULADOR ================= */
+
+var P_COZ=14.90, P_CONS=1152, BASE=650, CICLOS=4, EDICOES=12;
+var BASELINE = BASE*CICLOS*P_CONS;
+var E = {};
+['s-assin','s-preco','s-c1','s-c2','o-assin','o-preco','o-c1','o-c2',
+ 'v-n1','v-n2','v-n3','d-n1','d-n2','d-n3','v-total','v-delta'].forEach(function(id){
+  E[id] = document.getElementById(id);
+});
+
+function calc(){
+  var A=+E['s-assin'].value, PB=+E['s-preco'].value;
+  var c1=+E['s-c1'].value/100, c2=+E['s-c2'].value/100;
+  var partic = Math.round(A*c1);
+  var novos  = Math.round(partic*EDICOES*c2);
+  var n1 = A*P_COZ*12, n2 = partic*PB*EDICOES, n3 = (BASE*CICLOS+novos)*P_CONS;
+  var total = n1+n2+n3, lift = ((total-BASELINE)/BASELINE)*100;
+
+  E['o-assin'].textContent = NUM.format(A);
+  E['o-preco'].textContent = BRL.format(PB);
+  E['o-c1'].textContent = E['s-c1'].value+'%';
+  E['o-c2'].textContent = E['s-c2'].value+'%';
+  E['d-n1'].textContent = NUM.format(A)+' assinantes × 12 meses';
+  E['d-n2'].textContent = NUM.format(partic)+' participantes × '+EDICOES+' edições';
+  E['d-n3'].textContent = NUM.format(BASE*CICLOS)+' vagas base + '+NUM.format(novos)+' novos alunos';
+  E['v-n1'].textContent = BRL.format(n1);
+  E['v-n2'].textContent = BRL.format(n2);
+  E['v-n3'].textContent = BRL.format(n3);
+  E['v-total'].textContent = BRL.format(total);
+  E['v-delta'].innerHTML = 'Hoje, só com a Consultoria, o ecossistema roda <b>'+BRL.format(BASELINE)+
+    '</b> por ano. Com a escada completa nessas premissas, <b>'+(lift>=0?'+':'')+lift.toFixed(0)+
+    '%</b>, e a receita passa a ter três fontes em vez de uma.';
+}
+['s-assin','s-preco','s-c1','s-c2'].forEach(function(id){ E[id].addEventListener('input', calc); });
+calc();
+
+/* ================= CALENDÁRIO ================= */
+
+var MESES = [
+  {m:'Out',onda:'Onda 1 · Fundação',t:'Instrumentar',its:['<strong>GA4, Meta Pixel e Clarity</strong> nas três propriedades','Padrão de UTM e painel único de KPI','Baseline registrado: sem isso não há meta honesta no mês 2']},
+  {m:'Nov',onda:'Onda 1 · Fundação',t:'Conectar',its:['<strong>Rodapé compartilhado</strong> entre Consultoria, Cozinha e blog','Cozinha ofertada dentro do app e no fim de cada artigo','Primeiras duas ferramentas gratuitas no ar']},
+  {m:'Dez',onda:'Onda 1 · Fundação',t:'Capturar',its:['<strong>Automação de comentário para DM</strong> nos dois perfis','Lista de espera da turma de janeiro como isca principal','Fluxo de boas-vindas segmentado por objetivo declarado']},
+  {m:'Jan',onda:'Onda 2 · O degrau novo',t:'Desenhar a Batalha',its:['<strong>Regulamento escrito</strong>, mecânica de ranking e critério de julgamento','Landing page com inscrição paga integrada ao CRM','Kit do participante fechado com o designer']},
+  {m:'Fev',onda:'Onda 2 · O degrau novo',t:'Primeira edição paga',its:['<strong>Lançamento com meta declarada</strong> de conversão para a turma de abril','Minissérie dos finalistas gravada durante a edição','Aula aberta das 7 métricas na semana anterior']},
+  {m:'Mar',onda:'Onda 2 · O degrau novo',t:'Ajustar e repetir',its:['Leitura dos números e correção da mecânica','<strong>Segunda edição</strong> com o aprendizado aplicado','Primeira coorte convertida em aluno de Consultoria']},
+  {m:'Abr',onda:'Onda 2 · O degrau novo',t:'Provar o ciclo',its:['<strong>Turma de abril</strong> com participantes da Batalha dentro','Medição da conversão real entre nível 2 e nível 3','Ajuste de preço com base no comportamento observado']},
+  {m:'Mai',onda:'Onda 3 · Continuidade',t:'Desenhar o nível 4',its:['<strong>Entrevistas com ex-alunos</strong> para definir a entrega mínima viável','Teste de oferta com um grupo pequeno antes de construir','Definição de preço e formato do clube de manutenção']},
+  {m:'Jun',onda:'Onda 3 · Continuidade',t:'Reativar a base',its:['<strong>Campanha para os cerca de 4.000 ex-alunos</strong>','Régua de cinco tempos, segmentada por resultado obtido','Medição de receita por contato reativado']},
+  {m:'Jul',onda:'Onda 3 · Continuidade',t:'Lançar a continuidade',its:['<strong>Clube de manutenção no ar</strong>','Oferta apresentada no app na semana 11 do ciclo','Renovação deixa de ser conversa individual e vira fluxo']},
+  {m:'Ago',onda:'Onda 3 · Continuidade',t:'Consolidar',its:['<strong>Raio-X do Shape Brasileiro</strong> publicado com assessoria','Escada completa rodando, com os cinco degraus ativos','Revisão de preço de cada degrau com dado de um ciclo inteiro']},
+  {m:'Set',onda:'Onda 3 · Continuidade',t:'Fechar o ano',its:['<strong>Relatório anual</strong> com receita por degrau e migração entre níveis','Edição de aniversário da Batalha, com prêmio maior','Planejamento do ano seguinte a partir de dado real, não de premissa']}
+];
+
+var tl = document.getElementById('tl'), tlD = document.getElementById('tl-detail');
+function renderMes(i){
+  var M = MESES[i];
+  tlD.innerHTML = '<p class="ph">'+M.onda+'</p><h3>'+M.m+' · '+M.t+'</h3><ul>'+
+    M.its.map(function(x){ return '<li>'+x+'</li>'; }).join('')+'</ul>';
+  Array.prototype.forEach.call(tl.children, function(b,j){ b.setAttribute('aria-selected', j===i?'true':'false'); });
+}
+MESES.forEach(function(M,i){
+  var b = document.createElement('button');
+  b.type='button'; b.setAttribute('role','tab');
+  b.innerHTML = '<span class="m">'+M.m+'</span><span class="h">'+M.t+'</span>';
+  b.addEventListener('click', function(){ renderMes(i); });
+  tl.appendChild(b);
+});
+renderMes(0);
 
 })();
 </script>
