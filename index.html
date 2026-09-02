@@ -309,6 +309,18 @@ footer .inner{max-width:1120px;}
 .plate::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(202,25,93,.3),transparent 60%);mix-blend-mode:screen;pointer-events:none;}
 .plate figcaption{position:absolute;left:0;bottom:0;right:0;padding:14px 16px;background:linear-gradient(to top,rgba(7,8,7,.94),transparent);font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px);align-items:center;}
+.split.tight{grid-template-columns:1.35fr .65fr;}
+
+/* faixa de imagem com texto sobreposto */
+.band{position:relative;overflow:hidden;margin-top:32px;background:var(--surface);}
+.band img{width:100%;display:block;filter:brightness(.72) contrast(1.05);}
+.band::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(7,8,7,.94) 0%,rgba(7,8,7,.72) 38%,rgba(7,8,7,.1) 72%),
+             linear-gradient(200deg,rgba(202,25,93,.26),transparent 55%);}
+.band .bandtext{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:clamp(20px,4.5vw,52px);}
+.band .bandtext .bq{font-family:var(--f-disp);font-weight:900;font-size:clamp(20px,3.6vw,42px);line-height:1.04;text-transform:uppercase;letter-spacing:.01em;max-width:15ch;margin:0;}
+.band .bandtext .bq i{font-style:normal;color:var(--viana);}
+.band .bandtext .bs{font-family:var(--f-mono);font-size:clamp(10px,1.2vw,11.5px);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin:14px 0 0;max-width:34ch;line-height:1.8;}
 
 @media (max-width:960px){
   .sim{grid-template-columns:1fr;}
@@ -367,7 +379,7 @@ footer .inner{max-width:1120px;}
         </div>
       </div>
       <figure class="capa-photo" style="margin:0">
-        <img src="img/hero-marcos.webp" alt="Marcos Viana, fundador do ecossistema Viana" loading="eager">
+        <img src="img/marcos-capa.webp" alt="Marcos Viana, fundador do ecossistema Viana" loading="eager">
         <svg class="xover" viewBox="0 0 100 100" aria-hidden="true"><path d="M14 12 L86 88 M86 12 L14 88" stroke="#CA195D" stroke-width="9" stroke-linecap="round"/></svg>
       </figure>
     </div>
@@ -508,12 +520,20 @@ footer .inner{max-width:1120px;}
 <!-- 07 MÉTODO ACIMA DAS PESSOAS -->
 <section id="metodo" data-nav="O método como marca">
   <div class="inner">
-    <p class="eyebrow"><span class="act">Ato 3 · Arquitetura</span> <span class="sep">·</span> 06</p>
-    <h2>O ativo não é o Viana.<br>É o <span class="hl">método</span>.</h2>
-    <p class="lead">
-      Sete métricas, revisão a cada quinze dias, plano entregue em vídeo. Isso é sistematizável,
-      ensinável e auditável, ou seja: <strong>pode virar marca</strong>. Uma pessoa não pode.
-    </p>
+    <div class="split tight">
+      <div>
+        <p class="eyebrow"><span class="act">Ato 3 · Arquitetura</span> <span class="sep">·</span> 06</p>
+        <h2>O ativo não é o Viana.<br>É o <span class="hl">método</span>.</h2>
+        <p class="lead">
+          Sete métricas, revisão a cada quinze dias, plano entregue em vídeo. Isso é sistematizável,
+          ensinável e auditável, ou seja: <strong>pode virar marca</strong>. Uma pessoa não pode.
+        </p>
+      </div>
+      <figure class="plate" style="margin:0">
+        <img src="img/marcos-metodo.webp" alt="Marcos Viana" loading="lazy">
+        <figcaption>Hoje ele é a promessa. A proposta é que ele passe a ser a prova de origem dela</figcaption>
+      </figure>
+    </div>
 
     <div class="hier">
       <p class="top">Método Viana</p>
@@ -566,7 +586,13 @@ footer .inner{max-width:1120px;}
       <div class="cog"><span class="step">Trabalho 3 · Prova do time</span><span class="flow">Batalha <i>→</i> Autoridade</span><p>Como quem conduz a Batalha são os treinadores, cada edição é uma vitrine deles, com nome e resultado. É o veículo mais natural para transferir autoridade do fundador para o método.</p></div>
     </div>
 
-    <div class="quote" style="max-width:38ch">A campanha deixa de ser<br>despesa de marketing<br>e vira <i>a engrenagem do funil</i></div>
+    <figure class="band" style="margin:0">
+      <img src="img/marcos-treino.webp" alt="Treino em ambiente de academia" loading="lazy">
+      <figcaption class="bandtext">
+        <p class="bq">A campanha deixa de ser despesa e vira <i>a engrenagem do funil</i></p>
+        <p class="bs">12 edições por ano · 12 vitrines dos treinadores · conteúdo que a empresa não precisa produzir</p>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -720,12 +746,20 @@ footer .inner{max-width:1120px;}
 <!-- 17 FECHO -->
 <section id="fecho" data-nav="Fecho">
   <div class="inner">
-    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 16</p>
-    <h2>Quinze anos construíram<br>as peças. Falta a <span class="hl">casa</span>.</h2>
-    <p class="lead">
-      Posicionamento, método e voz estão maduros e são difíceis de copiar. O que falta é
-      arquitetura, e arquitetura é decisão, não talento.
-    </p>
+    <div class="split tight">
+      <div>
+        <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 16</p>
+        <h2>Quinze anos construíram<br>as peças. Falta a <span class="hl">casa</span>.</h2>
+        <p class="lead">
+          Posicionamento, método e voz estão maduros e são difíceis de copiar. O que falta é
+          arquitetura, e arquitetura é decisão, não talento.
+        </p>
+      </div>
+      <figure class="plate" style="margin:0">
+        <img src="img/marcos-rua.webp" alt="Marcos Viana" loading="lazy">
+        <figcaption>O ecossistema já existe inteiro. Só precisa passar a se apresentar como um só</figcaption>
+      </figure>
+    </div>
 
     <div class="grid g-auto close-grid" style="margin-top:32px">
       <div class="card" style="border-top-color:var(--viana)"><span class="k">13</span><p>peças vivas espalhadas em 10 domínios e 6 nomes de marca. Nenhuma precisa ser criada, todas precisam ser conectadas.</p></div>
@@ -744,8 +778,9 @@ footer .inner{max-width:1120px;}
       blog.vianafit.com.br, app.cozinhadoviana.com, hibrido.fitbudd.com e os perfis
       @consultoriadoviana e @mvianara. Auditoria técnica feita sobre o HTML servido, robots.txt,
       sitemap.xml, dados estruturados e medição do payload de imagens arquivo a arquivo.
-      As artes são peças da própria marca, recomprimidas: as mesmas imagens que pesam 23 MB no
-      site original ocupam 424 KB aqui.
+      As fotos são do próprio Marcos, tratadas no padrão visual da marca: preto e branco de alto
+      contraste, vinheta e o magenta entrando por sobreposição. Esta página inteira, HTML e todas
+      as imagens somados, pesa cerca de 390 KB, contra os 23 MB da home da Consultoria.
     </p>
     <p style="margin-top:14px">
       Ressalvas de método. O simulador é um modelo direcional, não uma projeção: as taxas de
@@ -915,7 +950,7 @@ var TECH=[
   kind:'Área 05 · peso e velocidade', lead:'O servidor é rápido. O material enviado para ele é que é pesado.',
   body:'<h4>A medição</h4><pre>Imagens únicas na home       24\nPayload desktop (1500w)      ~23 MB\nPayload mobile (750w)        ~7 MB\nMaior arquivo original       4,3 MB (PNG)\nHTML da home                 350 KB\nTTFB                         169 ms  ✓</pre>'+
   '<h4>O diagnóstico</h4><p>O <code>srcset</code> e o lazy-load existem e funcionam. O TTFB de 169 ms é ótimo. O problema é exclusivamente que as artes foram subidas como PNG sem compressão, em dimensões muito acima do necessário.</p>'+
-  '<h4>A prova de que dá para resolver</h4><p>Esta apresentação usa as mesmas imagens do site deles. Recomprimidas em WebP na dimensão certa, <strong>as 8 artes aqui somam 424 KB</strong>. Nenhuma mudança de design, só de exportação.</p>'},
+  '<h4>A prova de que dá para resolver</h4><p>Esta apresentação tem cinco imagens em tela cheia, uma delas exportada do próprio site deles. Em WebP, na dimensão certa, <strong>as cinco somam 276 KB</strong>, e a página inteira fica em torno de 390 KB. Nenhuma mudança de design, só de exportação.</p>'},
  {area:'Estrutura do site',v:'40 URLs',cls:'warn',ev:'/home e /home-1 duplicados\n2 páginas com title "General 1"\nárea do aluno indexável',
   kind:'Área 06 · arquitetura de informação', lead:'O sitemap conta a história de um site que cresceu sem ninguém podando.',
   body:'<h4>A evidência</h4><pre>/home  e  /home-1              → duplicados\n/protocolo-turbo               → title "General 1"\n/plano-de-acao                 → title "General 1"\n/waitlist                      → texto placeholder\n                                  em inglês, de 2024\n/boas-vindas-consultoria\n/medidas\n/canal-de-suporte              → área do aluno,\n                                  indexável no Google\n\n/cases-de-sucesso-2026/project-one-ephnc-\nax654-pjprh-k8az7-dwla2-cbywh-j7lpc-k3lfx</pre>'+
