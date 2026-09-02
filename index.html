@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guarda-chuva Viana · Case</title>
-<meta name="description" content="Arquitetura de produtos para o ecossistema Viana: da Cozinha à Consultoria, com a Batalha de Shapes como motor de conversão, esteira de captura, matriz de upsell e plano de 12 meses.">
+<meta name="description" content="Arquitetura de produtos para o ecossistema Viana: 13 peças dispersas, uma marca de método acima delas, diagnóstico técnico e plano de 12 meses.">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="Guarda-chuva Viana">
-<meta property="og:description" content="Como estruturar o ecossistema de produtos do Viana, do ticket de R$14,90 ao de R$1.152.">
+<meta property="og:description" content="Está tudo aqui. Só não está junto.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,58 +15,34 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23070807'/><path d='M22 20 L78 80 M78 20 L22 80' stroke='%23CA195D' stroke-width='16' stroke-linecap='round'/></svg>">
 
 <style>
-/* ============================================================
-   Sistema herdado da marca Viana. Magenta #CA195D amostrado
-   das peças reais, preto #070807, condensada pesada em caixa
-   alta. Tema único escuro: é o mundo visual da marca.
-   ============================================================ */
-
 :root{
   --ground:#070807; --surface:#111010; --surface2:#1A1817; --surface3:#242020;
   --ink:#F4F1F0; --ink2:#A49B99; --ink3:#6E6663;
   --rule:#2A2524; --rule2:#3C3533;
   --viana:#CA195D; --viana-deep:#85113E; --viana-soft:#2A0E1A;
-  --cozinha:#FF2D00; --gold:#E0A32B; --ok:#3FA46B;
+  --cozinha:#FF2D00; --gold:#E0A32B; --ok:#3FA46B; --bad:#C0392B;
   --f-disp:"Barlow Condensed","Arial Narrow",sans-serif;
   --f-body:"Barlow","Helvetica Neue",Arial,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
   --pad:clamp(20px,5vw,64px);
 }
-
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto;}
-  *{animation-duration:.001ms!important;transition-duration:.001ms!important;}
-}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation-duration:.001ms!important;transition-duration:.001ms!important;}}
 
-body{
-  margin:0;background:var(--ground);color:var(--ink);
-  font-family:var(--f-body);font-size:17px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 body.locked{overflow:hidden;}
-
 p{margin:0 0 15px;max-width:66ch;}
 strong{font-weight:600;color:var(--ink);}
 em{font-style:italic;color:var(--ink);}
 a{color:var(--viana);}
 ul,ol{margin:0 0 16px;padding-left:20px;max-width:66ch;}
-li{margin-bottom:8px;}
-li::marker{color:var(--ink3);}
+li{margin-bottom:8px;} li::marker{color:var(--ink3);}
 .mono{font-family:var(--f-mono);font-size:.86em;}
 button{font:inherit;color:inherit;}
 
-/* ---------- chrome ---------- */
-
 #progress{position:fixed;top:0;left:0;height:3px;width:0%;background:var(--viana);z-index:120;transition:width .18s linear;}
-
-#topbar{
-  position:fixed;top:0;left:0;right:0;height:56px;z-index:110;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding:0 var(--pad);background:rgba(7,8,7,.88);
-  backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);
-}
+#topbar{position:fixed;top:0;left:0;right:0;height:56px;z-index:110;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 var(--pad);background:rgba(7,8,7,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);}
 .brandmark{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);}
 .brandmark svg{width:19px;height:19px;flex:none;}
 .brandmark span{font-family:var(--f-disp);font-weight:900;font-size:17px;letter-spacing:.05em;text-transform:uppercase;line-height:1;}
@@ -74,11 +50,7 @@ button{font:inherit;color:inherit;}
 .bar-right{display:flex;align-items:center;gap:16px;}
 #counter{font-family:var(--f-mono);font-size:11px;letter-spacing:.13em;color:var(--ink3);text-transform:uppercase;white-space:nowrap;}
 #counter b{color:var(--ink);font-weight:600;}
-#helpbtn{
-  width:26px;height:26px;border-radius:50%;border:1px solid var(--rule2);
-  background:transparent;color:var(--ink2);cursor:pointer;font-size:13px;
-  font-family:var(--f-mono);line-height:1;padding:0;transition:.18s;
-}
+#helpbtn{width:26px;height:26px;border-radius:50%;border:1px solid var(--rule2);background:transparent;color:var(--ink2);cursor:pointer;font-size:13px;font-family:var(--f-mono);line-height:1;padding:0;transition:.18s;}
 #helpbtn:hover{border-color:var(--viana);color:var(--viana);}
 #helpbtn:focus-visible{outline:2px solid var(--viana);outline-offset:2px;}
 
@@ -87,31 +59,14 @@ button{font:inherit;color:inherit;}
 #dots button:hover{border-color:var(--viana);transform:scale(1.35);}
 #dots button[aria-current="true"]{background:var(--viana);border-color:var(--viana);}
 #dots button:focus-visible{outline:2px solid var(--viana);outline-offset:3px;}
-
-.hint{
-  position:fixed;left:var(--pad);bottom:16px;z-index:105;
-  font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--ink3);display:flex;align-items:center;gap:8px;transition:opacity .4s;
-}
+.hint{position:fixed;left:var(--pad);bottom:16px;z-index:105;font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);display:flex;align-items:center;gap:8px;transition:opacity .4s;}
 .hint kbd{font-family:var(--f-mono);border:1px solid var(--rule2);border-radius:3px;padding:1px 5px;color:var(--ink2);font-size:10px;}
 
-/* ---------- seções ---------- */
-
-section{
-  min-height:100vh;padding:96px var(--pad) 76px;
-  display:flex;flex-direction:column;justify-content:center;
-  border-bottom:1px solid var(--rule);position:relative;
-}
+section{min-height:100vh;padding:96px var(--pad) 76px;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid var(--rule);position:relative;}
 .inner{width:100%;max-width:1120px;margin:0 auto;}
 .narrow{max-width:820px;}
-
-.eyebrow{
-  font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.17em;
-  text-transform:uppercase;color:var(--viana);margin:0 0 18px;
-}
-.eyebrow .sep{color:var(--ink3);}
-.eyebrow .act{color:var(--ink3);}
-
+.eyebrow{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.17em;text-transform:uppercase;color:var(--viana);margin:0 0 18px;}
+.eyebrow .sep{color:var(--ink3);} .eyebrow .act{color:var(--ink3);}
 h1{font-family:var(--f-disp);font-weight:900;font-size:clamp(44px,9.6vw,108px);line-height:.9;letter-spacing:-.006em;text-transform:uppercase;margin:0 0 24px;text-wrap:balance;}
 h1 .hl{color:var(--viana);}
 h2{font-family:var(--f-disp);font-weight:900;font-size:clamp(30px,5.6vw,58px);line-height:.96;letter-spacing:-.004em;text-transform:uppercase;margin:0 0 20px;text-wrap:balance;}
@@ -120,16 +75,9 @@ h3{font-family:var(--f-disp);font-weight:700;font-size:21px;letter-spacing:.02em
 .lead{font-size:clamp(17px,2.1vw,21px);color:var(--ink2);max-width:62ch;}
 .lead strong{color:var(--ink);font-weight:600;}
 
-/* afordância de clique, explicada no onboarding */
 .clickable{position:relative;}
-.clickable::after{
-  content:"+";position:absolute;top:10px;right:12px;
-  font-family:var(--f-mono);font-size:14px;line-height:1;color:var(--viana);
-  opacity:.55;transition:.18s;pointer-events:none;
-}
+.clickable::after{content:"+";position:absolute;top:10px;right:12px;font-family:var(--f-mono);font-size:14px;line-height:1;color:var(--viana);opacity:.55;transition:.18s;pointer-events:none;}
 .clickable:hover::after,.clickable:focus-visible::after{opacity:1;transform:rotate(90deg);}
-
-/* ---------- capa ---------- */
 
 #capa{overflow:hidden;}
 .capa-wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,5vw,64px);align-items:center;}
@@ -139,34 +87,15 @@ h3{font-family:var(--f-disp);font-weight:700;font-size:21px;letter-spacing:.02em
 .capa-photo .xover{position:absolute;inset:8%;opacity:.42;}
 .capa-meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:34px;padding-top:20px;border-top:1px solid var(--rule2);font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);}
 
-/* ---------- abismo ---------- */
-
-.gap-viz{margin:32px 0 8px;display:flex;flex-direction:column;gap:2px;}
-.rung{display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:0 22px;align-items:center;background:var(--surface);padding:17px 22px;border-left:3px solid var(--rule2);}
-.rung .tick{font-family:var(--f-disp);font-weight:900;font-size:clamp(21px,3vw,30px);line-height:1;}
-.rung .tick small{font-size:14px;color:var(--ink3);font-weight:600;}
-.rung .what{font-size:15px;color:var(--ink2);}
-.rung .what b{color:var(--ink);font-weight:600;display:block;font-family:var(--f-disp);font-size:19px;text-transform:uppercase;letter-spacing:.02em;}
-.rung.free{border-left-color:var(--ink3);} .rung.free .tick{color:var(--ink3);}
-.rung.coz{border-left-color:var(--cozinha);} .rung.coz .tick{color:var(--cozinha);}
-.rung.cons{border-left-color:var(--viana);} .rung.cons .tick{color:var(--viana);}
-.void{border:1px dashed var(--rule2);padding:24px 22px;text-align:center;font-family:var(--f-mono);font-size:12px;letter-spacing:.19em;text-transform:uppercase;color:var(--ink3);}
-
 .bignum{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 20px;margin-top:30px;padding-top:24px;border-top:1px solid var(--rule2);}
 .bignum .n{font-family:var(--f-disp);font-weight:900;font-size:clamp(58px,12vw,136px);line-height:.82;color:var(--viana);letter-spacing:-.02em;}
-.bignum .t{font-size:16.5px;color:var(--ink2);max-width:36ch;}
-
-/* ---------- grades de cards ---------- */
+.bignum .t{font-size:16.5px;color:var(--ink2);max-width:38ch;}
 
 .grid{display:grid;gap:2px;}
 .g-auto{grid-template-columns:repeat(auto-fit,minmax(228px,1fr));}
-.g-wide{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+.g-wide{grid-template-columns:repeat(auto-fit,minmax(290px,1fr));}
 
-.card{
-  background:var(--surface);padding:20px 20px 18px;border-top:3px solid var(--rule2);
-  display:flex;flex-direction:column;gap:8px;text-align:left;
-  border-left:0;border-right:0;border-bottom:0;
-}
+.card{background:var(--surface);padding:20px 20px 18px;border-top:3px solid var(--rule2);display:flex;flex-direction:column;gap:8px;text-align:left;border-left:0;border-right:0;border-bottom:0;}
 button.card{cursor:pointer;transition:background .18s;width:100%;}
 button.card:hover{background:var(--surface2);}
 button.card:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
@@ -174,10 +103,44 @@ button.card:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
 .card .num{font-family:var(--f-mono);font-size:12.5px;font-weight:600;color:var(--viana);letter-spacing:.04em;}
 .card .ds{font-size:14.5px;color:var(--ink2);line-height:1.5;}
 .card .st{margin-top:auto;padding-top:11px;border-top:1px solid var(--rule);font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;}
-.st.on{color:var(--ok);} .st.weak{color:var(--gold);} .st.off{color:var(--ink3);}
+.st.on{color:var(--ok);} .st.weak{color:var(--gold);} .st.off{color:var(--ink3);} .st.bad{color:var(--bad);}
 .card.hero{border-top-color:var(--viana);} .card.warm{border-top-color:var(--cozinha);}
 
-/* ---------- escada ---------- */
+/* mapa da dispersão */
+.disp{display:flex;flex-direction:column;gap:2px;margin-top:26px;}
+.piece{display:grid;grid-template-columns:1.1fr 1fr .9fr;gap:0 20px;align-items:center;background:var(--surface);padding:14px 20px;border-left:3px solid var(--rule2);text-align:left;border-top:0;border-right:0;border-bottom:0;width:100%;cursor:pointer;transition:background .18s;}
+.piece:hover{background:var(--surface2);border-left-color:var(--viana);}
+.piece:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
+.piece .pn{font-family:var(--f-disp);font-weight:900;font-size:18px;text-transform:uppercase;letter-spacing:.02em;line-height:1.1;padding-right:16px;}
+.piece .pd{font-family:var(--f-mono);font-size:11px;color:var(--ink3);letter-spacing:.02em;word-break:break-all;}
+.piece .pb{font-family:var(--f-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;text-align:right;}
+.pb.b1{color:var(--viana);} .pb.b2{color:var(--cozinha);} .pb.b3{color:var(--gold);} .pb.b0{color:var(--ink3);}
+.journey{background:var(--viana-soft);padding:22px 24px;margin-top:24px;}
+.journey .jl{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--viana);margin-bottom:12px;}
+.journey .jt{font-family:var(--f-disp);font-weight:900;font-size:clamp(19px,2.7vw,27px);text-transform:uppercase;line-height:1.12;letter-spacing:.01em;margin-bottom:14px;}
+.journey .jf{font-family:var(--f-mono);font-size:12px;color:var(--ink2);line-height:2;word-break:break-word;}
+.journey .jf b{color:var(--viana);}
+
+/* diagnóstico técnico */
+.scorecard{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2px;margin-top:26px;}
+.sc{background:var(--surface);padding:20px;border-top:3px solid var(--rule2);text-align:left;border-left:0;border-right:0;border-bottom:0;cursor:pointer;transition:background .18s;display:flex;flex-direction:column;gap:9px;}
+.sc:hover{background:var(--surface2);}
+.sc:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
+.sc .area{font-family:var(--f-disp);font-weight:900;font-size:19px;text-transform:uppercase;letter-spacing:.02em;line-height:1.1;padding-right:20px;}
+.sc .verdict{font-family:var(--f-disp);font-weight:900;font-size:clamp(24px,3.4vw,34px);line-height:1;letter-spacing:-.01em;}
+.sc .ev{font-family:var(--f-mono);font-size:11px;color:var(--ink3);line-height:1.7;}
+.sc.crit{border-top-color:var(--bad);} .sc.crit .verdict{color:var(--bad);}
+.sc.warn{border-top-color:var(--gold);} .sc.warn .verdict{color:var(--gold);}
+.sc.good{border-top-color:var(--ok);} .sc.good .verdict{color:var(--ok);}
+
+.matrix3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;margin-top:24px;}
+.prop{background:var(--surface);padding:20px;border-top:3px solid var(--rule2);}
+.prop .ph{font-family:var(--f-disp);font-weight:900;font-size:19px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:4px;}
+.prop .pu{font-family:var(--f-mono);font-size:10.5px;color:var(--ink3);margin-bottom:14px;word-break:break-all;}
+.prop ul{margin:0;padding:0;list-style:none;}
+.prop li{display:grid;grid-template-columns:18px 1fr;gap:9px;font-family:var(--f-mono);font-size:11px;line-height:1.6;color:var(--ink2);margin-bottom:6px;}
+.prop li i{font-style:normal;font-weight:600;}
+.yes{color:var(--ok);} .no{color:var(--bad);} .mid{color:var(--gold);}
 
 .ladder{display:flex;flex-direction:column;gap:2px;margin-top:26px;}
 .lvl{background:var(--surface);border:0;border-left:3px solid var(--rule2);cursor:pointer;text-align:left;width:100%;padding:0;transition:background .18s;}
@@ -190,10 +153,8 @@ button.card:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
 .lvl-t small{display:block;font-family:var(--f-body);font-weight:400;font-size:14px;text-transform:none;letter-spacing:0;color:var(--ink2);margin-top:3px;line-height:1.45;}
 .lvl-p{font-family:var(--f-mono);font-size:13px;font-weight:600;color:var(--ink2);text-align:right;white-space:nowrap;}
 .lvl-p em{display:block;font-style:normal;font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);margin-top:4px;}
-.lvl.novo{border-left-style:dashed;}
-.tagnew{font-family:var(--f-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ground);background:var(--viana);padding:2px 7px;margin-left:10px;vertical-align:middle;display:inline-block;}
-
-/* ---------- motor ---------- */
+.statustag{font-family:var(--f-mono);font-size:9px;letter-spacing:.11em;text-transform:uppercase;padding:2px 7px;margin-left:10px;vertical-align:middle;display:inline-block;background:var(--surface3);color:var(--ink3);}
+.statustag.alert{background:var(--viana);color:#fff;}
 
 .cog{background:var(--surface);padding:22px;border-top:3px solid var(--viana);}
 .cog .step{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--viana);margin-bottom:12px;}
@@ -201,10 +162,26 @@ button.card:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
 .cog .flow i{font-style:normal;color:var(--viana);}
 .cog p{font-size:14.5px;color:var(--ink2);margin:0;line-height:1.5;}
 
-.quote{border-left:3px solid var(--viana);padding:4px 0 4px 22px;margin:28px 0 0;font-family:var(--f-disp);font-weight:700;font-size:clamp(19px,2.8vw,28px);line-height:1.16;text-transform:uppercase;letter-spacing:.01em;max-width:26ch;}
+.quote{border-left:3px solid var(--viana);padding:4px 0 4px 22px;margin:28px 0 0;font-family:var(--f-disp);font-weight:700;font-size:clamp(19px,2.8vw,28px);line-height:1.16;text-transform:uppercase;letter-spacing:.01em;max-width:28ch;}
 .quote i{font-style:normal;color:var(--viana);}
 
-/* ---------- esteira / torneiras ---------- */
+/* método acima das pessoas */
+.hier{background:var(--surface);padding:clamp(24px,4vw,40px);margin-top:26px;text-align:center;}
+.hier .top{font-family:var(--f-disp);font-weight:900;font-size:clamp(28px,5vw,52px);text-transform:uppercase;letter-spacing:.01em;color:var(--viana);line-height:1;}
+.hier .topsub{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);margin-top:8px;}
+.hier .stem{width:1px;height:34px;background:var(--rule2);margin:20px auto;}
+.hier .row{display:flex;flex-wrap:wrap;justify-content:center;gap:2px;}
+.hier .node{background:var(--surface2);padding:16px 22px;min-width:150px;flex:1 1 150px;max-width:260px;}
+.hier .node b{display:block;font-family:var(--f-disp);font-weight:900;font-size:17px;text-transform:uppercase;letter-spacing:.02em;}
+.hier .node span{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);margin-top:6px;line-height:1.5;}
+.moves{display:flex;flex-direction:column;gap:2px;margin-top:24px;}
+.move{display:grid;grid-template-columns:44px 1fr;gap:0 20px;background:var(--surface);padding:17px 22px;border-left:3px solid var(--viana);}
+.move .mn{font-family:var(--f-disp);font-weight:900;font-size:24px;color:var(--viana);line-height:1.1;}
+.move b{display:block;font-family:var(--f-disp);font-size:18px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:4px;}
+.move span{font-size:14.5px;color:var(--ink2);line-height:1.5;}
+.risk{background:var(--viana-soft);padding:20px 24px;margin-top:24px;}
+.risk b{display:block;font-family:var(--f-disp);font-size:19px;text-transform:uppercase;letter-spacing:.02em;color:var(--viana);margin-bottom:8px;}
+.risk p{font-size:15.5px;color:var(--ink2);margin:0;}
 
 .taps{display:flex;flex-direction:column;gap:2px;margin-top:26px;}
 .tap{display:grid;grid-template-columns:44px 1fr 132px;gap:0 20px;align-items:center;background:var(--surface);padding:16px 22px;border-left:3px solid var(--viana);}
@@ -214,25 +191,18 @@ button.card:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
 .tap .tag{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;text-align:right;line-height:1.5;}
 .tag.perene{color:var(--ok);} .tag.ciclo{color:var(--gold);}
 
-/* ---------- matriz upsell ---------- */
-
 .matrix{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;margin-top:24px;}
 .mx{background:var(--surface);border:0;border-left:3px solid var(--rule2);padding:17px 19px;cursor:pointer;text-align:left;transition:background .18s;}
-.mx:hover{background:var(--surface2);border-left-color:var(--viana);}
+.mx:hover{background:var(--surface2);}
 .mx:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
 .mx .route{font-family:var(--f-disp);font-weight:900;font-size:17px;text-transform:uppercase;letter-spacing:.02em;line-height:1.15;margin-bottom:7px;padding-right:18px;}
 .mx .route i{font-style:normal;color:var(--viana);}
 .mx .trg{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink3);line-height:1.6;}
 .mx .trg b{color:var(--ink2);font-weight:500;}
-.mx.up{border-left-color:var(--viana);}
-.mx.cross{border-left-color:var(--cozinha);}
-.mx.back{border-left-color:var(--gold);}
-
+.mx.up{border-left-color:var(--viana);} .mx.cross{border-left-color:var(--cozinha);} .mx.back{border-left-color:var(--gold);}
 .legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);}
 .legend span{display:flex;align-items:center;gap:7px;}
 .legend i{width:16px;height:3px;display:block;}
-
-/* ---------- tabs materiais ---------- */
 
 .tabs{display:flex;gap:2px;margin-top:26px;overflow-x:auto;padding-bottom:4px;}
 .tabs button{flex:0 0 auto;background:var(--surface);border:0;border-top:3px solid var(--rule2);padding:13px 18px 15px;cursor:pointer;color:var(--ink3);text-align:left;transition:.18s;white-space:nowrap;}
@@ -241,18 +211,13 @@ button.card:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
 .tabs button[aria-selected="true"]{border-top-color:var(--viana);background:var(--surface2);color:var(--ink);}
 .tabs .lb{font-family:var(--f-disp);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.03em;display:block;}
 .tabs .sb{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-top:4px;opacity:.7;}
-
 .tabpanel{background:var(--surface);border-left:3px solid var(--viana);padding:26px;margin-top:2px;min-height:280px;}
 .tabpanel .ttl{font-family:var(--f-disp);font-weight:900;font-size:clamp(22px,3.4vw,32px);text-transform:uppercase;letter-spacing:.01em;line-height:1.05;margin-bottom:6px;}
 .tabpanel .kind{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--viana);margin-bottom:14px;}
 .tp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px;margin-top:18px;padding-top:18px;border-top:1px solid var(--rule);}
 .tp-grid h4{font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin:0 0 7px;}
 .tp-grid p,.tp-grid ul{font-size:14.5px;color:var(--ink2);margin:0;line-height:1.55;}
-.tp-grid ul{padding-left:17px;}
-.tp-grid li{margin-bottom:5px;}
-.tp-grid strong{color:var(--ink);}
-
-/* ---------- benchmarks ---------- */
+.tp-grid ul{padding-left:17px;} .tp-grid li{margin-bottom:5px;} .tp-grid strong{color:var(--ink);}
 
 .bench{background:var(--surface);border:0;border-top:3px solid var(--viana);padding:22px 20px 18px;cursor:pointer;text-align:left;transition:background .18s;display:flex;flex-direction:column;gap:9px;}
 .bench:hover{background:var(--surface2);}
@@ -263,13 +228,10 @@ button.card:focus-visible{outline:2px solid var(--viana);outline-offset:-2px;}
 .bench .cap{font-size:14px;color:var(--ink2);line-height:1.5;}
 .bench .steal{margin-top:auto;padding-top:12px;border-top:1px solid var(--rule);font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--viana);}
 
-/* ---------- simulador ---------- */
-
 .sim{display:grid;grid-template-columns:minmax(280px,380px) 1fr;gap:2px;margin-top:24px;}
 .sim-in{background:var(--surface);padding:24px;}
 .sim-out{background:var(--surface2);padding:24px;}
-.ctrl{margin-bottom:23px;}
-.ctrl:last-of-type{margin-bottom:0;}
+.ctrl{margin-bottom:23px;} .ctrl:last-of-type{margin-bottom:0;}
 .ctrl label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:9px;}
 .ctrl label output{font-size:15px;font-weight:600;color:var(--viana);font-variant-numeric:tabular-nums;}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;background:var(--rule2);border-radius:2px;outline:none;cursor:pointer;}
@@ -282,13 +244,12 @@ input[type=range]:focus-visible{outline:2px solid var(--viana);outline-offset:6p
 .res-row .rl{font-size:14.5px;color:var(--ink2);}
 .res-row .rl b{display:block;color:var(--ink);font-weight:600;font-family:var(--f-disp);font-size:17px;text-transform:uppercase;letter-spacing:.02em;}
 .res-row .rv{font-family:var(--f-mono);font-size:17px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.res-row.ghost .rv{color:var(--ink3);}
 .res-total{margin-top:16px;padding-top:20px;border-top:2px solid var(--viana);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px;}
 .res-total .lab{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);}
 .res-total .big{font-family:var(--f-disp);font-weight:900;font-size:clamp(32px,5.2vw,56px);line-height:.95;color:var(--viana);font-variant-numeric:tabular-nums;letter-spacing:-.01em;}
 .delta{margin-top:14px;padding:13px 16px;background:var(--viana-soft);font-size:14.5px;color:var(--ink2);line-height:1.55;}
 .delta b{color:var(--viana);font-family:var(--f-mono);font-weight:600;}
-
-/* ---------- timeline ---------- */
 
 .tl{display:flex;gap:2px;margin-top:26px;overflow-x:auto;padding-bottom:6px;}
 .tl button{flex:1 0 74px;background:var(--surface);border:0;cursor:pointer;border-top:3px solid var(--rule2);padding:13px 10px 15px;color:var(--ink3);text-align:left;transition:.18s;}
@@ -300,10 +261,7 @@ input[type=range]:focus-visible{outline:2px solid var(--viana);outline-offset:6p
 .tl-detail{background:var(--surface);border-left:3px solid var(--viana);padding:24px;margin-top:2px;min-height:200px;}
 .tl-detail h3{color:var(--viana);margin-bottom:6px;}
 .tl-detail .ph{font-family:var(--f-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;}
-.tl-detail li{font-size:15px;color:var(--ink2);}
-.tl-detail li strong{color:var(--ink);}
-
-/* ---------- kpi ---------- */
+.tl-detail li{font-size:15px;color:var(--ink2);} .tl-detail li strong{color:var(--ink);}
 
 .kpi{background:var(--surface);padding:20px;border-top:3px solid var(--rule2);}
 .kpi .lv{font-family:var(--f-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin-bottom:11px;}
@@ -311,16 +269,11 @@ input[type=range]:focus-visible{outline:2px solid var(--viana);outline-offset:6p
 .kpi p{font-size:14px;color:var(--ink2);margin:0;line-height:1.5;}
 .kpi .sec{margin-top:12px;padding-top:11px;border-top:1px solid var(--rule);font-family:var(--f-mono);font-size:10.5px;color:var(--ink3);line-height:1.75;}
 
-/* ---------- 90 dias ---------- */
-
 .ph-row{display:grid;grid-template-columns:112px 1fr;gap:0 24px;background:var(--surface);padding:20px 22px;border-left:3px solid var(--viana);}
 .ph-row .when{font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--viana);line-height:1.5;}
 .ph-row h3{margin-bottom:8px;font-size:19px;}
 .ph-row ol{margin:0;padding-left:18px;}
-.ph-row li{font-size:15px;color:var(--ink2);}
-.ph-row li strong{color:var(--ink);}
-
-/* ---------- fecho ---------- */
+.ph-row li{font-size:15px;color:var(--ink2);} .ph-row li strong{color:var(--ink);}
 
 .close-grid .k{font-family:var(--f-disp);font-weight:900;font-size:clamp(30px,4.4vw,44px);line-height:.98;color:var(--viana);margin-bottom:9px;letter-spacing:-.01em;}
 .close-grid p{font-size:14.5px;color:var(--ink2);margin:0;line-height:1.5;}
@@ -328,30 +281,18 @@ input[type=range]:focus-visible{outline:2px solid var(--viana);outline-offset:6p
 footer{padding:44px var(--pad) 60px;font-family:var(--f-mono);font-size:11px;line-height:1.9;color:var(--ink3);border-top:3px solid var(--viana);}
 footer .inner{max-width:1120px;}
 
-/* ---------- modal ---------- */
-
-#scrim{
-  position:fixed;inset:0;z-index:200;background:rgba(4,4,4,.86);
-  backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;
-  padding:clamp(16px,4vw,48px);
-}
+#scrim{position:fixed;inset:0;z-index:200;background:rgba(4,4,4,.86);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);}
 #scrim.open{display:flex;}
-.modal{
-  background:var(--surface);border-top:4px solid var(--viana);
-  max-width:720px;width:100%;max-height:88vh;overflow-y:auto;
-  padding:clamp(24px,4vw,40px);position:relative;
-}
+.modal{background:var(--surface);border-top:4px solid var(--viana);max-width:740px;width:100%;max-height:88vh;overflow-y:auto;padding:clamp(24px,4vw,40px);position:relative;}
 .modal h3{font-size:clamp(24px,4vw,36px);font-weight:900;margin-bottom:8px;line-height:1.02;}
 .modal .mkind{font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--viana);margin-bottom:14px;}
 .modal .mlead{font-size:16.5px;color:var(--ink2);margin-bottom:20px;}
 .modal h4{font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin:22px 0 8px;}
 .modal p,.modal ul{font-size:15.5px;color:var(--ink2);line-height:1.6;}
 .modal strong{color:var(--ink);}
-.mclose{
-  position:absolute;top:14px;right:14px;width:32px;height:32px;
-  background:transparent;border:1px solid var(--rule2);color:var(--ink2);
-  cursor:pointer;font-size:16px;line-height:1;padding:0;transition:.18s;
-}
+.modal code{font-family:var(--f-mono);font-size:12.5px;background:var(--surface3);padding:1px 6px;color:var(--ink);word-break:break-all;}
+.modal pre{font-family:var(--f-mono);font-size:12px;background:var(--surface3);padding:14px 16px;overflow-x:auto;color:var(--ink2);line-height:1.7;margin:10px 0 0;white-space:pre-wrap;}
+.mclose{position:absolute;top:14px;right:14px;width:32px;height:32px;background:transparent;border:1px solid var(--rule2);color:var(--ink2);cursor:pointer;font-size:16px;line-height:1;padding:0;transition:.18s;}
 .mclose:hover{border-color:var(--viana);color:var(--viana);}
 .mclose:focus-visible{outline:2px solid var(--viana);outline-offset:2px;}
 
@@ -359,27 +300,15 @@ footer .inner{max-width:1120px;}
 .howto div{display:grid;grid-template-columns:96px 1fr;gap:0 18px;align-items:center;background:var(--surface2);padding:13px 16px;}
 .howto .glyph{font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;color:var(--viana);text-transform:uppercase;}
 .howto .exp{font-size:14.5px;color:var(--ink2);line-height:1.45;}
-.btn{
-  display:inline-block;margin-top:22px;background:var(--viana);color:#fff;border:0;
-  padding:13px 26px;font-family:var(--f-disp);font-weight:900;font-size:16px;
-  text-transform:uppercase;letter-spacing:.06em;cursor:pointer;transition:.18s;
-}
+.btn{display:inline-block;margin-top:22px;background:var(--viana);color:#fff;border:0;padding:13px 26px;font-family:var(--f-disp);font-weight:900;font-size:16px;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;transition:.18s;}
 .btn:hover{background:var(--viana-deep);}
 .btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
-
-/* ---------- imagem tratada ---------- */
 
 .plate{position:relative;overflow:hidden;background:var(--surface);}
 .plate img{width:100%;display:block;filter:grayscale(.85) contrast(1.1) brightness(.86);}
 .plate::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(202,25,93,.3),transparent 60%);mix-blend-mode:screen;pointer-events:none;}
-.plate figcaption{
-  position:absolute;left:0;bottom:0;right:0;padding:14px 16px;
-  background:linear-gradient(to top,rgba(7,8,7,.94),transparent);
-  font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
-}
+.plate figcaption{position:absolute;left:0;bottom:0;right:0;padding:14px 16px;background:linear-gradient(to top,rgba(7,8,7,.94),transparent);font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px);align-items:center;}
-
-/* ---------- responsivo ---------- */
 
 @media (max-width:960px){
   .sim{grid-template-columns:1fr;}
@@ -387,16 +316,17 @@ footer .inner{max-width:1120px;}
   .capa-photo{max-height:38vh;aspect-ratio:auto;height:38vh;}
   #dots{display:none;}
   .split{grid-template-columns:1fr;}
+  .piece{grid-template-columns:1fr;gap:6px;}
+  .piece .pb{text-align:left;}
 }
 @media (max-width:680px){
   body{font-size:16px;}
   section{padding:86px var(--pad) 58px;min-height:auto;}
-  .rung{grid-template-columns:1fr;gap:8px;}
   .lvl-head{grid-template-columns:38px 1fr;}
   .lvl-p{grid-column:2;text-align:left;margin-top:8px;}
   .tap{grid-template-columns:34px 1fr;gap:0 14px;}
   .tap .tag{grid-column:2;text-align:left;margin-top:7px;}
-  .ph-row{grid-template-columns:1fr;gap:10px;}
+  .ph-row,.move{grid-template-columns:1fr;gap:10px;}
   .howto div{grid-template-columns:1fr;gap:5px;}
   .hint{display:none;}
 }
@@ -412,7 +342,7 @@ footer .inner{max-width:1120px;}
     <span>Guarda-chuva <b>Viana</b></span>
   </a>
   <div class="bar-right">
-    <div id="counter"><b>01</b> / 16</div>
+    <div id="counter"><b>01</b> / 17</div>
     <button id="helpbtn" type="button" aria-label="Como navegar nesta apresentação">?</button>
   </div>
 </header>
@@ -420,96 +350,134 @@ footer .inner{max-width:1120px;}
 <nav id="dots" aria-label="Navegação entre seções"></nav>
 <p class="hint"><kbd>←</kbd><kbd>→</kbd> navegar</p>
 
-<!-- ============ 01 CAPA ============ -->
+<!-- 01 CAPA -->
 <section id="capa" data-nav="Capa">
   <div class="inner">
     <div class="capa-wrap">
       <div>
-        <p class="eyebrow">Case de marketing <span class="sep">·</span> Consultoria do Viana</p>
-        <h1>Três produtos<br>que não se<br><span class="hl">conhecem</span></h1>
+        <p class="eyebrow">Case de marketing <span class="sep">·</span> Ecossistema Viana</p>
+        <h1>Está tudo aqui.<br>Só não está<br><span class="hl">junto</span>.</h1>
         <p class="lead">
-          Como transformar a Cozinha, a Batalha de Shapes e a Consultoria Individualizada
-          em <strong>uma escada única</strong>, onde cada degrau existe para levar ao próximo.
+          Não falta produto no ecossistema Viana. Existem <strong>13 peças, em 10 domínios,
+          sob 6 nomes de marca diferentes</strong>. O trabalho não é inventar. É organizar,
+          nomear e conectar.
         </p>
         <div class="capa-meta">
           <span>Lucas Bergman</span><span>Setembro 2026</span><span>Clique no <b style="color:var(--viana)">?</b> no topo</span>
         </div>
       </div>
       <figure class="capa-photo" style="margin:0">
-        <img src="img/hero-marcos.webp" alt="Marcos Viana, fundador da Consultoria do Viana" loading="eager">
+        <img src="img/hero-marcos.webp" alt="Marcos Viana, fundador do ecossistema Viana" loading="eager">
         <svg class="xover" viewBox="0 0 100 100" aria-hidden="true"><path d="M14 12 L86 88 M86 12 L14 88" stroke="#CA195D" stroke-width="9" stroke-linecap="round"/></svg>
       </figure>
     </div>
   </div>
 </section>
 
-<!-- ============ 02 O ABISMO ============ -->
-<section id="abismo" data-nav="O abismo">
+<!-- 02 MAPA DA DISPERSÃO -->
+<section id="dispersao" data-nav="Mapa da dispersão">
   <div class="inner">
     <p class="eyebrow"><span class="act">Ato 1 · Diagnóstico</span> <span class="sep">·</span> 01</p>
-    <h2>O problema não é falta de produto.<br>É <span class="hl">falta de degrau</span>.</h2>
-    <p class="lead">Hoje o ecossistema tem exatamente dois pontos de venda, e um abismo entre eles.</p>
-
-    <div class="gap-viz">
-      <div class="rung free"><span class="tick">Grátis</span><span class="what"><b>Blog e Instagram</b>88,1 mil e 217 mil seguidores. Não levam a lugar nenhum: o site da Consultoria não linka para nada.</span></div>
-      <div class="rung coz"><span class="tick">R$ 14,90<small>/mês</small></span><span class="what"><b>Cozinha do Viana</b>Mais de 13 mil receitas com macros. Aponta para a Consultoria, mas a Consultoria nunca aponta de volta.</span></div>
-      <div class="void">nada aqui · nenhum produto · nenhuma oferta · nenhum motivo para voltar</div>
-      <div class="rung cons"><span class="tick">R$ 384<small>/mês</small></span><span class="what"><b>Consultoria Individualizada</b>R$ 1.152 por ciclo de 3 meses. Turma fechada. Quando termina, o aluno não tem para onde ir.</span></div>
-    </div>
-
-    <div class="bignum">
-      <span class="n">26<span style="font-size:.42em">x</span></span>
-      <span class="t">é o salto de ticket mensal entre um degrau e o outro. Ninguém sobe um degrau desse tamanho. Quem não pode pagar R$&nbsp;384 por mês simplesmente sai do ecossistema.</span>
+    <h2>O mapa da <span class="hl">dispersão</span></h2>
+    <p class="lead">Levantei cada peça viva do ecossistema, onde ela mora e sob que nome ela se apresenta. Clique em qualquer uma.</p>
+    <div class="disp" id="disp"></div>
+    <div class="journey">
+      <p class="jl">A jornada real de quem compra hoje</p>
+      <p class="jt">Um aluno atravessa seis marcas<br>antes de terminar o onboarding</p>
+      <p class="jf" id="journey-flow"></p>
     </div>
   </div>
 </section>
 
-<!-- ============ 03 INVENTÁRIO ============ -->
-<section id="inventario" data-nav="O que existe">
+<!-- 03 DIAGNÓSTICO TÉCNICO -->
+<section id="tecnico" data-nav="Diagnóstico técnico">
   <div class="inner">
     <p class="eyebrow"><span class="act">Ato 1 · Diagnóstico</span> <span class="sep">·</span> 02</p>
-    <h2>O que já existe<br>e o que está <span class="hl">parado</span></h2>
-    <p class="lead">Sete ativos vivos, quase nenhum conectado ao outro. Clique em qualquer um para o detalhe.</p>
-    <div class="grid g-auto" id="assets" style="margin-top:28px"></div>
+    <h2>O que os sites<br>estão <span class="hl">perdendo</span></h2>
+    <p class="lead">
+      Auditei as três propriedades oficiais: HTML servido, robots, sitemap, dados estruturados,
+      peso real das imagens e rastreamento. Seis áreas, cada uma com a evidência e o conserto.
+    </p>
+    <div class="scorecard" id="scorecard"></div>
+
+    <h3 style="margin-top:38px">Três propriedades, três maturidades diferentes</h3>
+    <div class="matrix3">
+      <div class="prop" style="border-top-color:var(--viana)">
+        <p class="ph">Consultoria</p><p class="pu">consultoriadoviana.com · Squarespace</p>
+        <ul>
+          <li><i class="mid">~</i><span>title existe, mas diz "Batalha de Shapes"</span></li>
+          <li><i class="no">✕</i><span>meta description vazia</span></li>
+          <li><i class="no">✕</i><span>36 alt com nome de arquivo, 60 vazios</span></li>
+          <li><i class="no">✕</i><span>JSON-LD só WebSite, sem descrição</span></li>
+          <li><i class="no">✕</i><span>nenhum pixel ou analytics</span></li>
+          <li><i class="no">✕</i><span>sem llms.txt</span></li>
+          <li><i class="yes">✓</i><span>viewport e lang corretos</span></li>
+        </ul>
+      </div>
+      <div class="prop" style="border-top-color:var(--cozinha)">
+        <p class="ph">Cozinha</p><p class="pu">cozinhadoviana.com.br · Netlify</p>
+        <ul>
+          <li><i class="no">✕</i><span><strong>nenhuma tag title</strong></span></li>
+          <li><i class="no">✕</i><span>nenhuma meta description</span></li>
+          <li><i class="no">✕</i><span>nenhuma tag Open Graph</span></li>
+          <li><i class="no">✕</i><span>sem atributo lang no html</span></li>
+          <li><i class="no">✕</i><span>sem JSON-LD e sem pixel</span></li>
+          <li><i class="yes">✓</i><span>responsivo de verdade, ponto a ponto</span></li>
+          <li><i class="yes">✓</i><span>melhor código do ecossistema</span></li>
+        </ul>
+      </div>
+      <div class="prop" style="border-top-color:var(--ok)">
+        <p class="ph">Blog</p><p class="pu">blog.vianafit.com.br · Ghost</p>
+        <ul>
+          <li><i class="yes">✓</i><span>title e description corretos</span></li>
+          <li><i class="yes">✓</i><span>JSON-LD com Organization</span></li>
+          <li><i class="yes">✓</i><span><strong>llms.txt e llms-full.txt</strong></span></li>
+          <li><i class="yes">✓</i><span>Markdown por post, para IA</span></li>
+          <li><i class="yes">✓</i><span>analytics presente</span></li>
+          <li><i class="no">✕</i><span>subdomínio que ninguém linka</span></li>
+          <li><i class="no">✕</i><span>nenhum artigo termina em captura</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="quote" style="max-width:40ch">A propriedade melhor construída<br>é a pior encontrada. A melhor<br>preparada para IA é a que<br><i>ninguém linka</i>.</div>
   </div>
 </section>
 
-<!-- ============ 04 BENCHMARKS ============ -->
+<!-- 04 BENCHMARKS -->
 <section id="benchmarks" data-nav="Benchmarks">
   <div class="inner">
     <p class="eyebrow"><span class="act">Ato 2 · Referência</span> <span class="sep">·</span> 03</p>
     <h2>Quem já resolveu<br>esse <span class="hl">problema</span></h2>
-    <p class="lead">
-      Quatro operações que enfrentaram exatamente a mesma questão de arquitetura de produto.
-      Clique para ver o número e o que dá para trazer.
-    </p>
+    <p class="lead">Quatro leituras de mercado sobre a mesma questão: como uma marca de método cresce além da pessoa que a criou.</p>
     <div class="grid g-auto" id="benches" style="margin-top:28px"></div>
   </div>
 </section>
 
-<!-- ============ 05 A TESE ============ -->
+<!-- 05 A TESE -->
 <section id="tese" data-nav="A tese">
   <div class="inner">
     <div class="split">
       <div>
         <p class="eyebrow"><span class="act">Ato 3 · Arquitetura</span> <span class="sep">·</span> 04</p>
-        <h2>Organizar por profundidade<br>de <span class="hl">acompanhamento</span></h2>
+        <h2>A dispersão tem<br>uma <span class="hl">causa</span></h2>
         <p>
-          O erro seria organizar o guarda-chuva por tipo de conteúdo: receita aqui, treino ali,
-          conteúdo acolá. Isso cria catálogo, não escada.
+          Treze peças em dez domínios não acontecem por descuido. Acontecem porque
+          <strong>nunca existiu uma marca acima delas</strong>. Cada produto novo precisou de um
+          nome, e cada nome virou uma ilha.
         </p>
         <p>
           A marca já escolheu a metáfora certa quando se chamou de <strong>Alfaiates de Shapes</strong>.
-          Alfaiataria tem uma progressão que o cliente entende sem explicação: do pronto para vestir
-          até o sob medida. É o eixo em que o preço cresce junto com a entrega.
+          Alfaiataria tem uma progressão que o cliente entende sem explicação, do pronto para vestir
+          até o sob medida. O que falta não é um degrau: é o <em>guarda-chuva</em> que diz que todos
+          esses degraus são da mesma casa.
         </p>
         <p>
-          Cada degrau responde a uma pergunta diferente. O grátis responde <em>"esse cara sabe do que
-          fala?"</em>. A Cozinha responde <em>"consigo executar no meu dia?"</em>. O degrau novo responde
-          <em>"o método funciona pra mim?"</em>. A Consultoria responde <em>"quero alguém olhando só
-          pra mim"</em>. E a continuidade responde <em>"como eu não perco o que conquistei?"</em>.
+          E existe um segundo motivo, mais delicado. O ativo central hoje é uma pessoa física.
+          Enquanto a promessa for "o Viana", o teto da empresa é a agenda dele, e nenhuma
+          arquitetura de produto resolve isso.
         </p>
-        <div class="quote">Ninguém compra sob medida<br>sem antes ter provado<br><i>o pronto para vestir</i></div>
+        <div class="quote">Nada precisa ser inventado.<br>Precisa ser <i>nomeado e ligado</i>.</div>
       </div>
       <figure class="plate" style="margin:0">
         <img src="img/entregaveis.webp" alt="Peça de entregáveis da Consultoria do Viana" loading="lazy">
@@ -519,119 +487,125 @@ footer .inner{max-width:1120px;}
   </div>
 </section>
 
-<!-- ============ 06 A ESCADA ============ -->
+<!-- 06 O GUARDA-CHUVA -->
 <section id="escada" data-nav="O guarda-chuva">
   <div class="inner">
     <p class="eyebrow"><span class="act">Ato 3 · Arquitetura</span> <span class="sep">·</span> 05</p>
     <h2>O guarda-chuva <span class="hl">VianaFit</span></h2>
-    <p class="lead">Cinco degraus. Dois ainda não existem, e são justamente os que sustentam o negócio. Clique em cada um.</p>
+    <p class="lead">
+      Cinco degraus. <strong>Todos já existem.</strong> Nenhum precisa ser criado, e cada um tem
+      uma patologia diferente. Clique para ver qual.
+    </p>
     <div class="ladder" id="ladder"></div>
+    <p style="margin-top:22px;max-width:70ch;color:var(--ink2);font-size:15.5px">
+      Repare que a coluna da direita nunca diz "não existe". Diz sempre <strong>"existe"</strong>,
+      seguido do que está errado. Essa é a diferença entre um diagnóstico que soa como crítica e
+      um que soa como oportunidade.
+    </p>
   </div>
 </section>
 
-<!-- ============ 07 O MOTOR ============ -->
-<section id="motor" data-nav="O motor">
+<!-- 07 MÉTODO ACIMA DAS PESSOAS -->
+<section id="metodo" data-nav="O método como marca">
   <div class="inner">
     <p class="eyebrow"><span class="act">Ato 3 · Arquitetura</span> <span class="sep">·</span> 06</p>
+    <h2>O ativo não é o Viana.<br>É o <span class="hl">método</span>.</h2>
+    <p class="lead">
+      Sete métricas, revisão a cada quinze dias, plano entregue em vídeo. Isso é sistematizável,
+      ensinável e auditável, ou seja: <strong>pode virar marca</strong>. Uma pessoa não pode.
+    </p>
+
+    <div class="hier">
+      <p class="top">Método Viana</p>
+      <p class="topsub">O ativo · a promessa · o que se compra</p>
+      <div class="stem"></div>
+      <div class="row">
+        <div class="node"><b>Marcos</b><span>Criador do método<br>maior prova de origem</span></div>
+        <div class="node"><b>Samantha</b><span>Cocriadora<br>voz editorial</span></div>
+        <div class="node"><b>6 especialistas</b><span>Formados no método<br>quem entrega no dia a dia</span></div>
+      </div>
+    </div>
+
+    <div class="moves">
+      <div class="move"><span class="mn">01</span><span><b>Nomear o método</b><span>Hoje ele não tem nome. Sem nome não vira ativo: não dá para certificar, licenciar nem defender. Um método com nome sobrevive à saída de qualquer pessoa.</span></span></div>
+      <div class="move"><span class="mn">02</span><span><b>Subordinar todo mundo a ele</b><span>Marcos deixa de ser "o Viana" e passa a ser o criador. Os especialistas passam a ser formados nele. Mesma hierarquia para os dois, o que é exatamente o que torna a promessa transferível.</span></span></div>
+      <div class="move"><span class="mn">03</span><span><b>Tornar o método visível</b><span>As sete métricas existem hoje apenas dentro de uma imagem. Precisam de página, documentação e nome próprio. O que não é visível não pode ser a marca.</span></span></div>
+      <div class="move"><span class="mn">04</span><span><b>Provar com o time, não com o fundador</b><span>Cada case atribuído ao especialista que conduziu, com nome e rosto. Os seis especialistas nunca foram nomeados publicamente em nenhuma propriedade do ecossistema.</span></span></div>
+    </div>
+
+    <div class="risk">
+      <b>O risco, dito na cara</b>
+      <p>
+        Isso abre mão dos 217 mil seguidores do perfil pessoal como alavanca direta de venda, e essa
+        é uma perda real que não adianta esconder. A mitigação é que o perfil dele não vira
+        institucional: ele passa a ser o maior evangelista do método, não o produto. A audiência
+        continua sendo dele. A promessa é que muda de dono.
+      </p>
+      <p style="margin-top:12px">
+        <strong>A métrica que prova que funcionou:</strong> percentual de matrículas fechadas sem o
+        Marcos aparecer na peça de venda. Se hoje é perto de zero, uma meta de 40% em doze meses
+        é agressiva e mensurável.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 O MOTOR -->
+<section id="motor" data-nav="O motor">
+  <div class="inner">
+    <p class="eyebrow"><span class="act">Ato 3 · Arquitetura</span> <span class="sep">·</span> 07</p>
     <h2>A Batalha de Shapes não é<br>um produto. É o <span class="hl">motor</span>.</h2>
-    <p class="lead">Um mecanismo fazendo três trabalhos ao mesmo tempo. É o que transforma cinco produtos soltos num sistema que gira sozinho.</p>
+    <p class="lead">
+      Ela já existe e já roda todo mês, conduzida pelos treinadores do time. Falta apenas dar a ela
+      a função que ela pode ter: mover gente entre os degraus.
+    </p>
 
     <div class="grid g-auto" style="margin-top:28px">
-      <div class="cog">
-        <span class="step">Trabalho 1 · Entrada</span>
-        <span class="flow">Cozinha <i>→</i> Batalha</span>
-        <p>Participar exige assinatura ativa da Cozinha. Isso dá um motivo concreto e datado para alguém pagar os R$ 14,90, que hoje é uma decisão sem urgência nenhuma.</p>
-      </div>
-      <div class="cog">
-        <span class="step">Trabalho 2 · Subida</span>
-        <span class="flow">Batalha <i>→</i> Consultoria</span>
-        <p>O prêmio do vencedor é bolsa na Consultoria, e todo finalista recebe condição especial na turma seguinte. A premiação deixa de ser custo e vira mecanismo de conversão.</p>
-      </div>
-      <div class="cog">
-        <span class="step">Trabalho 3 · Combustível</span>
-        <span class="flow">Batalha <i>→</i> Conteúdo</span>
-        <p>Cada edição gera antes e depois com nome e número, entrevistas com finalistas e ranking público. Uma edição abastece o mês inteiro de conteúdo do topo do funil.</p>
-      </div>
+      <div class="cog"><span class="step">Trabalho 1 · Entrada</span><span class="flow">Cozinha <i>→</i> Batalha</span><p>Participar exige assinatura ativa da Cozinha. Isso dá um motivo concreto e datado para alguém pagar os R$ 14,90, que hoje é uma decisão adiável para sempre.</p></div>
+      <div class="cog"><span class="step">Trabalho 2 · Subida</span><span class="flow">Batalha <i>→</i> Consultoria</span><p>O prêmio é bolsa na consultoria com especialista, e todo finalista recebe condição na turma seguinte. A premiação deixa de ser custo e vira mecanismo de conversão.</p></div>
+      <div class="cog"><span class="step">Trabalho 3 · Prova do time</span><span class="flow">Batalha <i>→</i> Autoridade</span><p>Como quem conduz a Batalha são os treinadores, cada edição é uma vitrine deles, com nome e resultado. É o veículo mais natural para transferir autoridade do fundador para o método.</p></div>
     </div>
 
-    <div class="quote" style="max-width:36ch">A campanha deixa de ser<br>despesa de marketing<br>e vira <i>a engrenagem do funil</i></div>
+    <div class="quote" style="max-width:38ch">A campanha deixa de ser<br>despesa de marketing<br>e vira <i>a engrenagem do funil</i></div>
   </div>
 </section>
 
-<!-- ============ 08 ESTEIRA DE CAPTURA ============ -->
+<!-- 09 ESTEIRA -->
 <section id="esteira" data-nav="Esteira de captura">
   <div class="inner">
-    <p class="eyebrow"><span class="act">Ato 4 · Motor de marketing</span> <span class="sep">·</span> 07</p>
+    <p class="eyebrow"><span class="act">Ato 4 · Motor de marketing</span> <span class="sep">·</span> 08</p>
     <h2>Esteira de captura<br>que não <span class="hl">acaba</span></h2>
-    <p class="lead">
-      Campanha capta enquanto roda e para quando acaba. O que sustenta um funil de verdade são
-      fontes que continuam captando sozinhas. Cinco torneiras, três delas perenes.
-    </p>
+    <p class="lead">Campanha capta enquanto roda e para quando acaba. O que sustenta um funil são fontes que continuam captando sozinhas. Cinco torneiras, três perenes.</p>
 
     <div class="taps">
-      <div class="tap">
-        <span class="ic">01</span>
-        <span class="tx"><b>Cada artigo termina numa isca</b><span>O artigo sobre calorias termina na calculadora de macros. O de treino, na planilha de progressão. Publicado uma vez, captura por anos.</span></span>
-        <span class="tag perene">Perene<br>custo marginal zero</span>
-      </div>
-      <div class="tap">
-        <span class="ic">02</span>
-        <span class="tx"><b>Ferramentas gratuitas, não e-books</b><span>Calculadora de TMB e macros, simulador de tempo até a meta, quiz de perfil. Ferramenta entrega valor na hora, então o e-mail vira troca justa. E rankeia em busca.</span></span>
-        <span class="tag perene">Perene<br>+ tráfego orgânico</span>
-      </div>
-      <div class="tap">
-        <span class="ic">03</span>
-        <span class="tx"><b>Cases com nome próprio, em página indexável</b><span>Cada transformação vira página com nome, número e foto. Quem busca "consultoria do viana funciona" encontra a resposta na fonte, não no concorrente.</span></span>
-        <span class="tag perene">Perene<br>prova + busca</span>
-      </div>
-      <div class="tap">
-        <span class="ic">04</span>
-        <span class="tx"><b>Automação de comentário para DM</b><span>Palavra-chave no comentário dispara a conversa no direct. Vale para o post de hoje e para o Reel de oito meses atrás, que continua rodando.</span></span>
-        <span class="tag ciclo">Semi-perene<br>305 mil seguidores</span>
-      </div>
-      <div class="tap">
-        <span class="ic">05</span>
-        <span class="tx"><b>UGC da Batalha</b><span>Cada participante posta a própria evolução e marca a marca. Alcance que a empresa não compra e não produz, e que se renova a cada edição.</span></span>
-        <span class="tag ciclo">Cíclico<br>12 edições/ano</span>
-      </div>
+      <div class="tap"><span class="ic">01</span><span class="tx"><b>Cada artigo termina numa isca</b><span>O artigo sobre calorias termina na calculadora de macros. O de treino, na planilha de progressão. Publicado uma vez, capta por anos. O blog já produz semanalmente e nenhum post captura nada.</span></span><span class="tag perene">Perene<br>custo marginal zero</span></div>
+      <div class="tap"><span class="ic">02</span><span class="tx"><b>Ferramentas gratuitas, não e-books</b><span>Calculadora de TMB e macros, simulador de tempo até a meta, quiz de perfil. Ferramenta entrega valor na hora, então o e-mail vira troca justa. E rankeia em busca.</span></span><span class="tag perene">Perene<br>+ tráfego orgânico</span></div>
+      <div class="tap"><span class="ic">03</span><span class="tx"><b>Cases com nome próprio, indexáveis</b><span>O blog já faz isso bem na categoria Cases. Falta escala, falta ligação com o produto e falta o nome do especialista que conduziu cada um.</span></span><span class="tag perene">Perene<br>prova + busca</span></div>
+      <div class="tap"><span class="ic">04</span><span class="tx"><b>Automação de comentário para DM</b><span>Palavra-chave no comentário dispara a conversa no direct. Vale para o post de hoje e para o Reel de oito meses atrás, que continua rodando.</span></span><span class="tag ciclo">Semi-perene<br>305 mil seguidores</span></div>
+      <div class="tap"><span class="ic">05</span><span class="tx"><b>UGC da Batalha</b><span>Cada participante posta a própria evolução e marca a marca. Alcance que a empresa não compra e não produz, e que se renova a cada edição.</span></span><span class="tag ciclo">Cíclico<br>12 edições/ano</span></div>
     </div>
 
-    <p style="margin-top:26px;max-width:70ch">
-      <strong>A régua de pedido importa tanto quanto a isca.</strong> No topo se pede só o primeiro nome e o e-mail.
-      No meio, o WhatsApp, em troca de algo com data marcada. No fundo, os dados de perfil, que a pessoa
-      já quer entregar porque quer o plano certo. Pedir tudo na primeira tela é o erro mais caro e mais comum.
-    </p>
+    <p style="margin-top:26px;max-width:70ch"><strong>A régua de pedido importa tanto quanto a isca.</strong> No topo se pede só o primeiro nome e o e-mail. No meio, o WhatsApp, em troca de algo com data marcada. No fundo, os dados de perfil, que a pessoa já quer entregar porque quer o plano certo. Pedir tudo na primeira tela é o erro mais caro e mais comum.</p>
   </div>
 </section>
 
-<!-- ============ 09 ATIVAÇÃO DA BASE ============ -->
+<!-- 10 ATIVAR A BASE -->
 <section id="ativacao" data-nav="Ativar a base">
   <div class="inner">
-    <p class="eyebrow"><span class="act">Ato 4 · Motor de marketing</span> <span class="sep">·</span> 08</p>
+    <p class="eyebrow"><span class="act">Ato 4 · Motor de marketing</span> <span class="sep">·</span> 09</p>
     <h2>A receita mais barata<br>já está na <span class="hl">base</span></h2>
-    <p class="lead">
-      Antes de comprar um lead novo, falar com quem já levantou a mão. Cinco segmentos,
-      cinco conversas diferentes. Clique para ver a régua de cada um.
-    </p>
+    <p class="lead">Antes de comprar um lead novo, falar com quem já levantou a mão. Cinco segmentos, cinco conversas. Clique para ver a régua de cada um.</p>
     <div class="grid g-auto" id="segments" style="margin-top:28px"></div>
-
-    <p style="margin-top:26px;max-width:70ch">
-      <strong>O gatilho não é o calendário, é o comportamento.</strong> Parou de fazer check-in por cinco dias,
-      cancelou a Cozinha, terminou o ciclo há noventa dias, abriu a página de preço e não comprou.
-      Cada um desses eventos dispara uma conversa diferente, e nenhum deles depende de alguém lembrar de disparar.
-    </p>
+    <p style="margin-top:26px;max-width:70ch"><strong>O gatilho não é o calendário, é o comportamento.</strong> Parou de fazer check-in por cinco dias, cancelou a Cozinha, terminou o ciclo há noventa dias, abriu a página de preço e não comprou. Cada evento dispara uma conversa diferente, e nenhum depende de alguém lembrar de disparar.</p>
   </div>
 </section>
 
-<!-- ============ 10 UPSELL / CROSS-SELL ============ -->
+<!-- 11 MATRIZ -->
 <section id="matriz" data-nav="Upsell e cross-sell">
   <div class="inner">
-    <p class="eyebrow"><span class="act">Ato 4 · Motor de marketing</span> <span class="sep">·</span> 09</p>
+    <p class="eyebrow"><span class="act">Ato 4 · Motor de marketing</span> <span class="sep">·</span> 10</p>
     <h2>Nenhum degrau existe<br><span class="hl">sozinho</span></h2>
-    <p class="lead">
-      Sete rotas entre os produtos, cada uma com um gatilho e um momento. Clique em qualquer rota
-      para ver a mecânica.
-    </p>
+    <p class="lead">Nove rotas entre as peças que já existem, cada uma com gatilho e momento. Clique em qualquer uma.</p>
     <div class="matrix" id="matrix"></div>
     <div class="legend">
       <span><i style="background:var(--viana)"></i> Upsell · sobe de degrau</span>
@@ -641,23 +615,23 @@ footer .inner{max-width:1120px;}
   </div>
 </section>
 
-<!-- ============ 11 MATERIAIS E CAMPANHAS ============ -->
+<!-- 12 MATERIAIS -->
 <section id="materiais" data-nav="Materiais e campanhas">
   <div class="inner">
-    <p class="eyebrow"><span class="act">Ato 4 · Motor de marketing</span> <span class="sep">·</span> 10</p>
+    <p class="eyebrow"><span class="act">Ato 4 · Motor de marketing</span> <span class="sep">·</span> 11</p>
     <h2>Materiais de ativação<br>e as <span class="hl">campanhas</span> que eles sustentam</h2>
-    <p class="lead">Seis materiais produzíveis com o time que já existe. Cada aba traz o material, a campanha e o que ele alimenta depois.</p>
+    <p class="lead">Sete materiais produzíveis com o time que já existe. Cada aba traz o material, a campanha e o que ele alimenta depois.</p>
     <div class="tabs" id="mat-tabs" role="tablist" aria-label="Materiais de ativação"></div>
     <div class="tabpanel" id="mat-panel" role="tabpanel"></div>
   </div>
 </section>
 
-<!-- ============ 12 SIMULADOR ============ -->
+<!-- 13 SIMULADOR -->
 <section id="simulador" data-nav="Simulador">
   <div class="inner">
-    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 11</p>
-    <h2>O que essa escada<br>vale por <span class="hl">ano</span></h2>
-    <p class="lead">Arraste as premissas. O modelo recalcula na hora.</p>
+    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 12</p>
+    <h2>O que a escada conectada<br>vale por <span class="hl">ano</span></h2>
+    <p class="lead">Arraste as premissas. O modelo recalcula na hora e ignora o nível mais caro, então é piso, não teto.</p>
 
     <div class="sim">
       <div class="sim-in">
@@ -669,7 +643,8 @@ footer .inner{max-width:1120px;}
           Fixos, apurados nos ativos públicos:<br>
           <b>Cozinha</b> R$ 14,90/mês · <b>Consultoria</b> R$ 1.152/ciclo<br>
           <b>Base atual</b> 650 alunos por ciclo · <b>4 ciclos</b>/ano<br>
-          <b>Batalha</b> 12 edições/ano
+          <b>Batalha</b> 12 edições/ano<br>
+          <b>Nível 4</b> fora do modelo, por não ter preço público
         </p>
       </div>
       <div class="sim-out">
@@ -677,94 +652,86 @@ footer .inner{max-width:1120px;}
           <div class="res-row"><span class="rl"><b>Nível 1 · Cozinha</b><span id="d-n1"></span></span><span class="rv" id="v-n1">R$ 0</span></div>
           <div class="res-row"><span class="rl"><b>Nível 2 · Batalha</b><span id="d-n2"></span></span><span class="rv" id="v-n2">R$ 0</span></div>
           <div class="res-row"><span class="rl"><b>Nível 3 · Consultoria</b><span id="d-n3"></span></span><span class="rv" id="v-n3">R$ 0</span></div>
+          <div class="res-row ghost"><span class="rl"><b>Nível 4 · Com o Marcos</b><span>high ticket, fora do modelo</span></span><span class="rv">não contabilizado</span></div>
         </div>
-        <div class="res-total"><span class="lab">Receita anual do ecossistema</span><span class="big" id="v-total">R$ 0</span></div>
+        <div class="res-total"><span class="lab">Receita anual, sem o nível 4</span><span class="big" id="v-total">R$ 0</span></div>
         <p class="delta" id="v-delta"></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 13 CALENDÁRIO ============ -->
+<!-- 14 CALENDÁRIO -->
 <section id="calendario" data-nav="12 meses">
   <div class="inner">
-    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 12</p>
+    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 13</p>
     <h2>Doze meses,<br>três <span class="hl">ondas</span></h2>
-    <p class="lead">Nada de lançar tudo junto. A ordem importa: primeiro medir, depois capturar, depois vender o degrau novo.</p>
+    <p class="lead">Nada de lançar tudo junto. A ordem importa: primeiro medir, depois conectar, depois transferir autoridade.</p>
     <div class="tl" id="tl" role="tablist" aria-label="Calendário de 12 meses"></div>
     <div class="tl-detail" id="tl-detail" role="tabpanel"></div>
   </div>
 </section>
 
-<!-- ============ 14 MÉTRICAS ============ -->
+<!-- 15 MÉTRICAS -->
 <section id="metricas" data-nav="Métricas">
   <div class="inner">
-    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 13</p>
+    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 14</p>
     <h2>Uma métrica-mãe<br>por <span class="hl">degrau</span></h2>
     <p class="lead">Painel único, atualizado sozinho. Nenhum nível é avaliado pela métrica do vizinho.</p>
 
     <div class="grid g-auto" style="margin-top:26px">
-      <div class="kpi" style="border-top-color:#6E6663"><span class="lv">Nível 0 · Grátis</span><span class="mother">Leads por mês</span><p>Não seguidores. Contato com e-mail ou WhatsApp que entrou na base.</p><span class="sec">Apoio: alcance, custo por lead, taxa de captura por canal</span></div>
+      <div class="kpi" style="border-top-color:#6E6663"><span class="lv">Nível 0 · Grátis</span><span class="mother">Leads por mês</span><p>Não seguidores. Contato com e-mail ou WhatsApp que entrou na base.</p><span class="sec">Apoio: alcance, custo por lead, captura por canal</span></div>
       <div class="kpi" style="border-top-color:#FF2D00"><span class="lv">Nível 1 · Cozinha</span><span class="mother">Churn mensal</span><p>Assinatura de R$ 14,90 só faz sentido se as pessoas ficarem. Retenção é o negócio inteiro.</p><span class="sec">Apoio: assinantes ativos, receitas salvas, uso semanal</span></div>
-      <div class="kpi"><span class="lv">Nível 2 · Batalha</span><span class="mother">Conversão para o nível 3</span><p>A Batalha não existe para dar lucro próprio. Existe para produzir aluno de Consultoria.</p><span class="sec">Apoio: inscritos por edição, taxa de conclusão, peças geradas</span></div>
+      <div class="kpi"><span class="lv">Nível 2 · Batalha</span><span class="mother">Conversão para o nível 3</span><p>A Batalha não existe para dar lucro próprio. Existe para produzir aluno de consultoria.</p><span class="sec">Apoio: inscritos, taxa de conclusão, peças de UGC geradas</span></div>
       <div class="kpi"><span class="lv">Nível 3 · Consultoria</span><span class="mother">Taxa de renovação de ciclo</span><p>Num modelo de turma de 3 meses, cada ponto de renovação vale mais que qualquer ganho de topo.</p><span class="sec">Apoio: alunos ativos, NPS, ocupação, carga por especialista</span></div>
-      <div class="kpi"><span class="lv">Nível 4 · Continuidade</span><span class="mother">Reativação de ex-alunos</span><p>Aproximadamente 4.000 pessoas que já compraram. A receita mais barata disponível.</p><span class="sec">Apoio: base ativa, retorno por campanha, tempo até o retorno</span></div>
-      <div class="kpi" style="border-top-color:#CA195D"><span class="lv">Transversal</span><span class="mother">Receita por lead</span><p>O número que amarra a escada e mostra se os degraus estão de fato conectados.</p><span class="sec">Apoio: LTV por origem, tempo entre níveis, migração entre degraus</span></div>
+      <div class="kpi" style="border-top-color:var(--viana)"><span class="lv">Nível 4 · Com o Marcos</span><span class="mother">Ocupação da agenda</span><p>Produto limitado por definição. A métrica não é volume, é ocupação e fila de espera.</p><span class="sec">Apoio: ticket médio, tempo de fila, origem do lead</span></div>
+      <div class="kpi" style="border-top-color:var(--viana)"><span class="lv">Transversal · a métrica do ano</span><span class="mother">Vendas sem o Marcos na peça</span><p>O indicador que prova se a marca do método está de pé. Meta agressiva: 40% em doze meses.</p><span class="sec">Apoio: receita por lead, LTV por origem, migração entre degraus</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ 15 90 DIAS ============ -->
+<!-- 16 90 DIAS -->
 <section id="noventa" data-nav="90 dias">
   <div class="inner">
-    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 14</p>
+    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 15</p>
     <h2>O que eu faria nos<br>primeiros <span class="hl">90 dias</span></h2>
-    <p class="lead">A ordem é deliberada: instrumentar, capturar, conectar, então lançar.</p>
+    <p class="lead">A ordem é deliberada: instrumentar, conectar, então nomear.</p>
 
     <div class="grid" style="margin-top:24px;gap:2px">
-      <div class="ph-row">
-        <span class="when">Semana<br>1 a 2</span>
-        <div><h3>Instrumentar</h3><ol>
-          <li><strong>GA4, Meta Pixel e Clarity.</strong> Hoje não há nenhum rastreamento no site da Consultoria. Sem isso nenhuma métrica desta apresentação é verificável.</li>
-          <li><strong>Padrão de UTM</strong> entre as três propriedades e os dois perfis.</li>
-          <li><strong>Painel único</strong> ligando Cozinha, Consultoria e Batalha numa visão só.</li>
-        </ol></div>
-      </div>
-      <div class="ph-row">
-        <span class="when">Semana<br>3 a 6</span>
-        <div><h3>Capturar e conectar</h3><ol start="4">
-          <li><strong>Rodapé compartilhado</strong> entre as três propriedades. É o conserto mais barato do ecossistema.</li>
-          <li><strong>Primeiras duas ferramentas gratuitas</strong> no ar, com captura de e-mail no resultado.</li>
-          <li><strong>Automação de comentário para DM</strong> nos dois perfis, ligando 305 mil seguidores a uma base própria.</li>
-        </ol></div>
-      </div>
-      <div class="ph-row">
-        <span class="when">Semana<br>7 a 12</span>
-        <div><h3>Lançar o degrau novo</h3><ol start="7">
-          <li><strong>Regulamento e landing page</strong> da Batalha, com inscrição paga integrada ao CRM.</li>
-          <li><strong>Primeira edição paga</strong>, com meta declarada de conversão para a turma seguinte.</li>
-          <li><strong>Campanha de reativação</strong> dos ex-alunos ancorada nessa primeira edição.</li>
-        </ol></div>
-      </div>
+      <div class="ph-row"><span class="when">Semana<br>1 a 2</span><div><h3>Instrumentar</h3><ol>
+        <li><strong>GA4, Meta Pixel e Clarity</strong> nas três propriedades. Hoje nenhuma delas, exceto o blog, tem qualquer rastreamento.</li>
+        <li><strong>Head da Cozinha</strong>: title, description, Open Graph e lang. É uma tarde de trabalho num produto de assinatura que hoje não tem título.</li>
+        <li><strong>Padrão de UTM</strong> e painel único de KPI.</li>
+      </ol></div></div>
+      <div class="ph-row"><span class="when">Semana<br>3 a 6</span><div><h3>Conectar</h3><ol start="4">
+        <li><strong>Rodapé compartilhado</strong> entre as três propriedades. É o conserto mais barato do ecossistema inteiro.</li>
+        <li><strong>Captura no fim de cada artigo</strong> do blog, mais as duas primeiras ferramentas gratuitas.</li>
+        <li><strong>Automação de comentário para DM</strong> nos dois perfis.</li>
+      </ol></div></div>
+      <div class="ph-row"><span class="when">Semana<br>7 a 12</span><div><h3>Nomear</h3><ol start="7">
+        <li><strong>Nome e página do método</strong>, com as sete métricas em texto real e não em imagem.</li>
+        <li><strong>Página do time</strong>, com os seis especialistas nomeados e o selo de formação.</li>
+        <li><strong>Primeira edição paga da Batalha</strong>, conduzida e assinada pelos treinadores.</li>
+      </ol></div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ 16 FECHO ============ -->
+<!-- 17 FECHO -->
 <section id="fecho" data-nav="Fecho">
   <div class="inner">
-    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 15</p>
-    <h2>A marca resolveu a parte difícil.<br>Falta resolver a <span class="hl">parte fácil</span>.</h2>
+    <p class="eyebrow"><span class="act">Ato 5 · Execução</span> <span class="sep">·</span> 16</p>
+    <h2>Quinze anos construíram<br>as peças. Falta a <span class="hl">casa</span>.</h2>
     <p class="lead">
-      Posicionamento, método e voz estão maduros e são difíceis de copiar. Quinze anos construíram isso.
-      O que falta é arquitetura, e arquitetura é decisão, não talento.
+      Posicionamento, método e voz estão maduros e são difíceis de copiar. O que falta é
+      arquitetura, e arquitetura é decisão, não talento.
     </p>
 
     <div class="grid g-auto close-grid" style="margin-top:32px">
-      <div class="card" style="border-top-color:var(--viana)"><span class="k">2</span><p>degraus a construir: o produto de entrada no método e o de continuidade. Os outros três já existem e só precisam ser conectados.</p></div>
-      <div class="card" style="border-top-color:var(--viana)"><span class="k">1</span><p>mecanismo que resolve os dois: a Batalha de Shapes deixando de ser vitrine para virar motor.</p></div>
-      <div class="card" style="border-top-color:var(--viana)"><span class="k">5</span><p>torneiras de captura, três delas perenes, para o funil parar de depender de campanha nova todo mês.</p></div>
-      <div class="card" style="border-top-color:var(--viana)"><span class="k">90</span><p>dias do zero de rastreamento até a primeira edição paga rodando com meta declarada.</p></div>
+      <div class="card" style="border-top-color:var(--viana)"><span class="k">13</span><p>peças vivas espalhadas em 10 domínios e 6 nomes de marca. Nenhuma precisa ser criada, todas precisam ser conectadas.</p></div>
+      <div class="card" style="border-top-color:var(--viana)"><span class="k">1</span><p>marca acima delas: o método com nome próprio, com o fundador e o time igualmente subordinados a ele.</p></div>
+      <div class="card" style="border-top-color:var(--viana)"><span class="k">5</span><p>torneiras de captura, três perenes, para o funil parar de depender de campanha nova todo mês.</p></div>
+      <div class="card" style="border-top-color:var(--viana)"><span class="k">40%</span><p>de vendas fechadas sem o Marcos na peça, em doze meses. É a métrica que prova que a marca do método está de pé.</p></div>
     </div>
   </div>
 </section>
@@ -773,545 +740,484 @@ footer .inner{max-width:1120px;}
   <div class="inner">
     <p>
       Case preparado por Lucas Bergman, setembro de 2026.<br>
-      Preço, base de alunos, seguidores e catálogo apurados nos ativos públicos do ecossistema:
-      consultoriadoviana.com, cozinhadoviana.com.br, blog.vianafit.com.br e os perfis @consultoriadoviana e @mvianara.
-      As imagens são peças da própria marca, recomprimidas: as mesmas artes que pesam 23 MB no site original
-      ocupam 424 KB aqui.
+      Levantamento sobre os ativos públicos: consultoriadoviana.com, cozinhadoviana.com.br,
+      blog.vianafit.com.br, app.cozinhadoviana.com, hibrido.fitbudd.com e os perfis
+      @consultoriadoviana e @mvianara. Auditoria técnica feita sobre o HTML servido, robots.txt,
+      sitemap.xml, dados estruturados e medição do payload de imagens arquivo a arquivo.
+      As artes são peças da própria marca, recomprimidas: as mesmas imagens que pesam 23 MB no
+      site original ocupam 424 KB aqui.
     </p>
     <p style="margin-top:14px">
-      Ressalva de método: o simulador é um modelo direcional, não uma projeção. As taxas de conversão são
-      premissas ajustáveis e não dados da empresa. A base de aproximadamente 4.000 ex-alunos deriva do claim
-      público de mais de 5.000 alunos transformados, descontados os 650 ativos. Os benchmarks citam números
-      publicados pelas próprias empresas ou por imprensa, com a fonte indicada em cada card.
+      Ressalvas de método. O simulador é um modelo direcional, não uma projeção: as taxas de
+      conversão são premissas ajustáveis e não dados da empresa. A base de aproximadamente 4.000
+      ex-alunos deriva do claim público de mais de 5.000 alunos transformados, descontados os 650
+      ativos. A consultoria direta com o Marcos não possui página pública e entra como nível 4 sem
+      preço, com formato e canal a confirmar com a empresa. Os benchmarks citam números publicados
+      pelas próprias empresas ou por imprensa, com a fonte indicada em cada card.
     </p>
   </div>
 </footer>
 
-<!-- ============ MODAL ============ -->
 <div id="scrim" role="dialog" aria-modal="true" aria-labelledby="m-title" tabindex="-1">
-  <div class="modal">
-    <button class="mclose" type="button" aria-label="Fechar">✕</button>
-    <div id="m-body"></div>
-  </div>
+  <div class="modal"><button class="mclose" type="button" aria-label="Fechar">✕</button><div id="m-body"></div></div>
 </div>
 
 <script>
 (function(){
 "use strict";
+var BRL=new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+var NUM=new Intl.NumberFormat('pt-BR');
 
-var BRL = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
-var NUM = new Intl.NumberFormat('pt-BR');
-var esc = function(s){ return String(s); };
+/* ---------- modal ---------- */
+var scrim=document.getElementById('scrim'), mBody=document.getElementById('m-body'),
+    mClose=scrim.querySelector('.mclose'), lastFocus=null;
+function openModal(h){ lastFocus=document.activeElement; mBody.innerHTML=h;
+  scrim.classList.add('open'); document.body.classList.add('locked'); mClose.focus(); }
+function closeModal(){ scrim.classList.remove('open'); document.body.classList.remove('locked');
+  if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+mClose.addEventListener('click',closeModal);
+scrim.addEventListener('click',function(e){ if(e.target===scrim) closeModal(); });
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'&&scrim.classList.contains('open')){ e.preventDefault(); closeModal(); }});
+scrim.addEventListener('keydown',function(e){
+  if(e.key!=='Tab') return;
+  var f=scrim.querySelectorAll('button, a[href], input, [tabindex]:not([tabindex="-1"])');
+  if(!f.length) return; var a=f[0], z=f[f.length-1];
+  if(e.shiftKey&&document.activeElement===a){ e.preventDefault(); z.focus(); }
+  else if(!e.shiftKey&&document.activeElement===z){ e.preventDefault(); a.focus(); }});
 
-/* ================= MODAL ================= */
+var HOWTO='<p class="mkind">Antes de começar</p><h3 id="m-title">Esta apresentação<br>é para clicar</h3>'+
+'<p class="mlead">Funciona como deck quando eu apresento e como documento quando você abrir sozinho depois. Quatro coisas para saber:</p>'+
+'<div class="howto">'+
+'<div><span class="glyph">← →</span><span class="exp">As setas do teclado avançam e voltam de seção. A barra lateral direita salta para qualquer uma.</span></div>'+
+'<div><span class="glyph">+ no canto</span><span class="exp">Todo card com um <b style="color:var(--viana)">+</b> no canto abre em detalhe, com a evidência e o encaminhamento.</span></div>'+
+'<div><span class="glyph">Sliders</span><span class="exp">O simulador de receita é editável. Mexa nas premissas e teste as suas, não as minhas.</span></div>'+
+'<div><span class="glyph">Abas</span><span class="exp">Materiais de ativação e o calendário de 12 meses são navegáveis peça a peça e mês a mês.</span></div>'+
+'</div><button class="btn" type="button" data-close>Começar</button>';
+document.getElementById('helpbtn').addEventListener('click',function(){ openModal(HOWTO); });
+mBody.addEventListener('click',function(e){ if(e.target.hasAttribute('data-close')) closeModal(); });
+try{ if(!localStorage.getItem('viana-onb-v2')){ setTimeout(function(){ openModal(HOWTO); },700);
+  localStorage.setItem('viana-onb-v2','1'); } }catch(err){}
 
-var scrim = document.getElementById('scrim');
-var mBody = document.getElementById('m-body');
-var mClose = scrim.querySelector('.mclose');
-var lastFocus = null;
-
-function openModal(html){
-  lastFocus = document.activeElement;
-  mBody.innerHTML = html;
-  scrim.classList.add('open');
-  document.body.classList.add('locked');
-  mClose.focus();
-}
-function closeModal(){
-  scrim.classList.remove('open');
-  document.body.classList.remove('locked');
-  if(lastFocus && lastFocus.focus) lastFocus.focus();
-}
-mClose.addEventListener('click', closeModal);
-scrim.addEventListener('click', function(e){ if(e.target === scrim) closeModal(); });
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape' && scrim.classList.contains('open')){ e.preventDefault(); closeModal(); }
-});
-// foco preso no modal
-scrim.addEventListener('keydown', function(e){
-  if(e.key !== 'Tab') return;
-  var f = scrim.querySelectorAll('button, a[href], input, [tabindex]:not([tabindex="-1"])');
-  if(!f.length) return;
-  var first = f[0], last = f[f.length-1];
-  if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
-  else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
-});
-
-/* ================= ONBOARDING ================= */
-
-var HOWTO =
-  '<p class="mkind">Antes de começar</p>' +
-  '<h3 id="m-title">Esta apresentação<br>é para clicar</h3>' +
-  '<p class="mlead">Ela funciona como deck quando eu apresento e como documento quando você abrir sozinho depois. Quatro coisas para saber:</p>' +
-  '<div class="howto">' +
-    '<div><span class="glyph">← →</span><span class="exp">As setas do teclado avançam e voltam de seção. A barra lateral direita salta para qualquer uma.</span></div>' +
-    '<div><span class="glyph">+ no canto</span><span class="exp">Todo card com um <b style="color:var(--viana)">+</b> no canto abre em detalhe. São os aprofundamentos que não cabem na tela.</span></div>' +
-    '<div><span class="glyph">Sliders</span><span class="exp">O simulador de receita é editável. Mexa nas premissas e teste as suas, não as minhas.</span></div>' +
-    '<div><span class="glyph">Abas</span><span class="exp">Materiais de ativação e o calendário de 12 meses são navegáveis mês a mês e peça a peça.</span></div>' +
-  '</div>' +
-  '<button class="btn" type="button" data-close>Começar</button>';
-
-document.getElementById('helpbtn').addEventListener('click', function(){ openModal(HOWTO); });
-mBody.addEventListener('click', function(e){ if(e.target.hasAttribute('data-close')) closeModal(); });
-
-try{
-  if(!localStorage.getItem('viana-onboarded')){
-    setTimeout(function(){ openModal(HOWTO); }, 700);
-    localStorage.setItem('viana-onboarded','1');
-  }
-}catch(err){ /* modo privado: segue sem onboarding automático */ }
-
-/* ================= NAVEGAÇÃO ================= */
-
-var sections = Array.prototype.slice.call(document.querySelectorAll('section'));
-var dots = document.getElementById('dots');
-var counter = document.getElementById('counter');
-var progress = document.getElementById('progress');
-var current = 0;
-
+/* ---------- navegação ---------- */
+var sections=Array.prototype.slice.call(document.querySelectorAll('section'));
+var dots=document.getElementById('dots'), counter=document.getElementById('counter'),
+    progress=document.getElementById('progress'), current=0;
 sections.forEach(function(sec,i){
-  var b = document.createElement('button');
-  b.type='button'; b.title = sec.dataset.nav || '';
-  b.setAttribute('aria-label', sec.dataset.nav || ('Seção '+(i+1)));
-  b.addEventListener('click', function(){ go(i); });
-  dots.appendChild(b);
-});
-var dotBtns = Array.prototype.slice.call(dots.children);
-
-function go(i){
-  i = Math.max(0, Math.min(sections.length-1, i));
-  sections[i].scrollIntoView({behavior:'smooth', block:'start'});
-}
-function setActive(i){
-  if(i === current) return;
-  current = i;
-  counter.innerHTML = '<b>'+String(i+1).padStart(2,'0')+'</b> / '+String(sections.length).padStart(2,'0');
-  dotBtns.forEach(function(b,j){ b.setAttribute('aria-current', j===i?'true':'false'); });
-}
-var io = new IntersectionObserver(function(es){
-  es.forEach(function(e){ if(e.isIntersecting) setActive(sections.indexOf(e.target)); });
-},{threshold:0.3});
+  var b=document.createElement('button'); b.type='button'; b.title=sec.dataset.nav||'';
+  b.setAttribute('aria-label',sec.dataset.nav||('Seção '+(i+1)));
+  b.addEventListener('click',function(){ go(i); }); dots.appendChild(b); });
+var dotBtns=Array.prototype.slice.call(dots.children);
+function go(i){ i=Math.max(0,Math.min(sections.length-1,i));
+  sections[i].scrollIntoView({behavior:'smooth',block:'start'}); }
+function setActive(i){ if(i===current) return; current=i;
+  counter.innerHTML='<b>'+String(i+1).padStart(2,'0')+'</b> / '+String(sections.length).padStart(2,'0');
+  dotBtns.forEach(function(b,j){ b.setAttribute('aria-current',j===i?'true':'false'); }); }
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting) setActive(sections.indexOf(e.target)); }); },{threshold:0.3});
 sections.forEach(function(s){ io.observe(s); });
-counter.innerHTML = '<b>01</b> / '+String(sections.length).padStart(2,'0');
+counter.innerHTML='<b>01</b> / '+String(sections.length).padStart(2,'0');
 dotBtns[0].setAttribute('aria-current','true');
-
-window.addEventListener('scroll', function(){
-  var h = document.documentElement.scrollHeight - window.innerHeight;
-  progress.style.width = (h>0 ? (window.scrollY/h)*100 : 0) + '%';
-  document.querySelector('.hint').style.opacity = window.scrollY > 400 ? '0' : '1';
-}, {passive:true});
-
-document.addEventListener('keydown', function(e){
+window.addEventListener('scroll',function(){
+  var h=document.documentElement.scrollHeight-window.innerHeight;
+  progress.style.width=(h>0?(window.scrollY/h)*100:0)+'%';
+  document.querySelector('.hint').style.opacity=window.scrollY>400?'0':'1'; },{passive:true});
+document.addEventListener('keydown',function(e){
   if(scrim.classList.contains('open')) return;
-  var t = e.target.tagName;
-  if(t==='INPUT'||t==='TEXTAREA') return;
+  var t=e.target.tagName; if(t==='INPUT'||t==='TEXTAREA') return;
   if(e.key==='ArrowRight'||e.key==='PageDown'){ e.preventDefault(); go(current+1); }
-  if(e.key==='ArrowLeft' ||e.key==='PageUp'){ e.preventDefault(); go(current-1); }
+  if(e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); go(current-1); }
   if(e.key==='Home'){ e.preventDefault(); go(0); }
-  if(e.key==='End'){ e.preventDefault(); go(sections.length-1); }
+  if(e.key==='End'){ e.preventDefault(); go(sections.length-1); } });
+
+/* ---------- mapa da dispersão ---------- */
+var PIECES=[
+ {n:'Consultoria Individualizada',d:'consultoriadoviana.com',b:'Batalha de Shapes',c:'b1',
+  kind:'Peça 01 · o carro-chefe', lead:'O produto que sustenta a empresa mora num site cujo título diz outra coisa.',
+  body:'<h4>O que é</h4><p>Ciclo de 3 meses por R$ 1.152, conduzido por um dos seis especialistas do time. Sete métricas, revisão quinzenal, plano em vídeo.</p><h4>A dispersão</h4><p>A aba do navegador, o resultado de busca e qualquer compartilhamento em rede social mostram <code>Batalha de Shapes</code>, que é o nome da campanha e não o da empresa. E o site não linka para nenhuma outra propriedade do ecossistema.</p><h4>O conserto</h4><p>Título correto, descrição preenchida e rodapé compartilhado.</p>'},
+ {n:'Consultoria com o Marcos',d:'nenhum domínio',b:'sem marca',c:'b0',
+  kind:'Peça 02 · o high ticket invisível', lead:'O produto mais caro do ecossistema não existe publicamente em lugar nenhum.',
+  body:'<h4>O achado</h4><p>Varri o site, o sitemap, as páginas internas e as três propriedades. Não há uma única página, seção ou menção pública ao acompanhamento direto com o Marcos.</p><h4>Por que isso importa</h4><p>Um produto de alto ticket sem página não tem como ser desejado por quem ainda não sabe que ele existe. Ele só é vendido para quem já está perto o suficiente para perguntar.</p><h4>O conserto</h4><p>Não necessariamente uma página de venda aberta. Alto ticket funciona bem com <strong>página de aplicação e fila de espera</strong>, o que preserva a escassez e ainda assim torna o produto visível e desejável.</p><p style="margin-top:14px"><strong>A confirmar com a empresa:</strong> formato, número de vagas por ciclo e como ele é vendido hoje. Trato como hipótese até lá.</p>'},
+ {n:'Batalha de Shapes',d:'página dentro do site da Consultoria',b:'Batalha de Shapes',c:'b1',
+  kind:'Peça 03 · a campanha sem casa', lead:'Dá nome ao site inteiro e vive numa página com três miniaturas.',
+  body:'<h4>O que existe</h4><p>Uma página de vencedores com três miniaturas, de maio, junho e julho. Sem regulamento em texto, sem inscrição, sem landing page e sem histórico indexável.</p><h4>Quem conduz</h4><p>Os treinadores do time, não o Marcos. Isso a torna o veículo mais natural do ecossistema para transferir autoridade do fundador para o método.</p><h4>O conserto</h4><p>Casa própria, regulamento, inscrição paga e assinatura dos treinadores em cada edição.</p>'},
+ {n:'Cozinha do Viana',d:'cozinhadoviana.com.br',b:'VianaFit',c:'b2',
+  kind:'Peça 04 · a assinatura', lead:'R$ 14,90 por mês, mais de 13 mil receitas, e nenhuma tag de título.',
+  body:'<h4>O que é</h4><p>Assinatura de receitas com macros calculados, filtros por objetivo e planner. Bem construída, genuinamente responsiva, e a melhor base de código do ecossistema.</p><h4>A dispersão</h4><p>Usa o logotipo <code>VIANAFIT</code> no topo, um nome que não aparece em nenhuma outra propriedade a não ser no domínio do blog. E não tem <code>title</code>, <code>description</code>, Open Graph nem <code>lang</code>: no Google aparece como URL nua, e no WhatsApp sem prévia.</p><h4>O conserto</h4><p>Head completo, uma tarde de trabalho. E ser ofertada dentro do app do aluno e no fim de cada artigo do blog.</p>'},
+ {n:'App da Cozinha',d:'app.cozinhadoviana.com',b:'Cozinha do Viana',c:'b2',
+  kind:'Peça 05 · onde a assinatura é entregue', lead:'Um terceiro domínio para o mesmo produto.',
+  body:'<h4>A dispersão</h4><p>O site vende em um domínio e entrega em outro. Não é errado tecnicamente, mas soma mais um endereço à lista que o cliente precisa reconhecer como sendo da mesma casa.</p><h4>O conserto</h4><p>Identidade visual e rodapé idênticos aos da propriedade que vende, para que a troca de domínio não pareça troca de empresa.</p>'},
+ {n:'Blog do Viana',d:'blog.vianafit.com.br',b:'VianaFit',c:'b2',
+  kind:'Peça 06 · a melhor propriedade escondida', lead:'Publicação independente lançada em junho de 2026 pela Samantha Viana.',
+  body:'<h4>O que está bom</h4><p>Fórmula editorial consistente: pergunta que o leitor já se fez, seguida de uma quebra do senso comum. Categorias em Treino, Nutrição, Cases e Estilo de Vida. Cadência semanal real.</p><h4>O que quase ninguém percebeu</h4><p>Por rodar em Ghost, ele serve <code>llms.txt</code>, <code>llms-full.txt</code> e uma versão Markdown de cada post. <strong>É a única propriedade do ecossistema preparada para busca com IA</strong>, e é a que ninguém linka.</p><h4>O conserto</h4><p>Entrar no rodapé compartilhado, e cada artigo terminar numa isca contextual.</p>'},
+ {n:'App do aluno',d:'hibrido.fitbudd.com',b:'Hibrido+',c:'b3',
+  kind:'Peça 07 · a marca que ninguém conhece', lead:'O ponto de contato mais frequente da marca chama-se outra coisa.',
+  body:'<h4>O achado</h4><p>O app do aluno é <strong>FitBudd white-label</strong>, publicado sob o nome <code>Hibrido+</code>. É um sexto nome de marca no ecossistema, e é justamente o que o aluno abre todos os dias para registrar peso, foto, passos e água.</p><h4>Por que isso é grave</h4><p>Nenhum outro canal tem essa frequência. O aluno convive diariamente com uma marca que não é a que ele comprou, e o app usa um gradiente coral e laranja que não existe em nenhuma outra superfície do ecossistema.</p><h4>O conserto</h4><p>Renomear e retematizar o app dentro do que o FitBudd permitir. É provavelmente o item de maior impacto por menor esforço da lista inteira.</p>'},
+ {n:'Checkout',d:'clkdmg.site',b:'Digital Manager Guru',c:'b0',
+  kind:'Peça 08 · onde o dinheiro entra', lead:'O momento mais sensível da jornada acontece num domínio de terceiro.',
+  body:'<h4>A dispersão</h4><p>O clique de compra leva para <code>clkdmg.site</code>, um domínio que não tem relação nenhuma com a marca. É o instante de maior fricção de confiança da jornada inteira.</p><h4>O conserto</h4><p>A maioria das plataformas de checkout permite domínio próprio. Um <code>pagamento.consultoriadoviana.com</code> resolve, e costuma melhorar a conversão só por parecer seguro.</p>'},
+ {n:'Formulário inicial',d:'forms.gle',b:'Google Forms',c:'b0',
+  kind:'Peça 09 · o onboarding', lead:'Depois de pagar R$ 1.152, o aluno preenche um Google Forms.',
+  body:'<h4>A dispersão</h4><p>O formulário de anamnese roda em <code>forms.gle</code>, sem marca, sem identidade e sem integração com o CRM. É a primeira experiência do cliente depois de pagar.</p><h4>O que se perde</h4><p>Além da percepção, se perde o dado: as respostas não alimentam segmentação, não disparam automação e não conversam com nenhuma outra ferramenta.</p><h4>O conserto</h4><p>Formulário no domínio próprio, com a identidade da marca e integração direta ao CRM.</p>'},
+ {n:'Suporte',d:'wa.me',b:'WhatsApp',c:'b0',
+  kind:'Peça 10 · o canal de atendimento', lead:'Um número de WhatsApp pessoal como canal oficial.',
+  body:'<h4>A dispersão</h4><p>O suporte acontece num número avulso, sem API oficial e sem histórico integrado ao CRM. Funciona enquanto o volume é pequeno.</p><h4>O limite</h4><p>Sem WhatsApp Business API não há disparo ativo com template, não há segmentação e não há automação. É exatamente o canal que a esteira de captura mais precisa usar.</p><h4>O conserto</h4><p>Migrar para a API oficial, com o número vinculado à empresa e não a uma pessoa.</p>'},
+ {n:'Onboarding em vídeo',d:'loom.com',b:'Loom',c:'b0',
+  kind:'Peça 11 · as orientações', lead:'As instruções de início rodam em links do Loom.',
+  body:'<h4>A dispersão</h4><p>Os vídeos de orientação da fase pré-início estão hospedados em <code>loom.com</code>, com a interface do Loom em volta e sem marca nenhuma.</p><h4>O conserto</h4><p>Levar esses vídeos para dentro do app do aluno, que é onde o aluno já está e onde o consumo pode ser medido.</p>'},
+ {n:'@consultoriadoviana',d:'instagram.com · 88,1 mil',b:'Consultoria do Viana',c:'b1',
+  kind:'Peça 12 · o perfil da marca', lead:'88,1 mil seguidores, posicionamento afiado, destino nenhum.',
+  body:'<h4>O que está bom</h4><p>A bio é o melhor resumo de posicionamento do ecossistema inteiro: <em>"Os Alfaiates de Shapes. 7 métricas. Zero achismo. Resultado que se sustenta."</em> Os destaques são organizados por Mulheres, Homens, Depoimentos, Sobre nós, Time e Método.</p><h4>A dispersão</h4><p>Manda para um site que não captura e não linka para nada. E repete a mesma frase de posicionamento do perfil pessoal, o que faz os dois perfis competirem em vez de se complementarem.</p>'},
+ {n:'@mvianara',d:'instagram.com · 217 mil',b:'Marcos Viana',c:'b3',
+  kind:'Peça 13 · o perfil pessoal', lead:'2,5 vezes maior que o perfil da empresa, e diz a mesma coisa.',
+  body:'<h4>O desequilíbrio</h4><p>217 mil contra 88,1 mil. A audiência está na pessoa, não na marca, e os dois perfis carregam a mesma promessa na bio: <em>"Foco: te deixar bonito pelado"</em>.</p><h4>Por que isso trava o crescimento</h4><p>Enquanto a autoridade morar numa pessoa física, o teto da empresa é a agenda dela. É o problema que a marca de método resolve.</p><h4>A divisão editorial proposta</h4><p>O perfil pessoal vira topo de funil e prova de origem do método. O perfil da marca sustenta método, time e prova de entrega. Um alimenta, o outro converte.</p>'}
+];
+var dispEl=document.getElementById('disp');
+PIECES.forEach(function(P){
+  var b=document.createElement('button'); b.type='button'; b.className='piece clickable';
+  b.innerHTML='<span class="pn">'+P.n+'</span><span class="pd">'+P.d+'</span><span class="pb '+P.c+'">'+P.b+'</span>';
+  b.addEventListener('click',function(){
+    openModal('<p class="mkind">'+P.kind+'</p><h3 id="m-title">'+P.n+'</h3><p class="mlead">'+P.lead+'</p>'+
+      '<h4>Onde mora</h4><p><code>'+P.d+'</code> · apresentado como <strong>'+P.b+'</strong></p>'+P.body); });
+  dispEl.appendChild(b);
+});
+document.getElementById('journey-flow').innerHTML =
+ 'Descobre em <b>@mvianara</b> &nbsp;→&nbsp; clica para <b>consultoriadoviana.com</b>, cuja aba diz <b>Batalha de Shapes</b> '+
+ '&nbsp;→&nbsp; paga em <b>clkdmg.site</b> &nbsp;→&nbsp; preenche um <b>Google Forms</b> '+
+ '&nbsp;→&nbsp; assiste orientações no <b>Loom</b> &nbsp;→&nbsp; baixa o app <b>Hibrido+</b> '+
+ '&nbsp;→&nbsp; e nunca descobre que existem a <b>Cozinha do Viana</b> e o <b>Blog do Viana</b>.';
+
+/* ---------- diagnóstico técnico ---------- */
+var TECH=[
+ {area:'Rastreamento',v:'Zero',cls:'crit',ev:'gtag · fbq · clarity · hotjar\n→ 0 ocorrências no HTML servido',
+  kind:'Área 01 · medição', lead:'Nada do que está nesta apresentação é hoje verificável pela própria empresa.',
+  body:'<h4>A evidência</h4><pre>consultoriadoviana.com  → 0 pixels\ncozinhadoviana.com.br   → 0 pixels\nblog.vianafit.com.br    → analytics presente\n\nÚnico domínio externo no site principal:\nclkdmg.site (checkout)</pre>'+
+  '<h4>O que se perde todo dia</h4><ul><li>Origem de cada matrícula, o que impede calcular CAC</li><li>Retargeting de uma audiência somada de 305 mil pessoas</li><li>Quem abriu a página de preço e não comprou</li><li>Qualquer relatório mensal de KPI com base real</li></ul>'+
+  '<h4>O conserto</h4><p>GA4, Meta Pixel e Clarity nas três propriedades, mais um padrão de UTM. <strong>Uma tarde de trabalho</strong>, e é o item que destrava todos os outros.</p>'},
+ {area:'SEO técnico',v:'Crítico',cls:'crit',ev:'meta description vazia\n36 alt com nome de arquivo\ntitle diz "Batalha de Shapes"',
+  kind:'Área 02 · busca tradicional', lead:'O site do produto principal não tem texto indexável, e a Cozinha não tem sequer título.',
+  body:'<h4>A evidência</h4><pre>CONSULTORIA\n&lt;title&gt;Batalha de Shapes&lt;/title&gt;   ← nome da campanha\n&lt;meta name="description" content=""&gt;\nalt="01.png" … alt="11.png"      ← 36 ocorrências\nalt=""                            ← 60 ocorrências\n\nCOZINHA\n&lt;title&gt;    → 0 tags\ndescription → 0 tags\nog:*        → 0 tags\nlang        → ausente</pre>'+
+  '<h4>A causa raiz</h4><p>O site da Consultoria é composto inteiramente por imagens exportadas do design. Preço, entregáveis, método e prova social são pixel. O Google não lê nada disso.</p>'+
+  '<h4>O conserto</h4><p>Texto real em HTML nas seções que hoje são imagem, começando pela página do método e pelos entregáveis. Head completo na Cozinha. Título da home corrigido para o nome da empresa.</p>'},
+ {area:'AIO e busca com IA',v:'1 de 3',cls:'warn',ev:'llms.txt\nconsultoria ✕ · cozinha ✕ · blog ✓',
+  kind:'Área 03 · otimização para IA', lead:'A porta está aberta para os robôs de IA, mas não há texto lá dentro para ler.',
+  body:'<h4>A boa notícia</h4><p>O <code>robots.txt</code> da Consultoria é o padrão do Squarespace e <strong>não bloqueia crawlers de IA</strong>. GPTBot, ClaudeBot, anthropic-ai, Google-Extended e PerplexityBot estão liberados.</p>'+
+  '<h4>A má notícia</h4><p>Um modelo que rastreia a home encontra um título errado, um H1 e vinte e quatro imagens. Preço, método, entregáveis e depoimentos são invisíveis. A marca não tem como ser citada porque não há o que citar.</p>'+
+  '<h4>A ironia</h4><p>O blog, por rodar em Ghost, já serve <code>llms.txt</code>, <code>llms-full.txt</code> e Markdown por post. <strong>A única propriedade pronta para IA é a que nenhuma outra linka.</strong></p>'+
+  '<h4>O conserto</h4><ul><li>Texto real em HTML, que é pré-requisito de tudo</li><li><code>llms.txt</code> na raiz dos três domínios</li><li>Schema <code>Organization</code>, <code>Product</code> com <code>Offer</code>, <code>FAQPage</code> e <code>AggregateRating</code></li><li>Página do método com as sete métricas escritas, que é o conteúdo que um modelo cita quando alguém pergunta como escolher uma consultoria séria</li></ul>'},
+ {area:'FAQ e objeção',v:'Inexistente',cls:'crit',ev:'/faq\nconsultoria 404 · cozinha 404',
+  kind:'Área 04 · conteúdo de conversão', lead:'Não existe FAQ em nenhuma propriedade, nem em página nem em bloco.',
+  body:'<h4>A evidência</h4><pre>consultoriadoviana.com/faq  → 404\ncozinhadoviana.com.br/faq   → 404\nBloco de FAQ nas páginas    → nenhum\nSchema FAQPage              → ausente</pre>'+
+  '<h4>Por que isso custa venda</h4><p>As objeções existem de qualquer jeito. Sem FAQ, elas são respondidas no direct, uma a uma, consumindo tempo do time, ou não são respondidas e viram desistência silenciosa.</p>'+
+  '<h4>O ganho duplo</h4><p>FAQ com <code>FAQPage</code> aparece direto no resultado de busca e é uma das estruturas que modelos de linguagem mais citam. Uma única página resolve conversão, SEO e AIO ao mesmo tempo.</p>'+
+  '<h4>As perguntas que precisam estar lá</h4><ul><li>Quanto custa e como é o parcelamento</li><li>Funciona para quem nunca treinou</li><li>Quem é o especialista que vai me atender</li><li>Preciso de academia</li><li>E se eu não tiver resultado</li><li>Qual a diferença entre os produtos</li></ul>'},
+ {area:'Performance',v:'23 MB',cls:'crit',ev:'desktop 23 MB · mobile 7 MB\n24 imagens · PNG até 4,3 MB',
+  kind:'Área 05 · peso e velocidade', lead:'O servidor é rápido. O material enviado para ele é que é pesado.',
+  body:'<h4>A medição</h4><pre>Imagens únicas na home       24\nPayload desktop (1500w)      ~23 MB\nPayload mobile (750w)        ~7 MB\nMaior arquivo original       4,3 MB (PNG)\nHTML da home                 350 KB\nTTFB                         169 ms  ✓</pre>'+
+  '<h4>O diagnóstico</h4><p>O <code>srcset</code> e o lazy-load existem e funcionam. O TTFB de 169 ms é ótimo. O problema é exclusivamente que as artes foram subidas como PNG sem compressão, em dimensões muito acima do necessário.</p>'+
+  '<h4>A prova de que dá para resolver</h4><p>Esta apresentação usa as mesmas imagens do site deles. Recomprimidas em WebP na dimensão certa, <strong>as 8 artes aqui somam 424 KB</strong>. Nenhuma mudança de design, só de exportação.</p>'},
+ {area:'Estrutura do site',v:'40 URLs',cls:'warn',ev:'/home e /home-1 duplicados\n2 páginas com title "General 1"\nárea do aluno indexável',
+  kind:'Área 06 · arquitetura de informação', lead:'O sitemap conta a história de um site que cresceu sem ninguém podando.',
+  body:'<h4>A evidência</h4><pre>/home  e  /home-1              → duplicados\n/protocolo-turbo               → title "General 1"\n/plano-de-acao                 → title "General 1"\n/waitlist                      → texto placeholder\n                                  em inglês, de 2024\n/boas-vindas-consultoria\n/medidas\n/canal-de-suporte              → área do aluno,\n                                  indexável no Google\n\n/cases-de-sucesso-2026/project-one-ephnc-\nax654-pjprh-k8az7-dwla2-cbywh-j7lpc-k3lfx</pre>'+
+  '<h4>O que isso causa</h4><ul><li>Páginas duplicadas competindo entre si em busca</li><li>Conteúdo de área de aluno aparecendo publicamente</li><li>Orçamento de rastreamento gasto em URLs sem valor</li><li>Uma página de lista de espera que existe, está no sitemap com prioridade alta, e traz texto de template em inglês</li></ul>'+
+  '<h4>O conserto</h4><p><code>noindex</code> na área do aluno, limpeza do sitemap, títulos nomeados e a página de lista de espera transformada em captura de verdade.</p>'}
+];
+var scEl=document.getElementById('scorecard');
+TECH.forEach(function(T){
+  var b=document.createElement('button'); b.type='button'; b.className='sc clickable '+T.cls;
+  b.innerHTML='<span class="area">'+T.area+'</span><span class="verdict">'+T.v+'</span>'+
+    '<span class="ev">'+T.ev.replace(/\n/g,'<br>')+'</span>';
+  b.addEventListener('click',function(){
+    openModal('<p class="mkind">'+T.kind+'</p><h3 id="m-title">'+T.area+'</h3><p class="mlead">'+T.lead+'</p>'+T.body); });
+  scEl.appendChild(b);
 });
 
-/* ================= INVENTÁRIO ================= */
-
-var ASSETS = [
-  {nm:'Consultoria Individualizada', num:'R$ 1.152 / ciclo · 650 alunos', ds:'Carro-chefe. 7 métricas, revisão a cada 15 dias, plano em vídeo, 6 especialistas.', st:'Rodando', cls:'on', hero:'hero',
-   kind:'Nível 3 · o carro-chefe',
-   lead:'O produto mais maduro do ecossistema e o único que realmente vende hoje.',
-   body:'<h4>O que está bom</h4><p>Metodologia proprietária de verdade: sete métricas acompanhadas, revisão quinzenal, plano entregue em vídeo por um especialista com nome e rosto. Isso é difícil de copiar e justifica o preço.</p>'+
-        '<h4>O que trava</h4><p>Turma fechada sem lista de espera funcionando. Fora da janela de venda, quem chega não tem o que fazer. E o argumento mais forte da marca, as sete métricas, existe apenas dentro de imagens fechadas, invisível para busca e para quem só passa o olho.</p>'+
-        '<h4>O movimento</h4><p><strong>Página com texto real</strong> descrevendo o método, e lista de espera ativa entre as turmas.</p>'},
-  {nm:'Cozinha do Viana', num:'R$ 14,90 / mês · +13 mil receitas', ds:'Assinatura com macros, filtros e planner. Produto de hábito diário.', st:'Rodando', cls:'on', hero:'warm',
-   kind:'Nível 1 · a porta de entrada',
-   lead:'O produto certo, no preço certo, no lugar errado do funil.',
-   body:'<h4>O que está bom</h4><p>Mais de 13 mil receitas com macros calculados, filtros por objetivo e planner. Preço de impulso, entrega diária, e um site bem construído.</p>'+
-        '<h4>O que trava</h4><p>É uma ilha. Não é oferecida dentro do app do aluno, não aparece no fim dos artigos do blog, e a Consultoria nunca aponta para ela. Um assinante da Cozinha não tem nenhum caminho natural para subir.</p>'+
-        '<h4>O movimento</h4><p>Virar <strong>pré-requisito da Batalha de Shapes</strong>, o que dá urgência a uma decisão que hoje pode ser adiada para sempre.</p>'},
-  {nm:'Batalha de Shapes', num:'Mensal · sem monetização', ds:'Dá nome ao site inteiro e vive numa página com três miniaturas de vencedores.', st:'Subaproveitado', cls:'weak',
-   kind:'O ativo mais desperdiçado',
-   lead:'A campanha que batiza o site inteiro e não fatura um real.',
-   body:'<h4>O que existe hoje</h4><p>Uma página com três miniaturas de vencedores, de maio, junho e julho. Sem regulamento em texto, sem landing page, sem inscrição e sem histórico indexável. O título da home de consultoriadoviana.com é literalmente "Batalha de Shapes".</p>'+
-        '<h4>Por que é o ativo mais valioso parado</h4><p>Tem nome forte, cadência mensal, prova social embutida e mecânica de competição. É o único elemento do ecossistema que já gera comportamento coletivo.</p>'+
-        '<h4>O movimento</h4><p>Virar o <strong>nível 2 pago</strong> e, ao mesmo tempo, o motor de conversão entre os outros níveis.</p>'},
-  {nm:'Blog do Viana', num:'Semanal · Ghost', ds:'Linha editorial boa e consistente. Invisível: a Consultoria não linka para ele.', st:'Isolado', cls:'weak',
-   kind:'Nível 0 · autoridade',
-   lead:'Conteúdo bom, cadência real, alcance quase zero.',
-   body:'<h4>O que está bom</h4><p>Fórmula editorial consistente e eficaz: pergunta que o leitor já se fez, seguida de uma quebra do senso comum. "A balança travou? Cortar comida e aumentar cardio nem sempre é a resposta." Categorias em Treino, Nutrição, Cases e Estilo de Vida.</p>'+
-        '<h4>O que trava</h4><p>Vive num subdomínio que nenhuma das outras propriedades linka. Nenhum artigo termina em captura. É conteúdo de qualidade fazendo trabalho de diário pessoal.</p>'+
-        '<h4>O movimento</h4><p>Cada artigo termina numa <strong>ferramenta gratuita contextual</strong>, e o blog entra no rodapé compartilhado.</p>'},
-  {nm:'App do aluno', num:'Uso diário · 650 alunos', ds:'Maior frequência de contato do ecossistema. Nenhuma oferta roda por ali.', st:'Sem camada comercial', cls:'weak',
-   kind:'O canal de maior frequência',
-   lead:'O ponto de contato mais frequente da marca não vende nada.',
-   body:'<h4>O que ele é</h4><p>Onde o aluno registra peso, fotos, passos e água. Todo dia. Nenhum outro canal da marca tem essa frequência.</p>'+
-        '<h4>O que trava</h4><p>Não roda nenhuma oferta. Nem Cozinha, nem renovação, nem indicação. E visualmente ele está fora da marca: usa um gradiente coral e laranja que não existe em nenhuma outra superfície do ecossistema.</p>'+
-        '<h4>O movimento</h4><p>Camada comercial leve e contextual: <strong>Cozinha na semana 2</strong> do ciclo, <strong>renovação na semana 11</strong>, indicação depois do primeiro resultado registrado.</p>'},
-  {nm:'Base de ex-alunos', num:'~4.000 pessoas', ds:'Já compraram, já confiam, já sabem o preço. Não existe produto de retorno.', st:'Dormente', cls:'off',
-   kind:'A receita mais barata da casa',
-   lead:'Quatro mil pessoas que já pagaram R$ 1.152 e não têm para onde voltar.',
-   body:'<h4>De onde vem o número</h4><p>Do claim público de mais de 5.000 alunos transformados, descontados os cerca de 650 ativos. É estimativa, não dado da empresa, e deve ser apresentada como tal.</p>'+
-        '<h4>Por que é a receita mais barata</h4><p>Custo de aquisição zero. Já conhecem o método, já confiam no especialista, já aceitaram o preço uma vez. A objeção de confiança, que é a mais cara de vencer, já foi vencida.</p>'+
-        '<h4>O movimento</h4><p>Régua de reativação segmentada por resultado obtido e por tempo fora, ancorada na primeira edição paga da Batalha.</p>'},
-  {nm:'Bônus empacotáveis', num:'+30 e-books, mobilidade', ds:'Conteúdo pronto usado só como bônus de fechamento. Nunca vendido sozinho.', st:'Sem uso próprio', cls:'off',
-   kind:'Estoque de conteúdo',
-   lead:'Mais de trinta e-books que só existem como argumento de fechamento.',
-   body:'<h4>O que existe</h4><p>Mais de 30 e-books de treino e dieta, um programa de alongamento e mobilidade, e acesso a conteúdo de nutrição. Hoje aparecem apenas como Bônus #1, #2 e #3 na página de vendas.</p>'+
-        '<h4>O desperdício</h4><p>Conteúdo já produzido e pago, servindo só para engordar a percepção de valor de uma oferta que já converte.</p>'+
-        '<h4>O movimento</h4><p>Recortar em <strong>iscas de captura</strong> por tema e por objetivo, alimentando a esteira do nível 0 sem custo de produção novo.</p>'}
+/* ---------- benchmarks ---------- */
+var BENCH=[
+ {who:'RP Strength',geo:'Estados Unidos · Renaissance Periodization',big:'US$ 20 a 30 mi',
+  cap:'de receita anual, bootstrapped, com cerca de 80% vindo dos aplicativos e não do coaching.',
+  steal:'A marca do método acima das pessoas',
+  kind:'Benchmark 01 · o caso mais próximo', lead:'A prova de que uma marca de método cresce muito além do rosto que a criou.',
+  body:'<h4>A escada deles</h4><ul><li><strong>Grátis</strong>: YouTube, e-books e guias.</li><li><strong>Baixo ticket</strong>: RP Hypertrophy e RP Diet Coach, a partir de US$ 24,99/mês.</li><li><strong>Alto ticket</strong>: coaching individual a partir de US$ 599/mês, com coaches de nome cobrando por volta de US$ 2.000.</li></ul>'+
+  '<h4>O que isso prova sobre marca</h4><p>O fundador é uma figura pública conhecidíssima. Mas o que se compra chama-se <strong>RP</strong>: os apps são RP, os coaches são RP, o método é RP. A pessoa alimenta a marca; a marca é que vende. É exatamente a posição que estou propondo aqui.</p>'+
+  '<h4>E sobre canibalização</h4><p>Cerca de 80% da receita vem dos apps e não do coaching. O produto barato não rouba o caro: ele financia a operação e alimenta o caro. É a resposta pronta para a objeção mais provável na sala.</p>'+
+  '<p style="margin-top:18px;font-family:var(--f-mono);font-size:11px;color:var(--ink3)">Fonte: comunicação pública da empresa e cobertura de imprensa de negócios.</p>'},
+ {who:'75 Hard',geo:'Estados Unidos · Andy Frisella',big:'+1 bilhão',
+  cap:'de visualizações na hashtag, a partir de um desafio lançado de graça, sem curso e sem paywall.',
+  steal:'O desafio como motor de UGC',
+  kind:'Benchmark 02 · o desafio como mídia', lead:'Um desafio bem desenhado compra mídia sozinho.',
+  body:'<h4>O que aconteceu</h4><p>Lançado em 2019 completamente de graça, sem produto no dia um. Regras públicas, participação visível. A hashtag passou de um bilhão de visualizações, e cada vídeo de participante virou anúncio gratuito.</p>'+
+  '<h4>O ponto de virada</h4><p>Quando o app pago saiu, em 2020, mais de 100 mil pessoas já tinham completado o programa. Foi número um em Saúde e Fitness no primeiro dia. A audiência foi construída antes de existir o que vender.</p>'+
+  '<h4>Trazendo para a Batalha</h4><p>A mecânica e a cadência mensal já existem. O que falta é o <strong>kit que faz o participante postar</strong>: molduras de story, marca d\'água, checklist e hashtag própria. Sem isso, o desafio acontece e ninguém vê.</p>'+
+  '<p style="margin-top:18px;font-family:var(--f-mono);font-size:11px;color:var(--ink3)">Fonte: comunicação oficial do programa e cobertura de imprensa.</p>'},
+ {who:'DietBet e HealthyWage',geo:'Estados Unidos',big:'US$ 52 mi',
+  cap:'pagos em prêmios pela HealthyWage, com 77% dos participantes relatando perda de peso.',
+  steal:'A mecânica de prêmio',
+  kind:'Benchmark 03 · a mecânica do prêmio', lead:'Como fazer a premiação se pagar em vez de virar custo.',
+  body:'<h4>Como funciona</h4><p>O participante aposta em si mesmo. Na DietBet a entrada começa em US$ 10 por quatro semanas, e quem bate a meta divide o bolo. Na HealthyWage a aposta é mensal e o prêmio chega a US$ 10.000, calculado pelo perfil de dificuldade de cada pessoa.</p>'+
+  '<h4>O que sustenta o modelo</h4><p>A receita não vem só de quem falha, vem de escala e de parcerias corporativas. E o compromisso financeiro é ele próprio um mecanismo de adesão: dinheiro em jogo aumenta a taxa de conclusão.</p>'+
+  '<h4>Trazendo para a Batalha</h4><p>Inscrição paga resolve dois problemas de uma vez: <strong>filtra quem está disposto a executar</strong> e financia o prêmio. E o prêmio ser bolsa na consultoria custa margem, não caixa.</p>'+
+  '<p style="margin-top:18px;font-family:var(--f-mono);font-size:11px;color:var(--ink3)">Fonte: páginas oficiais das duas empresas.</p>'},
+ {who:'O mercado brasileiro',geo:'Brasil · Hotmart e afins',big:'Commodity',
+  cap:'o desafio de 30 dias virou item de prateleira aqui, o que muda qual deve ser o diferencial.',
+  steal:'Onde não competir',
+  kind:'Benchmark 04 · leitura de mercado', lead:'O desafio de 30 dias já é commodity no Brasil. Isso favorece o Viana.',
+  body:'<h4>O cenário</h4><p>Uma busca por "desafio de 30 dias" em português devolve dezenas de infoprodutos com a mesma promessa: e-book, plano alimentar e grupo de WhatsApp. A maioria vende plano genérico com nome de desafio.</p>'+
+  '<h4>Por que isso favorece o Viana</h4><p>Se o formato é commodity, o diferencial não pode ser o formato. Tem que ser o que ninguém copia: <strong>as sete métricas, o especialista com nome e a revisão quinzenal.</strong></p>'+
+  '<h4>O posicionamento correto</h4><p>A Batalha não deve ser vendida como mais um desafio de 30 dias, e sim como <em>o único desafio em que alguém de verdade olha os seus números</em>. É a promessa da marca, em versão de entrada.</p>'+
+  '<h4>O risco de não fazer</h4><p>Enquanto a Batalha for uma vitrine de vencedores, alguém com metade do método e o dobro do marketing ocupa esse degrau primeiro.</p>'}
 ];
-
-var assetsEl = document.getElementById('assets');
-ASSETS.forEach(function(A){
-  var b = document.createElement('button');
-  b.type='button';
-  b.className = 'card clickable' + (A.hero ? ' '+A.hero : '');
-  b.innerHTML = '<span class="nm">'+A.nm+'</span><span class="num">'+A.num+'</span>'+
-                '<span class="ds">'+A.ds+'</span><span class="st '+A.cls+'">'+A.st+'</span>';
-  b.addEventListener('click', function(){
-    openModal('<p class="mkind">'+A.kind+'</p><h3 id="m-title">'+A.nm+'</h3><p class="mlead">'+A.lead+'</p>'+A.body);
-  });
-  assetsEl.appendChild(b);
-});
-
-/* ================= BENCHMARKS ================= */
-
-var BENCH = [
-  {who:'RP Strength', geo:'Estados Unidos · Renaissance Periodization', big:'US$ 20 a 30 mi', cap:'de receita anual, bootstrapped, com cerca de 80% vindo dos aplicativos e não do coaching.', steal:'A escada inteira, provada',
-   kind:'Benchmark 01 · a escada completa',
-   lead:'A prova de que o degrau barato é que carrega o negócio.',
-   body:'<h4>A escada deles</h4><ul><li><strong>Grátis</strong>: YouTube, e-books e guias. Educação aberta que constrói a autoridade.</li><li><strong>Baixo ticket</strong>: RP Hypertrophy e RP Diet Coach, assinatura a partir de US$ 24,99/mês.</li><li><strong>Alto ticket</strong>: coaching individual a partir de US$ 599/mês, com coaches de nome cobrando por volta de US$ 2.000.</li></ul>'+
-        '<h4>O que isso prova</h4><p>Cerca de 80% da receita vem dos apps, não do coaching. O produto barato não canibaliza o caro: ele financia a operação e alimenta o caro. É exatamente o argumento contra o medo de que a Batalha roube venda da Consultoria.</p>'+
-        '<h4>Trazendo para o Viana</h4><p>A Cozinha e a Batalha não são distração do carro-chefe. São a base que sustenta o carro-chefe, e podem crescer mais rápido que ele porque não consomem hora de especialista.</p>'+
-        '<p style="margin-top:18px;font-family:var(--f-mono);font-size:11px;color:var(--ink3)">Fonte: perfis públicos da empresa e cobertura de imprensa de negócios.</p>'},
-  {who:'75 Hard', geo:'Estados Unidos · Andy Frisella', big:'+1 bilhão', cap:'de visualizações na hashtag, a partir de um desafio lançado de graça, sem curso e sem paywall.', steal:'O desafio como motor de UGC',
-   kind:'Benchmark 02 · o desafio como mídia',
-   lead:'O caso que prova que um desafio bem desenhado compra mídia sozinho.',
-   body:'<h4>O que aconteceu</h4><p>Lançado em 2019 completamente de graça, sem produto no dia um. As regras eram públicas e a participação era pessoal e visível. A hashtag passou de um bilhão de visualizações, e cada vídeo de participante virou anúncio gratuito.</p>'+
-        '<h4>O ponto de virada</h4><p>Quando o app pago saiu, em 2020, mais de 100 mil pessoas já tinham completado o programa. Ele foi número um em Saúde e Fitness no primeiro dia. A audiência foi construída antes de existir o que vender.</p>'+
-        '<h4>Trazendo para o Viana</h4><p>A Batalha já tem a mecânica e a cadência mensal. O que falta é o <strong>kit que faz o participante postar</strong>: molduras de story, marca d\'água, checklist diário e uma hashtag própria. Sem isso, o desafio acontece e ninguém vê.</p>'+
-        '<p style="margin-top:18px;font-family:var(--f-mono);font-size:11px;color:var(--ink3)">Fonte: comunicação oficial do programa e cobertura de imprensa.</p>'},
-  {who:'DietBet e HealthyWage', geo:'Estados Unidos', big:'US$ 52 mi', cap:'pagos em prêmios pela HealthyWage, com 77% dos participantes relatando perda de peso.', steal:'A mecânica de prêmio',
-   kind:'Benchmark 03 · a mecânica do prêmio',
-   lead:'Como fazer a premiação se pagar em vez de virar custo.',
-   body:'<h4>Como funciona</h4><p>O participante aposta em si mesmo. Na DietBet a entrada começa em US$ 10 por um desafio de quatro semanas, e quem bate a meta divide o bolo. Na HealthyWage a aposta é mensal e o prêmio máximo chega a US$ 10.000, calculado a partir do perfil de dificuldade de cada pessoa.</p>'+
-        '<h4>O que sustenta o modelo</h4><p>A receita não vem só de quem falha. Vem de parcerias corporativas e de escala de participação. E o compromisso financeiro é ele próprio um mecanismo de adesão: ter dinheiro em jogo aumenta a taxa de conclusão.</p>'+
-        '<h4>Trazendo para o Viana</h4><p>A inscrição paga da Batalha resolve dois problemas de uma vez: <strong>filtra quem está disposto a executar</strong> e financia o prêmio. E o prêmio ser bolsa na Consultoria custa margem, não caixa, o que torna a conta ainda melhor.</p>'+
-        '<p style="margin-top:18px;font-family:var(--f-mono);font-size:11px;color:var(--ink3)">Fonte: páginas oficiais das duas empresas e reviews públicos.</p>'},
-  {who:'O mercado brasileiro', geo:'Brasil · Hotmart e afins', big:'Commodity', cap:'o desafio de 30 dias virou item de prateleira no Brasil, o que muda qual deve ser o diferencial do Viana.', steal:'Onde não competir',
-   kind:'Benchmark 04 · a leitura de mercado',
-   lead:'O desafio de 30 dias já é commodity aqui. Isso é bom para o Viana.',
-   body:'<h4>O cenário</h4><p>Uma busca rápida por "desafio de 30 dias" em português devolve dezenas de infoprodutos com a mesma promessa: e-book, plano alimentar, grupo de WhatsApp. A maioria vende plano genérico com nome de desafio.</p>'+
-        '<h4>Por que isso favorece o Viana</h4><p>Se o formato é commodity, o diferencial não pode ser o formato. Tem que ser o que ninguém consegue copiar: <strong>as sete métricas, o especialista com nome e a revisão quinzenal.</strong></p>'+
-        '<h4>O posicionamento correto</h4><p>A Batalha não deve ser vendida como "mais um desafio de 30 dias". Deve ser vendida como <em>o único desafio em que alguém de verdade olha os seus números</em>. É a mesma promessa da marca, em versão de entrada.</p>'+
-        '<h4>O risco de não fazer</h4><p>Enquanto a Batalha for só uma vitrine de vencedores, alguém com metade do método e o dobro do marketing ocupa esse degrau primeiro.</p>'}
-];
-
-var benchEl = document.getElementById('benches');
+var benchEl=document.getElementById('benches');
 BENCH.forEach(function(B){
-  var b = document.createElement('button');
-  b.type='button'; b.className='bench clickable';
-  b.innerHTML = '<span class="who">'+B.who+'</span><span class="geo">'+B.geo+'</span>'+
-                '<span class="big">'+B.big+'</span><span class="cap">'+B.cap+'</span>'+
-                '<span class="steal">Trazer: '+B.steal+'</span>';
-  b.addEventListener('click', function(){
-    openModal('<p class="mkind">'+B.kind+'</p><h3 id="m-title">'+B.who+'</h3><p class="mlead">'+B.lead+'</p>'+B.body);
-  });
+  var b=document.createElement('button'); b.type='button'; b.className='bench clickable';
+  b.innerHTML='<span class="who">'+B.who+'</span><span class="geo">'+B.geo+'</span><span class="big">'+B.big+'</span>'+
+    '<span class="cap">'+B.cap+'</span><span class="steal">Trazer: '+B.steal+'</span>';
+  b.addEventListener('click',function(){
+    openModal('<p class="mkind">'+B.kind+'</p><h3 id="m-title">'+B.who+'</h3><p class="mlead">'+B.lead+'</p>'+B.body); });
   benchEl.appendChild(b);
 });
 
-/* ================= ESCADA ================= */
-
-var LEVELS = [
-  {n:'0',t:'Público',sub:'Blog do Viana, Instagram e newsletter',price:'grátis',unit:'captura',novo:false,
-   quem:'Quem ainda não sabe que precisa de acompanhamento.',
-   papel:'Provar autoridade e capturar contato. Hoje captura zero, porque não existe formulário em lugar nenhum.',
-   metrica:'Leads por mês',
-   falta:'Captura em todas as páginas, ferramentas gratuitas e um rodapé que ligue as três propriedades.'},
-  {n:'1',t:'Cozinha do Viana',sub:'Assinatura de receitas com macros',price:'R$ 14,90',unit:'por mês',novo:false,
-   quem:'Quem já entendeu que dieta é o gargalo e quer executar sem pensar.',
-   papel:'Criar hábito diário a preço de impulso e gerar dado de comportamento alimentar.',
-   metrica:'Churn mensal',
-   falta:'Ser oferecida dentro do app do aluno e no fim de cada artigo. Hoje é uma ilha.'},
-  {n:'2',t:'Batalha de Shapes',sub:'Desafio pago de 30 dias, com ranking e premiação',price:'R$ 147',unit:'por edição',novo:true,
-   quem:'Quem quer testar o método antes de pagar R$ 1.152.',
-   papel:'Ser a prova barata de que o método funciona, e o gerador de conteúdo do ecossistema inteiro.',
-   metrica:'Conversão para a Consultoria',
-   falta:'Tudo: regulamento, landing page, inscrição, ranking, premiação e kit de conteúdo do participante.'},
-  {n:'3',t:'Consultoria Individualizada',sub:'7 métricas, revisão a cada 15 dias, plano em vídeo',price:'R$ 1.152',unit:'por ciclo de 3 meses',novo:false,
-   quem:'Quem quer um especialista olhando só para ele.',
-   papel:'Carro-chefe. Sustenta a receita e produz os cases que alimentam todos os degraus abaixo.',
-   metrica:'Taxa de renovação de ciclo',
-   falta:'Página com texto real e lista de espera funcionando entre as turmas.'},
-  {n:'4',t:'Continuidade',sub:'Clube de manutenção para quem terminou o ciclo',price:'a definir',unit:'recorrente',novo:true,
-   quem:'Os cerca de 4.000 ex-alunos que já compraram e não têm para onde voltar.',
-   papel:'Impedir que o aluno evapore no fim dos 3 meses e transformar resultado em recorrência.',
-   metrica:'Reativação de ex-alunos',
-   falta:'Definir a entrega mínima viável: acompanhamento em grupo, revisão trimestral ou acesso ao painel.'}
+/* ---------- escada ---------- */
+var LEVELS=[
+ {n:'0',t:'Público',sub:'Blog do Viana, Instagram e newsletter',price:'grátis',unit:'captura',
+  status:'Existe · desconectado',alert:false,
+  quem:'Quem ainda não sabe que precisa de acompanhamento.',
+  papel:'Provar autoridade e capturar contato.',
+  pat:'Existe e é bom. O blog publica toda semana e os perfis somam 305 mil seguidores. Só que nada disso captura um único e-mail, e nenhuma das propriedades linka para a outra.',
+  metrica:'Leads por mês',
+  fix:'Rodapé compartilhado, captura no fim de cada artigo e as primeiras ferramentas gratuitas.'},
+ {n:'1',t:'Cozinha do Viana',sub:'Assinatura de receitas com macros',price:'R$ 14,90',unit:'por mês',
+  status:'Existe · ilhado',alert:false,
+  quem:'Quem já entendeu que dieta é o gargalo e quer executar sem pensar.',
+  papel:'Criar hábito diário a preço de impulso e gerar dado de comportamento alimentar.',
+  pat:'Produto bom, bem construído e barato. Mas não aparece dentro do app do aluno, não aparece no fim dos artigos, e a Consultoria nunca aponta para ele. Além disso, não tem título nem prévia de compartilhamento.',
+  metrica:'Churn mensal',
+  fix:'Head completo, oferta dentro do app e virar pré-requisito da Batalha.'},
+ {n:'2',t:'Batalha de Shapes',sub:'Desafio mensal conduzido pelos treinadores do time',price:'hoje grátis',unit:'sem monetização',
+  status:'Existe · não monetizado',alert:true,
+  quem:'Quem quer testar o método antes de comprar o ciclo completo.',
+  papel:'Prova barata de que o método funciona, motor de conteúdo e vitrine dos treinadores.',
+  pat:'Roda todo mês, tem nome forte, gera prova social e batiza o site inteiro. E não fatura um real. Existe como campanha, nunca foi desenhada como produto.',
+  metrica:'Conversão para o nível 3',
+  fix:'Regulamento, landing page própria, inscrição paga, ranking e kit de conteúdo do participante.'},
+ {n:'3',t:'Consultoria Individualizada',sub:'Com um dos 6 especialistas do time · 7 métricas, revisão quinzenal',price:'R$ 1.152',unit:'por ciclo de 3 meses',
+  status:'Existe · funciona',alert:false,
+  quem:'Quem quer um especialista acompanhando só ele.',
+  papel:'Carro-chefe. Sustenta a receita e produz os cases que alimentam todos os degraus.',
+  pat:'É o degrau saudável. As patologias são de comunicação, não de produto: o método está preso dentro de imagens, os especialistas nunca são nomeados, e entre as turmas não existe lista de espera funcionando.',
+  metrica:'Taxa de renovação de ciclo',
+  fix:'Página do método em texto real, página do time com nomes, lista de espera ativa.'},
+ {n:'4',t:'Consultoria com o Marcos',sub:'Acompanhamento direto com o fundador',price:'high ticket',unit:'sem página pública',
+  status:'Existe · invisível',alert:true,
+  quem:'Quem quer acesso direto a quem criou o método.',
+  papel:'Topo da escada. Ancora o valor de tudo que está abaixo e define o teto de percepção da marca.',
+  pat:'Não existe uma única página, seção ou menção pública a ele em nenhuma propriedade do ecossistema. O produto mais caro é o único invisível.',
+  metrica:'Ocupação da agenda e fila de espera',
+  fix:'Página de aplicação com fila de espera, que preserva a escassez e torna o produto desejável. Formato e canal a confirmar com a empresa.'}
 ];
-
-var ladder = document.getElementById('ladder');
+var ladder=document.getElementById('ladder');
 LEVELS.forEach(function(L){
-  var b = document.createElement('button');
-  b.type='button'; b.className='lvl clickable'+(L.novo?' novo':'');
-  b.innerHTML = '<div class="lvl-head"><span class="lvl-n">'+L.n+'</span>'+
-    '<span class="lvl-t">'+L.t+(L.novo?'<span class="tagnew">a construir</span>':'')+'<small>'+L.sub+'</small></span>'+
-    '<span class="lvl-p">'+L.price+'<em>'+L.unit+'</em></span></div>';
-  b.addEventListener('click', function(){
-    openModal('<p class="mkind">Nível '+L.n+(L.novo?' · a construir':' · já existe')+'</p>'+
-      '<h3 id="m-title">'+L.t+'</h3><p class="mlead">'+L.sub+' · <strong>'+L.price+'</strong> '+L.unit+'</p>'+
-      '<h4>Para quem</h4><p>'+L.quem+'</p>'+
-      '<h4>Papel na escada</h4><p>'+L.papel+'</p>'+
-      '<h4>Métrica-mãe</h4><p><strong>'+L.metrica+'</strong></p>'+
-      '<h4>O que falta</h4><p>'+L.falta+'</p>');
-  });
+  var b=document.createElement('button'); b.type='button'; b.className='lvl clickable';
+  b.innerHTML='<div class="lvl-head"><span class="lvl-n">'+L.n+'</span>'+
+   '<span class="lvl-t">'+L.t+'<span class="statustag'+(L.alert?' alert':'')+'">'+L.status+'</span><small>'+L.sub+'</small></span>'+
+   '<span class="lvl-p">'+L.price+'<em>'+L.unit+'</em></span></div>';
+  b.addEventListener('click',function(){
+    openModal('<p class="mkind">Nível '+L.n+' · '+L.status+'</p><h3 id="m-title">'+L.t+'</h3>'+
+      '<p class="mlead">'+L.sub+' · <strong>'+L.price+'</strong> '+L.unit+'</p>'+
+      '<h4>Para quem</h4><p>'+L.quem+'</p><h4>Papel na escada</h4><p>'+L.papel+'</p>'+
+      '<h4>A patologia</h4><p>'+L.pat+'</p><h4>Métrica-mãe</h4><p><strong>'+L.metrica+'</strong></p>'+
+      '<h4>O conserto</h4><p>'+L.fix+'</p>'); });
   ladder.appendChild(b);
 });
 
-/* ================= SEGMENTOS DE BASE ================= */
-
-var SEGS = [
-  {nm:'Alunos ativos', num:'650 pessoas', ds:'Estão dentro do ciclo agora. A conversa é de ampliação, não de venda nova.', st:'Cross-sell', cls:'on', hero:'hero',
-   kind:'Segmento 01 · quem está dentro',
-   lead:'A oferta certa aqui não é vender de novo. É aumentar o valor do ciclo que já foi comprado.',
-   body:'<h4>Onde acontece</h4><p>Dentro do app, no ponto de maior frequência da marca. Não por e-mail.</p>'+
-        '<h4>A régua</h4><ul><li><strong>Semana 2</strong>: a dieta já apertou. Oferta da Cozinha, ancorada na dor do momento: "sua dieta em receita, não em planilha".</li><li><strong>Semana 6</strong>: primeiro resultado visível. Pedido de indicação, com benefício para os dois lados.</li><li><strong>Semana 11</strong>: uma semana antes do fim. Renovação e o nível 4, antes que o aluno entre no vácuo.</li></ul>'+
-        '<h4>Por que funciona</h4><p>Nenhuma dessas ofertas interrompe. Todas chegam no momento em que a dor correspondente está acontecendo.</p>'},
-  {nm:'Ex-alunos', num:'~4.000 pessoas', ds:'Concluíram e saíram. Nunca receberam uma oferta de retorno.', st:'Winback', cls:'weak',
-   kind:'Segmento 02 · quem já foi',
-   lead:'O ativo mais valioso e mais esquecido do ecossistema.',
-   body:'<h4>Segmentar antes de falar</h4><p>Não é uma base, são três: quem teve resultado e manteve, quem teve e perdeu, e quem não teve. Cada uma exige um ângulo diferente, e mandar o mesmo e-mail para as três queima a base inteira.</p>'+
-        '<h4>A régua de cinco tempos</h4><ul><li><strong>1 · Reconhecimento</strong>: retomar o resultado que a pessoa alcançou, com o número dela. Sem oferta.</li><li><strong>2 · Diagnóstico</strong>: "onde você está hoje?". Um quiz curto que segmenta e reativa.</li><li><strong>3 · Prova</strong>: case de alguém que voltou, do mesmo perfil.</li><li><strong>4 · Convite</strong>: a Batalha como porta de retorno, não a Consultoria. O ticket baixo remove a fricção.</li><li><strong>5 · Escassez real</strong>: fechamento da edição, com vaga contada de verdade.</li></ul>'+
-        '<h4>O erro a evitar</h4><p>Voltar oferecendo o produto de R$ 1.152 para quem já saiu uma vez. O caminho de volta tem que ser mais barato que o de ida.</p>'},
-  {nm:'Assinantes da Cozinha', num:'base a apurar', ds:'Pagam todo mês e nunca receberam uma oferta de subida.', st:'Upsell', cls:'weak', hero:'warm',
-   kind:'Segmento 03 · quem já paga',
-   lead:'Já provaram que confiam na marca com o cartão. Falta um convite.',
-   body:'<h4>O que se sabe deles</h4><p>Quais receitas salvam, qual objetivo declararam, com que frequência usam. É dado de intenção que quase nenhuma empresa de fitness tem, e que hoje não vira oferta nenhuma.</p>'+
-        '<h4>O gatilho</h4><p><strong>30 dias de assinatura ativa</strong> mais uso consistente. Quem usa é quem está executando, e quem está executando é quem quer mais.</p>'+
-        '<h4>A oferta</h4><p>A Batalha, com desconto por já ser assinante. Sobe um degrau, não três, e a inscrição fica coerente com o que a pessoa já paga.</p>'},
-  {nm:'Leads sem compra', num:'a construir', ds:'Entraram na base e nunca compraram. Hoje nem existem, porque não há captura.', st:'Nutrição', cls:'off',
-   kind:'Segmento 04 · quem levantou a mão',
-   lead:'O segmento que não existe ainda, porque não há um formulário no site inteiro.',
-   body:'<h4>O ponto de partida</h4><p>Não há captura de e-mail em nenhuma página do ecossistema da Consultoria. Esse segmento precisa ser criado antes de ser trabalhado, e é por isso que a instrumentação vem primeiro no plano.</p>'+
-        '<h4>A nutrição</h4><p>Sequência por objetivo declarado, não por data de entrada. Quem quer emagrecer e quem quer ganhar massa recebem provas diferentes, na mesma cadência.</p>'+
-        '<h4>O destino</h4><p>A Batalha entre as turmas, e a Consultoria quando a janela abre. Assim o lead nunca fica sem oferta possível, que é o que acontece hoje.</p>'},
-  {nm:'Quase-compradores', num:'a instrumentar', ds:'Chegaram ao checkout e não concluíram. Hoje ninguém sabe quem são.', st:'Recuperação', cls:'off',
-   kind:'Segmento 05 · quem chegou perto',
-   lead:'A conversão mais barata que existe, e a única que hoje é invisível.',
-   body:'<h4>Por que é invisível</h4><p>Sem pixel e sem analytics no site, não há como saber quem abriu a página de preço, quem clicou no botão e quem abandonou o checkout. A informação existe e está sendo jogada fora todo dia.</p>'+
-        '<h4>A recuperação</h4><ul><li><strong>Abandono no checkout</strong>: mensagem em até uma hora, tratando a objeção de preço com o parcelamento e a de confiança com um case.</li><li><strong>Visitou a página e não clicou</strong>: retargeting com prova, não com desconto.</li><li><strong>Entrou na lista e não comprou na abertura</strong>: convite para a Batalha, que é o degrau que ele consegue pagar.</li></ul>'+
-        '<h4>O que isso exige</h4><p>Uma tarde de trabalho instalando rastreamento. É o item mais barato do plano de 90 dias e o que destrava todo o resto.</p>'}
+/* ---------- segmentos ---------- */
+var SEGS=[
+ {nm:'Alunos ativos',num:'650 pessoas',ds:'Estão dentro do ciclo agora. A conversa é de ampliação, não de venda nova.',st:'Cross-sell',cls:'on',hero:'hero',
+  kind:'Segmento 01 · quem está dentro',lead:'A oferta certa aqui não é vender de novo. É aumentar o valor do ciclo já comprado.',
+  body:'<h4>Onde acontece</h4><p>Dentro do app, no ponto de maior frequência da marca. Não por e-mail.</p><h4>A régua</h4><ul><li><strong>Semana 2</strong>: a dieta apertou. Oferta da Cozinha, ancorada na dor do momento.</li><li><strong>Semana 6</strong>: primeiro resultado visível. Pedido de indicação, com benefício para os dois lados.</li><li><strong>Semana 11</strong>: uma semana antes do fim. Renovação, antes que o aluno entre no vácuo.</li></ul><h4>Por que funciona</h4><p>Nenhuma dessas ofertas interrompe. Todas chegam quando a dor correspondente está acontecendo.</p>'},
+ {nm:'Ex-alunos',num:'~4.000 pessoas',ds:'Concluíram e saíram. Nunca receberam uma oferta de retorno.',st:'Winback',cls:'weak',
+  kind:'Segmento 02 · quem já foi',lead:'O ativo mais valioso e mais esquecido do ecossistema.',
+  body:'<h4>Segmentar antes de falar</h4><p>Não é uma base, são três: quem teve resultado e manteve, quem teve e perdeu, e quem não teve. Mandar o mesmo e-mail para as três queima a base inteira.</p><h4>A régua de cinco tempos</h4><ul><li><strong>1 · Reconhecimento</strong>: retomar o resultado da pessoa, com o número dela. Sem oferta.</li><li><strong>2 · Diagnóstico</strong>: "onde você está hoje?", num quiz curto que segmenta e reativa.</li><li><strong>3 · Prova</strong>: case de alguém que voltou, do mesmo perfil.</li><li><strong>4 · Convite</strong>: a Batalha como porta de retorno, não a Consultoria.</li><li><strong>5 · Escassez real</strong>: fechamento da edição, com vaga contada de verdade.</li></ul><h4>O erro a evitar</h4><p>Voltar oferecendo o produto de R$ 1.152 para quem já saiu uma vez. O caminho de volta tem que ser mais barato que o de ida.</p>'},
+ {nm:'Assinantes da Cozinha',num:'base a apurar',ds:'Pagam todo mês e nunca receberam uma oferta de subida.',st:'Upsell',cls:'weak',hero:'warm',
+  kind:'Segmento 03 · quem já paga',lead:'Já provaram que confiam na marca com o cartão. Falta um convite.',
+  body:'<h4>O que se sabe deles</h4><p>Quais receitas salvam, qual objetivo declararam, com que frequência usam. É dado de intenção que quase nenhuma empresa de fitness tem, e que hoje não vira oferta nenhuma.</p><h4>O gatilho</h4><p><strong>30 dias de assinatura ativa</strong> mais uso consistente. Quem usa é quem está executando, e quem executa é quem quer mais.</p><h4>A oferta</h4><p>A Batalha, com desconto de assinante. Sobe um degrau, não três.</p>'},
+ {nm:'Leads sem compra',num:'a construir',ds:'Entraram na base e nunca compraram. Hoje nem existem, porque não há captura.',st:'Nutrição',cls:'off',
+  kind:'Segmento 04 · quem levantou a mão',lead:'O segmento que ainda não existe, porque não há um formulário no site inteiro.',
+  body:'<h4>O ponto de partida</h4><p>Não há captura de e-mail em nenhuma página do ecossistema da Consultoria. Esse segmento precisa ser criado antes de ser trabalhado, e é por isso que a instrumentação vem primeiro.</p><h4>A nutrição</h4><p>Sequência por objetivo declarado, não por data de entrada. Quem quer emagrecer e quem quer ganhar massa recebem provas diferentes, na mesma cadência.</p><h4>O destino</h4><p>A Batalha entre as turmas, a Consultoria quando a janela abre. O lead nunca fica sem oferta possível, que é o que acontece hoje.</p>'},
+ {nm:'Quase-compradores',num:'a instrumentar',ds:'Chegaram ao checkout e não concluíram. Hoje ninguém sabe quem são.',st:'Recuperação',cls:'off',
+  kind:'Segmento 05 · quem chegou perto',lead:'A conversão mais barata que existe, e a única hoje invisível.',
+  body:'<h4>Por que é invisível</h4><p>Sem pixel e sem analytics, não há como saber quem abriu a página de preço, quem clicou e quem abandonou o checkout. A informação existe e está sendo jogada fora todo dia.</p><h4>A recuperação</h4><ul><li><strong>Abandono no checkout</strong>: mensagem em até uma hora, tratando preço com parcelamento e confiança com um case.</li><li><strong>Visitou e não clicou</strong>: retargeting com prova, não com desconto.</li><li><strong>Entrou na lista e não comprou</strong>: convite para a Batalha, que é o degrau que ele consegue pagar.</li></ul><h4>O que exige</h4><p>Uma tarde instalando rastreamento. É o item mais barato do plano e o que destrava todo o resto.</p>'}
 ];
-
-var segEl = document.getElementById('segments');
+var segEl=document.getElementById('segments');
 SEGS.forEach(function(S){
-  var b = document.createElement('button');
-  b.type='button'; b.className='card clickable'+(S.hero?' '+S.hero:'');
-  b.innerHTML = '<span class="nm">'+S.nm+'</span><span class="num">'+S.num+'</span>'+
-                '<span class="ds">'+S.ds+'</span><span class="st '+S.cls+'">'+S.st+'</span>';
-  b.addEventListener('click', function(){
-    openModal('<p class="mkind">'+S.kind+'</p><h3 id="m-title">'+S.nm+'</h3><p class="mlead">'+S.lead+'</p>'+S.body);
-  });
+  var b=document.createElement('button'); b.type='button'; b.className='card clickable'+(S.hero?' '+S.hero:'');
+  b.innerHTML='<span class="nm">'+S.nm+'</span><span class="num">'+S.num+'</span><span class="ds">'+S.ds+'</span><span class="st '+S.cls+'">'+S.st+'</span>';
+  b.addEventListener('click',function(){
+    openModal('<p class="mkind">'+S.kind+'</p><h3 id="m-title">'+S.nm+'</h3><p class="mlead">'+S.lead+'</p>'+S.body); });
   segEl.appendChild(b);
 });
 
-/* ================= MATRIZ ================= */
-
-var ROUTES = [
-  {from:'Blog',to:'Cozinha',cls:'cross',trigger:'Leu artigo de nutrição',when:'No fim do próprio artigo',
-   lead:'A rota mais barata do ecossistema, e hoje ela simplesmente não existe.',
-   body:'<h4>A mecânica</h4><p>Todo artigo de nutrição termina numa receita real que resolve o problema discutido no texto. A receita é da Cozinha, e o acesso completo exige assinatura. Não é banner, é continuação natural da leitura.</p>'+
-        '<h4>Por que funciona</h4><p>A pessoa acabou de entender que precisa controlar macros. A objeção "como faço isso na prática" está viva naquele segundo. R$ 14,90 é uma decisão pequena diante de uma dor recém-nomeada.</p>'+
-        '<h4>O que precisa</h4><p>Um bloco padrão no fim de cada post e o link que hoje não existe.</p>'},
-  {from:'Cozinha',to:'Batalha',cls:'up',trigger:'30 dias de assinatura ativa e uso consistente',when:'Na abertura de cada edição',
-   lead:'A subida de degrau mais natural, e a que dá urgência à assinatura.',
-   body:'<h4>A mecânica</h4><p>Assinantes ativos recebem a inscrição com desconto e prioridade. Quem não é assinante paga cheio ou precisa assinar para entrar. A assinatura vira pré-requisito, não sugestão.</p>'+
-        '<h4>Por que funciona nos dois sentidos</h4><p>Dá motivo para assinar a Cozinha, que hoje é uma decisão adiável para sempre, e enche a Batalha com gente que já está executando a dieta.</p>'+
-        '<h4>O que precisa</h4><p>Integração entre a base de assinantes e a inscrição da Batalha, com verificação de status.</p>'},
-  {from:'Batalha',to:'Consultoria',cls:'up',trigger:'Terminou o desafio',when:'Nas últimas 72 horas da edição',
-   lead:'A rota que justifica a existência do nível 2.',
-   body:'<h4>A mecânica</h4><p>Nos últimos três dias da edição, quando o participante está no pico de resultado e de identificação com a marca, entra a oferta da turma seguinte com condição de finalista. O vencedor leva bolsa integral.</p>'+
-        '<h4>Por que o momento é esse</h4><p>Depois que o desafio acaba a motivação despenca em dias. A janela de conversão é curta e previsível, o que a torna fácil de automatizar.</p>'+
-        '<h4>A métrica que decide</h4><p>Essa taxa é a métrica-mãe do nível 2. Se ela não existir, a Batalha vira apenas mais um produto, e não um motor.</p>'},
-  {from:'Consultoria',to:'Cozinha',cls:'cross',trigger:'Semana 2 do ciclo',when:'Dentro do app, não por e-mail',
-   lead:'Cross-sell que reduz o atrito do produto principal em vez de competir com ele.',
-   body:'<h4>A mecânica</h4><p>Na semana 2 a dieta apertou e a pergunta "o que eu como hoje" vira diária. A Cozinha aparece no app como solução do problema do momento, com as receitas já filtradas pelos macros do plano do aluno.</p>'+
-        '<h4>Por que não canibaliza</h4><p>Aumenta a chance de o aluno cumprir a dieta, o que melhora o resultado dele, o que melhora o case e a renovação. O cross-sell aqui é retenção disfarçada de venda.</p>'+
-        '<h4>O que precisa</h4><p>Camada de oferta dentro do app e o cruzamento entre plano alimentar e catálogo de receitas.</p>'},
-  {from:'Consultoria',to:'Continuidade',cls:'up',trigger:'Semana 11 de 12',when:'Antes do ciclo acabar, nunca depois',
-   lead:'A rota que resolve o buraco de quatro mil pessoas.',
-   body:'<h4>A mecânica</h4><p>Uma semana antes do fim, com o resultado do ciclo em mãos, o especialista apresenta o plano de manutenção. A conversa não é comercial, é técnica: o que acontece com o corpo se parar agora.</p>'+
-        '<h4>Por que o timing é crítico</h4><p>Depois que o ciclo acaba, o aluno já saiu do ambiente e a conversa vira reconquista. Antes de acabar, ela é continuação. O custo dessas duas conversas é diferente por uma ordem de grandeza.</p>'+
-        '<h4>O que precisa</h4><p>Definir o nível 4 antes de poder ofertá-lo. É o item da onda 3 do calendário.</p>'},
-  {from:'Ex-aluno',to:'Batalha',cls:'back',trigger:'90 dias fora, ou perda de resultado relatada',when:'Na abertura de uma edição',
-   lead:'O caminho de volta precisa ser mais barato que o de ida.',
-   body:'<h4>A mecânica</h4><p>Campanha segmentada por resultado obtido, oferecendo a Batalha e não a Consultoria. Ticket menor, compromisso menor, e a chance de o ex-aluno reentrar no ecossistema sem precisar decidir R$ 1.152 de novo.</p>'+
-        '<h4>Por que a Batalha e não a Consultoria</h4><p>Quem saiu uma vez tem uma objeção nova que não tinha antes: "já tentei". Um desafio de 30 dias contorna isso; um ciclo de 3 meses reforça.</p>'+
-        '<h4>O funil de volta</h4><p>Batalha, e da Batalha para a turma seguinte pela rota que já existe. Duas conversões pequenas em vez de uma grande.</p>'},
-  {from:'App do aluno',to:'Indicação',cls:'cross',trigger:'Primeiro resultado registrado no app',when:'No momento em que o gráfico vira',
-   lead:'O único momento em que pedir indicação não constrange ninguém.',
-   body:'<h4>A mecânica</h4><p>Quando o aluno registra o check-in que confirma a primeira queda relevante, o app reconhece o marco e oferece um convite com benefício para os dois lados: desconto para quem indica e para quem entra.</p>'+
-        '<h4>Por que esse instante</h4><p>É o pico emocional do ciclo. A pessoa acabou de ver a prova de que funcionou e quer contar para alguém. Pedir depois é pedir no vazio.</p>'+
-        '<h4>O que precisa</h4><p>Um gatilho no app ligado ao dado que ele já coleta. Nenhuma métrica nova, só uma leitura nova do que já existe.</p>'}
+/* ---------- matriz ---------- */
+var ROUTES=[
+ {from:'Blog',to:'Cozinha',cls:'cross',trigger:'Leu artigo de nutrição',when:'No fim do próprio artigo',
+  lead:'A rota mais barata do ecossistema, e hoje ela simplesmente não existe.',
+  body:'<h4>A mecânica</h4><p>Todo artigo de nutrição termina numa receita real que resolve o problema discutido no texto. A receita é da Cozinha, e o acesso completo exige assinatura. Não é banner, é continuação da leitura.</p><h4>Por que funciona</h4><p>A pessoa acabou de entender que precisa controlar macros. R$ 14,90 é uma decisão pequena diante de uma dor recém-nomeada.</p>'},
+ {from:'Cozinha',to:'Batalha',cls:'up',trigger:'30 dias de assinatura ativa',when:'Na abertura de cada edição',
+  lead:'A subida mais natural, e a que dá urgência à assinatura.',
+  body:'<h4>A mecânica</h4><p>Assinantes ativos recebem inscrição com desconto e prioridade. Quem não é assinante paga cheio ou precisa assinar. A assinatura vira pré-requisito, não sugestão.</p><h4>Funciona nos dois sentidos</h4><p>Dá motivo para assinar a Cozinha, que hoje é adiável para sempre, e enche a Batalha com gente que já executa a dieta.</p>'},
+ {from:'Batalha',to:'Consultoria',cls:'up',trigger:'Terminou o desafio',when:'Nas últimas 72 horas da edição',
+  lead:'A rota que justifica monetizar o nível 2.',
+  body:'<h4>A mecânica</h4><p>Nos últimos três dias, quando o participante está no pico de resultado e de identificação, entra a oferta da turma seguinte com condição de finalista. O vencedor leva bolsa integral.</p><h4>Por que esse momento</h4><p>Depois que o desafio acaba a motivação despenca em dias. A janela é curta e previsível, o que a torna fácil de automatizar.</p>'},
+ {from:'Batalha',to:'Autoridade do time',cls:'cross',trigger:'Cada edição conduzida por um treinador',when:'Durante os 30 dias',
+  lead:'A rota que não gera receita direta e sustenta o crescimento inteiro.',
+  body:'<h4>A mecânica</h4><p>Cada edição tem um treinador do time como responsável visível: ele apresenta, comenta os check-ins e assina o resultado. Doze edições por ano são doze vitrines dos especialistas.</p><h4>Por que é estratégica</h4><p>É o veículo mais natural para transferir autoridade do fundador para o método. O aluno passa a reconhecer o especialista antes de comprar, o que reduz a resistência de ser atendido por alguém que não é o Marcos.</p><h4>Como medir</h4><p>Percentual de matrículas em que o aluno pede um especialista pelo nome.</p>'},
+ {from:'Consultoria',to:'Cozinha',cls:'cross',trigger:'Semana 2 do ciclo',when:'Dentro do app, não por e-mail',
+  lead:'Cross-sell que reduz o atrito do produto principal em vez de competir com ele.',
+  body:'<h4>A mecânica</h4><p>Na semana 2 a dieta apertou e "o que eu como hoje" vira pergunta diária. A Cozinha aparece no app com as receitas já filtradas pelos macros do plano do aluno.</p><h4>Por que não canibaliza</h4><p>Aumenta a chance de o aluno cumprir a dieta, o que melhora o resultado, o case e a renovação. Aqui o cross-sell é retenção disfarçada de venda.</p>'},
+ {from:'Consultoria',to:'Com o Marcos',cls:'up',trigger:'Concluiu um ciclo com resultado acima da média',when:'Na conversa de renovação',
+  lead:'A rota que dá função ao nível 4 dentro da escada.',
+  body:'<h4>A mecânica</h4><p>O acesso ao nível 4 é oferecido apenas a quem já concluiu um ciclo e demonstrou aderência. Isso transforma o produto mais caro em consequência de mérito, não em questão de dinheiro.</p><h4>Por que é o melhor posicionamento</h4><p>Preserva a agenda do Marcos, qualifica quem chega até ele e transforma o alto ticket em algo que se conquista. Escassez legítima vale mais que escassez anunciada.</p><h4>O que precisa</h4><p>Definir critério de elegibilidade e a página de aplicação. Formato e preço a confirmar com a empresa.</p>'},
+ {from:'Consultoria',to:'Renovação',cls:'up',trigger:'Semana 11 de 12',when:'Antes do ciclo acabar, nunca depois',
+  lead:'A rota que evita o buraco de quatro mil pessoas.',
+  body:'<h4>A mecânica</h4><p>Uma semana antes do fim, com o resultado em mãos, o especialista apresenta o plano de continuidade. A conversa não é comercial, é técnica: o que acontece com o corpo se parar agora.</p><h4>Por que o timing é crítico</h4><p>Depois que o ciclo acaba, o aluno já saiu do ambiente e a conversa vira reconquista. Antes de acabar, é continuação. O custo dessas duas conversas difere por uma ordem de grandeza.</p>'},
+ {from:'Ex-aluno',to:'Batalha',cls:'back',trigger:'90 dias fora, ou perda de resultado relatada',when:'Na abertura de uma edição',
+  lead:'O caminho de volta precisa ser mais barato que o de ida.',
+  body:'<h4>A mecânica</h4><p>Campanha segmentada por resultado obtido, oferecendo a Batalha e não a Consultoria. Ticket menor, compromisso menor, e a chance de reentrar sem decidir R$ 1.152 de novo.</p><h4>Por que a Batalha</h4><p>Quem saiu uma vez tem uma objeção nova: "já tentei". Um desafio de 30 dias contorna isso; um ciclo de 3 meses reforça.</p>'},
+ {from:'App do aluno',to:'Indicação',cls:'cross',trigger:'Primeiro resultado registrado no app',when:'No momento em que o gráfico vira',
+  lead:'O único momento em que pedir indicação não constrange ninguém.',
+  body:'<h4>A mecânica</h4><p>Quando o aluno registra o check-in que confirma a primeira queda relevante, o app reconhece o marco e oferece um convite com benefício para os dois lados.</p><h4>Por que esse instante</h4><p>É o pico emocional do ciclo. A pessoa acabou de ver a prova de que funcionou e quer contar para alguém. Pedir depois é pedir no vazio.</p><h4>O que precisa</h4><p>Um gatilho ligado ao dado que o app já coleta. Nenhuma métrica nova, só uma leitura nova.</p>'}
 ];
-
-var mxEl = document.getElementById('matrix');
+var mxEl=document.getElementById('matrix');
 ROUTES.forEach(function(R){
-  var b = document.createElement('button');
-  b.type='button'; b.className='mx clickable '+R.cls;
-  b.innerHTML = '<span class="route">'+R.from+' <i>→</i> '+R.to+'</span>'+
-                '<span class="trg"><b>Gatilho:</b> '+R.trigger+'<br><b>Momento:</b> '+R.when+'</span>';
-  b.addEventListener('click', function(){
-    var kind = R.cls==='up' ? 'Upsell · sobe de degrau' : (R.cls==='cross' ? 'Cross-sell · amplia o degrau' : 'Winback · traz de volta');
-    openModal('<p class="mkind">'+kind+'</p><h3 id="m-title">'+R.from+' → '+R.to+'</h3>'+
-      '<p class="mlead">'+R.lead+'</p>'+
-      '<h4>Gatilho</h4><p>'+R.trigger+'</p><h4>Momento</h4><p>'+R.when+'</p>'+R.body);
-  });
+  var b=document.createElement('button'); b.type='button'; b.className='mx clickable '+R.cls;
+  b.innerHTML='<span class="route">'+R.from+' <i>→</i> '+R.to+'</span>'+
+    '<span class="trg"><b>Gatilho:</b> '+R.trigger+'<br><b>Momento:</b> '+R.when+'</span>';
+  b.addEventListener('click',function(){
+    var k=R.cls==='up'?'Upsell · sobe de degrau':(R.cls==='cross'?'Cross-sell · amplia o degrau':'Winback · traz de volta');
+    openModal('<p class="mkind">'+k+'</p><h3 id="m-title">'+R.from+' → '+R.to+'</h3><p class="mlead">'+R.lead+'</p>'+
+      '<h4>Gatilho</h4><p>'+R.trigger+'</p><h4>Momento</h4><p>'+R.when+'</p>'+R.body); });
   mxEl.appendChild(b);
 });
 
-/* ================= MATERIAIS ================= */
-
-var MATS = [
-  {lb:'Raio-X do Shape', sb:'Estudo anual', kind:'Material 01 · dado proprietário',
-   ttl:'O Raio-X do Shape Brasileiro',
-   lead:'A empresa está sentada num dado que ninguém no mercado tem e nunca publicou uma linha dele.',
-   o:'Um relatório anual com os dados anonimizados dos 650 alunos: quanto de gordura se perde em média em um ciclo, o que separa quem bate a meta de quem não bate, o impacto real do protocolo de passos, o que acontece com quem para de fazer check-in.',
-   camp:'<strong>Campanha "Os números que ninguém publica".</strong> Lançamento do estudo com assessoria para portais de saúde e fitness, uma série de sete posts com um achado cada, e uma live de apresentação dos dados. O download exige e-mail.',
-   alim:'<ul><li>Autoridade que nenhum concorrente pode comprar</li><li>Captura qualificada no nível 0</li><li>Pauta de blog para o ano inteiro</li><li>Argumento de venda para a Consultoria: "sabemos disso porque medimos"</li></ul>',
-   quem:'Marketing escreve, especialistas validam, designer diagrama. Não exige produção nova, exige leitura do que já está no banco.'},
-  {lb:'Kit da Batalha', sb:'Kit de participante', kind:'Material 02 · motor de UGC',
-   ttl:'Kit do participante da Batalha',
-   lead:'A diferença entre um desafio que ninguém vê e um que vira mídia.',
-   o:'Molduras de story para o check-in semanal, um card de "estou dentro" para o dia da inscrição, contador de dias, marca d\'água discreta, checklist diário para imprimir e um template de antes e depois no formato da marca.',
-   camp:'<strong>Campanha de inscrição com prova em tempo real.</strong> Cada inscrito posta o card de entrada e marca o perfil. O feed vira um mural coletivo, e a inscrição de um vira anúncio para o círculo dele.',
-   alim:'<ul><li>Alcance orgânico que não se compra</li><li>Prova social contínua durante os 30 dias</li><li>Banco de conteúdo para a edição seguinte</li><li>Pressão social que aumenta a taxa de conclusão</li></ul>',
-   quem:'Designer produz uma vez, serve todas as edições. É o material com melhor relação entre esforço e retorno da lista.'},
-  {lb:'Ferramentas', sb:'Iscas funcionais', kind:'Material 03 · captura perene',
-   ttl:'Calculadoras e simuladores',
-   lead:'Ferramenta captura melhor que e-book, porque entrega valor antes de pedir qualquer coisa.',
-   o:'Calculadora de TMB e macros, simulador de "quanto tempo até meu objetivo" alimentado pela média real dos alunos, e um quiz de perfil que devolve o diagnóstico e segmenta a base ao mesmo tempo.',
-   camp:'<strong>Campanha "Descubra o seu número".</strong> Um Reel por ferramenta mostrando o resultado de alguém real, com automação de comentário para direct entregando o link. As ferramentas ficam no ar para sempre e continuam captando.',
-   alim:'<ul><li>Captura perene, com custo marginal zero após publicar</li><li>Tráfego orgânico de busca de cauda longa</li><li>Segmentação automática por objetivo declarado</li><li>Dado de intenção que qualifica o lead antes da venda</li></ul>',
-   quem:'Marketing especifica, um freela de front-end constrói em poucos dias. São páginas simples, não produto.'},
-  {lb:'Cases nomeados', sb:'Prova indexável', kind:'Material 04 · prova e busca',
-   ttl:'Páginas de case com nome próprio',
-   lead:'A prova mais forte da marca hoje está trancada dentro de imagens.',
-   o:'Uma página por transformação, com nome, idade, ponto de partida, números do ciclo, fotos e o depoimento em texto. O blog já faz isso na categoria Cases, e o padrão é bom. Falta escala e falta ligação com o produto.',
-   camp:'<strong>Campanha "Antes eu também achava".</strong> Cada case abre com a objeção que a pessoa tinha antes de entrar, que é a mesma objeção de quem está lendo. O case responde a objeção com dado, não com entusiasmo.',
-   alim:'<ul><li>Resposta na fonte para quem busca se a consultoria funciona</li><li>Material de fechamento para o time comercial</li><li>Conteúdo para o Instagram sem precisar gravar nada novo</li><li>Insumo direto para a nutrição por e-mail, segmentada por perfil</li></ul>',
-   quem:'Marketing entrevista e escreve. Uma entrevista de 30 minutos vira página, Reel, e-mail e post.'},
-  {lb:'Aula do método', sb:'Masterclass', kind:'Material 05 · aquecimento de turma',
-   ttl:'A aula aberta das 7 métricas',
-   lead:'O ativo que transforma a lista de espera em turma cheia.',
-   o:'Uma aula de cerca de 40 minutos em que o Marcos explica as sete métricas e mostra, na tela, o plano real de um aluno. Não é isca disfarçada de aula: é a aula de verdade, com a metodologia aberta.',
-   camp:'<strong>Campanha de abertura de turma.</strong> Aula ao vivo na semana anterior, inscrição por e-mail e WhatsApp, gravação disponível por 48 horas e oferta apresentada no fim. Entre as turmas, a gravação vira isca perene.',
-   alim:'<ul><li>Aquecimento da lista antes de cada abertura</li><li>Conversão mais alta na janela de venda</li><li>Biblioteca de cortes para Reels durante meses</li><li>Prova de método para quem ainda duvida</li></ul>',
-   quem:'Uma gravação por trimestre, alinhada ao calendário de turmas.'},
-  {lb:'Minissérie', sb:'Documentário curto', kind:'Material 06 · narrativa longa',
-   ttl:'Minissérie dos finalistas',
-   lead:'O uso mais alto do videomaker que já está no time.',
-   o:'Três a cinco episódios curtos acompanhando finalistas de uma edição da Batalha do começo ao fim: o antes, a virada da semana 2, a recaída, o resultado. Formato vertical, cortes para Reels e uma versão longa para YouTube.',
-   camp:'<strong>Campanha "30 dias, três pessoas".</strong> Um episódio por semana durante a edição, criando audiência que acompanha em tempo real. O último episódio sai junto com a abertura da turma seguinte.',
-   alim:'<ul><li>Retenção de audiência entre as edições</li><li>Prova emocional que o antes e depois estático não entrega</li><li>Conteúdo para YouTube, canal que a marca ainda não explora</li><li>Fechamento natural para a abertura de turma</li></ul>',
-   quem:'Videomaker grava, marketing dirige a narrativa. É o material mais caro da lista e o de maior alcance potencial.'}
+/* ---------- materiais ---------- */
+var MATS=[
+ {lb:'Raio-X do Shape',sb:'Estudo anual',kind:'Material 01 · dado proprietário',ttl:'O Raio-X do Shape Brasileiro',
+  lead:'A empresa está sentada num dado que ninguém no mercado tem e nunca publicou uma linha dele.',
+  o:'Relatório anual com os dados anonimizados dos 650 alunos: quanto de gordura se perde em média num ciclo, o que separa quem bate a meta de quem não bate, o impacto real do protocolo de passos, o que acontece com quem para de fazer check-in.',
+  camp:'<strong>Campanha "Os números que ninguém publica".</strong> Lançamento com assessoria para portais de saúde, série de sete posts com um achado cada, e uma live de apresentação. O download exige e-mail.',
+  alim:'<ul><li>Autoridade que nenhum concorrente pode comprar</li><li>Captura qualificada no nível 0</li><li>Pauta de blog para o ano inteiro</li><li>Prova de que a marca do método é feita de dado, não de opinião</li></ul>',
+  quem:'Marketing escreve, especialistas validam, designer diagrama. Não exige produção nova, exige leitura do que já está no banco.'},
+ {lb:'Página do método',sb:'Ativo central',kind:'Material 02 · o ativo que falta nomear',ttl:'A página das 7 métricas',
+  lead:'O material mais importante da lista, porque é o que transforma o método em marca.',
+  o:'Uma página que nomeia o método e documenta as sete métricas em texto real: o que é medida, por que é medida, com que frequência é revisada e o que muda no plano quando o número muda. Hoje isso existe só dentro de uma imagem de carrossel.',
+  camp:'<strong>Campanha "Zero achismo, por escrito".</strong> Um post por métrica ao longo de sete semanas, cada um conduzido por um especialista diferente do time. Ao fim, o método tem nome, página e sete rostos associados a ele.',
+  alim:'<ul><li>Resolve SEO, AIO e conversão de uma vez só</li><li>Base para certificar e formar novos especialistas</li><li>Argumento central de venda dos níveis 2, 3 e 4</li><li>O primeiro passo concreto da transferência de autoridade</li></ul>',
+  quem:'Marketing redige com os especialistas. É o item de maior alavancagem estratégica da lista inteira.'},
+ {lb:'Página do time',sb:'Prova de entrega',kind:'Material 03 · quem entrega',ttl:'Os especialistas, com nome e rosto',
+  lead:'Seis especialistas atendem 650 alunos e nenhum deles é nomeado em lugar nenhum.',
+  o:'Uma página por especialista: nome, formação, tempo de casa, quantos alunos já conduziu, especialidade e dois ou três cases assinados por ele. Mais um selo visual de formação no método, aplicado em todas as peças em que ele aparece.',
+  camp:'<strong>Campanha "Quem vai te acompanhar".</strong> Uma apresentação por semana, com o Marcos apresentando cada especialista e contando como ele foi formado. A audiência dele passa a conhecer o time antes de comprar.',
+  alim:'<ul><li>Reduz a resistência de ser atendido por quem não é o Marcos</li><li>Dá conteúdo próprio para seis pessoas produzirem</li><li>Melhora o recrutamento, que já é uma necessidade declarada</li><li>Torna a marca do método verificável</li></ul>',
+  quem:'Marketing entrevista e escreve, designer padroniza o selo e os retratos.'},
+ {lb:'Kit da Batalha',sb:'Kit de participante',kind:'Material 04 · motor de UGC',ttl:'Kit do participante da Batalha',
+  lead:'A diferença entre um desafio que ninguém vê e um que vira mídia.',
+  o:'Molduras de story para o check-in semanal, card de "estou dentro" para o dia da inscrição, contador de dias, marca d\'água discreta, checklist diário e template de antes e depois no formato da marca.',
+  camp:'<strong>Campanha de inscrição com prova em tempo real.</strong> Cada inscrito posta o card de entrada e marca o perfil. O feed vira um mural coletivo, e a inscrição de um vira anúncio para o círculo dele.',
+  alim:'<ul><li>Alcance orgânico que não se compra</li><li>Prova social contínua durante os 30 dias</li><li>Banco de conteúdo para a edição seguinte</li><li>Pressão social que aumenta a taxa de conclusão</li></ul>',
+  quem:'Designer produz uma vez e serve todas as edições. Melhor relação entre esforço e retorno da lista.'},
+ {lb:'Ferramentas',sb:'Iscas funcionais',kind:'Material 05 · captura perene',ttl:'Calculadoras e simuladores',
+  lead:'Ferramenta captura melhor que e-book, porque entrega valor antes de pedir qualquer coisa.',
+  o:'Calculadora de TMB e macros, simulador de "quanto tempo até meu objetivo" alimentado pela média real dos alunos, e um quiz de perfil que devolve diagnóstico e segmenta a base ao mesmo tempo.',
+  camp:'<strong>Campanha "Descubra o seu número".</strong> Um Reel por ferramenta mostrando o resultado de alguém real, com automação de comentário para direct entregando o link. As ferramentas ficam no ar para sempre.',
+  alim:'<ul><li>Captura perene, custo marginal zero após publicar</li><li>Tráfego orgânico de busca de cauda longa</li><li>Segmentação automática por objetivo declarado</li><li>Dado de intenção que qualifica o lead antes da venda</li></ul>',
+  quem:'Marketing especifica, um freela de front-end constrói em poucos dias. São páginas simples, não produto.'},
+ {lb:'FAQ',sb:'Conteúdo de objeção',kind:'Material 06 · o conserto mais barato',ttl:'A FAQ que não existe',
+  lead:'Nenhuma das propriedades tem FAQ, nem em página nem em bloco.',
+  o:'Uma página de perguntas frequentes por produto, marcada com schema FAQPage, respondendo as objeções reais: preço e parcelamento, quem vai atender, se funciona para iniciante, se precisa de academia, o que acontece se não houver resultado, e qual a diferença entre os quatro produtos.',
+  camp:'<strong>Campanha "Perguntas que chegam no direct".</strong> Cada resposta vira um post e um Reel curto, respondido por um especialista diferente. O conteúdo já existe: está espalhado nas conversas de atendimento.',
+  alim:'<ul><li>Aparece direto no resultado de busca com FAQPage</li><li>É uma das estruturas que modelos de IA mais citam</li><li>Libera o time do atendimento repetitivo</li><li>Reduz desistência silenciosa na página de venda</li></ul>',
+  quem:'Marketing compila do histórico de atendimento. É o material mais rápido de produzir e um dos de maior retorno.'},
+ {lb:'Minissérie',sb:'Documentário curto',kind:'Material 07 · narrativa longa',ttl:'Minissérie dos finalistas',
+  lead:'O uso mais alto do videomaker que já está no time.',
+  o:'Três a cinco episódios curtos acompanhando finalistas de uma edição da Batalha do começo ao fim: o antes, a virada da semana 2, a recaída, o resultado. Formato vertical, cortes para Reels e versão longa para YouTube.',
+  camp:'<strong>Campanha "30 dias, três pessoas".</strong> Um episódio por semana durante a edição, criando audiência que acompanha em tempo real. O último sai junto com a abertura da turma seguinte.',
+  alim:'<ul><li>Retenção de audiência entre as edições</li><li>Prova emocional que o antes e depois estático não entrega</li><li>Conteúdo para YouTube, canal ainda não explorado</li><li>O especialista aparece conduzindo, o que reforça a marca do método</li></ul>',
+  quem:'Videomaker grava, marketing dirige a narrativa. Material mais caro da lista e o de maior alcance potencial.'}
 ];
-
-var tabsEl = document.getElementById('mat-tabs');
-var panelEl = document.getElementById('mat-panel');
-
+var tabsEl=document.getElementById('mat-tabs'), panelEl=document.getElementById('mat-panel');
 function renderMat(i){
-  var M = MATS[i];
-  panelEl.innerHTML =
-    '<p class="kind">'+M.kind+'</p><div class="ttl">'+M.ttl+'</div>'+
+  var M=MATS[i];
+  panelEl.innerHTML='<p class="kind">'+M.kind+'</p><div class="ttl">'+M.ttl+'</div>'+
     '<p style="color:var(--ink2);font-size:16px;max-width:64ch">'+M.lead+'</p>'+
-    '<div class="tp-grid">'+
-      '<div><h4>O material</h4><p>'+M.o+'</p></div>'+
-      '<div><h4>A campanha</h4><p>'+M.camp+'</p></div>'+
-      '<div><h4>O que ele alimenta depois</h4>'+M.alim+'</div>'+
-      '<div><h4>Quem produz</h4><p>'+M.quem+'</p></div>'+
-    '</div>';
-  Array.prototype.forEach.call(tabsEl.children, function(b,j){
-    b.setAttribute('aria-selected', j===i?'true':'false');
-  });
+    '<div class="tp-grid"><div><h4>O material</h4><p>'+M.o+'</p></div>'+
+    '<div><h4>A campanha</h4><p>'+M.camp+'</p></div>'+
+    '<div><h4>O que ele alimenta depois</h4>'+M.alim+'</div>'+
+    '<div><h4>Quem produz</h4><p>'+M.quem+'</p></div></div>';
+  Array.prototype.forEach.call(tabsEl.children,function(b,j){ b.setAttribute('aria-selected',j===i?'true':'false'); });
 }
 MATS.forEach(function(M,i){
-  var b = document.createElement('button');
-  b.type='button'; b.setAttribute('role','tab');
-  b.innerHTML = '<span class="lb">'+M.lb+'</span><span class="sb">'+M.sb+'</span>';
-  b.addEventListener('click', function(){ renderMat(i); });
-  tabsEl.appendChild(b);
-});
+  var b=document.createElement('button'); b.type='button'; b.setAttribute('role','tab');
+  b.innerHTML='<span class="lb">'+M.lb+'</span><span class="sb">'+M.sb+'</span>';
+  b.addEventListener('click',function(){ renderMat(i); }); tabsEl.appendChild(b); });
 renderMat(0);
 
-/* ================= SIMULADOR ================= */
-
-var P_COZ=14.90, P_CONS=1152, BASE=650, CICLOS=4, EDICOES=12;
-var BASELINE = BASE*CICLOS*P_CONS;
-var E = {};
-['s-assin','s-preco','s-c1','s-c2','o-assin','o-preco','o-c1','o-c2',
- 'v-n1','v-n2','v-n3','d-n1','d-n2','d-n3','v-total','v-delta'].forEach(function(id){
-  E[id] = document.getElementById(id);
-});
-
+/* ---------- simulador ---------- */
+var P_COZ=14.90,P_CONS=1152,BASE=650,CICLOS=4,EDICOES=12;
+var BASELINE=BASE*CICLOS*P_CONS, E={};
+['s-assin','s-preco','s-c1','s-c2','o-assin','o-preco','o-c1','o-c2','v-n1','v-n2','v-n3',
+ 'd-n1','d-n2','d-n3','v-total','v-delta'].forEach(function(id){ E[id]=document.getElementById(id); });
 function calc(){
-  var A=+E['s-assin'].value, PB=+E['s-preco'].value;
-  var c1=+E['s-c1'].value/100, c2=+E['s-c2'].value/100;
-  var partic = Math.round(A*c1);
-  var novos  = Math.round(partic*EDICOES*c2);
-  var n1 = A*P_COZ*12, n2 = partic*PB*EDICOES, n3 = (BASE*CICLOS+novos)*P_CONS;
-  var total = n1+n2+n3, lift = ((total-BASELINE)/BASELINE)*100;
-
-  E['o-assin'].textContent = NUM.format(A);
-  E['o-preco'].textContent = BRL.format(PB);
-  E['o-c1'].textContent = E['s-c1'].value+'%';
-  E['o-c2'].textContent = E['s-c2'].value+'%';
-  E['d-n1'].textContent = NUM.format(A)+' assinantes × 12 meses';
-  E['d-n2'].textContent = NUM.format(partic)+' participantes × '+EDICOES+' edições';
-  E['d-n3'].textContent = NUM.format(BASE*CICLOS)+' vagas base + '+NUM.format(novos)+' novos alunos';
-  E['v-n1'].textContent = BRL.format(n1);
-  E['v-n2'].textContent = BRL.format(n2);
-  E['v-n3'].textContent = BRL.format(n3);
-  E['v-total'].textContent = BRL.format(total);
-  E['v-delta'].innerHTML = 'Hoje, só com a Consultoria, o ecossistema roda <b>'+BRL.format(BASELINE)+
-    '</b> por ano. Com a escada completa nessas premissas, <b>'+(lift>=0?'+':'')+lift.toFixed(0)+
-    '%</b>, e a receita passa a ter três fontes em vez de uma.';
+  var A=+E['s-assin'].value, PB=+E['s-preco'].value, c1=+E['s-c1'].value/100, c2=+E['s-c2'].value/100;
+  var partic=Math.round(A*c1), novos=Math.round(partic*EDICOES*c2);
+  var n1=A*P_COZ*12, n2=partic*PB*EDICOES, n3=(BASE*CICLOS+novos)*P_CONS;
+  var total=n1+n2+n3, lift=((total-BASELINE)/BASELINE)*100;
+  E['o-assin'].textContent=NUM.format(A);
+  E['o-preco'].textContent=BRL.format(PB);
+  E['o-c1'].textContent=E['s-c1'].value+'%';
+  E['o-c2'].textContent=E['s-c2'].value+'%';
+  E['d-n1'].textContent=NUM.format(A)+' assinantes × 12 meses';
+  E['d-n2'].textContent=NUM.format(partic)+' participantes × '+EDICOES+' edições';
+  E['d-n3'].textContent=NUM.format(BASE*CICLOS)+' vagas base + '+NUM.format(novos)+' novos alunos';
+  E['v-n1'].textContent=BRL.format(n1);
+  E['v-n2'].textContent=BRL.format(n2);
+  E['v-n3'].textContent=BRL.format(n3);
+  E['v-total'].textContent=BRL.format(total);
+  E['v-delta'].innerHTML='Hoje, só com a consultoria de especialista, o ecossistema roda <b>'+BRL.format(BASELINE)+
+    '</b> por ano. Com as peças conectadas nessas premissas, <b>'+(lift>=0?'+':'')+lift.toFixed(0)+
+    '%</b>, e a receita passa a ter três fontes em vez de uma. O nível 4 ficou fora da conta, então este número é piso.';
 }
-['s-assin','s-preco','s-c1','s-c2'].forEach(function(id){ E[id].addEventListener('input', calc); });
+['s-assin','s-preco','s-c1','s-c2'].forEach(function(id){ E[id].addEventListener('input',calc); });
 calc();
 
-/* ================= CALENDÁRIO ================= */
-
-var MESES = [
-  {m:'Out',onda:'Onda 1 · Fundação',t:'Instrumentar',its:['<strong>GA4, Meta Pixel e Clarity</strong> nas três propriedades','Padrão de UTM e painel único de KPI','Baseline registrado: sem isso não há meta honesta no mês 2']},
-  {m:'Nov',onda:'Onda 1 · Fundação',t:'Conectar',its:['<strong>Rodapé compartilhado</strong> entre Consultoria, Cozinha e blog','Cozinha ofertada dentro do app e no fim de cada artigo','Primeiras duas ferramentas gratuitas no ar']},
-  {m:'Dez',onda:'Onda 1 · Fundação',t:'Capturar',its:['<strong>Automação de comentário para DM</strong> nos dois perfis','Lista de espera da turma de janeiro como isca principal','Fluxo de boas-vindas segmentado por objetivo declarado']},
-  {m:'Jan',onda:'Onda 2 · O degrau novo',t:'Desenhar a Batalha',its:['<strong>Regulamento escrito</strong>, mecânica de ranking e critério de julgamento','Landing page com inscrição paga integrada ao CRM','Kit do participante fechado com o designer']},
-  {m:'Fev',onda:'Onda 2 · O degrau novo',t:'Primeira edição paga',its:['<strong>Lançamento com meta declarada</strong> de conversão para a turma de abril','Minissérie dos finalistas gravada durante a edição','Aula aberta das 7 métricas na semana anterior']},
-  {m:'Mar',onda:'Onda 2 · O degrau novo',t:'Ajustar e repetir',its:['Leitura dos números e correção da mecânica','<strong>Segunda edição</strong> com o aprendizado aplicado','Primeira coorte convertida em aluno de Consultoria']},
-  {m:'Abr',onda:'Onda 2 · O degrau novo',t:'Provar o ciclo',its:['<strong>Turma de abril</strong> com participantes da Batalha dentro','Medição da conversão real entre nível 2 e nível 3','Ajuste de preço com base no comportamento observado']},
-  {m:'Mai',onda:'Onda 3 · Continuidade',t:'Desenhar o nível 4',its:['<strong>Entrevistas com ex-alunos</strong> para definir a entrega mínima viável','Teste de oferta com um grupo pequeno antes de construir','Definição de preço e formato do clube de manutenção']},
-  {m:'Jun',onda:'Onda 3 · Continuidade',t:'Reativar a base',its:['<strong>Campanha para os cerca de 4.000 ex-alunos</strong>','Régua de cinco tempos, segmentada por resultado obtido','Medição de receita por contato reativado']},
-  {m:'Jul',onda:'Onda 3 · Continuidade',t:'Lançar a continuidade',its:['<strong>Clube de manutenção no ar</strong>','Oferta apresentada no app na semana 11 do ciclo','Renovação deixa de ser conversa individual e vira fluxo']},
-  {m:'Ago',onda:'Onda 3 · Continuidade',t:'Consolidar',its:['<strong>Raio-X do Shape Brasileiro</strong> publicado com assessoria','Escada completa rodando, com os cinco degraus ativos','Revisão de preço de cada degrau com dado de um ciclo inteiro']},
-  {m:'Set',onda:'Onda 3 · Continuidade',t:'Fechar o ano',its:['<strong>Relatório anual</strong> com receita por degrau e migração entre níveis','Edição de aniversário da Batalha, com prêmio maior','Planejamento do ano seguinte a partir de dado real, não de premissa']}
+/* ---------- calendário ---------- */
+var MESES=[
+ {m:'Out',onda:'Onda 1 · Instrumentar e conectar',t:'Medir',its:['<strong>GA4, Meta Pixel e Clarity</strong> nas três propriedades','Head completo da Cozinha: title, description, Open Graph e lang','Baseline registrado, porque sem ele não há meta honesta no mês 2']},
+ {m:'Nov',onda:'Onda 1 · Instrumentar e conectar',t:'Ligar as peças',its:['<strong>Rodapé compartilhado</strong> entre Consultoria, Cozinha e blog','Checkout em domínio próprio e formulário fora do Google Forms','Cozinha ofertada dentro do app e no fim de cada artigo']},
+ {m:'Dez',onda:'Onda 1 · Instrumentar e conectar',t:'Capturar',its:['<strong>Duas primeiras ferramentas gratuitas</strong> no ar','FAQ publicada, com schema FAQPage','Automação de comentário para DM nos dois perfis']},
+ {m:'Jan',onda:'Onda 2 · Nomear o método',t:'Dar nome ao ativo',its:['<strong>Página do método</strong> com as 7 métricas em texto real','Nome definido e aplicado nas três propriedades','llms.txt e dados estruturados nos três domínios']},
+ {m:'Fev',onda:'Onda 2 · Nomear o método',t:'Nomear o time',its:['<strong>Página do time</strong>, com os seis especialistas','Selo de formação no método aplicado em todas as peças','Campanha "Quem vai te acompanhar", um especialista por semana']},
+ {m:'Mar',onda:'Onda 2 · Nomear o método',t:'Monetizar a Batalha',its:['<strong>Regulamento, landing page e inscrição paga</strong>','Kit do participante pronto, com molduras e checklist','Primeira edição paga, assinada por um treinador do time']},
+ {m:'Abr',onda:'Onda 2 · Nomear o método',t:'Provar o ciclo',its:['<strong>Turma de abril</strong> com participantes da Batalha dentro','Medição da conversão real entre nível 2 e nível 3','Minissérie dos finalistas publicada']},
+ {m:'Mai',onda:'Onda 3 · Escalar sem o fundador',t:'Abrir o nível 4',its:['<strong>Página de aplicação</strong> do acompanhamento com o Marcos','Critério de elegibilidade definido: só quem já concluiu um ciclo','Fila de espera ativa, com escassez real e não anunciada']},
+ {m:'Jun',onda:'Onda 3 · Escalar sem o fundador',t:'Reativar a base',its:['<strong>Campanha para os cerca de 4.000 ex-alunos</strong>','Régua de cinco tempos, segmentada por resultado obtido','Porta de retorno pela Batalha, nunca pela Consultoria']},
+ {m:'Jul',onda:'Onda 3 · Escalar sem o fundador',t:'Transferir autoridade',its:['<strong>Conteúdo conduzido só pelos especialistas</strong>, sem o Marcos na peça','Primeira medição da métrica do ano: vendas sem o fundador','Cases atribuídos ao especialista que conduziu']},
+ {m:'Ago',onda:'Onda 3 · Escalar sem o fundador',t:'Consolidar',its:['<strong>Raio-X do Shape Brasileiro</strong> publicado com assessoria','Ecossistema completo rodando sob um nome só','Revisão de preço de cada degrau com dado de um ciclo inteiro']},
+ {m:'Set',onda:'Onda 3 · Escalar sem o fundador',t:'Fechar o ano',its:['<strong>Relatório anual</strong> com receita por degrau e migração entre níveis','Edição de aniversário da Batalha, com prêmio maior','Planejamento do ano seguinte a partir de dado real, não de premissa']}
 ];
-
-var tl = document.getElementById('tl'), tlD = document.getElementById('tl-detail');
+var tl=document.getElementById('tl'), tlD=document.getElementById('tl-detail');
 function renderMes(i){
-  var M = MESES[i];
-  tlD.innerHTML = '<p class="ph">'+M.onda+'</p><h3>'+M.m+' · '+M.t+'</h3><ul>'+
+  var M=MESES[i];
+  tlD.innerHTML='<p class="ph">'+M.onda+'</p><h3>'+M.m+' · '+M.t+'</h3><ul>'+
     M.its.map(function(x){ return '<li>'+x+'</li>'; }).join('')+'</ul>';
-  Array.prototype.forEach.call(tl.children, function(b,j){ b.setAttribute('aria-selected', j===i?'true':'false'); });
+  Array.prototype.forEach.call(tl.children,function(b,j){ b.setAttribute('aria-selected',j===i?'true':'false'); });
 }
 MESES.forEach(function(M,i){
-  var b = document.createElement('button');
-  b.type='button'; b.setAttribute('role','tab');
-  b.innerHTML = '<span class="m">'+M.m+'</span><span class="h">'+M.t+'</span>';
-  b.addEventListener('click', function(){ renderMes(i); });
-  tl.appendChild(b);
-});
+  var b=document.createElement('button'); b.type='button'; b.setAttribute('role','tab');
+  b.innerHTML='<span class="m">'+M.m+'</span><span class="h">'+M.t+'</span>';
+  b.addEventListener('click',function(){ renderMes(i); }); tl.appendChild(b); });
 renderMes(0);
 
 })();
 </script>
-
 </body>
 </html>
