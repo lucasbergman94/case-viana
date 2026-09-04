@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Anexo 3 · Plano de tracking · MBV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;900&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23070807'/><rect x='18' y='44' width='64' height='12' fill='%23CA195D'/></svg>">
+<style>
+:root{--bg:#070807;--surface:#111010;--surface2:#1A1817;--ink:#F4F1F0;--ink2:#A49B99;--ink3:#6E6663;--rule:#2A2524;--viana:#CA195D;--coral:#FF5A36;--grad:linear-gradient(90deg,#CA195D,#FF5A36);--f-disp:"Barlow Condensed","Arial Narrow",sans-serif;--f-body:"Barlow","Helvetica Neue",Arial,sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;--pad:clamp(18px,5vw,56px);}
+*{box-sizing:border-box}
+html{color-scheme:dark;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.gradbar{height:3px;background:var(--grad)}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px var(--pad);border-bottom:1px solid var(--rule);font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.topbar a{color:var(--ink2);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+.topbar a:hover,.topbar a:focus-visible{color:var(--ink);border-color:var(--viana);outline:none}
+.topbar .n{color:var(--ink3);white-space:nowrap}
+main{padding:40px var(--pad) 56px;max-width:1280px;margin:0 auto}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--viana);margin:0 0 14px}
+h1{font-family:var(--f-disp);font-weight:900;font-size:clamp(38px,7vw,76px);line-height:.92;text-transform:uppercase;margin:0 0 18px;text-wrap:balance;letter-spacing:-.005em}
+h2{font-family:var(--f-disp);font-weight:900;font-size:clamp(26px,4vw,38px);line-height:1;text-transform:uppercase;margin:44px 0 14px}
+h3{font-family:var(--f-disp);font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.02em;margin:26px 0 10px}
+p{margin:0 0 14px;max-width:70ch}
+.lead{font-size:18px;color:var(--ink2)}
+a{color:var(--viana)}
+strong{font-weight:600}
+ul,ol{margin:0 0 16px;padding-left:20px;max-width:70ch}
+li{margin-bottom:6px}
+li::marker{color:var(--ink3)}
+.label{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.note{border:1px solid var(--rule);border-left:3px solid var(--viana);background:var(--surface);padding:12px 16px;margin:0 0 24px;font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;color:var(--ink2);max-width:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:24px 0 12px}
+.btn{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:transparent;color:var(--ink);border:1px solid var(--viana);padding:10px 16px;cursor:pointer;border-radius:2px;transition:background .15s,color .15s}
+.btn:hover{background:var(--viana);color:#fff}
+.btn:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+.count{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.tw{overflow:auto;max-height:calc(100vh - 140px);border:1px solid var(--rule);background:var(--surface)}
+.tw.small{max-height:none}
+table{border-collapse:separate;border-spacing:0;width:100%;min-width:880px;font-size:14px;line-height:1.45}
+.tw.small table{min-width:520px}
+caption{text-align:left;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);padding:10px 12px;background:var(--surface);border-bottom:1px solid var(--rule)}
+thead th{position:sticky;top:0;z-index:2;background:var(--surface2);font-family:var(--f-mono);font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);text-align:left;padding:10px 12px;border-bottom:1px solid var(--viana);white-space:nowrap}
+tbody td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:nth-child(odd) td{background:var(--surface)}
+tbody tr:nth-child(even) td{background:var(--surface2)}
+td.m{font-family:var(--f-mono);font-size:12px;color:var(--ink2);white-space:nowrap}
+td.w{min-width:260px}
+td.num{font-family:var(--f-mono);font-size:13px;text-align:right;white-space:nowrap}
+th.num{text-align:right}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--rule);border-radius:2px;color:var(--ink2);white-space:nowrap}
+.tag.acc{border-color:var(--viana);color:var(--ink)}
+.tag.hot{border-color:var(--coral);color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:18px 0 6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule)}
+.legend div{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink2)}
+.legend b{font-family:var(--f-mono);font-weight:500;font-size:12px;color:var(--ink)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin:0 0 20px}
+.cols3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:0 0 20px}
+.block{background:var(--surface);border:1px solid var(--rule);border-top:2px solid var(--viana);padding:20px 20px 8px}
+.block h2{margin:0 0 14px;font-size:clamp(22px,3vw,30px)}
+.block h3{margin:0 0 10px}
+.block p{max-width:none}
+.block ul,.block ol{max-width:none}
+.form{background:var(--surface);border:1px solid var(--rule);padding:22px 24px;margin:0 0 24px}
+.form dl{margin:0}
+.form dt{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-top:16px}
+.form dt:first-child{margin-top:0}
+.form dd{margin:4px 0 0;padding:4px 0 6px;border-bottom:1px dotted var(--rule);min-height:30px;color:var(--ink2);font-size:14px}
+.form dd.filled{color:var(--ink)}
+.tl{list-style:none;padding:0 0 0 22px;margin:8px 0 24px;border-left:2px solid var(--rule);max-width:none}
+.tl li{position:relative;padding:0 0 18px 0;margin:0}
+.tl li::before{content:"";position:absolute;left:-28px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--viana)}
+.tl time{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin-bottom:2px}
+pre{background:var(--surface);border:1px solid var(--rule);padding:18px 20px;margin:0 0 18px;font-family:var(--f-mono);font-size:13px;line-height:1.65;color:var(--ink);white-space:pre-wrap;word-break:break-word;max-width:100%}
+pre.blank{color:var(--ink2)}
+.blocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:0 0 24px}
+.blocks>div{background:var(--surface);border:1px solid var(--rule);padding:16px}
+.blocks .t{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--viana)}
+.blocks .h{font-family:var(--f-disp);font-weight:900;font-size:24px;text-transform:uppercase;line-height:1;margin:6px 0 8px}
+.blocks p{font-size:14px;color:var(--ink2);margin:0}
+.list{list-style:none;padding:0;margin:0;max-width:none}
+.list li{border:1px solid var(--rule);background:var(--surface);padding:16px 18px;margin:0 0 10px}
+.list a{font-family:var(--f-disp);font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:.02em;text-decoration:none;color:var(--ink);line-height:1.1}
+.list a:hover{color:var(--viana)}
+.list .k{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--viana);display:block;margin-bottom:4px}
+.list p{margin:6px 0 0;color:var(--ink2);font-size:15px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.msg{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);min-height:1.2em}
+footer{border-top:1px solid var(--rule);padding:22px var(--pad);font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--ink3);line-height:1.7}
+@media (max-width:640px){main{padding-top:28px}.topbar{font-size:10px}h2{margin-top:34px}}
+</style>
+</head>
+<body>
+<div class="gradbar" aria-hidden="true"></div>
+<header class="topbar">
+<a href="../index.html#anexos">← Voltar ao case</a>
+<span class="n">Anexo 3 de 6</span>
+</header>
+<main>
+<p class="eyebrow">MBV · Método Bumbum Viana · anexo 3</p>
+<h1>Plano de tracking</h1>
+<p class="lead">Dez eventos cobrem o funil inteiro, do primeiro toque no diagnóstico ao primeiro treino registrado. As UTMs dizem de onde cada visita veio. Com isso, a leitura por gargalo da tela 11 vira número, e o relatório de 30/11 sai sem estimativa.</p>
+<h2>A. Eventos</h2><div class="toolbar"><button type="button" class="btn" data-csv="t-ev" data-name="mbv-anexo-03-eventos.csv">Baixar CSV</button><span class="count" data-count="t-ev"></span></div><div class="tw">
+<table id="t-ev">
+<caption>Eventos do funil do MBV</caption>
+<thead><tr><th scope="col">Evento</th><th scope="col">Descrição</th><th scope="col">Propriedades</th><th scope="col">Gatilho</th><th scope="col">Ferramenta</th></tr></thead>
+<tbody>
+<tr><td class="m">diagnostico_iniciado</td><td>A pessoa respondeu a primeira pergunta do diagnóstico no direct</td><td class="w">origem (peça que trouxe), canal_entrada (comentario, bio, sticker, blog), perfil_ig (hash)</td><td>Resposta à pergunta 1 no fluxo do ManyChat</td><td>ManyChat, enviado ao GA4 por Measurement Protocol</td></tr>
+<tr><td class="m">diagnostico_concluido</td><td>Respondeu as 5 perguntas e recebeu o texto do perfil</td><td class="w">perfil (a, b, c), trava (resposta da pergunta 4), frequencia, tempo_treino</td><td>Envio da mensagem de resultado</td><td>ManyChat, enviado ao GA4</td></tr>
+<tr><td class="m">lead_capturado</td><td>Deixou o e-mail em troca do resultado completo</td><td class="w">origem, canal_entrada, perfil, data</td><td>E-mail validado e gravado no CRM</td><td>ManyChat e CRM</td></tr>
+<tr><td class="m">lp_visitada</td><td>Abriu a landing page do MBV</td><td class="w">utm_source, utm_medium, utm_campaign, utm_content, chegou_preco (rolou até o bloco de preço)</td><td>Page view da LP e scroll até o preço</td><td>GA4 e Meta Pixel (PageView)</td></tr>
+<tr><td class="m">checkout_iniciado</td><td>Clicou em comprar e abriu o checkout</td><td class="w">lote (fundadoras, cheio), preco, utm_content</td><td>Carregamento da página de checkout</td><td>Guru (checkout), GA4 e Meta Pixel (InitiateCheckout)</td></tr>
+<tr><td class="m">compra_concluida</td><td>Pagamento aprovado</td><td class="w">valor, bump (sim, nao), meio_pagamento (pix, cartao), parcelas, lote</td><td>Webhook de pagamento aprovado</td><td>Guru (webhook) para GA4, Meta Pixel (Purchase) e CRM</td></tr>
+<tr><td class="m">ebook_aberto</td><td>Abriu o ebook pela primeira vez</td><td class="w">dias_desde_compra, dispositivo</td><td>Primeiro acesso ao arquivo ou à página do ebook</td><td>App (ou link rastreado no e-mail de entrega, se o app não permitir)</td></tr>
+<tr><td class="m">treino1_registrado</td><td>Registrou o primeiro treino no tracker</td><td class="w">dias_desde_compra, versao_protocolo (2x, 3x, 4x)</td><td>Primeiro registro salvo no tracker digital</td><td>App</td></tr>
+<tr><td class="m">push_aberto</td><td>Abriu um dos três pushes da campanha</td><td class="w">push_id (1, 2, 3), data</td><td>Toque na notificação</td><td>App</td></tr>
+<tr><td class="m">email_clicado</td><td>Clicou no botão de um e-mail da campanha</td><td class="w">email_id (e0 a e4, v0 a v6), utm_content</td><td>Clique no link com UTM</td><td>Ferramenta de e-mail e GA4</td></tr>
+</tbody>
+</table>
+</div><h2>B. UTMs</h2>
+<p>Uma campanha só, <span class="label" style="color:var(--ink)">mbv_lancamento</span>, para toda a janela. O que muda entre canais é source e medium. O content carrega o nome da peça, e é ele que liga cada venda ao post, ao e-mail ou ao artigo que a gerou.</p><div class="toolbar"><button type="button" class="btn" data-csv="t-utm" data-name="mbv-anexo-03-utms.csv">Baixar CSV</button><span class="count" data-count="t-utm"></span></div><div class="tw">
+<table id="t-utm">
+<caption>Padrão de UTMs por canal</caption>
+<thead><tr><th scope="col">Canal</th><th scope="col">utm_source</th><th scope="col">utm_medium</th><th scope="col">utm_campaign</th><th scope="col">utm_content (exemplo)</th></tr></thead>
+<tbody>
+<tr><td>Instagram, feed e Reels (link na bio)</td><td class="m">instagram</td><td class="m">social</td><td class="m">mbv_lancamento</td><td class="w">reel_03_queimar, carrossel_5_sinais, chancela_marcos</td></tr>
+<tr><td>Instagram, Stories (sticker de link)</td><td class="m">instagram</td><td class="m">social</td><td class="m">mbv_lancamento</td><td class="w">stories_kati_responde_04, stories_contagem_14_11</td></tr>
+<tr><td>ManyChat (link enviado no direct)</td><td class="m">manychat</td><td class="m">dm</td><td class="m">mbv_lancamento</td><td class="w">resultado_perfil_b, lista_espera, resultado_perfil_c</td></tr>
+<tr><td>Newsletter das terças</td><td class="m">newsletter</td><td class="m">email</td><td class="m">mbv_lancamento</td><td class="w">nl_t2_27_10_erros, nl_lancamento_10_11, nl_t1_17_11_dados</td></tr>
+<tr><td>Blog (captura no fim do artigo e links internos)</td><td class="m">blog</td><td class="m">referral</td><td class="m">mbv_lancamento</td><td class="w">hub_guia_gluteo, artigo_progressao_carga, artigo_coxa_gluteo</td></tr>
+<tr><td>App (push)</td><td class="m">app</td><td class="m">push</td><td class="m">mbv_lancamento</td><td class="w">push_01_prevenda, push_02_lancamento, push_03_ultimas_horas</td></tr>
+<tr><td>E-mail de nutrição e venda</td><td class="m">email</td><td class="m">email</td><td class="m">mbv_lancamento</td><td class="w">e1_muda_ou_progride, v1_mbv_aberto, v6_ultimas_6h</td></tr>
+</tbody>
+</table>
+</div><h2>Regras</h2>
+<ul>
+<li>Nomes em minúsculas, sem acento, palavras separadas por underline: <span class="label" style="color:var(--ink)">diagnostico_concluido</span>, nunca "Diagnóstico Concluído".</li>
+<li>Um evento por ação. Se uma ação precisa de dois eventos, o desenho está errado.</li>
+<li>Validar cada evento em celular antes de ir ao ar, porque é lá que a audiência está. Compra de teste com Pix e cartão na semana 6.</li>
+<li>Sem dado pessoal no evento: nada de nome, e-mail ou telefone em propriedade. O CRM guarda a pessoa; o GA4 guarda o comportamento.</li>
+<li>Toda URL que sai de um canal próprio leva as quatro UTMs. Link sem UTM conta como "direto" e some da leitura.</li>
+<li>O plano é revisado no post-mortem de 20/11. Evento que ninguém leu em novembro sai da lista.</li>
+</ul>
+</main>
+<footer>Case preparado por Lucas Bergman, setembro de 2026. Números de resultado são cenários de planejamento.</footer>
+<script>
+(function(){
+  function csvFromTable(t){
+    var rows=[];
+    t.querySelectorAll('tr').forEach(function(tr){
+      var cells=[];
+      tr.querySelectorAll('th,td').forEach(function(c){
+        var v=(c.innerText||c.textContent).replace(/\s+/g,' ').trim();
+        if(/[;"\r\n]/.test(v)) v='"'+v.replace(/"/g,'""')+'"';
+        cells.push(v);
+      });
+      rows.push(cells.join(';'));
+    });
+    return rows.join('\r\n');
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-csv]');
+    if(!b) return;
+    var t=document.getElementById(b.getAttribute('data-csv'));
+    if(!t) return;
+    var blob=new Blob(['\uFEFF'+csvFromTable(t)],{type:'text/csv;charset=utf-8'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download=b.getAttribute('data-name')||'tabela.csv';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},0);
+  });
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var t=document.getElementById(el.getAttribute('data-count'));
+    if(t&&t.tBodies[0]) el.textContent=t.tBodies[0].rows.length+' linhas';
+  });
+})();
+</script>
+</body>
+</html>

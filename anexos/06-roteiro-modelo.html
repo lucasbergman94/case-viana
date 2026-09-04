@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Anexo 6 · Roteiro modelo · MBV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;900&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23070807'/><rect x='18' y='44' width='64' height='12' fill='%23CA195D'/></svg>">
+<style>
+:root{--bg:#070807;--surface:#111010;--surface2:#1A1817;--ink:#F4F1F0;--ink2:#A49B99;--ink3:#6E6663;--rule:#2A2524;--viana:#CA195D;--coral:#FF5A36;--grad:linear-gradient(90deg,#CA195D,#FF5A36);--f-disp:"Barlow Condensed","Arial Narrow",sans-serif;--f-body:"Barlow","Helvetica Neue",Arial,sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;--pad:clamp(18px,5vw,56px);}
+*{box-sizing:border-box}
+html{color-scheme:dark;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.gradbar{height:3px;background:var(--grad)}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px var(--pad);border-bottom:1px solid var(--rule);font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.topbar a{color:var(--ink2);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+.topbar a:hover,.topbar a:focus-visible{color:var(--ink);border-color:var(--viana);outline:none}
+.topbar .n{color:var(--ink3);white-space:nowrap}
+main{padding:40px var(--pad) 56px;max-width:1280px;margin:0 auto}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--viana);margin:0 0 14px}
+h1{font-family:var(--f-disp);font-weight:900;font-size:clamp(38px,7vw,76px);line-height:.92;text-transform:uppercase;margin:0 0 18px;text-wrap:balance;letter-spacing:-.005em}
+h2{font-family:var(--f-disp);font-weight:900;font-size:clamp(26px,4vw,38px);line-height:1;text-transform:uppercase;margin:44px 0 14px}
+h3{font-family:var(--f-disp);font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.02em;margin:26px 0 10px}
+p{margin:0 0 14px;max-width:70ch}
+.lead{font-size:18px;color:var(--ink2)}
+a{color:var(--viana)}
+strong{font-weight:600}
+ul,ol{margin:0 0 16px;padding-left:20px;max-width:70ch}
+li{margin-bottom:6px}
+li::marker{color:var(--ink3)}
+.label{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.note{border:1px solid var(--rule);border-left:3px solid var(--viana);background:var(--surface);padding:12px 16px;margin:0 0 24px;font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;color:var(--ink2);max-width:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:24px 0 12px}
+.btn{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:transparent;color:var(--ink);border:1px solid var(--viana);padding:10px 16px;cursor:pointer;border-radius:2px;transition:background .15s,color .15s}
+.btn:hover{background:var(--viana);color:#fff}
+.btn:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+.count{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.tw{overflow:auto;max-height:calc(100vh - 140px);border:1px solid var(--rule);background:var(--surface)}
+.tw.small{max-height:none}
+table{border-collapse:separate;border-spacing:0;width:100%;min-width:880px;font-size:14px;line-height:1.45}
+.tw.small table{min-width:520px}
+caption{text-align:left;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);padding:10px 12px;background:var(--surface);border-bottom:1px solid var(--rule)}
+thead th{position:sticky;top:0;z-index:2;background:var(--surface2);font-family:var(--f-mono);font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);text-align:left;padding:10px 12px;border-bottom:1px solid var(--viana);white-space:nowrap}
+tbody td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:nth-child(odd) td{background:var(--surface)}
+tbody tr:nth-child(even) td{background:var(--surface2)}
+td.m{font-family:var(--f-mono);font-size:12px;color:var(--ink2);white-space:nowrap}
+td.w{min-width:260px}
+td.num{font-family:var(--f-mono);font-size:13px;text-align:right;white-space:nowrap}
+th.num{text-align:right}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--rule);border-radius:2px;color:var(--ink2);white-space:nowrap}
+.tag.acc{border-color:var(--viana);color:var(--ink)}
+.tag.hot{border-color:var(--coral);color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:18px 0 6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule)}
+.legend div{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink2)}
+.legend b{font-family:var(--f-mono);font-weight:500;font-size:12px;color:var(--ink)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin:0 0 20px}
+.cols3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:0 0 20px}
+.block{background:var(--surface);border:1px solid var(--rule);border-top:2px solid var(--viana);padding:20px 20px 8px}
+.block h2{margin:0 0 14px;font-size:clamp(22px,3vw,30px)}
+.block h3{margin:0 0 10px}
+.block p{max-width:none}
+.block ul,.block ol{max-width:none}
+.form{background:var(--surface);border:1px solid var(--rule);padding:22px 24px;margin:0 0 24px}
+.form dl{margin:0}
+.form dt{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-top:16px}
+.form dt:first-child{margin-top:0}
+.form dd{margin:4px 0 0;padding:4px 0 6px;border-bottom:1px dotted var(--rule);min-height:30px;color:var(--ink2);font-size:14px}
+.form dd.filled{color:var(--ink)}
+.tl{list-style:none;padding:0 0 0 22px;margin:8px 0 24px;border-left:2px solid var(--rule);max-width:none}
+.tl li{position:relative;padding:0 0 18px 0;margin:0}
+.tl li::before{content:"";position:absolute;left:-28px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--viana)}
+.tl time{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin-bottom:2px}
+pre{background:var(--surface);border:1px solid var(--rule);padding:18px 20px;margin:0 0 18px;font-family:var(--f-mono);font-size:13px;line-height:1.65;color:var(--ink);white-space:pre-wrap;word-break:break-word;max-width:100%}
+pre.blank{color:var(--ink2)}
+.blocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:0 0 24px}
+.blocks>div{background:var(--surface);border:1px solid var(--rule);padding:16px}
+.blocks .t{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--viana)}
+.blocks .h{font-family:var(--f-disp);font-weight:900;font-size:24px;text-transform:uppercase;line-height:1;margin:6px 0 8px}
+.blocks p{font-size:14px;color:var(--ink2);margin:0}
+.list{list-style:none;padding:0;margin:0;max-width:none}
+.list li{border:1px solid var(--rule);background:var(--surface);padding:16px 18px;margin:0 0 10px}
+.list a{font-family:var(--f-disp);font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:.02em;text-decoration:none;color:var(--ink);line-height:1.1}
+.list a:hover{color:var(--viana)}
+.list .k{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--viana);display:block;margin-bottom:4px}
+.list p{margin:6px 0 0;color:var(--ink2);font-size:15px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.msg{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);min-height:1.2em}
+footer{border-top:1px solid var(--rule);padding:22px var(--pad);font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--ink3);line-height:1.7}
+@media (max-width:640px){main{padding-top:28px}.topbar{font-size:10px}h2{margin-top:34px}}
+</style>
+</head>
+<body>
+<div class="gradbar" aria-hidden="true"></div>
+<header class="topbar">
+<a href="../index.html#anexos">← Voltar ao case</a>
+<span class="n">Anexo 6 de 6</span>
+</header>
+<main>
+<p class="eyebrow">MBV · Método Bumbum Viana · anexo 6</p>
+<h1>Roteiro em quatro blocos, modelo para a Kati</h1>
+<p class="lead">Todo Reel do MBV segue a mesma estrutura de 40 segundos. O marketing escreve o brief com a mensagem-chave e o texto de cada bloco; a Kati grava com as palavras dela. Abaixo, os blocos, as duas regras e um exemplo preenchido, seguido do modelo em branco para copiar.</p>
+<h2>Os quatro blocos</h2>
+<div class="blocks">
+<div><span class="t">0 a 3 s</span><div class="h">Gancho</div><p>Uma frase que contraria o que a leitora acredita, com texto na tela. Sem apresentação, sem "oi, gente".</p></div>
+<div><span class="t">3 a 12 s</span><div class="h">Resposta</div><p>A resposta direta, em duas ou três frases. O que é verdade e o que engana.</p></div>
+<div><span class="t">12 a 25 s</span><div class="h">Por quê</div><p>O mecanismo, com um exemplo concreto de treino. É aqui que a autoridade da Kati aparece.</p></div>
+<div><span class="t">25 a 38 s</span><div class="h">O que fazer</div><p>Uma ação que dá para aplicar no próximo treino, com texto na tela. Número sempre que der.</p></div>
+<div><span class="t">38 a 40 s</span><div class="h">Fecho</div><p>CTA na tela, "Comente MBV". A Kati não precisa falar. A legenda e a tela fazem isso.</p></div>
+</div>
+
+<h2>Duas regras</h2>
+<h3>O marketing escreve, a Kati fala do jeito dela</h3>
+<p>O roteiro chega com pauta, mensagem-chave e um texto de referência por bloco. Ela recebe isso com 72 horas de antecedência e grava com as palavras dela. Não recebe legenda para decorar. O que precisa se manter é a ordem dos blocos, a mensagem-chave e o texto que vai na tela.</p>
+<h3>Primeira pessoa na câmera, terceira pessoa em todo o resto</h3>
+<p>Na câmera a Kati fala em primeira pessoa, porque está ensinando. Na legenda, no e-mail e na newsletter, é a Consultoria falando sobre ela: "a Kati explica", "o que ela olha antes de trocar". Essa divisão preserva a autoridade dela e a voz da marca ao mesmo tempo.</p>
+
+<h2>Exemplo preenchido: Reel 03</h2>
+<pre>REEL 03 · Pilar: desmistificação · 30 a 40 segundos · vertical
+Gravação: shooting day 2, academia, plano médio, câmera na altura do peito
+
+GANCHO (0 a 3 s), texto na tela: "Queimou = funcionou?"
+Kati, olhando pra câmera:
+"Se o seu glúteo queima no final da série, você acha que o treino foi bom. Nem sempre."
+
+RESPOSTA (3 a 12 s)
+"Queimação é acúmulo de metabólito. Ela aparece com repetição alta e carga leve. Não é sinal de que o músculo foi estimulado a crescer."
+
+POR QUÊ (12 a 25 s)
+"O que faz o glúteo crescer é tensão com carga que aumenta ao longo das semanas. Dá pra terminar uma série pesada de hip thrust sem queimar nada e ter feito o melhor treino do mês."
+
+O QUE FAZER (25 a 38 s), texto na tela: "anota a carga"
+"Então, em vez de perseguir a queimação, anota a carga e as repetições de hoje. Semana que vem, tenta um pouco mais. Se subiu, funcionou. Se não subiu em 3 semanas, aí sim a gente troca."
+
+FECHO (38 a 40 s)
+Texto na tela: "Comente MBV e descubra se o seu treino evolui ou só muda."
+Kati não precisa falar o CTA. A legenda e a tela fazem isso.</pre>
+<p><strong>Legenda do Reel 03</strong> (a marca falando sobre a Kati): "Queimar no fim da série virou sinônimo de treino bom. A Kati explica por que isso engana: queimação vem de repetição alta com carga leve, e o glúteo cresce com carga que sobe ao longo das semanas. O teste é simples. Anota o que você fez hoje. Em 3 semanas, subiu? Então está funcionando, com ou sem queimação. Comente MBV que a gente te manda no direct um diagnóstico de 5 perguntas sobre o seu treino."</p>
+
+<h2>Modelo em branco</h2>
+<div class="toolbar"><button type="button" class="btn" id="copiar">Copiar modelo</button><span class="msg" id="copiar-msg" aria-live="polite"></span></div>
+<pre class="blank" id="modelo">REEL __ · Pilar: ____________ · 30 a 40 segundos · vertical
+Gravação: shooting day __, local, plano, altura da câmera
+
+GANCHO (0 a 3 s), texto na tela: "____________"
+Kati, olhando pra câmera:
+"____________"
+
+RESPOSTA (3 a 12 s)
+"____________"
+
+POR QUÊ (12 a 25 s)
+"____________"
+
+O QUE FAZER (25 a 38 s), texto na tela: "____________"
+"____________"
+
+FECHO (38 a 40 s)
+Texto na tela: "____________"
+Kati não precisa falar o CTA. A legenda e a tela fazem isso.
+
+MENSAGEM-CHAVE (uma frase, o que a leitora precisa levar):
+____________
+
+LEGENDA (a Consultoria falando sobre a Kati, terceira pessoa):
+____________</pre>
+</main>
+<footer>Case preparado por Lucas Bergman, setembro de 2026. Números de resultado são cenários de planejamento.</footer>
+<script>
+(function(){
+  function csvFromTable(t){
+    var rows=[];
+    t.querySelectorAll('tr').forEach(function(tr){
+      var cells=[];
+      tr.querySelectorAll('th,td').forEach(function(c){
+        var v=(c.innerText||c.textContent).replace(/\s+/g,' ').trim();
+        if(/[;"\r\n]/.test(v)) v='"'+v.replace(/"/g,'""')+'"';
+        cells.push(v);
+      });
+      rows.push(cells.join(';'));
+    });
+    return rows.join('\r\n');
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-csv]');
+    if(!b) return;
+    var t=document.getElementById(b.getAttribute('data-csv'));
+    if(!t) return;
+    var blob=new Blob(['\uFEFF'+csvFromTable(t)],{type:'text/csv;charset=utf-8'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download=b.getAttribute('data-name')||'tabela.csv';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},0);
+  });
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var t=document.getElementById(el.getAttribute('data-count'));
+    if(t&&t.tBodies[0]) el.textContent=t.tBodies[0].rows.length+' linhas';
+  });
+})();
+
+(function(){
+  var btn=document.getElementById('copiar'),msg=document.getElementById('copiar-msg'),pre=document.getElementById('modelo');
+  if(!btn) return;
+  function done(ok){msg.textContent=ok?'Modelo copiado':'Selecione o texto e copie com Ctrl+C';setTimeout(function(){msg.textContent='';},3000);}
+  btn.addEventListener('click',function(){
+    var text=pre.textContent;
+    if(navigator.clipboard&&window.isSecureContext){
+      navigator.clipboard.writeText(text).then(function(){done(true);},function(){fallback(text);});
+    } else { fallback(text); }
+  });
+  function fallback(text){
+    var ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.left='-9999px';
+    document.body.appendChild(ta);ta.select();var ok=false;try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    ta.remove();done(ok);
+  }
+})();</script>
+</body>
+</html>
