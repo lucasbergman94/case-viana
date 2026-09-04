@@ -85,7 +85,11 @@ h3{font-family:var(--f-disp);font-weight:700;font-size:20px;letter-spacing:.02em
 a.clk{text-decoration:none;display:block;}
 
 /* capa */
-#capa{overflow:hidden;}
+#capa{overflow:hidden;position:relative;}
+#capabg{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+#capabg video{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.2) contrast(1.05);}
+#capabg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(7,8,7,.98) 0%,rgba(7,8,7,.93) 40%,rgba(7,8,7,.70) 100%),linear-gradient(to bottom,rgba(7,8,7,.85),transparent 22%,transparent 78%,rgba(7,8,7,.9)),linear-gradient(200deg,rgba(202,25,93,.18),transparent 60%);}
+#capa .inner{position:relative;z-index:1;}
 .capa-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,64px);align-items:center;}
 .capa-photo{position:relative;overflow:hidden;background:var(--surface);}
 .capa-photo img{width:100%;display:block;}
@@ -127,8 +131,9 @@ a.clk{text-decoration:none;display:block;}
 .tag{position:absolute;top:12px;right:12px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--rule2);color:var(--ink2);}
 .tag.k{border-color:var(--viana);color:var(--viana);}
 .tag.m{border-color:var(--coral);color:var(--coral);}
-.bigidea{margin-top:2px;background:var(--surface);padding:22px 26px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;}
-.bigidea .bi{font-family:var(--f-disp);font-weight:900;font-size:clamp(24px,4vw,40px);text-transform:uppercase;line-height:1;letter-spacing:.01em;margin:0;}
+.bigidea{margin-top:2px;background:var(--surface);padding:26px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;border-left:4px solid transparent;border-image:var(--grad) 1;}
+.bigidea .bik{font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);white-space:nowrap;}
+.bigidea .bi{font-family:var(--f-disp);font-weight:900;font-size:clamp(24px,4.4vw,44px);text-transform:uppercase;line-height:1;letter-spacing:.01em;margin:0;}
 .bigidea .bi i{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
 .loop{width:150px;aspect-ratio:289/362;background:var(--surface2);overflow:hidden;position:relative;border-left:3px solid var(--coral);}
 .loop video{width:100%;height:100%;object-fit:cover;display:block;}
@@ -206,10 +211,10 @@ a.clk{text-decoration:none;display:block;}
 .rule p{margin:0;font-size:15px;color:var(--ink2);}
 .rule p b{color:var(--ink);}
 
-/* peças de campanha */
-.pieces{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:2px;}
-.pieces figure{margin:0;background:var(--surface);position:relative;overflow:hidden;}
-.pieces img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;object-position:top center;}
+/* peças de campanha: cada uma no formato real, alinhadas pela altura */
+.pieces{display:flex;flex-wrap:wrap;gap:2px;margin-top:2px;align-items:flex-start;}
+.pieces figure{margin:0;background:var(--surface);display:flex;flex-direction:column;}
+.pieces img{display:block;height:340px;width:auto;max-width:100%;}
 .pieces figcaption{padding:9px 12px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);border-top:1px solid var(--rule);}
 .lp{display:grid;grid-template-columns:1.4fr .6fr;gap:2px;margin-top:24px;align-items:stretch;}
 .lp figure{margin:0;background:var(--surface);overflow:hidden;}
@@ -406,6 +411,7 @@ footer .inner{max-width:1120px;}
   #dots{display:none;}
   .capa-wrap,.anat,.mailwrap,.hub,.briefs,.grid2{grid-template-columns:1fr;}
   .capa-photo.desk{display:none;} .capa-photo.mob{display:block;}
+  #capabg{display:none;}
   .funnel{grid-template-columns:1fr 1fr;}
   .tree{grid-template-columns:1fr;}
   .phases{grid-template-columns:1fr;}
@@ -413,7 +419,9 @@ footer .inner{max-width:1120px;}
   .pr{grid-template-columns:1fr;} .pr .arrow{display:none;}
   .bigidea,.maria,.rule,.loopdiag,.bridge,.lp{grid-template-columns:1fr;}
   .loop{width:130px;}
-  .pieces{grid-template-columns:1fr 1fr;}
+  .pieces{overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px;}
+  .pieces figure{flex:none;}
+  .pieces img{height:260px;}
 }
 @media (max-width:680px){
   body{font-size:16px;}
@@ -444,6 +452,12 @@ footer .inner{max-width:1120px;}
 
 <!-- 01 CAPA -->
 <section id="capa" data-nav="Capa">
+  <div id="capabg" aria-hidden="true">
+    <video autoplay muted loop playsinline poster="img/mbv/capa-mobile.webp" preload="metadata">
+      <source src="img/mbv/fundo.webm" type="video/webm">
+      <source src="img/mbv/fundo.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="inner capa-wrap">
     <div>
       <p class="eyebrow">Métodos Viana #01 <span class="act">· Plano de lançamento · Case de marketing</span></p>
@@ -452,8 +466,8 @@ footer .inner{max-width:1120px;}
       <p class="lead">O Método Bumbum Viana é o primeiro produto da Consultoria assinado por uma especialista do time. Este plano cobre do produto que ainda não existe ao relatório de resultado, em dez semanas, e desenha cada peça para ser reaproveitada no próximo Método Viana.</p>
       <div class="capa-meta"><span>Lucas Bergman</span><span>Setembro de 2026</span><span>Setas do teclado para navegar</span></div>
     </div>
-    <figure class="capa-photo desk"><img src="img/mbv/mbv7-700.webp" alt="Mockup do ebook MBV, Método Bumbum Viana, por Kati Santana, com a especialista na capa" width="1024" height="1536"></figure>
-    <figure class="capa-photo mob"><img src="img/mbv/mbv6-800.webp" alt="Kati Santana na posição inicial de um hip thrust com barra, em academia escura com luz magenta" width="800" height="1000" loading="lazy"></figure>
+    <figure class="capa-photo desk"><img src="img/mbv/capa-ebook.webp" fetchpriority="high" alt="Mockup do ebook MBV, Método Bumbum Viana, por Kati Santana, com a especialista na capa e o X magenta da marca" width="1024" height="1536"></figure>
+    <figure class="capa-photo mob"><img src="img/mbv/capa-mobile.webp" alt="Kati Santana na posição inicial de um hip thrust com barra, em academia escura com luz magenta" width="1122" height="1402" loading="lazy"></figure>
   </div>
 </section>
 
@@ -486,13 +500,7 @@ footer .inner{max-width:1120px;}
     </div>
     <div class="bigidea">
       <p class="bi">Não é fazer mais glúteo. <i>É fazer glúteo com método.</i></p>
-      <div class="loop" aria-label="Loop de 15 quadros de Kati Santana executando um hip thrust">
-        <video autoplay muted loop playsinline poster="img/mbv/mbv6-800.webp" preload="metadata">
-          <source src="img/mbv/cena.webm" type="video/webm">
-          <source src="img/mbv/cena.mp4" type="video/mp4">
-        </video>
-        <span class="lc">Hip thrust · 15 quadros</span>
-      </div>
+      <span class="bik">Big idea da campanha</span>
     </div>
     <div class="who">
       <div class="k"><b>A Kati decide</b>Exercícios, progressão, volume, técnica. O que entra e o que fica de fora.</div>
@@ -595,10 +603,10 @@ footer .inner{max-width:1120px;}
     <div class="cal"><div class="calgrid" id="cal"></div></div>
     <div class="rule"><span class="rl">A regra de voz</span><p><b>A marca fala sobre a Kati, nunca como ela.</b> Na câmera, a Kati fala em primeira pessoa porque está ensinando. Na legenda, no e-mail e na newsletter, é a Consultoria falando dela. Isso preserva a autoridade dela e a voz da marca ao mesmo tempo.</p></div>
     <div class="pieces">
-      <figure><img src="img/mbv/mbv-600.webp" alt="Story da série Kati responde, com a pergunta sobre queimação e chamada para o vídeo" loading="lazy" width="941" height="1672"><figcaption>Stories · série "Kati responde"</figcaption></figure>
-      <figure><img src="img/mbv/mbv5-600.webp" alt="Post de feed com a pergunta seu treino de glúteo evoluiu ou só mudou, com o X magenta riscando só mudou" loading="lazy" width="1254" height="1254"><figcaption>Feed · pilar diagnóstico</figcaption></figure>
-      <figure><img src="img/mbv/mbv4-600.webp" alt="Capa de carrossel: 5 sinais de que seu treino de glúteo está no piloto automático" loading="lazy" width="1122" height="1402"><figcaption>Carrossel · pilar diagnóstico</figcaption></figure>
-      <figure><img src="img/mbv/mbv3-600.webp" alt="Peça com a pergunta cansada de trocar exercício e não ver resultado, com CTA comente MBV" loading="lazy" width="1122" height="1402"><figcaption>Feed · CTA "Comente MBV"</figcaption></figure>
+      <figure><img src="img/mbv/peca-story.webp" alt="Story da série Kati responde, com a pergunta sobre queimação e chamada para o vídeo" loading="lazy" width="506" height="900"><figcaption>Stories · série "Kati responde"</figcaption></figure>
+      <figure><img src="img/mbv/peca-post.webp" alt="Post de feed com a pergunta seu treino de glúteo evoluiu ou só mudou, com o X magenta riscando só mudou" loading="lazy" width="900" height="900"><figcaption>Feed · pilar diagnóstico</figcaption></figure>
+      <figure><img src="img/mbv/peca-carrossel.webp" alt="Capa de carrossel: 5 sinais de que seu treino de glúteo está no piloto automático" loading="lazy" width="720" height="900"><figcaption>Carrossel · pilar diagnóstico</figcaption></figure>
+      <figure><img src="img/mbv/peca-anuncio.webp" alt="Peça com a pergunta cansada de trocar exercício e não ver resultado, com CTA comente MBV" loading="lazy" width="720" height="900"><figcaption>Feed · CTA "Comente MBV"</figcaption></figure>
     </div>
     <p class="small" style="margin-top:10px;text-transform:none;letter-spacing:0;font-family:var(--f-body);font-size:13.5px;color:var(--ink3)">Conceitos de campanha produzidos para este case, com as cores e a tipografia da marca. O gradiente magenta para coral assina o MBV e o distingue dos outros produtos do ecossistema.</p>
     <div class="clickrow"><button class="clk more" type="button" data-modal="roteiro">Roteiro de Reel para a Kati gravar<small>quatro blocos, 40 segundos, completo</small></button><button class="clk more" type="button" data-modal="legendas">Duas legendas<small>o Reel 03 e a chancela do Marcos</small></button><a class="clk more" href="anexos/02-calendario-editorial.html">Calendário editorial<small>anexo 2 · dia a dia, com gancho e CTA</small></a></div>
