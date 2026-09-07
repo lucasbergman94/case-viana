@@ -11,7 +11,7 @@
     let down=false,startX=0,startScroll=0;
 
     el.addEventListener('pointerdown',e=>{
-      if(window.innerWidth>860) return;
+      if(window.innerWidth>860 || e.pointerType!=='mouse') return;
       down=true;
       startX=e.clientX;
       startScroll=el.scrollLeft;
@@ -19,7 +19,7 @@
       if(el.setPointerCapture) el.setPointerCapture(e.pointerId);
     });
     el.addEventListener('pointermove',e=>{
-      if(!down || window.innerWidth>860) return;
+      if(!down || window.innerWidth>860 || e.pointerType!=='mouse') return;
       el.scrollLeft=startScroll-(e.clientX-startX);
     });
     const stop=()=>{down=false;el.classList.remove('is-dragging')};
