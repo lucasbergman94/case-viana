@@ -1,0 +1,142 @@
+/* Final refinement layer — narrative, hierarchy, hero and responsive behavior */
+:root{
+  --max:1520px;
+  --slide-x:clamp(28px,4.5vw,84px);
+}
+
+/* Hero approved artwork */
+.hero-full-bg{background-image:var(--hero-approved);background-size:cover;background-position:center center}
+.hero-full-bg img{display:none}
+.hero-full-bg::after{background:
+  linear-gradient(90deg,rgba(7,8,7,.97) 0%,rgba(7,8,7,.91) 28%,rgba(7,8,7,.63) 49%,rgba(7,8,7,.24) 68%,rgba(7,8,7,.18) 100%),
+  linear-gradient(0deg,rgba(7,8,7,.90) 0%,rgba(7,8,7,.12) 38%,rgba(7,8,7,.34) 100%)}
+.hero-full-copy{max-width:min(860px,55vw);gap:16px}
+.hero-lockup-full{grid-template-columns:1fr;gap:2px;align-items:start}
+.hero-lockup-full h1{font-family:"Bebas Neue",var(--fD);font-size:clamp(150px,13.5vw,250px);line-height:.70;letter-spacing:.005em;font-weight:400}
+.hero-lockup-full .hero-title{font-size:clamp(36px,3.2vw,58px);max-width:none;line-height:.88}
+.hero-provocation{max-width:22ch;font-size:clamp(30px,2.4vw,43px);line-height:1.01}
+.hero-full .sub{max-width:62ch;line-height:1.48}
+.hero-full .tags{margin-top:2px}
+
+/* Stronger presentation rhythm */
+.panel{padding-left:var(--slide-x);padding-right:var(--slide-x)}
+.wrap{width:min(100%,var(--max));gap:18px}
+.intro{gap:9px}
+.intro h2{font-size:clamp(52px,4.7vw,78px);line-height:.90;max-width:19ch}
+.intro .sub{font-size:clamp(18px,1.28vw,22px);line-height:1.45;max-width:82ch}
+.eyebrow{font-size:11px}
+.card p,.step p,.opportunity p,.logic p,.topic span,.metric span,.node span,.email-row span,.phase ul,.lane-cell span{font-size:14px;line-height:1.46}
+.card h3,.step h3{font-size:clamp(24px,1.85vw,31px)}
+
+/* Key note as true conclusion strip */
+.keynote{grid-template-columns:112px 1fr;gap:18px;padding:14px 18px;background:linear-gradient(90deg,rgba(228,53,111,.055),rgba(255,255,255,.018));border-top:2px solid var(--pink);border-bottom:1px solid var(--hair)}
+.keynote b{font-size:10px;letter-spacing:.19em}
+.keynote span:last-child{font-size:15.5px;line-height:1.42;max-width:108ch}
+.paper .keynote{background:rgba(255,255,255,.72)}
+
+/* Context: visually emphasize the causal chain */
+#s02 .steps{grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr) 36px minmax(0,1fr) 54px minmax(250px,.9fr)}
+#s02 .step{padding:22px;min-height:250px}
+#s02 .step .num{font-size:58px}
+#s02 .step h3{max-width:11ch}
+#s02 .opportunity{padding:22px;position:relative;overflow:hidden}
+#s02 .opportunity:before{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-60px;top:-60px;background:radial-gradient(circle,rgba(228,53,111,.24),transparent 70%)}
+#s02 .opportunity>*{position:relative}
+
+/* Diagnosis: asset cards read like product frames */
+.asset-wall-clickable{gap:10px}
+.asset-trigger{min-height:0}
+.asset-trigger .frame-body{padding:13px}
+.asset-trigger .frame-body b{font-size:22px}
+.asset-trigger .frame-body p{font-size:12.5px}
+.asset-trigger .frame-head strong{font-size:16px}
+.diagnostic-conclusion{gap:7px}
+.logic-v2{min-height:0;padding:15px 16px}
+.logic-v2 b{font-size:21px}
+
+/* Product / GTM / content use consistent density */
+.product-grid,.gtm-grid,.metric-grid,.report-grid,.legacy-grid{gap:10px}
+.product-grid .card,.phase,.metric,.report-grid .card,.legacy-grid .card{min-height:0}
+.phase{padding:16px;gap:8px}
+.phase h3{font-size:26px}
+.phase ul{font-size:12.5px;line-height:1.42}
+.gate{font-size:11.5px;line-height:1.4}
+
+/* Creative examples: preserve artwork and improve framing */
+.creative-wall{grid-template-columns:.92fr .92fr 1.16fr;gap:10px}
+.creative{min-height:0;border-radius:18px}
+.creative:not(.creative-copy){background:#0c0b0c;padding:8px}
+.creative img{object-fit:contain!important;width:100%;height:100%;border-radius:10px}
+.creative-copy{padding:17px}
+
+/* Newsletter and SEO become more editorial */
+.news-layout{grid-template-columns:1.28fr .72fr;gap:18px}
+.email-row{grid-template-columns:74px 1fr 140px;padding:13px 15px}
+.email-row b{font-size:20px}
+.email-row span{font-size:12.5px}
+.seo-layout{grid-template-columns:.9fr 1.1fr;gap:18px}
+.pillar b{font-size:clamp(30px,2.6vw,43px)}
+.topic{padding:15px}
+.topic b{font-size:18px}
+.topic span{font-size:12px}
+
+/* Operations and metrics: clearer executive scan */
+.ops{gap:10px}
+.lane{grid-template-columns:135px repeat(5,1fr);gap:8px}
+.lane-title{font-size:21px}
+.lane-cell{padding:13px}
+.lane-cell b{font-size:18px}
+.owners{gap:10px}
+.metrics-layout{grid-template-columns:.9fr 1.1fr;gap:18px}
+.formula-line{padding:12px 0}
+.metric{padding:16px}
+.report-layout{grid-template-columns:.94fr 1.06fr;gap:18px}
+.final-logic{font-size:15px;line-height:1.45;padding:17px}
+
+/* Paper-theme hardening: no low-contrast copy */
+.paper,.paper button{color:#201b1c}
+.paper .frame-body b,.paper .frame-head strong,.paper .logic b,.paper .card h3,.paper .card h4,.paper .phase h3,.paper .topic b,.paper .pillar b,.paper .email-row b,.paper .lane-cell b,.paper .metric b,.paper .node b{color:#201b1c!important}
+.paper .frame-body p,.paper .logic p,.paper .card p,.paper .phase ul,.paper .topic span,.paper .pillar span,.paper .email-row span,.paper .lane-cell span,.paper .metric span,.paper .node span,.paper .caption,.paper .sub{color:rgba(32,27,28,.72)!important}
+.paper .frame-head span,.paper .label,.paper .muted{color:rgba(32,27,28,.52)!important}
+
+/* Responsive: slide becomes natural page; card systems become swipe rails */
+@media(max-width:860px){
+  .topbar{height:58px}
+  .panel{padding:76px 18px 28px;min-height:100svh;height:auto}
+  .wrap{height:auto;min-height:calc(100svh - 104px)}
+  .counter{right:14px;bottom:10px;font-size:11px}
+  .hero-full-bg{background-position:62% center}
+  .hero-full-bg::after{background:linear-gradient(0deg,rgba(7,8,7,.97) 0%,rgba(7,8,7,.82) 46%,rgba(7,8,7,.28) 100%)}
+  .hero-full-copy{max-width:100%;padding-top:42vh;align-self:end}
+  .hero-lockup-full h1{font-size:clamp(116px,31vw,170px)}
+  .hero-lockup-full .hero-title{font-size:clamp(30px,8vw,44px)}
+  .hero-provocation{font-size:clamp(25px,7.2vw,37px);max-width:18ch}
+  .intro h2{font-size:clamp(40px,10.8vw,60px);max-width:100%}
+  .intro .sub{font-size:17.5px;max-width:100%}
+  .keynote{grid-template-columns:1fr;gap:5px;padding:12px 14px}
+  .keynote span:last-child{font-size:14.5px}
+
+  .asset-wall,.thesis-points,.product-grid,.gtm-grid,.creative-wall,.hera,.lifecycle,.topic-grid,.metric-grid,.report-grid,.legacy-grid,.owners,.steps,.email-seq{
+    display:flex!important;gap:13px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:2px;padding:2px 2px 10px;margin-inline:-2px;-webkit-overflow-scrolling:touch;scrollbar-width:none
+  }
+  .asset-wall::-webkit-scrollbar,.thesis-points::-webkit-scrollbar,.product-grid::-webkit-scrollbar,.gtm-grid::-webkit-scrollbar,.creative-wall::-webkit-scrollbar,.hera::-webkit-scrollbar,.lifecycle::-webkit-scrollbar,.topic-grid::-webkit-scrollbar,.metric-grid::-webkit-scrollbar,.report-grid::-webkit-scrollbar,.legacy-grid::-webkit-scrollbar,.owners::-webkit-scrollbar,.steps::-webkit-scrollbar,.email-seq::-webkit-scrollbar{display:none}
+  .asset-wall>*,.thesis-points>*,.product-grid>*,.gtm-grid>*,.creative-wall>*,.hera>*,.lifecycle>*,.topic-grid>*,.metric-grid>*,.report-grid>*,.legacy-grid>*,.owners>*,.steps>.step,.steps>.opportunity,.email-seq>*{flex:0 0 min(84vw,380px);scroll-snap-align:start}
+  .steps>.connector{display:none}
+  .creative-wall>*{flex-basis:min(78vw,340px)}
+  .asset-logic-v2,.thesis-grid,.product-layout,.editorial,.script-layout,.crm-grid,.news-layout,.seo-layout,.metrics-layout,.report-layout{grid-template-columns:1fr!important}
+  .logic-stack,.diagnostic-conclusion{grid-template-rows:none}
+  .ops{display:grid;gap:12px}
+  .lane{display:flex;overflow-x:auto;gap:10px;scroll-snap-type:x mandatory;padding-bottom:9px;scrollbar-width:none}
+  .lane::-webkit-scrollbar{display:none}
+  .lane-title,.lane-cell{flex:0 0 min(72vw,310px);scroll-snap-align:start}
+  .lane-title{display:grid;place-items:center;min-height:92px}
+  .email-row{grid-template-columns:62px 1fr;min-width:min(84vw,390px)}
+  .email-row>span:last-child{grid-column:2}
+}
+
+@media(max-width:560px){
+  .hero-full-copy{padding-top:38vh}
+  .hero-full .sub{font-size:16.5px}
+  .tags{gap:6px}.tag{font-size:9.5px;padding:6px 8px}
+  .asset-modal-panel{padding:18px 15px}
+}
