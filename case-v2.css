@@ -1,0 +1,136 @@
+/* Visual refinement layer — 2026-09-07 */
+:root{
+  --slide-safe:clamp(28px,4vw,64px);
+  --paper-copy:#2A2526;
+  --paper-muted:rgba(42,37,38,.68);
+  --paper-soft:rgba(42,37,38,.50);
+}
+
+/* Every slide uses the same safe content geometry */
+.panel .wrap{position:relative;z-index:2}
+.intro{max-width:100%}
+.intro h2{max-width:20ch}
+.intro .sub{max-width:min(100%,72ch);width:100%;font-size:clamp(19px,1.45vw,23px)}
+
+/* Cover: MBV becomes a single visual lockup */
+.hero-grid{grid-template-columns:.82fr 1.18fr;gap:clamp(32px,4vw,64px)}
+.hero-copy{gap:16px}
+.hero-lockup{display:flex;align-items:flex-end;gap:clamp(16px,2vw,28px);margin:4px 0 8px}
+.hero h1{font-family:"Bebas Neue",var(--fD);font-size:clamp(132px,12vw,220px);line-height:.70;letter-spacing:.005em;font-weight:400;color:var(--pink);flex:0 0 auto}
+.hero-title{font-family:var(--fD);font-size:clamp(34px,3.1vw,54px);line-height:.88;max-width:8.5ch;font-weight:900;letter-spacing:-.02em;margin:0 0 .08em}
+.hero .sub{max-width:62ch;font-size:clamp(19px,1.35vw,22px)}
+.hero-visual{height:auto;aspect-ratio:16/10;max-height:650px;align-self:center}
+.hero-visual img{object-position:center 44%}
+.hero-product{padding-top:44px;background:linear-gradient(180deg,transparent,rgba(7,8,7,.52));left:0;right:0;bottom:0;padding-left:22px;padding-right:22px;padding-bottom:20px}
+.hero-product strong{font-size:24px}
+
+/* Paper slides need a complete dark-copy theme, not only body copy */
+.paper h1,.paper h2,.paper h3,.paper h4,
+.paper .frame-head strong,.paper .frame-body b,.paper .logic b,.paper .topic b,
+.paper .pillar b,.paper .email-row b,.paper .lane-cell b,.paper .metric b,
+.paper .formula-line b,.paper .final-logic,.paper .node b{color:var(--paper-copy)}
+.paper .sub,.paper .body,.paper .caption,.paper .card p,.paper .frame-body p,
+.paper .logic p,.paper .topic span,.paper .pillar span,.paper .phase ul,
+.paper .gate,.paper .email-row span,.paper .lane-cell span,.paper .metric span,
+.paper .node span,.paper .field-grid code,.paper .owners p{color:var(--paper-muted)}
+.paper .frame-head span,.paper .step .label,.paper .node small,.paper .muted{color:var(--paper-soft)}
+.paper .frame-head,.paper .formula-line,.paper .lane-cell,.paper .field-grid code{border-color:rgba(42,37,38,.12)}
+.paper .tag{color:var(--paper-muted);border-color:rgba(42,37,38,.14)}
+.paper .seo-flow span{color:var(--paper-muted);border-color:rgba(42,37,38,.14)}
+.paper .seo-flow i{background:var(--pink)}
+.paper .final-logic{background:rgba(228,53,111,.07)}
+
+/* Creatives are presentation proofs: never crop their artwork */
+.creative{min-height:0;background:radial-gradient(circle at 50% 40%,#181416,#0b0a0b 78%);display:grid;place-items:center}
+.creative:not(.creative-copy){padding:10px}
+.creative img{width:100%;height:100%;max-height:100%;object-fit:contain!important;object-position:center;border-radius:12px}
+.creative .label{z-index:3}
+.creative-copy{place-items:stretch}
+
+/* Kati photography used as atmospheric evidence in relevant sections */
+#s05::before,#s08::before,#s12::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background-repeat:no-repeat;filter:saturate(.82) blur(1px)}
+#s05::before{background-image:linear-gradient(90deg,#070807 0%,rgba(7,8,7,.96) 47%,rgba(7,8,7,.62) 100%),url('img/mbv/kati-banco.webp');background-position:center,right center;background-size:100% 100%,48% auto;opacity:.22}
+#s08::before{background-image:linear-gradient(90deg,#070807 0%,rgba(7,8,7,.96) 58%,rgba(7,8,7,.64) 100%),url('img/mbv/kati-execucao.webp');background-position:center,right 42%;background-size:100% 100%,44% auto;opacity:.19}
+#s12::before{background-image:linear-gradient(90deg,#070807 0%,rgba(7,8,7,.97) 55%,rgba(7,8,7,.67) 100%),url('img/mbv/kati-retrato.webp');background-position:center,right center;background-size:100% 100%,42% auto;opacity:.18}
+
+/* Stronger alignment + hierarchy for step systems */
+.steps{align-items:stretch}
+.step h3{font-size:clamp(26px,2vw,32px)}
+.step p,.opportunity p{font-size:15px;line-height:1.5}
+.logic b{font-size:clamp(20px,1.6vw,24px)}
+.logic p{font-size:14px;line-height:1.45}
+
+/* Mobile / tablet — Latta-like horizontal card browsing */
+@media(max-width:860px){
+  html{scroll-snap-type:none}
+  .panel{height:auto;min-height:100svh;overflow:visible;padding:88px 18px 34px}
+  .wrap{height:auto;min-height:calc(100svh - 122px);gap:18px}
+  .intro h2{font-size:clamp(42px,11.5vw,64px);max-width:100%}
+  .intro .sub{font-size:18px;line-height:1.48;max-width:100%}
+  .hero-grid{grid-template-columns:1fr;gap:22px}
+  .hero-lockup{align-items:flex-end;gap:14px}
+  .hero h1{font-size:clamp(116px,31vw,170px)}
+  .hero-title{font-size:clamp(30px,9vw,46px);max-width:8ch;margin-bottom:.12em}
+  .hero .sub{font-size:18px}
+  .hero-visual{aspect-ratio:16/10;width:100%;height:auto;max-height:none}
+  .hero-product{padding:48px 16px 14px;gap:10px;align-items:flex-start;flex-direction:column}
+  .hero-product strong{font-size:21px}
+  .hero-product span{font-size:12px;max-width:38ch}
+
+  /* scrollable card rails */
+  .asset-wall,.thesis-points,.product-grid,.gtm-grid,.creative-wall,.hera,.lifecycle,
+  .topic-grid,.metric-grid,.report-grid,.legacy-grid,.owners{
+    display:flex!important;
+    gap:14px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:4px;
+    padding:2px 4px 12px;
+    margin-inline:-4px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    cursor:grab;
+  }
+  .asset-wall::-webkit-scrollbar,.thesis-points::-webkit-scrollbar,.product-grid::-webkit-scrollbar,
+  .gtm-grid::-webkit-scrollbar,.creative-wall::-webkit-scrollbar,.hera::-webkit-scrollbar,
+  .lifecycle::-webkit-scrollbar,.topic-grid::-webkit-scrollbar,.metric-grid::-webkit-scrollbar,
+  .report-grid::-webkit-scrollbar,.legacy-grid::-webkit-scrollbar,.owners::-webkit-scrollbar{display:none}
+  .asset-wall>* ,.thesis-points>* ,.product-grid>* ,.gtm-grid>* ,.creative-wall>* ,.hera>* ,
+  .lifecycle>* ,.topic-grid>* ,.metric-grid>* ,.report-grid>* ,.legacy-grid>* ,.owners>*{
+    flex:0 0 min(82vw,360px);
+    scroll-snap-align:start;
+  }
+  .creative-wall>*{flex-basis:min(76vw,330px)}
+  .asset-wall{grid-template-rows:none}
+  .lifecycle .node:after{display:none}
+
+  /* Steps become a swipeable narrative, connectors disappear only on small screens */
+  .steps{display:flex!important;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 4px 12px;margin-inline:-4px;scrollbar-width:none;cursor:grab}
+  .steps::-webkit-scrollbar{display:none}
+  .steps>.step,.steps>.opportunity{flex:0 0 min(84vw,390px);scroll-snap-align:start;min-height:280px}
+  .steps>.connector{display:none}
+
+  /* fixed two-column structures become readable stacks */
+  .asset-logic,.thesis-grid,.product-layout,.editorial,.script-layout,.crm-grid,.news-layout,.seo-layout,.metrics-layout,.report-layout{grid-template-columns:1fr!important}
+  .logic-stack{grid-template-rows:none}
+  .logic{grid-template-columns:76px 1fr}
+  .keynote{grid-template-columns:1fr;gap:7px;padding:14px 15px}
+  .keynote span:last-child{font-size:15px}
+
+  /* background photography remains subtle and avoids text collisions */
+  #s05::before,#s08::before,#s12::before{opacity:.10;background-size:100% 100%,auto 52%;background-position:center,right 88%}
+}
+
+@media(max-width:560px){
+  .topbar{padding:0 18px}
+  .brand{font-size:20px}
+  .tags{gap:7px}
+  .tag{font-size:10px;padding:7px 9px}
+  .hero-lockup{display:grid;grid-template-columns:auto 1fr;align-items:end}
+  .hero-title{max-width:7ch}
+  .creative:not(.creative-copy){padding:8px}
+}
+
+/* Mouse drag state, progressive enhancement */
+.drag-carousel.is-dragging{cursor:grabbing!important;user-select:none;scroll-snap-type:none!important}
