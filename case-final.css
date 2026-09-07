@@ -39,22 +39,31 @@
 }
 .anexo-link:hover{text-decoration-thickness:2px}
 
-/* --- 1b. cabecalho de secao em duas colunas -------------------
+/* --- 1b. cabecalho de secao ----------------------------------
    O h2 vinha limitado a 19ch numa faixa de largura total: quebrava em
-   quatro linhas curtas e deixava metade da tela vazia a direita, roubando
-   altura do conteudo. Titulo a esquerda, subtitulo a direita. */
+   ate seis linhas estreitas e deixava metade da tela vazia, roubando
+   altura do conteudo. Agora o titulo usa a largura e para em duas linhas,
+   e o subtitulo fica embaixo, tambem ocupando a faixa. */
 .intro{
-  grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
-  grid-template-areas:"eyebrow eyebrow" "title sub";
-  column-gap:clamp(30px,4vw,76px);
-  row-gap:10px;
+  grid-template-columns:1fr;
+  column-gap:0;
+  row-gap:12px;
   align-items:start;
 }
-.intro > .eyebrow{grid-area:eyebrow}
-.intro > h2{grid-area:title;max-width:14ch;margin:0}
-.intro > .sub{grid-area:sub;max-width:58ch;padding-top:.5em;align-self:start}
-/* o subtitulo longo do diagnostico e do contexto respira mais */
-#s02 .intro > .sub,#s03 .intro > .sub{max-width:62ch}
+.intro > h2{
+  max-width:min(100%,50ch);
+  font-size:clamp(34px,2.9vw,52px);
+  line-height:.97;
+  text-wrap:balance;
+  margin:0;
+}
+.intro > .sub{
+  max-width:min(100%,94ch);
+  padding-top:0;
+  text-wrap:pretty;
+}
+/* titulos curtos podem crescer sem passar de duas linhas */
+#s13 .intro > h2,#s14 .intro > h2,#s11 .intro > h2{max-width:min(100%,36ch)}
 
 /* --- 1c. hero: a figura fica de pe ---------------------------
    O fundo aprovado era uma textura sem figura. A foto existia no HTML e
@@ -283,14 +292,52 @@
 }
 
 /* --- 3. acessibilidade --------------------------------------- */
+/* justify-self nao aceita comprimento: a declaracao original era invalida
+   e o navegador a descartava, jogando a seta para fora do eixo do rotulo. */
+.logic-arrow{justify-self:start;margin-left:35px;height:22px}
+@media (max-width:860px){.logic-arrow{margin-left:26px}}
+
+/* incentivo ao clique: o card clicavel precisa parecer clicavel parado,
+   nao so no hover, porque no celular nao existe hover */
+.asset-wall-clickable .asset-trigger{border-color:rgba(228,53,111,.3)}
+.paper .asset-wall-clickable .asset-trigger{border-color:rgba(202,25,93,.26)}
+.asset-trigger::before{
+  content:"";position:absolute;top:11px;right:12px;z-index:2;
+  width:19px;height:19px;border-radius:6px;
+  background:rgba(228,53,111,.14);border:1px solid rgba(228,53,111,.45);
+  background-image:linear-gradient(45deg,transparent 44%,var(--pink) 44%,var(--pink) 56%,transparent 56%);
+  background-size:9px 9px;background-repeat:no-repeat;background-position:center;
+  transition:background-color .2s ease,transform .2s ease;
+}
+.asset-trigger:hover::before{background-color:var(--pink);transform:scale(1.08)}
+.asset-trigger .frame-head{padding-right:40px}
 .asset-trigger:hover{transform:translateY(-3px);border-color:rgba(228,53,111,.44)}
 .asset-trigger:focus-visible,.anexo-card:focus-visible,.nav a:focus-visible,
 .asset-modal-close:focus-visible,.brand:focus-visible{
   outline:2px solid var(--pink);outline-offset:3px;border-radius:6px;
 }
 /* a afordancia nao pode depender de hover: no celular nao existe hover */
-.asset-trigger{padding-bottom:34px;position:relative}
-.asset-trigger::after{content:"Ver peça ↗";opacity:1;transform:none;position:absolute;right:14px;bottom:12px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink)}
+.asset-trigger{padding-bottom:42px;position:relative}
+.asset-trigger::after{
+  content:"Ver peça pronta ↗";opacity:1;transform:none;
+  position:absolute;left:14px;right:14px;bottom:11px;
+  padding:7px 11px;border-radius:999px;text-align:center;
+  background:rgba(228,53,111,.13);border:1px solid rgba(228,53,111,.45);
+  color:var(--pink);font-size:10px;font-weight:700;
+  letter-spacing:.11em;text-transform:uppercase;
+  transition:background-color .2s ease,color .2s ease;
+}
+.asset-trigger:hover::after,.asset-trigger:focus-visible::after{
+  background:var(--pink);color:#fff;border-color:var(--pink);
+}
+.paper .asset-trigger::after{background:rgba(202,25,93,.1);border-color:rgba(202,25,93,.4)}
+/* a instrucao acima da grade precisa ser lida, nao decorativa */
+.asset-section-head .caption{color:var(--muted);font-size:13px}
+.paper .asset-section-head .caption{color:var(--paper-muted)}
+.asset-hint{
+  padding:6px 12px;border-radius:999px;
+  border:1px solid rgba(228,53,111,.45);background:rgba(228,53,111,.1);
+}
 
 .asset-modal-close{
   width:auto;height:auto;padding:9px 16px;border-radius:999px;
@@ -317,10 +364,8 @@
   .price-strip,.audience-grid,.kpi-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
   .anexo-grid,.aud-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
   .econ-layout,.scenario-wrap,.mail-strip{grid-template-columns:1fr}
-  /* abaixo disso a coluna dupla do cabecalho aperta demais */
-  .intro{grid-template-columns:1fr;grid-template-areas:"eyebrow" "title" "sub"}
   .intro > h2{max-width:100%}
-  .intro > .sub{max-width:100%;padding-top:0}
+  .intro > .sub{max-width:100%}
   .hero-full-bg img{max-width:74%;opacity:.5;object-position:70% 10%}
   .hero-full-bg::after{background:
     linear-gradient(0deg,rgba(7,8,7,.97) 0%,rgba(7,8,7,.80) 42%,rgba(7,8,7,.34) 100%)}
