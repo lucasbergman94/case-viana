@@ -72,12 +72,42 @@ function initPresentation(){
 const assetExamples={
   instagram:{
     eyebrow:'Instagram · Aquisição + autoridade',
-    title:'Como o MBV entra no feed',
+    title:'O feed durante as seis semanas',
     body:`
-      <div class="modal-grid">
-        <div class="modal-mock"><img src="img/mbv/peca-carrossel.webp" alt="Carrossel do pilar de diagnóstico do MBV"></div>
-        <div class="modal-copy">
-          <h4>Legenda pronta · carrossel de diagnóstico</h4>
+      <div class="ig-layout">
+        <div class="ig-mock">
+          <div class="ig-head">
+            <div class="ig-av">V</div>
+            <div class="ig-id">
+              <b>consultoriadoviana</b>
+              <div class="ig-stats"><span><b>1.284</b> posts</span><span><b>88,1 mil</b> seguidores</span><span><b>312</b> seguindo</span></div>
+              <p>Consultoria de treino e dieta · Marcos Viana<br>Método, execução e progressão.</p>
+            </div>
+          </div>
+          <div class="ig-tabs"><span class="on">Publicações</span><span>Reels</span><span>Marcadas</span></div>
+          <div class="ig-grid">
+            <figure class="ig-post"><img src="img/mbv/kati-execucao.webp" alt=""><span class="ig-kind">Reel</span><figcaption>Seu treino evoluiu ou só mudou?</figcaption></figure>
+            <figure class="ig-post ig-post--txt ig-post--marcos"><span class="ig-kind">Colab</span><div class="ig-txt">Não teve reunião para escolher quem assinaria</div><figcaption>Chancela do Marcos · 21/10</figcaption></figure>
+            <figure class="ig-post"><img src="img/mbv/peca-carrossel.webp" alt=""><span class="ig-kind">Carrossel</span><figcaption>5 sinais de piloto automático</figcaption></figure>
+            <figure class="ig-post ig-post--txt"><span class="ig-kind">Reel</span><div class="ig-txt">Queimou = funcionou?</div><figcaption>Desmistificação · Reel 03</figcaption></figure>
+            <figure class="ig-post"><img src="img/mbv/kati-retrato.webp" alt=""><span class="ig-kind">Reel</span><figcaption>A Kati olha 3 coisas antes de trocar</figcaption></figure>
+            <figure class="ig-post ig-post--txt"><span class="ig-kind">Enquete</span><div class="ig-txt">Você anota carga e repetições?</div><figcaption>Story · research e engajamento</figcaption></figure>
+            <figure class="ig-post ig-post--txt ig-post--proof"><span class="ig-kind">Carrossel</span><div class="ig-txt">De 50 para 60 kg no hip thrust em 5 semanas</div><figcaption>Prova · beta com 15 alunas</figcaption></figure>
+            <figure class="ig-post"><img src="img/mbv/capa-digital.webp" alt=""><span class="ig-kind">Feed</span><figcaption>O MBV abriu · 10/11</figcaption></figure>
+            <figure class="ig-post ig-post--txt ig-post--excl"><span class="ig-kind">Carrossel</span><div class="ig-txt">Treina há menos de 6 meses? Ainda não é para você</div><figcaption>Objeção · vende recusando</figcaption></figure>
+          </div>
+        </div>
+        <div class="ig-side">
+          <div class="ig-legend">
+            <h4>Mix por pilar nas 6 semanas</h4>
+            <div class="bar"><i style="--w:30%"></i><span>Diagnóstico <b>30%</b></span></div>
+            <div class="bar"><i style="--w:20%"></i><span>Desmistificação <b>20%</b></span></div>
+            <div class="bar"><i style="--w:20%"></i><span>Método <b>20%</b></span></div>
+            <div class="bar"><i style="--w:15%"></i><span>Prova <b>15%</b></span></div>
+            <div class="bar"><i style="--w:15%"></i><span>Produto <b>15%</b></span></div>
+            <p class="caption">Um feed por dia útil no aquecimento, dois na semana de lançamento. Produto nunca em dois dias seguidos.</p>
+          </div>
+          <h4>Legenda pronta · post 3 do feed</h4>
           <div class="copy-piece">
             <p><b>5 sinais de que o seu treino de glúteo está no piloto automático.</b></p>
             <p>1. Você treina glúteo há mais de um ano e não sabe dizer quanto levantava em março.<br>
@@ -96,38 +126,62 @@ const assetExamples={
   },
   blog:{
     eyebrow:'Blog · Busca + profundidade',
-    title:'Um hub editorial para treino de glúteo',
+    title:'O cluster que continua vendendo em janeiro',
     body:`
-      <div class="modal-grid">
-        <div class="modal-mock"><img src="img/mbv/kati-execucao.webp" alt="Kati Santana executando hip thrust na academia"></div>
-        <div class="modal-copy">
-          <h4>Artigo pilar</h4>
-          <p><b>Treino de glúteo: o guia completo para quem já treina e parou de ver resultado</b></p>
-          <p>O recorte "para quem já treina" abre mão de volume de busca e ganha qualificação. O blog existe para alimentar o diagnóstico, não para alimentar pageview.</p>
-          <div class="modal-list">
-            <div>Quantas vezes por semana treinar glúteo? A resposta depende de 3 coisas</div>
-            <div>Progressão de carga no glúteo: quando subir, quanto subir e quando esperar</div>
-            <div>Hip thrust ou agachamento: o critério que a Kati usa antes de escolher</div>
-            <div>Sinto mais a coxa do que o glúteo: por que acontece e o que ajustar</div>
-            <div>Quanto tempo demora para ver diferença no glúteo?</div>
-          </div>
+      <div class="cluster-mock">
+        <article class="cl-pillar">
+          <span class="cl-tag">Artigo pilar · categoria Treino</span>
+          <b>Treino de glúteo: o guia completo para quem já treina e parou de ver resultado</b>
+          <p>O recorte "para quem já treina" abre mão de volume e ganha qualificação. O blog alimenta o diagnóstico, não o pageview. Publica 22/10, antes do aquecimento.</p>
+          <div class="cl-flow"><span>Google</span><i></i><span>Artigo</span><i></i><span>Diagnóstico</span><i></i><span>CRM</span><i></i><span>MBV</span></div>
+        </article>
+        <div class="cl-sats">
+          <article class="cl-sat"><b>Quantas vezes por semana treinar glúteo?</b><span class="cl-meta">Treino · busca de dúvida · alto volume</span><span class="cl-obj">Captura topo e manda para o diagnóstico</span></article>
+          <article class="cl-sat"><b>Progressão de carga no glúteo: quando subir e quanto</b><span class="cl-meta">Treino · alta aderência à tese</span><span class="cl-obj">É o artigo que mais qualifica: quem busca isso é o ICP</span></article>
+          <article class="cl-sat"><b>Sinto mais a coxa do que o glúteo: o que ajustar</b><span class="cl-meta">Treino · dor específica</span><span class="cl-obj">Dor nomeada, conversão de lead mais alta do cluster</span></article>
+          <article class="cl-sat"><b>Treino de glúteo em casa dá resultado?</b><span class="cl-meta">Treino · objeção nº 1 do direct</span><span class="cl-obj">Responde a dúvida que mais apareceu, antes de virar reembolso</span></article>
+          <article class="cl-sat"><b>Hip thrust ou agachamento: o critério da Kati</b><span class="cl-meta">Treino · comparativo, muito buscado</span><span class="cl-obj">Comparativo puxa link e posiciona a especialista</span></article>
+          <article class="cl-sat"><b>Quanto tempo demora para ver diferença no glúteo?</b><span class="cl-meta">Treino · a pergunta mais buscada do nicho</span><span class="cl-obj">Traz volume frio e ensina a expectativa certa</span></article>
+          <article class="cl-sat cl-sat--alt"><b>O que 15 alunas mudaram no treino em 8 semanas</b><span class="cl-meta">Cases de Sucesso · publica 19/11</span><span class="cl-obj">Usa a categoria que estava sobrando e vira prova social</span></article>
+          <article class="cl-sat cl-sat--alt"><b>Método Bumbum Viana: o que é, para quem é e o que tem dentro</b><span class="cl-meta">Treino · fundo de funil</span><span class="cl-obj">Captura quem busca a marca depois de ver um Reel</span></article>
         </div>
       </div>`,
-    note:'Categoria Treino no blog do Viana. Todo artigo termina no diagnóstico, e o Search Console devolve as perguntas que viram a próxima pauta e, mais adiante, o próximo produto.'
+    note:'Oito pautas, duas categorias. O Search Console devolve as queries que viram a pauta seguinte e, se o modelo provar valor, o próximo Método. Instagram gera o pico; isto aqui continua encontrando gente em fevereiro.'
   },
   newsletter:{
     eyebrow:'Newsletter · Recorrência editorial',
     title:'A oferta entra na hora certa',
     body:`
-      <div class="email-preview">
-        <div class="subject">Você trocou de treino quantas vezes esse ano?</div>
-        <p class="preheader">A Kati diz que a troca quase nunca é o problema certo.</p>
-        <p>Trocar de exercício é a coisa mais fácil de fazer na academia. É também a primeira coisa que a gente faz quando o resultado trava.</p>
-        <p>A Kati Santana atende alunas da Consultoria há três anos e começa toda avaliação pelo mesmo lugar. Antes de olhar qual exercício você faz, ela pergunta quanto você levantava nele quatro semanas atrás. Quase ninguém sabe responder. E quando ninguém sabe responder, não dá para dizer se o exercício falhou ou se ele nunca chegou a ser testado.</p>
-        <p>Nas próximas três terças ela mostra o que olha antes de mexer em qualquer coisa: o registro, a progressão de carga e o critério que faz um exercício valer a vaga no seu treino.</p>
-        <p>Hoje o pedido é pequeno. No próximo treino de glúteo, anote a carga e as repetições de dois exercícios. Só isso.</p>
-        <span class="cta">Fazer o diagnóstico de 5 perguntas</span>
-        <p class="fineprint">Leva 2 minutos, acontece no direct do Instagram e termina dizendo qual dos três perfis é o seu.</p>
+      <div class="news-mock">
+        <div class="email-preview">
+          <div class="mail-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><em>Terça, 20/10 · 08h00</em></div>
+          <div class="subject">Você trocou de treino quantas vezes esse ano?</div>
+          <p class="preheader">A Kati diz que a troca quase nunca é o problema certo.</p>
+          <p>Trocar de exercício é a coisa mais fácil de fazer na academia. É também a primeira coisa que a gente faz quando o resultado trava.</p>
+          <p>A Kati Santana atende alunas da Consultoria há três anos e começa toda avaliação pelo mesmo lugar. Antes de olhar qual exercício você faz, ela pergunta quanto você levantava nele quatro semanas atrás. Quase ninguém sabe responder. E quando ninguém sabe responder, não dá para dizer se o exercício falhou ou se ele nunca chegou a ser testado.</p>
+          <p>Nas próximas três terças ela mostra o que olha antes de mexer em qualquer coisa: o registro, a progressão de carga e o critério que faz um exercício valer a vaga no seu treino.</p>
+          <p>Hoje o pedido é pequeno. No próximo treino de glúteo, anote a carga e as repetições de dois exercícios. Só isso.</p>
+          <span class="cta">Fazer o diagnóstico de 5 perguntas</span>
+          <p class="fineprint">Leva 2 minutos, acontece no direct do Instagram e termina dizendo qual dos três perfis é o seu.</p>
+          <div class="mail-footer">Consultoria do Viana · <b>o CTA da Consultoria continua aqui no rodapé</b>, nas cinco edições</div>
+        </div>
+        <div class="news-side">
+          <h4>As cinco terças, e o que muda em cada uma</h4>
+          <div class="news-rail">
+            <article class="nw"><span class="nw-date">20/10</span><b>Você trocou de treino quantas vezes esse ano?</b><span class="nw-goal">Problema · o produto não aparece</span></article>
+            <article class="nw"><span class="nw-date">27/10</span><b>3 erros, 500 diagnósticos, o mesmo padrão</b><span class="nw-goal">Captura · dado proprietário puxa o diagnóstico</span></article>
+            <article class="nw"><span class="nw-date">03/11</span><b>O que a Kati olha antes de trocar um exercício</b><span class="nw-goal">Confiança · teaser da pré-venda de amanhã</span></article>
+            <article class="nw nw--hi"><span class="nw-date">10/11</span><b>O MBV abriu: 8 semanas de glúteo, assinadas pela Kati</b><span class="nw-goal">Venda · a única edição que abre com oferta</span></article>
+            <article class="nw"><span class="nw-date">17/11</span><b>2.000 mulheres responderam. 61% travam no mesmo ponto.</b><span class="nw-goal">Reengajar · o dado do lançamento vira conteúdo</span></article>
+          </div>
+          <h4>O que não muda</h4>
+          <div class="modal-list">
+            <div>A estrutura fixa de terça continua: mesma abertura, mesmo bloco de leitura, mesmo rodapé.</div>
+            <div>O CTA da Consultoria não sai. O MBV ocupa o bloco principal e a Consultoria segue no rodapé.</div>
+            <div>Quem já comprou o MBV para de receber a régua e passa a receber a trilha de onboarding.</div>
+            <div>Os números de 17/11 só entram depois de existirem. Nenhum percentual é estimado antes.</div>
+          </div>
+        </div>
       </div>`,
     note:'A newsletter mantém a estrutura fixa de terça e o CTA da Consultoria no rodapé. O MBV ocupa o bloco principal em cinco edições e sai depois, sem transformar o canal em campanha permanente.'
   },
@@ -182,13 +236,13 @@ const assetExamples={
       <div class="modal-copy">
         <h4>Um salto de 11x ninguém sobe</h4>
         <p>Quem compra um ebook está comprando autonomia. Quem contrata a Consultoria está comprando delegação. São trabalhos opostos, e por isso a migração direta roda entre 1% e 3%, não os 5% que se costuma projetar.</p>
-        <div class="modal-list">
-          <div><b>Gratuito</b> · conteúdo, diagnóstico, newsletter</div>
-          <div><b>MBV · R$97</b> · o método por escrito, para aplicar sozinha</div>
-          <div><b>Turma MBV · R$397</b> · 8 semanas, 4 encontros em grupo com a Kati, correção de execução por vídeo</div>
-          <div><b>Consultoria · R$1.099</b> · acompanhamento individual</div>
+        <div class="ladder">
+          <div class="rung"><span class="rung-price">Grátis</span><b>Conteúdo</b><span class="rung-desc">Feed, diagnóstico e newsletter</span></div>
+          <div class="rung rung--now"><span class="rung-price">R$97</span><b>MBV</b><span class="rung-desc">O método por escrito, para aplicar sozinha</span><span class="rung-flag">este lançamento</span></div>
+          <div class="rung rung--gap"><span class="rung-price">R$397</span><b>Turma MBV</b><span class="rung-desc">8 semanas, 4 encontros em grupo, correção por vídeo</span><span class="rung-flag">o degrau que falta</span></div>
+          <div class="rung"><span class="rung-price">R$1.099</span><b>Consultoria</b><span class="rung-desc">Acompanhamento individual</span></div>
         </div>
-        <p>A Turma é onde a conversão acontece de verdade: quem pagou R$397 por acompanhamento em grupo já comprou delegação uma vez, e a migração de grupo para individual roda entre 15% e 20%.</p>
+        <p>Sem o degrau do meio, 260 compradoras rendem 6 alunas. Com ele, 31 sobem para a Turma, dessas 18% migram para a Consultoria, e o resultado é <b>10 alunas mais R$7.400 de margem no caminho</b>. É isso que transforma a tese de produto-ponte de afirmação em conta.</p>
       </div>`,
     note:'Proposta para o horizonte 2, não para este lançamento. Mas é ela que transforma a tese de produto-ponte de afirmação em conta, e por isso entra no plano desde já como hipótese a validar com os primeiros compradores.'
   }

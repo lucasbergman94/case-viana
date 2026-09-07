@@ -39,6 +39,48 @@
 }
 .anexo-link:hover{text-decoration-thickness:2px}
 
+/* --- 1b. cabecalho de secao em duas colunas -------------------
+   O h2 vinha limitado a 19ch numa faixa de largura total: quebrava em
+   quatro linhas curtas e deixava metade da tela vazia a direita, roubando
+   altura do conteudo. Titulo a esquerda, subtitulo a direita. */
+.intro{
+  grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
+  grid-template-areas:"eyebrow eyebrow" "title sub";
+  column-gap:clamp(30px,4vw,76px);
+  row-gap:10px;
+  align-items:start;
+}
+.intro > .eyebrow{grid-area:eyebrow}
+.intro > h2{grid-area:title;max-width:14ch;margin:0}
+.intro > .sub{grid-area:sub;max-width:58ch;padding-top:.5em;align-self:start}
+/* o subtitulo longo do diagnostico e do contexto respira mais */
+#s02 .intro > .sub,#s03 .intro > .sub{max-width:62ch}
+
+/* --- 1c. hero: a figura fica de pe ---------------------------
+   O fundo aprovado era uma textura sem figura. A foto existia no HTML e
+   estava escondida por display:none. */
+.hero-full-bg{background-image:none;background:transparent}
+.hero-full-bg img{
+  display:block;position:absolute;top:0;bottom:0;right:0;
+  height:100%;width:auto;max-width:min(58%,760px);
+  object-fit:cover;object-position:50% 12%;
+  filter:saturate(1.02) contrast(1.04);
+}
+.hero-full-bg::after{
+  background:
+    linear-gradient(90deg,rgba(7,8,7,.99) 0%,rgba(7,8,7,.97) 30%,rgba(7,8,7,.74) 47%,rgba(7,8,7,.24) 64%,rgba(7,8,7,0) 82%),
+    linear-gradient(0deg,rgba(7,8,7,.72) 0%,rgba(7,8,7,0) 34%);
+}
+.hero-leadin{
+  margin:6px 0 -2px;font-size:14px;letter-spacing:.02em;
+  color:var(--muted2);font-weight:500;
+}
+.hero-full .tags{gap:8px}
+/* o texto para antes da figura em vez de correr por baixo dela */
+.hero-full-copy{max-width:min(760px,50vw)}
+.hero-provocation{max-width:19ch}
+.hero-full .sub{max-width:46ch}
+
 /* --- 2. componentes novos ------------------------------------ */
 
 /* .wrap define 3 linhas (intro / content / keynote). Painel com mais de
@@ -149,6 +191,97 @@
 .email-preview .preheader{font-size:13px;color:rgba(42,37,38,.6);margin-top:-4px}
 .email-preview .fineprint{font-size:12.5px;color:rgba(42,37,38,.6);margin-top:10px}
 
+/* --- 2b. ativos visuais dentro do modal ---------------------- */
+/* o modal ficou com conteudo mais rico: precisa de mais largura.
+   Escopado em min-width para nao sobrescrever a folha inferior do mobile,
+   que vive num media query e por isso perderia na cascata. */
+@media (min-width:861px){
+  .asset-modal{grid-template-columns:1fr minmax(0,min(1180px,82vw))}
+  .asset-modal-panel{padding:26px 28px}
+}
+
+/* feed do Instagram */
+.ig-layout{display:grid;grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr);gap:18px;align-items:start}
+.ig-mock{border:1px solid var(--hair);border-radius:20px;background:rgba(255,255,255,.03);overflow:hidden}
+.ig-head{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:16px 16px 12px}
+.ig-av{width:52px;height:52px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-family:var(--fD);font-weight:900;font-size:22px;color:#fff}
+.ig-id b{font-size:15px;display:block;margin-bottom:5px}
+.ig-stats{display:flex;gap:14px;font-size:12px;color:var(--muted2);margin-bottom:5px;flex-wrap:wrap}
+.ig-stats b{color:var(--ink);font-weight:600;display:inline}
+.ig-id p{margin:0;font-size:12px;line-height:1.42;color:var(--muted)}
+.ig-tabs{display:flex;gap:22px;padding:0 16px;border-top:1px solid var(--hair);margin-top:4px}
+.ig-tabs span{padding:9px 0;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);border-top:1px solid transparent;margin-top:-1px}
+.ig-tabs span.on{color:var(--ink);border-top-color:var(--ink)}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:2px}
+.ig-post{position:relative;margin:0;aspect-ratio:1;overflow:hidden;background:#141314}
+.ig-post img{width:100%;height:100%;object-fit:cover}
+.ig-kind{position:absolute;top:6px;right:7px;z-index:2;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;background:rgba(7,8,7,.72);padding:3px 6px;border-radius:5px;color:#fff}
+.ig-post figcaption{position:absolute;inset:auto 0 0;z-index:2;padding:16px 8px 7px;font-size:9.5px;line-height:1.28;color:#fff;background:linear-gradient(0deg,rgba(7,8,7,.94),transparent)}
+.ig-post--txt{display:grid;place-items:center;padding:14px;background:linear-gradient(150deg,#1a1719,#0d0c0d)}
+.ig-post--txt .ig-txt{font-family:var(--fD);font-weight:800;font-size:15px;line-height:1.02;text-transform:uppercase;text-align:center;color:var(--ink)}
+.ig-post--marcos{background:linear-gradient(150deg,rgba(202,25,93,.4),rgba(13,12,13,.9))}
+.ig-post--proof{background:linear-gradient(150deg,rgba(255,90,54,.32),rgba(13,12,13,.9))}
+.ig-post--excl{background:linear-gradient(150deg,rgba(255,255,255,.09),rgba(13,12,13,.9))}
+.ig-side{display:grid;gap:14px;align-content:start}
+.ig-legend{padding:16px 18px;border:1px solid var(--hair);border-radius:18px;background:rgba(255,255,255,.03)}
+.ig-legend h4{margin:0 0 11px;font-size:15px}
+.bar{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;margin-bottom:6px;position:relative;padding-left:0}
+.bar i{grid-column:1;height:7px;border-radius:4px;background:var(--grad);width:var(--w);display:block;min-width:22px}
+.bar span{grid-column:2;font-size:11.5px;color:var(--muted2);white-space:nowrap}
+.bar span b{color:var(--ink)}
+
+/* cluster do blog */
+.cluster-mock{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:16px;align-items:start}
+.cl-pillar{padding:22px;border-radius:20px;border:1px solid rgba(228,53,111,.45);background:linear-gradient(155deg,rgba(202,25,93,.2),rgba(255,90,54,.05));align-self:start}
+.cl-tag{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);display:block;margin-bottom:10px}
+.cl-pillar b{display:block;font-family:var(--fD);font-weight:800;font-size:clamp(21px,2vw,27px);line-height:1.04;margin-bottom:9px}
+.cl-pillar p{margin:0 0 14px;font-size:13.5px;line-height:1.5;color:var(--muted)}
+.cl-flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.cl-flow span{font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 8px;border:1px solid var(--hair);border-radius:999px;color:var(--muted2)}
+.cl-flow i{width:12px;height:1px;background:var(--pink);display:block}
+.cl-sats{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.cl-sat{padding:13px 15px;border:1px solid var(--hair);border-radius:14px;background:rgba(255,255,255,.028);display:grid;gap:4px;align-content:start}
+.cl-sat b{font-size:13.5px;line-height:1.3}
+.cl-meta{font-size:11px;color:var(--pink)}
+.cl-obj{font-size:11.5px;line-height:1.4;color:var(--muted2)}
+.cl-sat--alt{border-color:rgba(255,90,54,.4);background:rgba(255,90,54,.06)}
+
+/* newsletter */
+.news-mock{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.mail-chrome{display:flex;align-items:center;gap:6px;margin-bottom:-4px}
+.mail-chrome .dot{width:9px;height:9px;border-radius:50%;background:rgba(37,33,34,.18)}
+.mail-chrome em{margin-left:auto;font-style:normal;font-size:11px;color:rgba(37,33,34,.5)}
+.mail-footer{margin-top:6px;padding-top:12px;border-top:1px solid rgba(37,33,34,.14);font-size:11.5px;color:rgba(37,33,34,.6)}
+.mail-footer b{color:rgba(37,33,34,.82)}
+.news-side{display:grid;gap:12px;align-content:start}
+.news-side h4{margin:0;font-size:15px}
+.news-rail{display:grid;gap:7px}
+.nw{display:grid;gap:3px;padding:11px 14px;border:1px solid var(--hair);border-radius:13px;background:rgba(255,255,255,.028);border-left:2px solid var(--pink)}
+.nw-date{font-family:var(--fD);font-weight:700;font-size:13px;letter-spacing:.08em;color:var(--pink)}
+.nw b{font-size:13.5px;line-height:1.3}
+.nw-goal{font-size:11.5px;color:var(--muted2)}
+.nw--hi{background:rgba(228,53,111,.12);border-color:rgba(228,53,111,.4);border-left-color:var(--pink)}
+
+/* escada de precos */
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:end;margin:6px 0 4px}
+.rung{padding:14px 15px;border:1px solid var(--hair);border-radius:14px;background:rgba(255,255,255,.03);display:grid;gap:4px;align-content:end;position:relative}
+.rung:nth-child(1){min-height:104px} .rung:nth-child(2){min-height:132px}
+.rung:nth-child(3){min-height:160px} .rung:nth-child(4){min-height:188px}
+.rung-price{font-family:var(--fD);font-weight:900;font-size:23px;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.rung b{font-size:14.5px}
+.rung-desc{font-size:11.5px;line-height:1.38;color:var(--muted2)}
+.rung-flag{position:absolute;top:9px;right:10px;font-size:9px;letter-spacing:.09em;text-transform:uppercase;padding:3px 7px;border-radius:999px;background:rgba(228,53,111,.2);color:var(--pink)}
+.rung--now{border-color:rgba(228,53,111,.5);background:rgba(228,53,111,.1)}
+.rung--gap{border-style:dashed;border-color:rgba(255,90,54,.55);background:rgba(255,90,54,.07)}
+.rung--gap .rung-flag{background:rgba(255,90,54,.2);color:var(--coral)}
+
+@media (max-width:980px){
+  .ig-layout,.cluster-mock,.news-mock{grid-template-columns:1fr}
+  .cl-sats{grid-template-columns:1fr}
+  .ladder{grid-template-columns:1fr}
+  .rung{min-height:0 !important}
+}
+
 /* --- 3. acessibilidade --------------------------------------- */
 .asset-trigger:hover{transform:translateY(-3px);border-color:rgba(228,53,111,.44)}
 .asset-trigger:focus-visible,.anexo-card:focus-visible,.nav a:focus-visible,
@@ -184,6 +317,13 @@
   .price-strip,.audience-grid,.kpi-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
   .anexo-grid,.aud-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
   .econ-layout,.scenario-wrap,.mail-strip{grid-template-columns:1fr}
+  /* abaixo disso a coluna dupla do cabecalho aperta demais */
+  .intro{grid-template-columns:1fr;grid-template-areas:"eyebrow" "title" "sub"}
+  .intro > h2{max-width:100%}
+  .intro > .sub{max-width:100%;padding-top:0}
+  .hero-full-bg img{max-width:74%;opacity:.5;object-position:70% 10%}
+  .hero-full-bg::after{background:
+    linear-gradient(0deg,rgba(7,8,7,.97) 0%,rgba(7,8,7,.80) 42%,rgba(7,8,7,.34) 100%)}
 }
 @media (max-width:860px){
   /* o backdrop sumia e o modal virava armadilha: sem Esc no celular

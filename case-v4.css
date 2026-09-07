@@ -12,7 +12,7 @@
   linear-gradient(0deg,rgba(7,8,7,.90) 0%,rgba(7,8,7,.12) 38%,rgba(7,8,7,.34) 100%)}
 .hero-full-copy{max-width:min(860px,55vw);gap:16px}
 .hero-lockup-full{grid-template-columns:1fr;gap:2px;align-items:start}
-.hero-lockup-full h1{font-family:"Bebas Neue",var(--fD);font-size:clamp(150px,13.5vw,250px);line-height:.70;letter-spacing:.005em;font-weight:400}
+.hero-lockup-full h1{font-family:var(--fD);font-size:clamp(150px,13.5vw,250px);line-height:.74;letter-spacing:-.022em;font-weight:900}
 .hero-lockup-full .hero-title{font-size:clamp(36px,3.2vw,58px);max-width:none;line-height:.88}
 .hero-provocation{max-width:22ch;font-size:clamp(30px,2.4vw,43px);line-height:1.01}
 .hero-full .sub{max-width:62ch;line-height:1.48}
