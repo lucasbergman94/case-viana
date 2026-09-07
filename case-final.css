@@ -1,0 +1,238 @@
+/* ============================================================
+   MBV · camada final
+   1. correcoes de contraste e de marca
+   2. componentes novos (preco, audiencia, roteiro, e-mail, economia, anexos)
+   3. acessibilidade e movimento reduzido
+   4. folha de impressao
+   ============================================================ */
+
+/* --- 1. contraste e marca ------------------------------------ */
+:root{
+  --muted2:rgba(244,239,232,.56);            /* era .46 · 4,19:1 reprovava AA */
+  --coral:#FF5A36;
+  --grad:linear-gradient(112deg,#CA195D 0%,#E4356F 46%,#FF5A36 100%);
+}
+.paper{
+  --paper-soft:rgba(42,37,38,.68);           /* era .50 · 2,98:1 reprovava AA */
+  --pink:#CA195D;                            /* 3,64:1 -> 4,82:1 sobre papel */
+}
+
+/* o gradiente da marca existia so dentro das imagens */
+#progress{background:var(--grad)}
+.step .num,.product-grid .card .n,.hera .letter,.mind .circle,
+.email-row .when,.thesis-main .big,.aud-num{
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent;
+}
+
+/* link permanente para os anexos, unico item destacado da barra */
+.nav a.nav-anexos{
+  color:var(--ink);border:1px solid rgba(228,53,111,.55);
+  background:rgba(228,53,111,.12);border-radius:999px;padding:6px 12px;
+}
+.nav a.nav-anexos:hover{background:rgba(228,53,111,.22)}
+.anchor-offset{position:absolute;top:0;left:0;width:1px;height:1px}
+
+.anexo-link{
+  display:inline-block;margin-top:8px;color:var(--pink);
+  text-decoration:underline;text-underline-offset:3px;font-weight:500;
+}
+.anexo-link:hover{text-decoration-thickness:2px}
+
+/* --- 2. componentes novos ------------------------------------ */
+
+/* .wrap define 3 linhas (intro / content / keynote). Painel com mais de
+   um bloco de conteudo estouraria e o overflow:hidden cortaria em silencio.
+   .content-stack empilha dentro da linha unica, e os paineis densos
+   deixam de ter altura travada para nunca cortar texto. */
+.content-stack{display:grid;gap:14px;align-content:center}
+#s05,#s07,#s10,#s14{height:auto;min-height:100svh;overflow:visible}
+#s05 .wrap,#s07 .wrap,#s10 .wrap,#s14 .wrap{height:auto}
+
+/* preco (s05) */
+.price-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.price-block{padding:18px 20px;border-radius:16px;background:var(--glass);border:1px solid var(--hair);display:grid;gap:6px;align-content:start}
+.price-block b{font-family:var(--fD);font-weight:900;font-size:clamp(28px,3vw,40px);line-height:1;color:var(--ink)}
+.price-block span{font-size:13.5px;line-height:1.45;color:var(--muted)}
+.price-block--hi{border-color:rgba(228,53,111,.5);background:rgba(228,53,111,.10)}
+.paper .price-block{background:rgba(42,37,38,.045);border-color:rgba(42,37,38,.14)}
+.paper .price-block b{color:var(--paper-copy)} .paper .price-block span{color:var(--paper-muted)}
+
+/* audiencia (s07) */
+.audience-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.aud{padding:20px 22px;display:grid;gap:8px;align-content:start;border-radius:18px}
+.aud-num{font-family:var(--fD);font-weight:900;font-size:clamp(34px,3.6vw,50px);line-height:1}
+.aud b{font-family:var(--fD);font-weight:700;font-size:19px;letter-spacing:.02em}
+.aud span{font-size:13.5px;line-height:1.5;color:var(--muted)}
+.aud code{font-size:12px;background:rgba(255,255,255,.07);padding:1px 5px;border-radius:5px}
+.aud--hi{border-color:rgba(228,53,111,.5);background:rgba(228,53,111,.09)}
+.aud--warn{border-color:rgba(255,90,54,.45);background:rgba(255,90,54,.07)}
+.aud-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+
+/* roteiro pronto (s09) */
+.script-card{display:grid;gap:0}
+.script-block{display:grid;grid-template-columns:78px 1fr;gap:14px;padding:11px 0;border-top:1px solid var(--hair)}
+.script-block:first-of-type{border-top:0}
+.script-block .t{font-family:var(--fD);font-weight:700;font-size:14px;letter-spacing:.08em;color:var(--pink);padding-top:2px}
+.script-block p{margin:0;font-size:14.5px;line-height:1.55;color:var(--muted)}
+.script-block em{font-style:normal;color:var(--muted2);font-size:13px}
+.paper .script-block p{color:var(--paper-muted)}
+
+/* e-mail pronto (s10) */
+.mail-strip{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:14px}
+.mail-card{background:#fff;border-color:rgba(42,37,38,.16)}
+.mail-card .eyebrow{color:var(--pink-dark)}
+.mail-subject,.mail-pre{margin:8px 0 0;font-size:14px;color:var(--ink-dark)}
+.mail-pre{color:rgba(42,37,38,.62)}
+.mail-body{margin-top:12px;padding-top:12px;border-top:1px solid rgba(42,37,38,.12)}
+.mail-body p{margin:0 0 .8em;font-size:14.5px;line-height:1.62;color:rgba(42,37,38,.82)}
+.mail-body b{color:var(--ink-dark)}
+.mail-cta-line{margin:14px 0 12px !important}
+.mail-cta-line .cta{display:inline-block;background:var(--pink-dark);color:#fff;padding:11px 20px;border-radius:999px;font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.mail-ps{font-size:13.5px !important;color:rgba(42,37,38,.66) !important}
+.mail-seq{display:grid;gap:12px;align-content:start}
+
+/* listas de regra (s10, s15) */
+.rule-list{display:grid;gap:9px;margin-top:6px}
+.rule-list > div{display:grid;gap:2px;padding-left:13px;position:relative}
+.rule-list > div::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:2px;border-radius:2px;background:var(--pink)}
+.rule-list b{font-size:14.5px;color:var(--ink)}
+.rule-list span{font-size:13.5px;line-height:1.5;color:var(--muted)}
+.rule-list code{font-size:12px}
+.paper .rule-list b{color:var(--paper-copy)} .paper .rule-list span{color:var(--paper-muted)}
+
+/* economia (s14) */
+.econ-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.formula-line--total{border-top:1px solid var(--pink);margin-top:4px;padding-top:9px}
+.formula-line--total b,.formula-line--total span{color:var(--pink) !important;font-weight:700}
+.assum{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:7px 0;border-top:1px solid var(--hair);font-size:14px}
+.assum:first-of-type{border-top:0}
+.assum b{color:var(--ink);font-weight:500}
+.assum span{color:var(--muted2);font-size:13px;text-align:right;flex:0 0 auto}
+
+.scenario-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.scenario-table{border:1px solid var(--hair);border-radius:16px;overflow:hidden;align-self:start}
+.sc-head,.sc-row{display:grid;grid-template-columns:1.1fr .8fr .6fr .8fr 1.3fr;gap:8px;padding:11px 16px;align-items:center}
+.sc-head{background:rgba(255,255,255,.06);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2)}
+.sc-row{border-top:1px solid var(--hair);font-size:14.5px;font-variant-numeric:tabular-nums}
+.sc-row span:first-child{font-weight:600}
+.sc-row--base{background:rgba(228,53,111,.10)}
+.sc-row .neg{color:#FF7A5C;font-weight:600}
+.sc-row .zero{color:var(--muted);font-weight:600;font-size:13px}
+.report-card{align-self:start}
+.report-card h3{margin:0 0 10px}
+.econ-read h3{margin-bottom:8px}
+.econ-read p{font-size:14.5px;line-height:1.6;color:var(--muted);margin:0 0 .7em}
+.econ-read b{color:var(--ink)}
+
+/* KPIs (s14) */
+.kpi-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi-card{padding:18px 20px;border-radius:16px;background:var(--glass);border:1px solid var(--hair);display:grid;gap:5px;align-content:start}
+.kpi-card b{font-family:var(--fD);font-weight:800;font-size:21px;letter-spacing:.01em}
+.kpi-meta{font-size:13px;color:var(--pink);font-weight:600}
+.kpi-card p{margin:4px 0 0;font-size:13.5px;line-height:1.5;color:var(--muted)}
+.kpi-card--guard{border-color:rgba(255,90,54,.45);background:rgba(255,90,54,.07)}
+
+/* anexos (s16) */
+.anexo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.anexo-card{display:grid;gap:6px;align-content:start;transition:transform .18s ease,border-color .18s ease}
+.anexo-card:hover{transform:translateY(-3px);border-color:rgba(228,53,111,.55)}
+.anexo-card h3{margin:0}
+.anexo-card::after{content:"Abrir ↗";font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-top:4px}
+.sign{margin-top:26px;padding-top:18px;border-top:1px solid var(--hair);display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline}
+.sign b{font-family:var(--fD);font-weight:900;font-size:22px;letter-spacing:.04em}
+.sign span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2)}
+
+/* pecas de copy dentro dos modais */
+.copy-piece{border-left:2px solid var(--pink);padding-left:16px;margin-top:10px}
+.copy-piece p{font-size:14.5px;line-height:1.62;margin:0 0 .75em}
+.email-preview .preheader{font-size:13px;color:rgba(42,37,38,.6);margin-top:-4px}
+.email-preview .fineprint{font-size:12.5px;color:rgba(42,37,38,.6);margin-top:10px}
+
+/* --- 3. acessibilidade --------------------------------------- */
+.asset-trigger:hover{transform:translateY(-3px);border-color:rgba(228,53,111,.44)}
+.asset-trigger:focus-visible,.anexo-card:focus-visible,.nav a:focus-visible,
+.asset-modal-close:focus-visible,.brand:focus-visible{
+  outline:2px solid var(--pink);outline-offset:3px;border-radius:6px;
+}
+/* a afordancia nao pode depender de hover: no celular nao existe hover */
+.asset-trigger{padding-bottom:34px;position:relative}
+.asset-trigger::after{content:"Ver peça ↗";opacity:1;transform:none;position:absolute;right:14px;bottom:12px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink)}
+
+.asset-modal-close{
+  width:auto;height:auto;padding:9px 16px;border-radius:999px;
+  font-family:var(--fD);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;scroll-snap-type:none}
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+
+/* --- responsivo ---------------------------------------------- */
+@media (max-width:1100px){
+  /* o contador sumia junto com a nav: sem ele, ninguem sabe quanto falta */
+  .counter{
+    display:block;position:fixed;right:14px;bottom:12px;top:auto;z-index:40;
+    font-size:11px;background:rgba(7,8,7,.74);color:var(--ink);
+    padding:5px 11px;border-radius:999px;border:1px solid var(--hair);
+    backdrop-filter:blur(8px);
+  }
+  body.on-paper .counter{background:rgba(244,239,232,.86);color:var(--ink-dark);border-color:rgba(42,37,38,.18)}
+}
+@media (max-width:1024px){
+  .price-strip,.audience-grid,.kpi-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .anexo-grid,.aud-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .econ-layout,.scenario-wrap,.mail-strip{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  /* o backdrop sumia e o modal virava armadilha: sem Esc no celular
+     e com o botao de fechar rolando para fora da tela */
+  .asset-modal-backdrop{display:block;background:rgba(7,8,7,.62)}
+  .asset-modal-head{position:sticky;top:0;z-index:2;background:#0d0c0d}
+  .paper .asset-modal-head{background:#0d0c0d}
+  .price-strip,.audience-grid,.kpi-strip,.anexo-grid,.aud-actions{grid-template-columns:1fr}
+  .sc-head{display:none}
+  .sc-row{grid-template-columns:1fr auto;gap:2px 10px;padding:12px 14px}
+  .sc-row span:nth-child(2)::before{content:"leads "}
+  .sc-row span:nth-child(3)::before{content:"conv. "}
+  .sc-row span:nth-child(4)::before{content:"compras "}
+  .sc-row span:nth-child(2),.sc-row span:nth-child(3),.sc-row span:nth-child(4){font-size:12.5px;color:var(--muted2)}
+  .sc-row span:last-child{grid-column:1/-1;margin-top:4px}
+  .script-block{grid-template-columns:1fr;gap:3px}
+  .assum{flex-direction:column;gap:2px} .assum span{text-align:left}
+}
+
+/* --- 4. impressao -------------------------------------------- */
+@page{size:A4 landscape;margin:12mm}
+@media print{
+  html{scroll-snap-type:none !important;scroll-behavior:auto;background:#fff}
+  body{background:#fff;color:#151212;font-size:10pt;overflow:visible}
+  .topbar,#progress,.counter,.asset-modal,.asset-hint,.asset-trigger::after,.anexo-card::after{display:none !important}
+  .panel{
+    height:auto !important;min-height:0 !important;overflow:visible !important;
+    background:#fff !important;color:#151212 !important;border:0;
+    padding:0 0 8mm !important;break-after:page;page-break-after:always;
+  }
+  .panel:last-of-type{break-after:auto;page-break-after:auto}
+  .wrap{height:auto !important;display:block;width:100%}
+  .hero-full-bg,#s05::before,#s08::before,#s12::before{display:none !important}
+  h1,h2,h3,h4,b,strong,.big,.aud-num,.price-block b,.kpi-card b{color:#151212 !important;-webkit-text-fill-color:#151212 !important;background:none !important}
+  .eyebrow,.pink,.mini,.n,.num,.letter,.week,.when,.lane-title,.logic-label,
+  .keynote b,.kpi-meta,.anexo-link,.script-block .t{color:#CA195D !important;-webkit-text-fill-color:#CA195D !important;background:none !important}
+  p,li,span,.sub,.caption{color:#3a3436 !important}
+  .glass,.card,.frame,.step,.logic,.lane,.topic,.metric,.email-row,.keynote,
+  .opportunity,.thesis-main,.pillar,.node,.lane-cell,.price-block,.aud,
+  .kpi-card,.scenario-table,.anexo-card,.mail-card{
+    background:#fff !important;border:1px solid #d5cfc7 !important;
+    box-shadow:none !important;break-inside:avoid;page-break-inside:avoid;
+  }
+  .asset-wall,.thesis-points,.product-grid,.gtm-grid,.creative-wall,.hera,.lifecycle,
+  .topic-grid,.report-grid,.legacy-grid,.owners,.steps,.ops,.metric-grid,
+  .price-strip,.audience-grid,.kpi-strip,.anexo-grid,.aud-actions,.econ-layout{
+    display:grid !important;grid-template-columns:1fr 1fr !important;overflow:visible !important;gap:5mm;
+  }
+  .connector,.logic-arrow{display:none}
+  img{max-height:70mm;object-fit:contain !important}
+  .anexo-card[href]::after{content:" (" attr(href) ")" !important;display:inline !important;font-size:7.5pt;color:#666}
+}
