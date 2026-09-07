@@ -1,7 +1,8 @@
 (() => {
   const selectors = [
     '.asset-wall','.thesis-points','.product-grid','.gtm-grid','.creative-wall','.hera',
-    '.lifecycle','.topic-grid','.metric-grid','.report-grid','.legacy-grid','.owners','.steps'
+    '.lifecycle','.topic-grid','.metric-grid','.report-grid','.legacy-grid','.owners','.steps',
+    '.email-seq','.lane'
   ];
 
   function makeDraggable(el){
@@ -12,6 +13,7 @@
 
     el.addEventListener('pointerdown',e=>{
       if(window.innerWidth>860 || e.pointerType!=='mouse') return;
+      if(e.target.closest('button,a,input,textarea,select')) return;
       down=true;
       startX=e.clientX;
       startScroll=el.scrollLeft;
