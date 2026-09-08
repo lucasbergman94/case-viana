@@ -1581,3 +1581,366 @@ h4{font-size:21px;line-height:1;font-weight:800}
   .panel .wrap>.content{overflow:hidden;min-height:0}
   .panel .wrap>.keynote{position:relative;z-index:5}
 }
+
+
+/* --- Painel 04: vitrine ----------------------------------------------------
+   O mockup do ebook estava dentro de um card preto com max-height de 470px e
+   object-fit contain, entao ocupava menos da metade da propria moldura e
+   competia em peso visual com seis cards de atributo. Num painel que se chama
+   Produto e oferta, o produto tem que dominar: a peca passa a sangrar na
+   coluna inteira, sem card em volta, e os seis atributos viram uma lista
+   numerada que ocupa metade da altura de antes. */
+.vitrine{
+  display:grid;grid-template-columns:minmax(280px,.86fr) minmax(0,1.14fr);
+  gap:clamp(20px,2.4vw,40px);height:100%;min-height:0;align-items:stretch;
+}
+.vitrine>*{min-height:0}
+.vitrine-peca{
+  margin:0;position:relative;display:grid;place-items:center;
+  min-height:0;height:100%;
+}
+.vitrine-peca img{
+  width:100%;height:100%;max-height:100%;object-fit:contain;object-position:center;
+  filter:drop-shadow(0 34px 70px rgba(0,0,0,.62)) drop-shadow(0 0 44px rgba(228,53,111,.18));
+}
+.vitrine-info{display:grid;grid-template-rows:auto minmax(0,1fr);gap:12px;align-content:start;min-height:0}
+.entrega-lista{
+  list-style:none;margin:0;padding:0;display:grid;
+  grid-template-rows:repeat(6,minmax(0,1fr));gap:2px;min-height:0;
+}
+.entrega{
+  display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:baseline;
+  padding:9px 0;border-top:1px solid var(--hair);min-height:0;
+}
+.entrega:first-child{border-top:0;padding-top:0}
+.entrega-n{
+  font-family:var(--fD);font-weight:900;font-size:26px;line-height:.9;
+  color:var(--pink);letter-spacing:-.01em;
+}
+.entrega h3{margin:0;font-family:var(--fD);text-transform:uppercase;font-size:19px;line-height:1}
+.entrega p{margin:3px 0 0;font-size:13.5px;line-height:1.42;color:var(--muted)}
+
+#s04 .price-strip{grid-template-columns:.78fr .92fr 1.44fr 1.16fr!important;gap:10px!important}
+#s04 .price-block{padding:12px 14px!important;align-content:start}
+#s04 .price-block b{font-size:clamp(24px,2.1vw,32px)}
+#s04 .price-block span{font-size:12.5px;line-height:1.42}
+#s04 .content-stack{grid-template-rows:minmax(0,1fr) auto!important;gap:14px!important}
+
+@media(min-width:1101px) and (max-height:860px){
+  .entrega{padding:6px 0;gap:11px}
+  .entrega-n{font-size:21px}
+  .entrega h3{font-size:16px}
+  .entrega p{margin-top:2px;font-size:12px;line-height:1.36}
+  #s04 .price-block span{font-size:11.5px;line-height:1.36}
+  #s04 .price-block b{font-size:clamp(20px,1.7vw,26px)}
+}
+@media(max-width:1100px){
+  .vitrine{grid-template-columns:1fr;height:auto}
+  .vitrine-peca img{max-height:52vh}
+  .entrega-lista{grid-template-rows:none}
+}
+
+
+
+/* a lista precisa caber inteira: o sexto item estava sendo cortado */
+.entrega-lista{grid-template-rows:repeat(6,auto);align-content:space-between}
+.entrega{padding:7px 0}
+#s04 .vitrine-info{grid-template-rows:auto auto;align-content:start}
+
+
+
+/* a peca nunca fica menor que isso, senao deixa de ser destaque */
+.vitrine-peca{min-height:min(46vh,320px)}
+@media(min-width:1101px) and (max-height:820px){
+  .vitrine-peca{min-height:min(42vh,270px)}
+}
+
+
+/* --- Painel 04: vitrine em duas camadas ------------------------------------
+   O painel tinha quatro blocos empilhados (titulo, subtitulo, peca mais seis
+   atributos, e quatro blocos de preco) e nao havia altura para todos. Cada
+   tentativa de espremer tirava espaco da peca, que e justamente o argumento
+   visual do painel. Com duas camadas, a peca recebe a altura inteira do
+   conteudo e a oferta ganha uma tela propria. */
+#s04 .camada.is-active{display:grid;min-height:0;height:100%}
+
+.vitrine{
+  display:grid;grid-template-columns:minmax(260px,.9fr) minmax(0,1.1fr);
+  gap:clamp(20px,2.6vw,44px);height:100%;min-height:0;align-items:stretch;
+}
+.vitrine>*{min-height:0}
+.vitrine-peca{margin:0;position:relative;min-height:0;height:100%}
+.vitrine-peca img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;
+  filter:drop-shadow(0 30px 64px rgba(0,0,0,.6)) drop-shadow(0 0 40px rgba(228,53,111,.16));
+}
+.vitrine-info{display:grid;align-content:center;min-height:0}
+.entrega-lista{
+  list-style:none;margin:0;padding:0;display:grid;gap:0;min-height:0;
+}
+.entrega{
+  display:grid;grid-template-columns:46px minmax(0,1fr);gap:14px;align-items:baseline;
+  padding:10px 0;border-top:1px solid var(--hair);
+}
+.entrega:first-child{border-top:0;padding-top:0}
+.entrega-n{font-family:var(--fD);font-weight:900;font-size:26px;line-height:.9;color:var(--pink)}
+.entrega h3{margin:0;font-family:var(--fD);text-transform:uppercase;font-size:19px;line-height:1}
+.entrega p{margin:4px 0 0;font-size:13.5px;line-height:1.44;color:var(--muted)}
+
+/* a oferta ocupa a camada inteira, com os quatro blocos lado a lado */
+#s04 .camada[data-camada="oferta"] .price-strip{
+  display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:14px!important;height:100%;min-height:0;align-items:stretch;margin:0!important;
+}
+#s04 .price-block{padding:20px 22px!important;align-content:start;min-height:0;overflow:hidden}
+#s04 .price-block b{font-size:clamp(30px,2.6vw,44px)}
+#s04 .price-block span{font-size:14px;line-height:1.5}
+#s04 .price-block .mini{font-size:10px}
+
+@media(min-width:1101px) and (max-height:860px){
+  .entrega{padding:7px 0;gap:11px}
+  .entrega-n{font-size:22px}
+  .entrega h3{font-size:16.5px}
+  .entrega p{margin-top:2px;font-size:12.5px;line-height:1.4}
+  #s04 .price-block{padding:15px 17px!important}
+  #s04 .price-block span{font-size:12.5px;line-height:1.44}
+  #s04 .price-block b{font-size:clamp(24px,2vw,34px)}
+}
+@media(max-width:1100px){
+  .vitrine{grid-template-columns:1fr;height:auto}
+  .vitrine-peca{height:auto;aspect-ratio:4/5;max-height:56vh}
+}
+
+/* --- Painel 02: galeria com palco ------------------------------------------
+   Os seis ativos eram cards altos que dividiam a largura com um preview que
+   rolava. A rolagem era o pior componente do case: a peca tem 600px e se lia
+   por uma janela de 400px, sem inicio nem fim visiveis. Agora os ativos sao
+   uma fileira de chips baixos no topo e a peca ocupa a largura inteira,
+   dividida em passos navegaveis por setas. Cada passo cabe na tela. */
+#s02 .content{overflow:visible}
+.galeria{display:grid;grid-template-rows:auto auto minmax(0,1fr);gap:11px;height:100%;min-height:0}
+.galeria-head{display:grid;gap:2px}
+.galeria-head .caption{margin:0}
+
+.galeria-chips{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.chip{
+  appearance:none;cursor:pointer;text-align:left;font-family:var(--fB);
+  display:grid;gap:4px;align-content:start;
+  padding:11px 13px;border-radius:14px;
+  border:1px solid rgba(21,18,18,.14);background:rgba(255,255,255,.5);
+  transition:border-color .18s,background .18s,transform .18s;
+}
+.chip:hover{border-color:rgba(202,25,93,.5);transform:translateY(-1px)}
+.chip.is-active{border-color:var(--pink);background:rgba(202,25,93,.09);box-shadow:0 0 0 1px var(--pink)}
+.chip:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.chip-topo{display:flex;align-items:baseline;justify-content:space-between;gap:8px;min-width:0}
+.chip-topo strong{font-family:var(--fD);text-transform:uppercase;font-size:15px;line-height:1;color:#151212}
+.chip-metrica{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(21,18,18,.5);flex:0 0 auto}
+.chip-papel{font-size:11.5px;line-height:1.25;color:rgba(21,18,18,.62)}
+
+.galeria-palco{
+  min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:10px;
+  padding:16px 18px;border-radius:20px;
+  border:1px solid rgba(21,18,18,.12);background:rgba(255,255,255,.56);
+}
+.palco-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+.palco-head h3{margin:2px 0 0;font-family:var(--fD);text-transform:uppercase;font-size:clamp(20px,1.7vw,27px);line-height:1;color:#151212}
+.palco-nav{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.palco-seta{
+  appearance:none;cursor:pointer;width:32px;height:32px;border-radius:50%;
+  border:1px solid rgba(202,25,93,.45);background:transparent;color:var(--pink);
+  font-size:15px;line-height:1;display:grid;place-items:center;transition:background .18s;
+}
+.palco-seta:hover{background:rgba(202,25,93,.14)}
+.palco-seta:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.palco-pos{font-family:var(--fD);font-size:12px;letter-spacing:.08em;color:rgba(21,18,18,.6)}
+.palco-pos b{color:var(--pink)}
+.palco-corpo{min-height:0;position:relative}
+.palco-passo{display:none;height:100%;min-height:0;overflow:hidden}
+.palco-passo.is-active{display:block}
+.palco-nota{font-size:12px;line-height:1.42;color:rgba(21,18,18,.6);border-top:1px solid rgba(21,18,18,.1);padding-top:8px}
+
+/* as pecas herdadas do modal precisam caber no palco */
+.galeria-palco img{max-width:100%;height:auto}
+.galeria-palco .ig-layout,.galeria-palco .modal-grid,.galeria-palco .news-mock{height:100%;min-height:0}
+
+@media(min-width:1101px) and (max-height:820px){
+  .chip{padding:8px 10px;gap:2px}
+  .chip-topo strong{font-size:13px}
+  .chip-papel{font-size:10.5px}
+  .galeria-palco{padding:12px 14px;gap:8px}
+  .palco-head h3{font-size:clamp(17px,1.4vw,22px)}
+  .palco-nota{font-size:11px}
+}
+@media(max-width:1100px){
+  .galeria-chips{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .galeria{height:auto}
+  .palco-passo{display:block!important}
+  .palco-passo+.palco-passo{margin-top:14px}
+  .palco-nav{display:none}
+}
+
+/* os chips herdaram o "ver peca pronta" e a marca de canto dos cards antigos */
+#s02 .chip.asset-trigger::after,#s02 .chip.asset-trigger::before{content:none!important;display:none!important}
+#s02 .chip{position:static}
+
+/* o corpo do palco precisa ter altura propria para a quebra saber o limite */
+.galeria-palco{min-height:0}
+.palco-corpo{min-height:120px}
+
+/* --- O palco e escuro -------------------------------------------------------
+   As pecas foram desenhadas para o modal escuro: usam --muted e --muted2, que
+   sao claros. Num palco de fundo branco elas sumiam. O palco escuro devolve as
+   cores originais das pecas e cria contraste com o painel claro. */
+#s02 .galeria-palco{
+  background:#0e0c0d;border-color:rgba(244,239,232,.14);color:var(--ink);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 22px 60px rgba(0,0,0,.22);
+}
+#s02 .palco-head h3{color:var(--ink)}
+#s02 .palco-nota{color:rgba(244,239,232,.62);border-top-color:rgba(244,239,232,.12)}
+#s02 .palco-pos{color:rgba(244,239,232,.6)}
+#s02 .palco-seta{border-color:rgba(228,53,111,.5);color:var(--pink)}
+#s02 .palco-seta:hover{background:rgba(228,53,111,.16)}
+
+/* --- As pecas usam a largura do palco em vez de serem fatiadas -------------- */
+#s02 .palco-passo>.ig-mock{
+  max-height:none;overflow:visible;height:100%;
+  display:grid;grid-template-columns:minmax(230px,.62fr) minmax(0,1fr);
+  grid-template-areas:"cab grade" "abas grade";
+  grid-template-rows:auto minmax(0,1fr);
+}
+#s02 .palco-passo>.ig-mock>.ig-head{grid-area:cab}
+#s02 .palco-passo>.ig-mock>.ig-tabs{grid-area:abas;border-top:0;align-self:start}
+#s02 .palco-passo>.ig-mock>.ig-grid{
+  grid-area:grade;grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-auto-rows:minmax(0,1fr);height:100%;min-height:0;
+}
+#s02 .palco-passo>.ig-mock>.ig-grid>*{min-height:0;overflow:hidden}
+
+#s02 .palco-passo>.email-preview,#s02 .palco-passo>.chat-preview{height:100%;min-height:0;overflow:hidden}
+#s02 .palco-passo>.modal-grid,#s02 .palco-passo>.news-mock,#s02 .palco-passo>.cluster-mock{
+  height:100%;min-height:0;
+}
+#s02 .palco-corpo .ladder{height:100%;min-height:0;align-content:center}
+
+/* com as pecas usando a largura, a quebra so age no que ainda nao couber */
+#s02 .palco-passo{align-content:start}
+
+/* a peca preenche o palco em vez de deixar um vazio embaixo */
+#s02 .palco-passo{height:100%}
+#s02 .palco-passo>*{height:100%;min-height:0}
+#s02 .palco-passo>.ig-mock>.ig-grid>*{aspect-ratio:auto}
+#s02 .palco-corpo .modal-copy,#s02 .palco-corpo .modal-list{align-content:center}
+
+
+/* --- Painel 06: placar e leituras -------------------------------------------
+   Quatro numeros gigantes mais tres cards de analise pediam 483px num espaco
+   de 376px, entao os numeros eram cortados em cima e o texto embaixo. Os
+   numeros viram um placar de altura fixa e as tres leituras, que ninguem le em
+   paralelo, viram camadas. */
+#s06 .content-stack{grid-template-rows:auto minmax(0,1fr)!important;gap:14px!important;min-height:0}
+#s06 .audience-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:stretch}
+#s06 .aud{padding:14px 16px!important;display:grid;align-content:start;gap:2px;min-height:0;overflow:hidden}
+#s06 .aud-num{font-size:clamp(30px,3vw,46px)!important;line-height:.92!important;margin:0!important}
+#s06 .aud b{font-size:15px;line-height:1.1}
+#s06 .aud p{margin:4px 0 0;font-size:12.5px;line-height:1.42}
+#s06 .camadas--baixa{min-height:0}
+#s06 .camada.is-active{display:grid;height:100%;min-height:0}
+#s06 .camada .card{height:100%;min-height:0;overflow:hidden;align-content:start;padding:16px 18px}
+#s06 .camada .card p{font-size:14.5px;line-height:1.5}
+
+/* --- Painel 12: a governanca nao disputa altura com as raias ---------------- */
+#s12 .owners--faixa{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:0}
+#s12 .owners--faixa .card{padding:11px 13px;display:grid;gap:2px;align-content:start;overflow:hidden}
+#s12 .owners--faixa h4{font-size:14px;line-height:1}
+#s12 .owners--faixa p{margin:0;font-size:11.5px;line-height:1.38}
+
+/* --- Painel 15: cartoes de anexo mais baixos -------------------------------
+   Seis cards com um paragrafo cada, que ninguem le antes de clicar. Numero,
+   nome e uma linha bastam. */
+#s15 .anexo-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;height:100%;min-height:0}
+#s15 .anexo-card{padding:16px 18px;display:grid;grid-template-rows:auto auto 1fr;gap:5px;align-content:start;min-height:0;overflow:hidden}
+#s15 .anexo-card h3{font-size:clamp(19px,1.5vw,24px);line-height:1;margin:0}
+#s15 .anexo-card p{margin:0;font-size:12.5px;line-height:1.42;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@media(min-width:1101px) and (max-height:820px){
+  #s15 .anexo-card{padding:12px 14px}
+  #s15 .anexo-card h3{font-size:17px}
+  #s15 .anexo-card p{-webkit-line-clamp:2;font-size:11.5px}
+  #s06 .aud-num{font-size:clamp(26px,2.4vw,36px)!important}
+  #s06 .aud p{font-size:11.5px;line-height:1.36}
+  #s06 .camada .card p{font-size:13px;line-height:1.44}
+}
+
+/* --- Painel 10 e 11 e 14: folga preventiva ---------------------------------
+   Estavam exatamente no limite: cabiam, sem sobra nenhuma. Qualquer texto
+   novo os quebraria. */
+@media(min-width:1101px){
+  #s10 .news-layout,#s11 .seo-layout,#s14 .report-layout{height:100%;min-height:0;align-items:start}
+  #s10 .news-layout>*,#s11 .seo-layout>*,#s14 .report-layout>*{min-height:0;overflow:hidden}
+  #s10 .news-side>.card,#s14 .report-layout .card{align-content:start}
+}
+@media(min-width:1101px) and (max-height:860px){
+  #s10 .email-row{padding:7px 10px}
+  #s10 .email-row b{font-size:16px}
+  #s11 .topic,#s14 .metric{padding:12px 14px}
+  #s11 .topic p,#s14 .metric p{font-size:12.5px;line-height:1.4}
+}
+
+/* o palco recorta o que passar dele: as pecas trazem imagens de alturas variadas */
+#s02 .galeria-palco{overflow:hidden}
+#s02 .palco-corpo{overflow:hidden}
+#s02 .palco-passo img{max-height:100%;object-fit:cover}
+
+/* Painel 12: as tres raias dividem o que sobra depois da faixa de governanca,
+   em vez de empurra-la para baixo */
+#s12 .content{grid-template-rows:minmax(0,1fr) auto!important;gap:9px!important}
+#s12 .ops{min-height:0;overflow:hidden}
+#s12 .lane{min-height:0;overflow:hidden}
+@media(min-width:1101px) and (max-height:820px){
+  #s12 .lane-cell{padding:5px;font-size:11px;line-height:1.3}
+  #s12 .lane-title{font-size:13px}
+  #s12 .lane-cell b{font-size:11px}
+}
+
+/* --- Painel 12: as raias cabem antes da faixa de governanca ----------------- */
+@media(min-width:1101px){
+  #s12 .content{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:10px;align-content:stretch}
+  #s12 .ops{display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:8px;min-height:0;height:100%}
+  #s12 .ops>.lane{min-height:0;height:100%;overflow:hidden;align-content:center}
+  #s12 .lane-cell{padding:7px 9px;min-height:0;overflow:hidden}
+  #s12 .lane-cell span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  #s12 .owners--faixa{align-items:start}
+  #s12 .owners--faixa p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+}
+
+/* --- Painel 08: o metodo HERA ganha o exemplo de cada letra -----------------
+   A camada tinha quatro cards com uma frase cada, ocupando menos da metade do
+   painel. O exemplo torna o metodo verificavel em vez de so nomeado. */
+#s08 .hera .card{align-content:start;padding:18px 20px}
+#s08 .hera .letter{font-size:clamp(38px,3.4vw,54px);line-height:.8}
+#s08 .hera h3{font-size:clamp(19px,1.6vw,24px);margin-top:6px}
+#s08 .hera p{font-size:14px;line-height:1.5;margin-top:6px}
+.hera-exemplo{
+  margin-top:auto;padding-top:10px;border-top:1px solid var(--hair);
+  font-size:12.5px;line-height:1.44;color:var(--muted2);font-style:italic;
+}
+#s08 .hera .card{display:grid;grid-template-rows:auto auto 1fr auto}
+
+/* --- Painel 09: a esteira vira fluxo, com o dado passando de um canal ao outro */
+#s09 .lifecycle{position:relative}
+#s09 .lifecycle>.node{position:relative}
+#s09 .lifecycle>.node+.node::before{
+  content:"";position:absolute;left:-14px;top:50%;width:12px;height:2px;
+  background:linear-gradient(90deg,rgba(228,53,111,.25),var(--pink));
+}
+#s09 .lifecycle>.node+.node::after{
+  content:"";position:absolute;left:-6px;top:50%;transform:translateY(-50%);
+  width:0;height:0;border-top:4px solid transparent;border-bottom:4px solid transparent;
+  border-left:6px solid var(--pink);
+}
+#s09 .lifecycle{gap:26px}
+
+/* a peca do painel 07 nao passa da moldura */
+#s07 .creative{overflow:hidden}
+#s07 .creative img{max-height:100%}
