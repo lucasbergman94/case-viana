@@ -133,6 +133,32 @@
     diagnosis.querySelector('.asset-wall')?.parentElement?.classList.add('asset-browser');
   }
 
+  function patchThesisAndProduct(){
+    const thesis=document.querySelector('#s04');
+    if(thesis){
+      const h2=thesis.querySelector('.intro h2');
+      if(h2)h2.innerHTML='<span class="thesis-title-line">Nem todo seguidor precisa estar pronto para o high-ticket da Consultoria.</span><span class="pink thesis-title-line">O que não significa que ele não esteja pronto pra comprar.</span>';
+      const leap=[...thesis.querySelectorAll('.thesis-points .card')].find(card=>card.querySelector('.mini')?.textContent.trim()==='O salto que ninguém sobe');
+      if(leap){
+        const p=leap.querySelector('p');
+        if(p)p.textContent='São duas decisões de compra muito diferentes: o ebook vende autonomia; a Consultoria vende acompanhamento individual. Em vez de esperar que alguém salte direto do conteúdo gratuito para R$1.099, o MBV cria um primeiro compromisso pago de R$97. Só depois dos dados desse comportamento avaliamos se existe espaço para um degrau intermediário no horizonte 2.';
+      }
+    }
+
+    const product=document.querySelector('#s05');
+    if(product){
+      const h2=product.querySelector('.intro h2');
+      if(h2)h2.innerHTML='<span class="product-title-white">Quem compra garante</span><span class="pink product-title-pink">8 semanas de um treino de glúteos independente, mas transformador</span>';
+      const sub=product.querySelector('.intro .sub');
+      if(sub)sub.innerHTML='O MBV é uma metodologia que organiza conhecimento técnico de forma aplicada e deixa claro qual o resultado esperado:<span class="product-sub-line"><b>entender</b> o que está sendo feito, <b>executar melhor</b> os exercícios e <b>conseguir provar</b> que o treino evoluiu.</span>';
+      const priceLabels=[...product.querySelectorAll('.price-block .mini')];
+      const price=priceLabels.find(el=>el.textContent.trim()==='Preço');
+      if(price)price.textContent='Sugestão de preço';
+      const founders=priceLabels.find(el=>el.textContent.trim()==='Lote de fundadoras');
+      if(founders)founders.textContent='Lote de embaixadoras';
+    }
+  }
+
   function renderInlineAsset(key){
     const preview=document.getElementById('assetInlinePreview');
     if(!preview || typeof assetExamples==='undefined' || !assetExamples[key]) return;
@@ -156,6 +182,7 @@
   function init(){
     polishCoverCopy();
     patchContextAndDiagnosis();
+    patchThesisAndProduct();
     selectors.forEach(sel=>document.querySelectorAll(sel).forEach(makeDraggable));
     initInlineAssets();
   }
