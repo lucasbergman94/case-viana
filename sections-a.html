@@ -21,35 +21,62 @@
     <div class="content"><div class="galeria">
       <div class="galeria-head">
         <span class="eyebrow">Como podemos fazer uso dos ativos atuais para o MBV</span>
-        <p class="caption">Escolha um ativo para ver a peça pronta e o papel que ele assume no lançamento.</p>
+        <p class="caption">Cada ativo já tem um papel. Abra para ver a peça pronta que ele entrega no lançamento.</p>
       </div>
-      <div class="galeria-chips" role="tablist" aria-label="Ativos da Consultoria">
-        <button class="chip asset-trigger is-active" type="button" role="tab" aria-selected="true" data-asset="instagram">
+      <div class="galeria-chips">
+        <button class="chip asset-trigger" type="button" data-asset="instagram">
           <span class="chip-topo"><strong>Instagram</strong><span class="chip-metrica">88,1 mil</span></span>
           <span class="chip-papel">Conteúdo e autoridade</span>
+          <span class="chip-titulo">O feed durante as seis semanas</span>
+          <span class="chip-abrir">Ver a peça pronta</span>
         </button>
-        <button class="chip asset-trigger" type="button" role="tab" aria-selected="false" data-asset="blog">
+        <button class="chip asset-trigger" type="button" data-asset="blog">
           <span class="chip-topo"><strong>Blog</strong><span class="chip-metrica">Busca</span></span>
           <span class="chip-papel">Profundidade técnica</span>
+          <span class="chip-titulo">O cluster que continua vendendo em janeiro</span>
+          <span class="chip-abrir">Ver a peça pronta</span>
         </button>
-        <button class="chip asset-trigger" type="button" role="tab" aria-selected="false" data-asset="newsletter">
+        <button class="chip asset-trigger" type="button" data-asset="newsletter">
           <span class="chip-topo"><strong>Newsletter</strong><span class="chip-metrica">Terças</span></span>
           <span class="chip-papel">Relacionamento editorial</span>
+          <span class="chip-titulo">A oferta entra na hora certa</span>
+          <span class="chip-abrir">Ver a peça pronta</span>
         </button>
-        <button class="chip asset-trigger" type="button" role="tab" aria-selected="false" data-asset="crm">
+        <button class="chip asset-trigger" type="button" data-asset="crm">
           <span class="chip-topo"><strong>CRM / ManyChat</strong><span class="chip-metrica">Dados</span></span>
           <span class="chip-papel">Memória da audiência</span>
+          <span class="chip-titulo">Do comentário a um lead com contexto</span>
+          <span class="chip-abrir">Ver a peça pronta</span>
         </button>
-        <button class="chip asset-trigger" type="button" role="tab" aria-selected="false" data-asset="cozinha">
+        <button class="chip asset-trigger" type="button" data-asset="cozinha">
           <span class="chip-topo"><strong>Cozinha do Viana</strong><span class="chip-metrica">Assinatura</span></span>
           <span class="chip-papel">Extensão de lifestyle</span>
+          <span class="chip-titulo">O fit existe e tem data</span>
+          <span class="chip-abrir">Ver a peça pronta</span>
         </button>
-        <button class="chip asset-trigger" type="button" role="tab" aria-selected="false" data-asset="consultoria">
+        <button class="chip asset-trigger" type="button" data-asset="consultoria">
           <span class="chip-topo"><strong>Consultoria</strong><span class="chip-metrica">R$1.099</span></span>
           <span class="chip-papel">Maior profundidade</span>
+          <span class="chip-titulo">O degrau que falta entre R$97 e R$1.099</span>
+          <span class="chip-abrir">Ver a peça pronta</span>
         </button>
       </div>
-      <div class="galeria-palco" id="assetInlinePreview" aria-live="polite"></div>
+      <div class="palco-modal" id="s02Modal" role="dialog" aria-modal="true" aria-label="Peça pronta do ativo escolhido" hidden>
+        <div class="palco-modal-caixa">
+          <div class="palco-modal-topo">
+            <div class="palco-modal-menu" role="tablist" aria-label="Ativos da Consultoria">
+            <button class="palco-menu-item asset-trigger" type="button" role="tab" aria-selected="false" data-asset="instagram">Instagram</button>
+            <button class="palco-menu-item asset-trigger" type="button" role="tab" aria-selected="false" data-asset="blog">Blog</button>
+            <button class="palco-menu-item asset-trigger" type="button" role="tab" aria-selected="false" data-asset="newsletter">Newsletter</button>
+            <button class="palco-menu-item asset-trigger" type="button" role="tab" aria-selected="false" data-asset="crm">CRM / ManyChat</button>
+            <button class="palco-menu-item asset-trigger" type="button" role="tab" aria-selected="false" data-asset="cozinha">Cozinha do Viana</button>
+            <button class="palco-menu-item asset-trigger" type="button" role="tab" aria-selected="false" data-asset="consultoria">Consultoria</button>
+            </div>
+            <button class="palco-fechar" type="button" data-fechar-palco aria-label="Fechar a peça">&#10005;</button>
+          </div>
+          <div class="galeria-palco" id="assetInlinePreview" aria-live="polite"></div>
+        </div>
+      </div>
     </div></div>
     <div class="keynote"><b>Key note</b><span>O MBV nasce como hipótese para conectar ativos que a Consultoria já possui, e transformar um conjunto de canais e produtos numa jornada que dá para medir e vender.</span></div>
   </div>

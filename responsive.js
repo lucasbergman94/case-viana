@@ -143,16 +143,58 @@
     ajustarEscala(palco);
   }
 
+  /* O palco vive dentro de um modal do tamanho da secao. O card abre, o menu
+     dos seis ativos troca a peca sem fechar, e so o X (ou Esc) fecha: clique
+     fora nao fecha, para ninguem perder a peca por engano ao arrastar. */
+  let chipQueAbriu=null;
+
+  function modal(){return document.getElementById('s02Modal')}
+
+  function abrirPalco(chip){
+    const m=modal();
+    if(!m) return;
+    chipQueAbriu=chip||null;
+    m.hidden=false;
+    document.querySelector('#s02').classList.add('palco-aberto');
+    const palco=document.getElementById('assetInlinePreview');
+    requestAnimationFrame(()=>{
+      ajustarEscala(palco);
+      const x=m.querySelector('.palco-fechar');
+      if(x) x.focus({preventScroll:true});
+    });
+  }
+
+  function fecharPalco(){
+    const m=modal();
+    if(!m || m.hidden) return;
+    m.hidden=true;
+    document.querySelector('#s02').classList.remove('palco-aberto');
+    if(chipQueAbriu){chipQueAbriu.focus({preventScroll:true});chipQueAbriu=null}
+  }
+
+  function palcoAberto(){const m=modal();return m && !m.hidden}
+
   function initInlineAssets(){
     const diagnosis=document.querySelector('#s02');
     if(!diagnosis || diagnosis.dataset.inlineAssetsReady) return;
     diagnosis.dataset.inlineAssetsReady='1';
     diagnosis.addEventListener('click',e=>{
+      if(e.target.closest('[data-fechar-palco]')){fecharPalco();return}
       const seta=e.target.closest('.palco-seta');
       if(seta){moverPasso(document.getElementById('assetInlinePreview'),+seta.dataset.dir);return}
       const btn=e.target.closest('.asset-trigger');
       if(!btn) return;
+      if(btn.classList.contains('chip')) abrirPalco(btn);
       renderInlineAsset(btn.dataset.asset);
+    });
+    document.addEventListener('keydown',e=>{
+      if(!palcoAberto()) return;
+      if(e.key==='Escape'){fecharPalco();e.preventDefault();return}
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+        if(e.target.closest('.palco-modal-menu')) return;
+        moverPasso(document.getElementById('assetInlinePreview'),e.key==='ArrowRight'?1:-1);
+        e.preventDefault();
+      }
     });
   }
 
@@ -188,12 +230,13 @@
 
   selectors.forEach(sel=>document.querySelectorAll(sel).forEach(makeDraggable));
   initInlineAssets();
-  if(document.querySelector('#s02 .asset-trigger')) renderInlineAsset('instagram');
   let tRedim;
   window.addEventListener('resize',()=>{
     clearTimeout(tRedim);
     tRedim=setTimeout(()=>{
-      const ativo=document.querySelector('#s02 .asset-trigger.is-active');
+      if(!palcoAberto()) return;
+      const ativo=document.querySelector('#s02 .palco-modal-menu .asset-trigger.is-active')
+               || document.querySelector('#s02 .asset-trigger.is-active');
       if(ativo) renderInlineAsset(ativo.dataset.asset);
     },200);
   });

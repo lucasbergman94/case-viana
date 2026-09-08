@@ -1960,3 +1960,122 @@ h4{font-size:21px;line-height:1;font-weight:800}
 /* a peca do painel 07 nao passa da moldura */
 #s07 .creative{overflow:hidden}
 #s07 .creative img{max-height:100%}
+
+/* --- Painel 02: o palco vira modal do tamanho da secao ----------------------
+   A galeria dividia a altura entre uma fileira de chips baixos e um palco
+   estreito, e a peca chegava espremida e cortada. Agora o painel mostra os
+   seis ativos como um quadro de escolha que ocupa a area de conteudo, e a
+   peca abre num modal que cobre a secao inteira, com o menu dos seis ativos
+   dentro dele. Trocar de ativo nao fecha. So o X e o Esc fecham: clique fora
+   nao fecha, para ninguem perder a peca por engano ao arrastar. */
+#s02 .wrap{position:relative}
+#s02 .galeria{grid-template-rows:auto minmax(0,1fr)}
+/* as duas fileiras tem a altura do card mais alto e o quadro centraliza na
+   area de conteudo, em vez de seis caixas de 290px com 100px de texto */
+#s02 .galeria-chips{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-rows:auto auto;
+  align-content:center;gap:14px;min-height:0;
+}
+/* o padding:14px!important herdado de #s02 .asset-trigger apertava os cards */
+#s02 .chip{
+  align-content:center;gap:7px;padding:18px 20px!important;border-radius:18px;min-height:0;
+}
+#s02 .chip-topo strong{font-size:clamp(19px,1.5vw,25px)}
+#s02 .chip-metrica{font-size:10.5px}
+#s02 .chip-papel{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(21,18,18,.5)}
+/* o card mostra o titulo da peca que ele abre, o mesmo que aparece no palco */
+.chip-titulo{
+  font-family:var(--fD);text-transform:uppercase;line-height:1.02;
+  font-size:clamp(17px,1.25vw,22px);color:#151212;margin-top:4px;text-wrap:balance;
+}
+.chip-abrir{
+  font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
+  color:var(--pink);display:flex;align-items:center;gap:6px;margin-top:2px;
+}
+.chip-abrir::after{content:"\2192";font-size:13px;transition:transform .18s}
+#s02 .chip:hover .chip-abrir::after{transform:translateX(3px)}
+
+.palco-modal{position:absolute;inset:0;z-index:30;display:grid;padding:0}
+/* display:grid de autor vence o [hidden] da folha do navegador: sem esta linha
+   o modal nasce aberto e vazio, inclusive sem JS. */
+.palco-modal[hidden]{display:none}
+.palco-modal::before{
+  content:"";position:absolute;inset:-8px -12px;
+  background:rgba(21,18,18,.34);border-radius:10px;
+}
+.palco-modal-caixa{
+  position:relative;z-index:1;min-height:0;height:100%;
+  display:grid;grid-template-rows:auto minmax(0,1fr);gap:12px;
+  padding:16px 18px;border-radius:22px;
+  background:#0e0c0d;border:1px solid rgba(244,239,232,.16);color:var(--ink);
+  box-shadow:0 34px 90px rgba(0,0,0,.42);
+}
+.palco-modal-topo{display:flex;align-items:center;justify-content:space-between;gap:14px;min-width:0}
+.palco-modal-menu{display:flex;flex-wrap:wrap;gap:7px;min-width:0}
+.palco-menu-item{
+  appearance:none;cursor:pointer;font-family:var(--fB);
+  padding:7px 13px;border-radius:999px;font-size:12px;line-height:1;font-weight:600;
+  border:1px solid rgba(244,239,232,.2);background:transparent;color:rgba(244,239,232,.7);
+  transition:border-color .18s,background .18s,color .18s;
+}
+.palco-menu-item:hover{border-color:rgba(228,53,111,.6);color:var(--ink)}
+.palco-menu-item.is-active{border-color:var(--pink);background:rgba(228,53,111,.16);color:var(--ink)}
+.palco-menu-item:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.palco-fechar{
+  appearance:none;cursor:pointer;flex:0 0 auto;width:36px;height:36px;border-radius:50%;
+  border:1px solid rgba(228,53,111,.5);background:transparent;color:var(--pink);
+  font-size:15px;line-height:1;display:grid;place-items:center;transition:background .18s;
+}
+.palco-fechar:hover{background:rgba(228,53,111,.18)}
+.palco-fechar:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+
+/* dentro do modal o palco e a propria caixa: uma superficie escura, nao duas */
+#s02 .palco-modal .galeria-palco{
+  background:transparent;border:0;border-radius:0;padding:0;box-shadow:none;min-height:0;
+}
+
+@media(min-width:1101px) and (max-height:820px){
+  #s02 .chip{padding:13px 15px!important;gap:4px}
+  #s02 .chip-papel{font-size:10px}
+  .chip-titulo{font-size:clamp(15px,1.1vw,19px);margin-top:2px}
+  .palco-modal-caixa{padding:12px 14px;gap:9px}
+  .palco-menu-item{padding:6px 11px;font-size:11px}
+  .palco-fechar{width:32px;height:32px}
+}
+@media(max-width:1100px){
+  #s02 .galeria-chips{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none}
+  #s02 .chip{align-content:start}
+  .palco-modal{position:fixed;inset:0;z-index:120;padding:12px;overflow:auto}
+  .palco-modal::before{position:fixed;inset:0;border-radius:0}
+  .palco-modal-caixa{height:auto;min-height:100%;grid-template-rows:auto auto}
+  .palco-modal-topo{position:sticky;top:0;z-index:2;background:#0e0c0d;padding:4px 0 8px}
+}
+@media(max-width:560px){
+  #s02 .galeria-chips{grid-template-columns:1fr}
+}
+
+/* O menu do modal usa a classe .asset-trigger para reaproveitar o
+   renderInlineAsset e o handler de clique que ja existiam, e junto com ela
+   vinha a decoracao dos cards antigos: o ::after "Ver peca pronta", a marca de
+   canto, padding de 14px e o levantar no hover. E .paper button pintava o
+   texto de escuro sobre a caixa escura do modal. */
+#s02 .palco-menu-item.asset-trigger::after,
+#s02 .palco-menu-item.asset-trigger::before{content:none!important;display:none!important}
+#s02 .palco-menu-item{
+  padding:7px 13px!important;min-height:0!important;
+  color:rgba(244,239,232,.72);border-color:rgba(244,239,232,.2);
+}
+#s02 .palco-menu-item:hover{
+  transform:none!important;color:var(--ink);
+  border-color:rgba(228,53,111,.6)!important;box-shadow:none!important;
+}
+#s02 .palco-menu-item.is-active{
+  color:var(--ink);background:rgba(228,53,111,.18);
+  border-color:var(--pink)!important;box-shadow:none!important;transform:none!important;
+}
+#s02 .palco-menu-item:focus-visible{transform:none!important}
+#s02 .palco-fechar{color:var(--pink)}
+@media(min-width:1101px) and (max-height:820px){
+  #s02 .palco-menu-item{padding:6px 11px!important}
+}
