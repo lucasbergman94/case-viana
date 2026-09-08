@@ -54,6 +54,37 @@
     });
   }
 
+
+  /* Camadas: uma linha de escolhas troca o bloco visivel, sem rolar o painel. */
+  function initCamadas(){
+    document.querySelectorAll('.camadas').forEach(grupo=>{
+      if(grupo.dataset.camadasReady) return;
+      grupo.dataset.camadasReady='1';
+      const tabs=[...grupo.querySelectorAll('.camada-tab')];
+      const camadas=[...grupo.querySelectorAll('.camada')];
+      const mostrar=alvo=>{
+        tabs.forEach(t=>{
+          const on=t.dataset.alvo===alvo;
+          t.classList.toggle('is-active',on);
+          t.setAttribute('aria-selected',on?'true':'false');
+        });
+        camadas.forEach(c=>c.classList.toggle('is-active',c.dataset.camada===alvo));
+      };
+      grupo.addEventListener('click',e=>{
+        const t=e.target.closest('.camada-tab');
+        if(t) mostrar(t.dataset.alvo);
+      });
+      grupo.addEventListener('keydown',e=>{
+        if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft') return;
+        const i=tabs.findIndex(t=>t.classList.contains('is-active'));
+        if(i<0) return;
+        const p=(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
+        mostrar(tabs[p].dataset.alvo); tabs[p].focus(); e.preventDefault();
+      });
+    });
+  }
+
   selectors.forEach(sel=>document.querySelectorAll(sel).forEach(makeDraggable));
   initInlineAssets();
+  initCamadas();
 })();

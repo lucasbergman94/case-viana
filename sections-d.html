@@ -12,40 +12,54 @@
 <section class="panel" id="s14" data-slide="14">
   <div class="wrap">
     <div class="intro"><p class="eyebrow">13 · Economia</p><h2>A estratégia também precisa <span class="pink">fechar na planilha.</span></h2><p class="sub">Não conheço os custos reais da casa, então mostro a conta com as premissas à vista. Mude qualquer célula e o resultado se refaz. O que eu não faço é entregar um plano sem número.</p></div>
-    <div class="content content-stack"><div class="econ-layout">
+    <div class="content content-stack"><div class="camadas">
+      <div class="camadas-tabs" role="tablist" aria-label="Camadas do painel de economia">
+        <button class="camada-tab is-active" type="button" role="tab" aria-selected="true" data-alvo="conta">A conta de um pedido</button>
+        <button class="camada-tab" type="button" role="tab" aria-selected="false" data-alvo="cenarios">Cenários</button>
+        <button class="camada-tab" type="button" role="tab" aria-selected="false" data-alvo="kpis">KPIs e guardrail</button>
+      </div>
+      <div class="camadas-corpo">
+
+      <div class="camada is-active camada-grid" data-camada="conta"><div class="econ-layout">
       <article class="glass formula"><div class="eyebrow">A conta de um pedido · R$97</div>
         <div class="formula-line"><b>Preço</b><span>R$97,00</span></div>
-        <div class="formula-line"><b>Taxa de checkout</b><span>−R$7,50 · Guru, mix cartão e Pix</span></div>
-        <div class="formula-line"><b>Simples, Anexo III</b><span>−R$13,29 · 13,7% efetivo</span></div>
-        <div class="formula-line"><b>Provisão de reembolso</b><span>−R$5,02 · 6%, e a taxa não volta no estorno</span></div>
-        <div class="formula-line"><b>Entrega, suporte e chargeback</b><span>−R$2,50</span></div>
+        <div class="formula-line"><b>Taxa do adquirente <i class="prem">prem.</i></b><span>−R$7,50</span></div>
+        <div class="formula-line"><b>Simples, Anexo III <i class="prem">prem.</i></b><span>−R$13,29</span></div>
+        <div class="formula-line"><b>Provisão de reembolso <i class="prem">prem.</i></b><span>−R$5,02</span></div>
+        <div class="formula-line"><b>Entrega e suporte <i class="prem">prem.</i></b><span>−R$2,50</span></div>
         <div class="formula-line formula-line--total"><b>Margem de contribuição</b><span>R$69</span></div>
-        <p class="caption">No lote de fundadoras a R$77, a mesma conta dá <b>R$54</b>.</p>
+        <p class="caption">Adquirente a 7,7% do mix de cartão e Pix, Simples a 13,7% efetivo, e a provisão de reembolso é 6% aplicado sobre a margem perdida mais os R$10,00 que não voltam no estorno. No lote de embaixadoras a R$77 a conta dá <b>R$54</b>. A mensalidade da Guru não entra: já é custo da casa, então o checkout sai a custo marginal zero para o MBV.</p>
       </article>
       <article class="glass formula"><div class="eyebrow">Premissas · e como confirmo cada uma</div>
-        <div class="assum"><b>Taxa efetiva da Guru</b><span>extrato de 3 meses</span></div>
-        <div class="assum"><b>Faixa do Simples</b><span>1 e-mail para o contador</span></div>
+        <div class="assum"><b>Taxa do adquirente</b><span>extrato de 3 meses no painel da Guru</span></div>
+        <div class="assum"><b>Faixa do Simples e o anexo certo</b><span>1 e-mail para o contador</span></div>
         <div class="assum"><b>Reembolso de 6%</b><span>histórico da Cozinha</span></div>
         <div class="assum"><b>Custo de produção R$18.500</b><span>orçamento de designer e videomaker</span></div>
         <div class="assum"><b>Alcance da janela</b><span>Insights das duas contas</span></div>
         <div class="assum"><b>Tamanho da lista</b><span>30 segundos no painel</span></div>
-        <p class="caption">Seis premissas, e cinco delas se resolvem numa reunião de 40 minutos no primeiro dia.</p>
+        <p class="caption">Uma delas vale dinheiro: separando a receita do ebook da aula ao vivo, a parte livro cai no <b>Anexo I com imunidade de ICMS</b>, o imposto por pedido vai de R$13,29 para cerca de R$6 e o equilíbrio desce de 280 para 256 compras.</p>
       </article>
-    </div>
-      <div class="scenario-wrap">
+      </div></div>
+
+      <div class="camada" data-camada="cenarios"><div class="scenario-wrap">
       <div class="scenario-table">
         <div class="sc-head"><span>Cenário</span><span>Leads</span><span>Conv.</span><span>Compras</span><span>Resultado da janela</span></div>
         <div class="sc-row"><span>Conservador</span><span>900</span><span>5,5%</span><span>50</span><span class="neg">−R$15.800</span></div>
         <div class="sc-row sc-row--base"><span>Base</span><span>2.400</span><span>6,0%</span><span>144</span><span class="neg">−R$9.300</span></div>
         <div class="sc-row"><span>Otimista</span><span>4.000</span><span>7,0%</span><span>280</span><span class="zero">no zero a zero</span></div>
+        <p class="caption">Os três cenários já consideram o mix real: as 50 primeiras compras saem no lote de embaixadoras a R$77, com margem de R$54, e o restante a R$97, com margem de R$69. Menos os R$18.500 de produção.</p>
       </div>
-      <article class="card econ-read"><h3>O que essa tabela diz, e é desconfortável</h3><p>A R$97, o ponto de equilíbrio é <b>280 compras</b>, que é o meu cenário otimista. Ou seja: na melhor das hipóteses, a janela empata. <b>Este lançamento não se paga em novembro.</b></p><p>A R$147, com o lote de fundadoras a R$97, a margem por pedido sobe para R$106 e o equilíbrio cai para <b>192 compras</b>, que fica entre o cenário base e o otimista. O mesmo volume de 144 compras passa de −R$9.300 para −R$5.100, e 280 compras passam de zero para <b>+R$9.300</b>.</p><p>Nada disso mata o projeto. Muda o argumento: o retorno não está na janela, está no evergreen, que roda a custo marginal zero, e no que fica construído. Mas isso precisa ser dito antes, e não descoberto em 30/11.</p></article>
-    </div>
-      <div class="kpi-strip">
+      <article class="card econ-read"><h3>O que essa tabela diz, e é desconfortável</h3><p>A R$97, o ponto de equilíbrio é <b>280 compras</b>, que é o meu cenário otimista. Ou seja: na melhor das hipóteses, a janela empata. <b>Este lançamento não se paga em novembro.</b></p><p>A R$147, com o lote de embaixadoras a R$97, a margem por pedido sobe para R$106 e o equilíbrio cai para <b>192 compras</b>, que fica entre o cenário base e o otimista. O mesmo volume de 144 compras passa de −R$9.300 para −R$5.100, e 280 compras passam de zero para <b>+R$9.300</b>.</p><p>Nada disso mata o projeto. Muda o argumento: o retorno não está na janela, está no evergreen, que roda a custo marginal zero, e no que fica construído. Mas isso precisa ser dito antes, e não descoberto em 30/11.</p></article>
+      </div></div>
+
+      <div class="camada" data-camada="kpis"><div class="kpi-strip">
       <article class="kpi-card"><div class="mini">KPI 1</div><b>Leads qualificados</b><span class="kpi-meta">Meta: 2.400 no ciclo</span><p>Diagnóstico concluído e e-mail validado. É o ativo que o lançamento existe para construir e o denominador de todo o resto. Se vier, o lançamento valeu mesmo com receita fraca.</p></article>
       <article class="kpi-card"><div class="mini">KPI 2</div><b>Lead → compra</b><span class="kpi-meta">Meta: 6,0%</span><p>É o teste da tese inteira. Responde de uma vez se a oferta, o preço, a página e a autoridade emprestada da Kati funcionam. Lido todo dia durante o carrinho, aberto por origem.</p></article>
       <article class="kpi-card"><div class="mini">KPI 3</div><b>Receita por lead</b><span class="kpi-meta">Meta: R$5,40</span><p>Combina os dois anteriores e permite comparar canais de volumes incomparáveis. E é o teto do CPL no dia em que a casa quiser ligar mídia paga.</p></article>
       <article class="kpi-card kpi-card--guard"><div class="mini">Guardrail</div><b>Ativação em 7 dias</b><span class="kpi-meta">Mínimo: 60%</span><p>Não é KPI, é trava. Ebook comprado e não aberto não gera depoimento, não gera upgrade e gera reembolso. Receita de novembro com ativação baixa é dívida de janeiro.</p></article>
+      </div></div>
+
+      </div>
     </div></div>
     <div class="keynote"><b>Key note</b><span>Instrumentar tudo, escolher três. As outras 22 métricas continuam sendo coletadas e ficam no plano de tracking; elas informam, não decidem. <a class="anexo-link" href="anexos/03-plano-de-tracking.html">Plano de tracking completo ↗</a></span></div>
   </div>
