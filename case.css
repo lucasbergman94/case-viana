@@ -949,7 +949,10 @@ h4{font-size:21px;line-height:1;font-weight:800}
 
 /* Diagnosis title: first statement + one complete second line on wide screens. */
 #s02 .intro{max-width:none!important}
-#s02 .intro h2{max-width:none!important;font-size:clamp(58px,4.2vw,78px)!important;line-height:.92!important}
+/* Escala unica de titulo. Os tres paineis que tinham override proprio passam a
+   usar a mesma medida dos outros doze, que vem de .intro > h2. O max-width fica
+   livre porque os titulos de 02, 03 e 04 quebram em spans com display:block. */
+#s02 .intro h2,#s03 .intro h2,#s04 .intro h2{max-width:none!important;font-size:clamp(34px,2.9vw,52px)!important;line-height:.97!important}
 #s02 .diag-line-1{display:block;text-wrap:balance}
 #s02 .diag-line-2{display:block;text-wrap:balance;font-size:.72em;line-height:1.02;margin-top:.1em}
 #s02 .intro .sub{max-width:none!important;width:100%;font-size:clamp(17px,1.15vw,20px)!important}
@@ -1008,14 +1011,12 @@ h4{font-size:21px;line-height:1;font-weight:800}
 #s02 .keynote{margin-top:0!important;background:rgba(255,255,255,.72)!important}
 
 /* Investment thesis: two explicit lines, without letting the headline become a wall of text. */
-#s03 .intro h2{max-width:none!important;font-size:clamp(50px,4.05vw,72px)!important;line-height:.94!important}
 #s03 .thesis-title-line{display:block;text-wrap:balance}
 #s03 .thesis-points .card p{font-size:clamp(14px,.92vw,16px)!important;line-height:1.42!important}
 
 /* Product: compact the main visual and cards so the full section fits inside one desktop viewport. */
 #s04 .wrap{grid-template-rows:auto minmax(0,1fr) auto!important;gap:12px!important}
 #s04 .intro{gap:8px!important}
-#s04 .intro h2{max-width:none!important;font-size:clamp(47px,3.95vw,70px)!important;line-height:.92!important}
 #s04 .product-title-white,#s04 .product-title-pink{display:block}
 #s04 .product-title-white{display:block;text-wrap:balance}
 #s04 .product-title-pink{max-width:30ch}
@@ -1412,8 +1413,6 @@ h4{font-size:21px;line-height:1;font-weight:800}
    os componentes. */
 @media(min-width:1101px) and (max-height:820px){
   h2{font-size:clamp(34px,3.05vw,46px)!important;line-height:.94}
-  #s02 .intro h2{font-size:clamp(36px,3.15vw,48px)!important;line-height:.96!important}
-  #s04 .intro h2{font-size:clamp(34px,3vw,45px)!important}
   .sub{font-size:15.5px!important;line-height:1.36!important}
   .intro{gap:7px}
   .wrap{gap:12px!important}
@@ -1496,7 +1495,7 @@ h4{font-size:21px;line-height:1;font-weight:800}
 #s03 .camada.is-active{display:grid;align-content:start;min-height:0;height:100%}
 #s03 .thesis-grid{height:100%;min-height:0;align-items:stretch}
 #s03 .thesis-grid>*{min-height:0}
-#s03 .thesis-points{grid-template-rows:repeat(2,minmax(0,1fr))}
+#s03 .thesis-points{grid-template-rows:auto}
 
 .risco-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;height:100%;min-height:0;align-items:stretch}
 .risco-grid>*{min-height:0;overflow:hidden}
@@ -1525,23 +1524,19 @@ h4{font-size:21px;line-height:1;font-weight:800}
   .risco-grid{grid-template-columns:1fr}
 }
 
-/* O titulo da tese tem duas frases longas: em quatro linhas ele comia um
-   quarto do painel. Menor, cabe em tres e sobra espaco para o argumento. */
-#s03 .intro h2{font-size:clamp(38px,3.3vw,52px)!important;line-height:.95!important}
 #s03 .intro .sub{max-width:100ch}
-@media(min-width:1101px) and (max-height:820px){
-  #s03 .intro h2{font-size:clamp(32px,2.7vw,42px)!important}
-}
 /* a coluna do argumento nao precisa ser tao maior que as apostas */
 #s03 .thesis-grid{grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:14px}
 #s03 .thesis-main{padding:20px 22px;align-content:center}
 #s03 .thesis-main .big{font-size:clamp(30px,2.5vw,42px);line-height:1.02;max-width:16ch}
 #s03 .thesis-main p{font-size:15px;line-height:1.5}
 
-/* as camadas da tese preenchem a altura em vez de deixar um vazio embaixo */
+/* As duas apostas tem altura natural e o par centraliza contra o card alto ao
+   lado. A segunda linha do grid era heranca de quando a tese tinha quatro
+   cards: sem cards para ocupar, ela virava um vazio de 240px em 1920x1080. */
 @media(min-width:1101px){
   #s03 .camada.is-active{align-content:stretch}
-  #s03 .thesis-points{height:100%;align-content:stretch}
+  #s03 .thesis-points{height:100%;grid-template-rows:auto;align-content:center}
   #s03 .thesis-points>.card{align-content:center}
 }
 
@@ -1910,7 +1905,7 @@ h4{font-size:21px;line-height:1;font-weight:800}
   #s12 .ops>.lane{min-height:0;height:100%;overflow:hidden;align-content:center}
   #s12 .lane-cell{padding:7px 9px;min-height:0;overflow:hidden}
   #s12 .lane-cell span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-  #s12 .owners--faixa{align-items:start}
+  #s12 .owners--faixa{align-items:center}
   #s12 .owners--faixa p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 }
 
