@@ -16,7 +16,6 @@ async function loadDeck(){
     if(ok.length)deck.innerHTML=ok.join('\n');
   }
   initPresentation();
-  initAssetModal();
   if(location.hash){
     const t=document.querySelector(location.hash);
     if(t)setTimeout(()=>t.scrollIntoView({block:'start'}),80);
@@ -248,55 +247,6 @@ const assetExamples={
   }
 };
 
-function initAssetModal(){
-  const modal=document.getElementById('assetModal');
-  if(!modal)return;
-  const title=modal.querySelector('#assetModalTitle');
-  const eyebrow=modal.querySelector('#assetModalEyebrow');
-  const body=modal.querySelector('#assetModalBody');
-  const note=modal.querySelector('#assetModalNote');
-  const FOCUSABLE='a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
-  let lastFocus=null;
-
-  const close=()=>{
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-    document.body.classList.remove('modal-open');
-    if(lastFocus&&lastFocus.focus)lastFocus.focus();
-  };
-  const open=(key,trigger)=>{
-    const item=assetExamples[key];
-    if(!item)return;
-    lastFocus=trigger||null;
-    eyebrow.textContent=item.eyebrow;
-    title.textContent=item.title;
-    body.innerHTML=item.body;
-    note.textContent=item.note;
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden','false');
-    document.body.classList.add('modal-open');
-    const c=modal.querySelector('.asset-modal-close');
-    if(c)c.focus();
-  };
-
-  document.querySelectorAll('[data-asset]').forEach(el=>
-    el.addEventListener('click',()=>open(el.dataset.asset,el)));
-  const closeBtn=modal.querySelector('.asset-modal-close');
-  if(closeBtn)closeBtn.addEventListener('click',close);
-  const backdrop=modal.querySelector('.asset-modal-backdrop');
-  if(backdrop)backdrop.addEventListener('click',close);
-
-  document.addEventListener('keydown',e=>{
-    if(!modal.classList.contains('open'))return;
-    if(e.key==='Escape'){close();return}
-    if(e.key!=='Tab')return;
-    const f=[...modal.querySelectorAll(FOCUSABLE)].filter(n=>n.offsetParent!==null);
-    if(!f.length)return;
-    const first=f[0],last=f[f.length-1];
-    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
-    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
-  });
-}
 
 loadDeck().catch(()=>{
   const deck=document.getElementById('deck');
