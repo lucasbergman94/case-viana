@@ -39,12 +39,12 @@
     if(!preview || typeof assetExamples==='undefined' || !assetExamples[key]) return;
     const ex=assetExamples[key];
     preview.innerHTML=`<div class="asset-inline-head"><div><p class="eyebrow">${ex.eyebrow}</p><h3>${ex.title}</h3></div></div><div class="asset-inline-body">${ex.body}</div><div class="asset-inline-note">${ex.note||''}</div>`;
-    document.querySelectorAll('#s03 .asset-trigger').forEach(btn=>btn.classList.toggle('is-active',btn.dataset.asset===key));
+    document.querySelectorAll('#s02 .asset-trigger').forEach(btn=>btn.classList.toggle('is-active',btn.dataset.asset===key));
     preview.scrollTop=0;
   }
 
   function initInlineAssets(){
-    const diagnosis=document.querySelector('#s03');
+    const diagnosis=document.querySelector('#s02');
     if(!diagnosis || diagnosis.dataset.inlineAssetsReady) return;
     diagnosis.dataset.inlineAssetsReady='1';
     diagnosis.addEventListener('click',e=>{

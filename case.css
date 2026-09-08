@@ -144,10 +144,10 @@ h4{font-size:21px;line-height:1;font-weight:800}
 .creative-copy{place-items:stretch}
 
 /* Kati photography used as atmospheric evidence in relevant sections */
-#s05::before,#s08::before,#s12::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background-repeat:no-repeat;filter:saturate(.82) blur(1px)}
-#s05::before{background-image:linear-gradient(90deg,#070807 0%,rgba(7,8,7,.96) 47%,rgba(7,8,7,.62) 100%),url('img/mbv/kati-banco.webp');background-position:center,right center;background-size:100% 100%,48% auto;opacity:.22}
-#s08::before{background-image:linear-gradient(90deg,#070807 0%,rgba(7,8,7,.96) 58%,rgba(7,8,7,.64) 100%),url('img/mbv/kati-execucao.webp');background-position:center,right 42%;background-size:100% 100%,44% auto;opacity:.19}
-#s12::before{background-image:linear-gradient(90deg,#070807 0%,rgba(7,8,7,.97) 55%,rgba(7,8,7,.67) 100%),url('img/mbv/kati-retrato.webp');background-position:center,right center;background-size:100% 100%,42% auto;opacity:.18}
+#s04::before,#s07::before,#s11::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background-repeat:no-repeat;filter:saturate(.82) blur(1px)}
+#s04::before{background-image:linear-gradient(90deg,#070807 0%,rgba(7,8,7,.96) 47%,rgba(7,8,7,.62) 100%),url('img/mbv/kati-banco.webp');background-position:center,right center;background-size:100% 100%,48% auto;opacity:.22}
+#s07::before{background-image:linear-gradient(90deg,#070807 0%,rgba(7,8,7,.96) 58%,rgba(7,8,7,.64) 100%),url('img/mbv/kati-execucao.webp');background-position:center,right 42%;background-size:100% 100%,44% auto;opacity:.19}
+#s11::before{background-image:linear-gradient(90deg,#070807 0%,rgba(7,8,7,.97) 55%,rgba(7,8,7,.67) 100%),url('img/mbv/kati-retrato.webp');background-position:center,right center;background-size:100% 100%,42% auto;opacity:.18}
 
 /* Stronger alignment + hierarchy for step systems */
 .steps{align-items:stretch}
@@ -215,7 +215,7 @@ h4{font-size:21px;line-height:1;font-weight:800}
   .keynote span:last-child{font-size:15px}
 
   /* background photography remains subtle and avoids text collisions */
-  #s05::before,#s08::before,#s12::before{opacity:.10;background-size:100% 100%,auto 52%;background-position:center,right 88%}}
+  #s04::before,#s07::before,#s11::before{opacity:.10;background-size:100% 100%,auto 52%;background-position:center,right 88%}}
 
 @media(max-width:560px){
   .topbar{padding:0 18px}
@@ -258,16 +258,16 @@ h4{font-size:21px;line-height:1;font-weight:800}
 .intro{width:100%;max-width:none}
 .intro h2{max-width:22ch}
 .intro .sub{max-width:78ch}
-#s02 .intro .sub,#s03 .intro .sub{max-width:88ch}
-#s02 .intro .sub b,#s03 .intro .sub b{color:inherit;font-weight:700}
+#s03 .intro .sub,#s02 .intro .sub{max-width:88ch}
+#s03 .intro .sub b,#s02 .intro .sub b{color:inherit;font-weight:700}
 
 /* Context steps: a more explicit presentation sequence */
-#s02 .steps{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr) 44px minmax(0,1fr) 62px minmax(250px,.92fr)}
-#s02 .step{padding:24px;min-height:270px}
-#s02 .step .label{font-size:12px}
-#s02 .step p,#s02 .opportunity p{font-size:15.5px}
-#s02 .opportunity{background:linear-gradient(160deg,rgba(228,53,111,.13),rgba(228,53,111,.055));box-shadow:inset 0 0 0 1px rgba(228,53,111,.08)}
-#s02 .opportunity h3{font-size:clamp(28px,2vw,34px)}
+#s03 .steps{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr) 44px minmax(0,1fr) 62px minmax(250px,.92fr)}
+#s03 .step{padding:24px;min-height:270px}
+#s03 .step .label{font-size:12px}
+#s03 .step p,#s03 .opportunity p{font-size:15.5px}
+#s03 .opportunity{background:linear-gradient(160deg,rgba(228,53,111,.13),rgba(228,53,111,.055));box-shadow:inset 0 0 0 1px rgba(228,53,111,.08)}
+#s03 .opportunity h3{font-size:clamp(28px,2vw,34px)}
 
 /* Diagnosis: one visual argument instead of two unrelated flows */
 .asset-logic-v2{grid-template-columns:1.23fr .77fr;gap:24px}
@@ -318,7 +318,7 @@ h4{font-size:21px;line-height:1;font-weight:800}
   .hero-full-copy{max-width:100%;align-self:end;padding-top:38vh;padding-bottom:10px}
   .hero-lockup-full{grid-template-columns:auto 1fr}
   .hero-provocation{font-size:clamp(27px,8vw,40px);max-width:17ch}
-  #s02 .steps{display:flex!important}
+  #s03 .steps{display:flex!important}
   .asset-section-head{align-items:flex-start;flex-direction:column;gap:6px}
   .asset-trigger::after{display:none}
   .modal-grid{grid-template-columns:1fr}
@@ -376,13 +376,13 @@ h4{font-size:21px;line-height:1;font-weight:800}
 .paper .keynote{background:rgba(255,255,255,.72)}
 
 /* Context: visually emphasize the causal chain */
-#s02 .steps{grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr) 36px minmax(0,1fr) 54px minmax(250px,.9fr)}
-#s02 .step{padding:22px;min-height:250px}
-#s02 .step .num{font-size:58px}
-#s02 .step h3{max-width:11ch}
-#s02 .opportunity{padding:22px;position:relative;overflow:hidden}
-#s02 .opportunity:before{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-60px;top:-60px;background:radial-gradient(circle,rgba(228,53,111,.24),transparent 70%)}
-#s02 .opportunity>*{position:relative}
+#s03 .steps{grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr) 36px minmax(0,1fr) 54px minmax(250px,.9fr)}
+#s03 .step{padding:22px;min-height:250px}
+#s03 .step .num{font-size:58px}
+#s03 .step h3{max-width:11ch}
+#s03 .opportunity{padding:22px;position:relative;overflow:hidden}
+#s03 .opportunity:before{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-60px;top:-60px;background:radial-gradient(circle,rgba(228,53,111,.24),transparent 70%)}
+#s03 .opportunity>*{position:relative}
 
 /* Diagnosis: asset cards read like product frames */
 .asset-wall-clickable{gap:10px}
@@ -549,7 +549,7 @@ h4{font-size:21px;line-height:1;font-weight:800}
   text-wrap:pretty;
 }
 /* titulos curtos podem crescer sem passar de duas linhas */
-#s13 .intro > h2,#s14 .intro > h2,#s11 .intro > h2{max-width:min(100%,36ch)}
+#s12 .intro > h2,#s13 .intro > h2,#s10 .intro > h2{max-width:min(100%,36ch)}
 
 /* --- 1c. hero: a figura fica de pe ---------------------------
    O fundo aprovado era uma textura sem figura. A foto existia no HTML e
@@ -583,8 +583,8 @@ h4{font-size:21px;line-height:1;font-weight:800}
    .content-stack empilha dentro da linha unica, e os paineis densos
    deixam de ter altura travada para nunca cortar texto. */
 .content-stack{display:grid;gap:14px;align-content:center}
-#s05,#s07,#s10,#s14{height:auto;min-height:100svh;overflow:visible}
-#s05 .wrap,#s07 .wrap,#s10 .wrap,#s14 .wrap{height:auto}
+#s04,#s06,#s09,#s13{height:auto;min-height:100svh;overflow:visible}
+#s04 .wrap,#s06 .wrap,#s09 .wrap,#s13 .wrap{height:auto}
 
 /* preco (s05) */
 .price-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
@@ -857,7 +857,7 @@ h4{font-size:21px;line-height:1;font-weight:800}
   }
   .panel:last-of-type{break-after:auto;page-break-after:auto}
   .wrap{height:auto !important;display:block;width:100%}
-  .hero-full-bg,#s05::before,#s08::before,#s12::before{display:none !important}
+  .hero-full-bg,#s04::before,#s07::before,#s11::before{display:none !important}
   h1,h2,h3,h4,b,strong,.big,.aud-num,.price-block b,.kpi-card b{color:#151212 !important;-webkit-text-fill-color:#151212 !important;background:none !important}
   .eyebrow,.pink,.mini,.n,.num,.letter,.week,.when,.lane-title,.logic-label,
   .keynote b,.kpi-meta,.anexo-link,.script-block .t{color:#CA195D !important;-webkit-text-fill-color:#CA195D !important;background:none !important}
@@ -938,26 +938,26 @@ h4{font-size:21px;line-height:1;font-weight:800}
 }
 
 /* Context: headings get enough width to resolve naturally in one or two lines. */
-#s02 .step h3,#s02 .opportunity h3{
+#s03 .step h3,#s03 .opportunity h3{
   max-width:none!important;
   min-height:1.9em;
   font-size:clamp(23px,1.55vw,29px)!important;
   line-height:.96!important;
   text-wrap:balance;
 }
-#s02 .step p,#s02 .opportunity p{font-size:clamp(15px,1vw,17px)!important;line-height:1.46!important}
+#s03 .step p,#s03 .opportunity p{font-size:clamp(15px,1vw,17px)!important;line-height:1.46!important}
 
 /* Diagnosis title: first statement + one complete second line on wide screens. */
-#s03 .intro{max-width:none!important}
-#s03 .intro h2{max-width:none!important;font-size:clamp(58px,4.2vw,78px)!important;line-height:.92!important}
-#s03 .diag-line-1{display:block;text-wrap:balance}
-#s03 .diag-line-2{display:block;text-wrap:balance;font-size:.72em;line-height:1.02;margin-top:.1em}
-#s03 .intro .sub{max-width:none!important;width:100%;font-size:clamp(17px,1.15vw,20px)!important}
-#s03 .diag-sub-line{display:block;margin-top:4px}
+#s02 .intro{max-width:none!important}
+#s02 .intro h2{max-width:none!important;font-size:clamp(58px,4.2vw,78px)!important;line-height:.92!important}
+#s02 .diag-line-1{display:block;text-wrap:balance}
+#s02 .diag-line-2{display:block;text-wrap:balance;font-size:.72em;line-height:1.02;margin-top:.1em}
+#s02 .intro .sub{max-width:none!important;width:100%;font-size:clamp(17px,1.15vw,20px)!important}
+#s02 .diag-sub-line{display:block;margin-top:4px}
 
 /* One argument, two columns: assets on the left, the selected execution on the right. */
-#s03 .content{min-height:0!important;overflow:hidden!important;padding-bottom:2px}
-#s03 .asset-logic-inline{
+#s02 .content{min-height:0!important;overflow:hidden!important;padding-bottom:2px}
+#s02 .asset-logic-inline{
   display:grid!important;
   grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr)!important;
   gap:22px!important;
@@ -965,13 +965,13 @@ h4{font-size:21px;line-height:1;font-weight:800}
   height:100%!important;
   align-items:stretch!important;
 }
-#s03 .asset-browser{min-height:0;display:grid;grid-template-rows:auto 1fr}
-#s03 .asset-section-head{margin-bottom:10px!important}
-#s03 .asset-section-head .eyebrow{font-size:12px!important;max-width:none!important}
-#s03 .asset-wall{min-height:0!important;height:100%!important;gap:10px!important}
-#s03 .asset-trigger{min-height:0!important;padding:14px!important}
-#s03 .asset-trigger.is-active{border-color:var(--pink)!important;box-shadow:0 0 0 1px var(--pink),0 14px 34px rgba(202,25,93,.13)!important}
-#s03 .asset-trigger::after{content:"Ver peça pronta  ↗"!important;opacity:.72!important;transform:none!important;bottom:8px!important}
+#s02 .asset-browser{min-height:0;display:grid;grid-template-rows:auto 1fr}
+#s02 .asset-section-head{margin-bottom:10px!important}
+#s02 .asset-section-head .eyebrow{font-size:12px!important;max-width:none!important}
+#s02 .asset-wall{min-height:0!important;height:100%!important;gap:10px!important}
+#s02 .asset-trigger{min-height:0!important;padding:14px!important}
+#s02 .asset-trigger.is-active{border-color:var(--pink)!important;box-shadow:0 0 0 1px var(--pink),0 14px 34px rgba(202,25,93,.13)!important}
+#s02 .asset-trigger::after{content:"Ver peça pronta  ↗"!important;opacity:.72!important;transform:none!important;bottom:8px!important}
 
 .asset-inline-preview{
   min-width:0;
@@ -1004,61 +1004,61 @@ h4{font-size:21px;line-height:1;font-weight:800}
 .asset-inline-preview .email-preview{padding:18px!important}
 
 /* Keep the key note outside the diagnostic content's visual footprint. */
-#s03 .wrap{grid-template-rows:auto minmax(0,1fr) auto!important;row-gap:14px!important}
-#s03 .keynote{margin-top:0!important;background:rgba(255,255,255,.72)!important}
+#s02 .wrap{grid-template-rows:auto minmax(0,1fr) auto!important;row-gap:14px!important}
+#s02 .keynote{margin-top:0!important;background:rgba(255,255,255,.72)!important}
 
 /* Investment thesis: two explicit lines, without letting the headline become a wall of text. */
-#s04 .intro h2{max-width:none!important;font-size:clamp(50px,4.05vw,72px)!important;line-height:.94!important}
-#s04 .thesis-title-line{display:block;text-wrap:balance}
-#s04 .thesis-points .card p{font-size:clamp(14px,.92vw,16px)!important;line-height:1.42!important}
+#s03 .intro h2{max-width:none!important;font-size:clamp(50px,4.05vw,72px)!important;line-height:.94!important}
+#s03 .thesis-title-line{display:block;text-wrap:balance}
+#s03 .thesis-points .card p{font-size:clamp(14px,.92vw,16px)!important;line-height:1.42!important}
 
 /* Product: compact the main visual and cards so the full section fits inside one desktop viewport. */
-#s05 .wrap{grid-template-rows:auto minmax(0,1fr) auto!important;gap:12px!important}
-#s05 .intro{gap:8px!important}
-#s05 .intro h2{max-width:none!important;font-size:clamp(47px,3.95vw,70px)!important;line-height:.92!important}
-#s05 .product-title-white,#s05 .product-title-pink{display:block}
-#s05 .product-title-white{display:block;text-wrap:balance}
-#s05 .product-title-pink{max-width:30ch}
-#s05 .intro .sub{max-width:none!important;font-size:clamp(16px,1.08vw,19px)!important;line-height:1.38!important}
-#s05 .product-sub-line{display:block;margin-top:2px}
-#s05 .content-stack{display:grid!important;grid-template-rows:minmax(0,1fr) auto!important;gap:10px!important;min-height:0!important}
-#s05 .product-layout{grid-template-columns:minmax(300px,.72fr) minmax(0,1.28fr)!important;gap:18px!important;min-height:0!important;height:100%!important;align-items:stretch!important}
-#s05 .mockup{min-height:0!important;height:100%!important;max-height:470px!important}
-#s05 .mockup img{width:100%!important;height:100%!important;object-fit:contain!important;background:#090809}
-#s05 .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr))!important;gap:9px!important;min-height:0!important;height:100%!important}
-#s05 .product-grid .card{min-height:0!important;padding:14px 16px!important;align-content:center!important}
-#s05 .product-grid .card .n{font-size:29px!important;margin-bottom:2px}
-#s05 .product-grid .card h3{font-size:clamp(21px,1.42vw,27px)!important;line-height:.94!important}
-#s05 .product-grid .card p{font-size:clamp(12.5px,.82vw,14px)!important;line-height:1.36!important;margin-top:6px!important}
-#s05 .price-strip{display:grid!important;grid-template-columns:.82fr .96fr 1.36fr 1.18fr!important;gap:9px!important;margin-top:0!important}
-#s05 .price-block{min-height:0!important;padding:11px 13px!important;border-radius:16px!important}
-#s05 .price-block .mini{font-size:9px!important;letter-spacing:.13em!important}
-#s05 .price-block>b{font-size:clamp(25px,1.75vw,32px)!important;line-height:.9!important}
-#s05 .price-block>span{font-size:clamp(11px,.75vw,13px)!important;line-height:1.3!important}
-#s05 .keynote{margin-top:0!important}
+#s04 .wrap{grid-template-rows:auto minmax(0,1fr) auto!important;gap:12px!important}
+#s04 .intro{gap:8px!important}
+#s04 .intro h2{max-width:none!important;font-size:clamp(47px,3.95vw,70px)!important;line-height:.92!important}
+#s04 .product-title-white,#s04 .product-title-pink{display:block}
+#s04 .product-title-white{display:block;text-wrap:balance}
+#s04 .product-title-pink{max-width:30ch}
+#s04 .intro .sub{max-width:none!important;font-size:clamp(16px,1.08vw,19px)!important;line-height:1.38!important}
+#s04 .product-sub-line{display:block;margin-top:2px}
+#s04 .content-stack{display:grid!important;grid-template-rows:minmax(0,1fr) auto!important;gap:10px!important;min-height:0!important}
+#s04 .product-layout{grid-template-columns:minmax(300px,.72fr) minmax(0,1.28fr)!important;gap:18px!important;min-height:0!important;height:100%!important;align-items:stretch!important}
+#s04 .mockup{min-height:0!important;height:100%!important;max-height:470px!important}
+#s04 .mockup img{width:100%!important;height:100%!important;object-fit:contain!important;background:#090809}
+#s04 .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr))!important;gap:9px!important;min-height:0!important;height:100%!important}
+#s04 .product-grid .card{min-height:0!important;padding:14px 16px!important;align-content:center!important}
+#s04 .product-grid .card .n{font-size:29px!important;margin-bottom:2px}
+#s04 .product-grid .card h3{font-size:clamp(21px,1.42vw,27px)!important;line-height:.94!important}
+#s04 .product-grid .card p{font-size:clamp(12.5px,.82vw,14px)!important;line-height:1.36!important;margin-top:6px!important}
+#s04 .price-strip{display:grid!important;grid-template-columns:.82fr .96fr 1.36fr 1.18fr!important;gap:9px!important;margin-top:0!important}
+#s04 .price-block{min-height:0!important;padding:11px 13px!important;border-radius:16px!important}
+#s04 .price-block .mini{font-size:9px!important;letter-spacing:.13em!important}
+#s04 .price-block>b{font-size:clamp(25px,1.75vw,32px)!important;line-height:.9!important}
+#s04 .price-block>span{font-size:clamp(11px,.75vw,13px)!important;line-height:1.3!important}
+#s04 .keynote{margin-top:0!important}
 
 @media(max-width:1180px){
-  #s03 .diag-line-2{font-size:.68em}
-  #s03 .asset-logic-inline{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important}
-  #s05 .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(3,minmax(0,1fr))!important}
-  #s05 .price-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+  #s02 .diag-line-2{font-size:.68em}
+  #s02 .asset-logic-inline{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important}
+  #s04 .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(3,minmax(0,1fr))!important}
+  #s04 .price-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 
 @media(max-width:860px){
   .hero-provocation-v2{max-width:100%!important}
-  #s03 .diag-line-2{font-size:.82em}
-  #s03 .asset-logic-inline{grid-template-columns:1fr!important;height:auto!important;overflow:visible!important}
-  #s03 .content{overflow:visible!important}
+  #s02 .diag-line-2{font-size:.82em}
+  #s02 .asset-logic-inline{grid-template-columns:1fr!important;height:auto!important;overflow:visible!important}
+  #s02 .content{overflow:visible!important}
   .asset-inline-preview{min-height:520px;max-height:none}
   .keynote>span{font-size:17px!important}
-  #s05 .wrap{gap:16px!important}
-  #s05 .content-stack{display:block!important}
-  #s05 .product-layout{grid-template-columns:1fr!important;height:auto!important}
-  #s05 .mockup{height:auto!important;max-height:none!important}
-  #s05 .mockup img{height:auto!important;object-fit:contain!important}
-  #s05 .product-grid{display:flex!important;height:auto!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;padding-bottom:8px!important}
-  #s05 .product-grid .card{flex:0 0 min(78vw,320px)!important;scroll-snap-align:start!important}
-  #s05 .price-strip{display:flex!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;padding-bottom:8px!important;margin-top:14px!important}
-  #s05 .price-block{flex:0 0 min(80vw,330px)!important;scroll-snap-align:start!important}}
+  #s04 .wrap{gap:16px!important}
+  #s04 .content-stack{display:block!important}
+  #s04 .product-layout{grid-template-columns:1fr!important;height:auto!important}
+  #s04 .mockup{height:auto!important;max-height:none!important}
+  #s04 .mockup img{height:auto!important;object-fit:contain!important}
+  #s04 .product-grid{display:flex!important;height:auto!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;padding-bottom:8px!important}
+  #s04 .product-grid .card{flex:0 0 min(78vw,320px)!important;scroll-snap-align:start!important}
+  #s04 .price-strip{display:flex!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;padding-bottom:8px!important;margin-top:14px!important}
+  #s04 .price-block{flex:0 0 min(80vw,330px)!important;scroll-snap-align:start!important}}
 
 /* Capa: estilos que ficavam injetados por JS (mesma posicao na cascata) */
 #s01 .hero-full-bg picture{position:absolute;inset:0;display:block}
@@ -1094,10 +1094,10 @@ h4{font-size:21px;line-height:1;font-weight:800}
 
 
 /* Quatro paineis tinham a excecao pelo id, que vence qualquer regra de classe:
-   #s05,#s07,#s10,#s14{height:auto;overflow:visible}. Era isso que os deixava
+   #s04,#s06,#s09,#s13{height:auto;overflow:visible}. Era isso que os deixava
    crescer ate 1500px numa tela de 900px. Agora seguem a mesma regra dos outros. */
 @media(min-width:1101px){
-  #s05,#s07,#s10,#s14{height:100svh;min-height:760px;overflow:hidden}
+  #s04,#s06,#s09,#s13{height:100svh;min-height:760px;overflow:hidden}
 }
 
 
@@ -1114,46 +1114,46 @@ h4{font-size:21px;line-height:1;font-weight:800}
   border-radius:999px;padding:2px 6px;line-height:1;opacity:.9;
 }
 .paper .formula-line .prem{color:var(--pink);border-color:rgba(202,25,93,.4)}
-#s14 .econ-layout{height:100%;min-height:0;align-items:stretch}
-#s14 .econ-layout>*{min-height:0;overflow:hidden}
-#s14 .scenario-wrap{height:100%;min-height:0}
-#s14 .kpi-strip{height:100%;min-height:0;align-items:stretch}
+#s13 .econ-layout{height:100%;min-height:0;align-items:stretch}
+#s13 .econ-layout>*{min-height:0;overflow:hidden}
+#s13 .scenario-wrap{height:100%;min-height:0}
+#s13 .kpi-strip{height:100%;min-height:0;align-items:stretch}
 
 
 /* o painel de economia tem seis linhas de conta mais a nota: densidade menor */
-#s14 .formula{padding:16px 18px;gap:0;align-content:start}
-#s14 .formula-line{padding:8px 0;gap:10px}
-#s14 .formula-line b{font-size:17px;line-height:1.05}
-#s14 .formula-line span{font-size:17px;white-space:nowrap}
-#s14 .formula .caption{margin-top:10px;font-size:12px;line-height:1.42}
-#s14 .assum{padding:5px 0;font-size:13px}
-#s14 .econ-layout>*{align-content:start}
+#s13 .formula{padding:16px 18px;gap:0;align-content:start}
+#s13 .formula-line{padding:8px 0;gap:10px}
+#s13 .formula-line b{font-size:17px;line-height:1.05}
+#s13 .formula-line span{font-size:17px;white-space:nowrap}
+#s13 .formula .caption{margin-top:10px;font-size:12px;line-height:1.42}
+#s13 .assum{padding:5px 0;font-size:13px}
+#s13 .econ-layout>*{align-content:start}
 .formula-line .prem{font-size:8px;padding:2px 5px;margin-left:6px}
 
 
 /* Painel 10: cada camada ocupa a altura do corpo, sem esticar os cards */
-#s10 .camada.is-active{display:grid;align-content:start}
-#s10 .lifecycle{height:auto}
-#s10 .crm-grid{height:100%;min-height:0;align-items:start}
-#s10 .crm-grid>*{min-height:0;overflow:hidden}
-#s10 .mail-strip{height:100%;min-height:0;align-items:start}
-#s10 .mail-strip>*{min-height:0}
-#s10 .mail-card{overflow:hidden}
-#s10 .mail-body{overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(202,25,93,.5) transparent}
+#s09 .camada.is-active{display:grid;align-content:start}
+#s09 .lifecycle{height:auto}
+#s09 .crm-grid{height:100%;min-height:0;align-items:start}
+#s09 .crm-grid>*{min-height:0;overflow:hidden}
+#s09 .mail-strip{height:100%;min-height:0;align-items:start}
+#s09 .mail-strip>*{min-height:0}
+#s09 .mail-card{overflow:hidden}
+#s09 .mail-body{overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(202,25,93,.5) transparent}
 
 
 /* Painel 09: as tres pecas de producao viram camadas. O HERA ganha as quatro
    colunas inteiras, e o roteiro e o briefing ocupam a largura toda em vez de
    dividir espaco com o HERA e transbordar. */
-#s09 .camada.is-active{display:grid;align-content:start;min-height:0;height:100%}
-#s09 .hera{grid-template-columns:repeat(4,minmax(0,1fr));height:100%;min-height:0;align-items:stretch}
-#s09 .hera>*{min-height:0}
-#s09 .script-example--solo{display:block;height:100%;min-height:0}
-#s09 .script-example--solo>.card{height:100%;min-height:0;overflow-y:auto;
+#s08 .camada.is-active{display:grid;align-content:start;min-height:0;height:100%}
+#s08 .hera{grid-template-columns:repeat(4,minmax(0,1fr));height:100%;min-height:0;align-items:stretch}
+#s08 .hera>*{min-height:0}
+#s08 .script-example--solo{display:block;height:100%;min-height:0}
+#s08 .script-example--solo>.card{height:100%;min-height:0;overflow-y:auto;
   scrollbar-width:thin;scrollbar-color:rgba(228,53,111,.5) transparent}
-#s09 .script-example--solo>.card::-webkit-scrollbar{width:8px}
-#s09 .script-example--solo>.card::-webkit-scrollbar-thumb{background:rgba(228,53,111,.5);border-radius:99px;border:2px solid transparent;background-clip:content-box}
-#s09 .brief-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+#s08 .script-example--solo>.card::-webkit-scrollbar{width:8px}
+#s08 .script-example--solo>.card::-webkit-scrollbar-thumb{background:rgba(228,53,111,.5);border-radius:99px;border:2px solid transparent;background-clip:content-box}
+#s08 .brief-list{grid-template-columns:repeat(3,minmax(0,1fr))}
 
 
 /* --- Camadas: conteudo que nao cabe vira escolha, nao rolagem ---------------
@@ -1204,7 +1204,7 @@ h4{font-size:21px;line-height:1;font-weight:800}
 @media(min-width:1101px){
   .panel{grid-template-rows:minmax(0,1fr)}
   .wrap{min-height:0;max-height:100%}
-  #s05 .wrap,#s07 .wrap,#s10 .wrap,#s14 .wrap{height:100%}
+  #s04 .wrap,#s06 .wrap,#s09 .wrap,#s13 .wrap{height:100%}
   .content{min-height:0}
 }
 
@@ -1213,20 +1213,20 @@ h4{font-size:21px;line-height:1;font-weight:800}
    a peca escolhida e empurrava a grade de cards para fora do painel. Agora ele
    e travado na altura da grade e rola por dentro. Os cards ficam imutaveis. */
 @media(min-width:861px){
-  #s03 .asset-logic-inline{height:100%!important;min-height:0!important;align-items:stretch!important}
-  #s03 .asset-logic-inline>*{min-height:0!important}
-  #s03 .asset-browser{height:100%;overflow:hidden}
-  #s03 .asset-inline-preview{
+  #s02 .asset-logic-inline{height:100%!important;min-height:0!important;align-items:stretch!important}
+  #s02 .asset-logic-inline>*{min-height:0!important}
+  #s02 .asset-browser{height:100%;overflow:hidden}
+  #s02 .asset-inline-preview{
     min-height:0!important;max-height:100%!important;height:100%!important;
     overflow-y:auto!important;overscroll-behavior:contain;
     scrollbar-width:thin;scrollbar-color:rgba(202,25,93,.55) transparent;
   }
   /* a barra de rolagem fica visivel para a leitora saber que ha mais texto */
-  #s03 .asset-inline-preview::-webkit-scrollbar{width:8px}
-  #s03 .asset-inline-preview::-webkit-scrollbar-track{background:transparent}
-  #s03 .asset-inline-preview::-webkit-scrollbar-thumb{
+  #s02 .asset-inline-preview::-webkit-scrollbar{width:8px}
+  #s02 .asset-inline-preview::-webkit-scrollbar-track{background:transparent}
+  #s02 .asset-inline-preview::-webkit-scrollbar-thumb{
     background:rgba(202,25,93,.55);border-radius:99px;border:2px solid transparent;background-clip:content-box}
-  #s03 .asset-inline-preview::-webkit-scrollbar-thumb:hover{background:rgba(202,25,93,.85);background-clip:content-box}
+  #s02 .asset-inline-preview::-webkit-scrollbar-thumb:hover{background:rgba(202,25,93,.85);background-clip:content-box}
 }
 
 /* --- A faixa que faltava: laptop -------------------------------------------
@@ -1345,34 +1345,34 @@ h4{font-size:21px;line-height:1;font-weight:800}
    bloco de regras de operacao dividia a linha com elas, competindo em peso
    visual com a prova. Agora as pecas ocupam a moldura inteira na proporcao em
    que sao publicadas, e as regras viram uma faixa de texto abaixo. */
-#s08 .creative-wall{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;justify-content:start}
-#s08 .creative{aspect-ratio:auto;min-height:0;place-items:stretch;background:#0b0a0b}
-#s08 .creative img{object-fit:cover!important;width:100%;height:100%;border-radius:0}
-#s08 .editorial{min-height:0}
-#s08 .editorial>*{min-height:0}
+#s07 .creative-wall{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;justify-content:start}
+#s07 .creative{aspect-ratio:auto;min-height:0;place-items:stretch;background:#0b0a0b}
+#s07 .creative img{object-fit:cover!important;width:100%;height:100%;border-radius:0}
+#s07 .editorial{min-height:0}
+#s07 .editorial>*{min-height:0}
 .regras-faixa{padding:14px 18px}
 .regras-faixa>div{display:grid;gap:6px}
 .regras-faixa .eyebrow{display:block}
 .regras-faixa b{display:block;font-family:var(--fD);text-transform:uppercase;font-size:22px;line-height:1}
 .regras-faixa p{margin:0;font-size:13.5px;line-height:1.5;color:var(--muted)}
-#s08 .content-stack{grid-template-rows:minmax(0,1fr) auto;gap:12px}
+#s07 .content-stack{grid-template-rows:minmax(0,1fr) auto;gap:12px}
 
 /* --- Painel 11: os dois cards da coluna comecam no topo --------------------- */
-#s11 .news-side .card,#s11 .news-layout>*>.card{align-content:start}
-#s11 .news-side>.card{display:grid;align-content:start}
+#s10 .news-side .card,#s10 .news-layout>*>.card{align-content:start}
+#s10 .news-side>.card{display:grid;align-content:start}
 
 /* --- Telas menores: 1280x800 e 1366x768 ------------------------------------- */
 @media(min-width:1101px) and (max-height:820px){
-  #s03 .frame-body{padding:11px}
-  #s03 .frame-body b{font-size:20px}
-  #s03 .frame-body p{font-size:12px}
-  #s03 .asset-trigger{padding:11px!important}
-  #s04 .thesis-points{gap:9px}
-  #s04 .thesis-points .card{padding:13px}
-  #s04 .thesis-main{padding:16px}
-  #s04 .thesis-main .big{font-size:clamp(28px,2.5vw,40px)}
-  #s13 .owners{gap:9px}
-  #s13 .owners .card,#s13 .owners>*{padding:13px}
+  #s02 .frame-body{padding:11px}
+  #s02 .frame-body b{font-size:20px}
+  #s02 .frame-body p{font-size:12px}
+  #s02 .asset-trigger{padding:11px!important}
+  #s03 .thesis-points{gap:9px}
+  #s03 .thesis-points .card{padding:13px}
+  #s03 .thesis-main{padding:16px}
+  #s03 .thesis-main .big{font-size:clamp(28px,2.5vw,40px)}
+  #s12 .owners{gap:9px}
+  #s12 .owners .card,#s12 .owners>*{padding:13px}
   .lt-entregas,.lt-gate{padding:13px 15px}
   .lt-entregas ul{font-size:13.5px;line-height:1.5}
   .lt-gate p{font-size:13.5px}
@@ -1412,51 +1412,51 @@ h4{font-size:21px;line-height:1;font-weight:800}
    os componentes. */
 @media(min-width:1101px) and (max-height:820px){
   h2{font-size:clamp(34px,3.05vw,46px)!important;line-height:.94}
-  #s03 .intro h2{font-size:clamp(36px,3.15vw,48px)!important;line-height:.96!important}
-  #s05 .intro h2{font-size:clamp(34px,3vw,45px)!important}
+  #s02 .intro h2{font-size:clamp(36px,3.15vw,48px)!important;line-height:.96!important}
+  #s04 .intro h2{font-size:clamp(34px,3vw,45px)!important}
   .sub{font-size:15.5px!important;line-height:1.36!important}
   .intro{gap:7px}
   .wrap{gap:12px!important}
   .keynote{padding:9px 13px}
   .keynote span:last-child{font-size:13px}
   .keynote b{font-size:10px}
-  #s13 .owners{gap:8px;margin-top:8px}
-  #s13 .owners .card{padding:11px}
-  #s13 .owners p{font-size:11.5px;line-height:1.4}
-  #s13 .owners h4{font-size:15px}
-  #s03 .asset-section-head{margin-bottom:7px!important}
-  #s03 .asset-wall{gap:8px!important}
-  #s04 .thesis-grid{gap:10px}
-  #s04 .thesis-points .card p{font-size:12.5px;line-height:1.42}
-  #s04 .thesis-points .card h3{font-size:17px}
+  #s12 .owners{gap:8px;margin-top:8px}
+  #s12 .owners .card{padding:11px}
+  #s12 .owners p{font-size:11.5px;line-height:1.4}
+  #s12 .owners h4{font-size:15px}
+  #s02 .asset-section-head{margin-bottom:7px!important}
+  #s02 .asset-wall{gap:8px!important}
+  #s03 .thesis-grid{gap:10px}
+  #s03 .thesis-points .card p{font-size:12.5px;line-height:1.42}
+  #s03 .thesis-points .card h3{font-size:17px}
 }
 
 /* Ajuste fino para 1366x768, a tela de laptop mais apertada da lista */
 @media(min-width:1101px) and (max-height:790px){
-  #s13 .owners p{font-size:11px;line-height:1.36}
-  #s13 .owners .card{padding:10px}
-  #s13 .owners h4{font-size:14px}
-  #s13 .content .card p{font-size:12px;line-height:1.42}
-  #s03 .frame-body{padding:9px}
-  #s03 .frame-body b{font-size:18px}
-  #s03 .frame-body p{font-size:11.5px;line-height:1.36}
-  #s03 .frame-head{padding:8px 10px}
-  #s03 .frame-head strong{font-size:14px}
+  #s12 .owners p{font-size:11px;line-height:1.36}
+  #s12 .owners .card{padding:10px}
+  #s12 .owners h4{font-size:14px}
+  #s12 .content .card p{font-size:12px;line-height:1.42}
+  #s02 .frame-body{padding:9px}
+  #s02 .frame-body b{font-size:18px}
+  #s02 .frame-body p{font-size:11.5px;line-height:1.36}
+  #s02 .frame-head{padding:8px 10px}
+  #s02 .frame-head strong{font-size:14px}
 }
 
 /* Painel 13: o content tem duas faixas (as tres raias de operacao e os donos).
    Sem linhas de grade declaradas, as duas somavam mais que o espaco util. */
-#s13 .content{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:10px;min-height:0;align-content:stretch}
-#s13 .ops{min-height:0;display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:9px}
-#s13 .ops>*{min-height:0}
+#s12 .content{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:10px;min-height:0;align-content:stretch}
+#s12 .ops{min-height:0;display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:9px}
+#s12 .ops>*{min-height:0}
 @media(min-width:1101px) and (max-height:820px){
-  #s13 .ops{gap:7px}
-  #s13 .lane{padding:5px}
-  #s13 .lane-cell{padding:6px;font-size:12px}
-  #s13 .lane-title{font-size:14px}
-  #s13 .owners .card{padding:9px}
-  #s13 .owners p{font-size:10.5px;line-height:1.34}
-  #s13 .owners h4{font-size:13px}
+  #s12 .ops{gap:7px}
+  #s12 .lane{padding:5px}
+  #s12 .lane-cell{padding:6px;font-size:12px}
+  #s12 .lane-title{font-size:14px}
+  #s12 .owners .card{padding:9px}
+  #s12 .owners p{font-size:10.5px;line-height:1.34}
+  #s12 .owners h4{font-size:13px}
 }
 
 /* As camadas nao podem deixar os trilhos horizontais escaparem da tela:
@@ -1466,24 +1466,118 @@ h4{font-size:21px;line-height:1;font-weight:800}
 .camada>*{min-width:0;max-width:100%}
 @media(max-width:1100px){
   .camadas,.camadas-corpo,.camada{overflow-x:clip}
-  #s09 .camada.is-active,#s10 .camada.is-active{height:auto;display:block}
-  #s09 .hera,#s10 .lifecycle,#s10 .crm-grid,#s10 .mail-strip,#s09 .script-example{max-width:100%}
+  #s08 .camada.is-active,#s09 .camada.is-active{height:auto;display:block}
+  #s08 .hera,#s09 .lifecycle,#s09 .crm-grid,#s09 .mail-strip,#s08 .script-example{max-width:100%}
 }
 
 /* Paineis com camadas: as abas ficam logo abaixo do subtitulo e a camada
    ocupa o resto. Sem isto o .content centraliza o bloco inteiro e a camada
    mais curta deixa um vazio grande em cima e embaixo. */
 @media(min-width:1101px){
-  #s06 .content,#s09 .content,#s10 .content,#s14 .content{align-items:stretch;align-content:stretch}
+  #s05 .content,#s08 .content,#s09 .content,#s13 .content{align-items:stretch;align-content:stretch}
   .camadas{align-content:start}
   .camadas-corpo{align-content:start}
 }
 
 /* Camadas curtas ocupam o espaco em vez de deixar um vazio grande no meio */
 @media(min-width:1101px){
-  #s10 .camada.is-active[data-camada="esteira"],#s09 .camada.is-active[data-camada="hera"]{height:100%}
-  #s10 .lifecycle{height:100%;align-items:stretch;grid-auto-rows:minmax(0,1fr)}
-  #s09 .hera{height:100%;align-items:stretch}
-  #s10 .lifecycle>*,#s09 .hera>*{min-height:0}
-  #s10 .node,#s09 .hera .card{align-content:start}
+  #s09 .camada.is-active[data-camada="esteira"],#s08 .camada.is-active[data-camada="hera"]{height:100%}
+  #s09 .lifecycle{height:100%;align-items:stretch;grid-auto-rows:minmax(0,1fr)}
+  #s08 .hera{height:100%;align-items:stretch}
+  #s09 .lifecycle>*,#s08 .hera>*{min-height:0}
+  #s09 .node,#s08 .hera .card{align-content:start}
+}
+
+
+/* --- Painel 03: a tese, agora com o contexto dentro ------------------------
+   Contexto e Tese eram dois paineis dizendo a mesma coisa central. Viraram um
+   so, em tres camadas: a tese, o risco assumido e o que fica de pe. O
+   Diagnostico passou a vir antes, para a evidencia chegar antes da conclusao. */
+#s03 .camada.is-active{display:grid;align-content:start;min-height:0;height:100%}
+#s03 .thesis-grid{height:100%;min-height:0;align-items:stretch}
+#s03 .thesis-grid>*{min-height:0}
+#s03 .thesis-points{grid-template-rows:repeat(2,minmax(0,1fr))}
+
+.risco-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;height:100%;min-height:0;align-items:stretch}
+.risco-grid>*{min-height:0;overflow:hidden}
+.risco-card{display:grid;grid-template-rows:auto auto 1fr;gap:9px;align-content:start;padding:20px 22px}
+.risco-card h3{font-size:clamp(24px,1.9vw,32px);line-height:1;max-width:20ch}
+.risco-card p{margin:0;font-size:15px;line-height:1.52}
+.risco-card--parada{
+  border-color:rgba(228,53,111,.42);
+  background:linear-gradient(170deg,rgba(228,53,111,.11),rgba(228,53,111,.03));
+}
+.risco-card .risco-nota{font-size:12.5px;color:var(--muted2);align-self:end;margin-top:4px}
+
+/* a esteira do legado ocupa a camada inteira */
+#s03 .steps{height:100%;min-height:0;align-items:stretch}
+#s03 .steps>*{min-height:0}
+
+@media(min-width:1101px) and (max-height:820px){
+  .risco-card{padding:15px 17px;gap:7px}
+  .risco-card h3{font-size:clamp(20px,1.6vw,26px)}
+  .risco-card p{font-size:13.5px;line-height:1.44}
+  #s03 .step{padding:16px!important;min-height:0!important}
+  #s03 .step .num{font-size:44px!important}
+  #s03 .opportunity{padding:16px!important}
+}
+@media(max-width:1100px){
+  .risco-grid{grid-template-columns:1fr}
+}
+
+/* O titulo da tese tem duas frases longas: em quatro linhas ele comia um
+   quarto do painel. Menor, cabe em tres e sobra espaco para o argumento. */
+#s03 .intro h2{font-size:clamp(38px,3.3vw,52px)!important;line-height:.95!important}
+#s03 .intro .sub{max-width:100ch}
+@media(min-width:1101px) and (max-height:820px){
+  #s03 .intro h2{font-size:clamp(32px,2.7vw,42px)!important}
+}
+/* a coluna do argumento nao precisa ser tao maior que as apostas */
+#s03 .thesis-grid{grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:14px}
+#s03 .thesis-main{padding:20px 22px;align-content:center}
+#s03 .thesis-main .big{font-size:clamp(30px,2.5vw,42px);line-height:1.02;max-width:16ch}
+#s03 .thesis-main p{font-size:15px;line-height:1.5}
+
+/* as camadas da tese preenchem a altura em vez de deixar um vazio embaixo */
+@media(min-width:1101px){
+  #s03 .camada.is-active{align-content:stretch}
+  #s03 .thesis-points{height:100%;align-content:stretch}
+  #s03 .thesis-points>.card{align-content:center}
+}
+
+
+/* --- Correcoes de componente ------------------------------------------------ */
+
+/* No bloco de preco o <b> e o estilo do valor (R$97, 40px). Para destacar
+   palavra dentro do texto existe o <em>, que herda o corpo do paragrafo. */
+.price-block span em{font-style:normal;font-weight:700;color:var(--ink)}
+.paper .price-block span em{color:var(--paper-copy)}
+
+/* Painel 04: o paragrafo dos seis blocos do produto saia 16px por baixo do
+   card em telas largas e baixas. */
+#s04 .product-grid .card{overflow:hidden;align-content:start;padding:14px 16px}
+#s04 .product-grid .card p{margin:4px 0 0;font-size:13.5px;line-height:1.42}
+#s04 .product-grid .card h3{font-size:18px;line-height:1.05}
+#s04 .product-grid .card .n{font-size:26px;line-height:.9}
+@media(min-height:841px) and (max-height:960px) and (min-width:1101px){
+  #s04 .product-grid .card p{font-size:12.5px;line-height:1.38}
+  #s04 .product-grid .card h3{font-size:16px}
+}
+
+/* Painel 07: a coluna dos quatro estados e a faixa de regras se cruzavam por
+   13px porque nenhuma das duas declarava a propria linha de grade. */
+#s07 .content-stack{grid-template-rows:minmax(0,1fr) auto!important;gap:12px!important;min-height:0}
+#s07 .editorial{min-height:0;overflow:hidden}
+#s07 .mindset{min-height:0;grid-template-rows:repeat(4,minmax(0,1fr))}
+#s07 .mindset>*{min-height:0;overflow:hidden}
+#s07 .regras-faixa{overflow:hidden}
+
+/* --- O conteudo nunca passa por cima da key note ---------------------------
+   O .wrap tem tres linhas (intro, conteudo, key note). A linha do meio e
+   minmax(0,1fr), mas sem overflow declarado o conteudo transbordava por cima
+   da key note em telas baixas, em vez de ser contido. Nove sobreposicoes em
+   1366x768 vinham todas dai. */
+@media(min-width:1101px){
+  .panel .wrap>.content{overflow:hidden;min-height:0}
+  .panel .wrap>.keynote{position:relative;z-index:5}
 }
