@@ -2079,3 +2079,12 @@ h4{font-size:21px;line-height:1;font-weight:800}
 @media(min-width:1101px) and (max-height:820px){
   #s02 .palco-menu-item{padding:6px 11px!important}
 }
+
+/* --- Painel 07: a peca para de estourar a moldura --------------------------
+   A fileira das pecas nao tinha altura declarada, entao o height:100% da
+   imagem ficava sem contra o que resolver e ela caia na proporcao do atributo:
+   404px de imagem numa moldura de 285px, com o overflow:hidden cortando 4px de
+   arte no fim. Com a linha definida a altura resolve, e o object-position no
+   topo mantem o enquadramento que ja estava no ar. */
+#s07 .creative-wall{grid-template-rows:minmax(0,1fr)}
+#s07 .creative img{min-height:0;object-position:center top}
