@@ -1,0 +1,146 @@
+/* Final polish — context + diagnosis */
+
+/* Hero: use the approved high-resolution duo artwork already embedded in hero-art.css. */
+.hero-full-bg{
+  background-image:var(--hero-approved);
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+}
+.hero-full-bg>img{display:none!important}
+.hero-provocation-v2{max-width:min(980px,70vw)!important;display:grid;gap:10px}
+.hero-provocation-v2 .hero-softline{
+  display:block;
+  white-space:nowrap;
+  font-family:var(--f);
+  font-size:clamp(20px,1.4vw,26px);
+  line-height:1.12;
+  text-transform:none;
+  letter-spacing:0;
+  font-weight:500;
+  color:var(--ink);
+}
+.hero-provocation-v2>strong{
+  display:block;
+  max-width:23ch;
+  font-family:var(--fD);
+  font-size:clamp(32px,2.8vw,48px);
+  line-height:.98;
+  text-transform:uppercase;
+  letter-spacing:-.018em;
+  font-weight:800;
+}
+.hero-sub-v2{max-width:78ch!important;font-size:clamp(17px,1.15vw,21px)!important}
+
+/* Key notes: larger, wider and visually protected from the content above. */
+.keynote{
+  position:relative;
+  z-index:10;
+  width:100%;
+  max-width:none!important;
+  margin-top:14px;
+  padding:17px 20px!important;
+  gap:18px!important;
+  align-items:flex-start!important;
+  flex:0 0 auto;
+}
+.keynote>b{
+  flex:0 0 auto;
+  font-size:12px!important;
+  line-height:1.35!important;
+}
+.keynote>span{
+  display:block;
+  width:100%;
+  max-width:none!important;
+  font-size:clamp(17px,1.08vw,20px)!important;
+  line-height:1.4!important;
+  text-wrap:pretty;
+}
+
+/* Context: headings get enough width to resolve naturally in one or two lines. */
+#s02 .step h3,#s02 .opportunity h3{
+  max-width:none!important;
+  min-height:1.9em;
+  font-size:clamp(23px,1.55vw,29px)!important;
+  line-height:.96!important;
+  text-wrap:balance;
+}
+#s02 .step p,#s02 .opportunity p{font-size:clamp(15px,1vw,17px)!important;line-height:1.46!important}
+
+/* Diagnosis title: first statement + one complete second line on wide screens. */
+#s03 .intro{max-width:none!important}
+#s03 .intro h2{max-width:none!important;font-size:clamp(58px,4.2vw,78px)!important;line-height:.92!important}
+#s03 .diag-line-1{display:block;white-space:nowrap}
+#s03 .diag-line-2{display:block;white-space:nowrap;font-size:.62em;line-height:1.05;margin-top:.06em}
+#s03 .intro .sub{max-width:none!important;width:100%;font-size:clamp(17px,1.15vw,20px)!important}
+#s03 .diag-sub-line{display:block;white-space:nowrap;margin-top:4px}
+
+/* One argument, two columns: assets on the left, the selected execution on the right. */
+#s03 .content{min-height:0!important;overflow:hidden!important;padding-bottom:2px}
+#s03 .asset-logic-inline{
+  display:grid!important;
+  grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr)!important;
+  gap:22px!important;
+  min-height:0!important;
+  height:100%!important;
+  align-items:stretch!important;
+}
+#s03 .asset-browser{min-height:0;display:grid;grid-template-rows:auto 1fr}
+#s03 .asset-section-head{margin-bottom:10px!important}
+#s03 .asset-section-head .eyebrow{font-size:12px!important;max-width:none!important}
+#s03 .asset-hint{display:none!important}
+#s03 .asset-wall{min-height:0!important;height:100%!important;gap:10px!important}
+#s03 .asset-trigger{min-height:0!important;padding:14px!important}
+#s03 .asset-trigger.is-active{border-color:var(--pink)!important;box-shadow:0 0 0 1px var(--pink),0 14px 34px rgba(202,25,93,.13)!important}
+#s03 .asset-trigger::after{content:"Ver peça pronta  ↗"!important;opacity:.72!important;transform:none!important;bottom:8px!important}
+
+.asset-inline-preview{
+  min-width:0;
+  min-height:0;
+  height:100%;
+  max-height:100%;
+  overflow:auto;
+  border:1px solid rgba(20,17,18,.14);
+  border-radius:22px;
+  background:#0d0c0d;
+  color:var(--ink);
+  padding:18px;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(202,25,93,.6) rgba(255,255,255,.05);
+}
+.asset-inline-empty{height:100%;min-height:290px;display:grid;place-content:center;justify-items:start;gap:8px;padding:24px}
+.asset-inline-empty h3{font-size:clamp(30px,2vw,42px);margin:0;max-width:12ch}
+.asset-inline-empty p{margin:0;color:var(--muted);max-width:44ch;font-size:15px;line-height:1.5}
+.asset-inline-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:2px 2px 14px;border-bottom:1px solid var(--hair);margin-bottom:14px}
+.asset-inline-head h3{margin:3px 0 0;font-size:clamp(28px,2vw,40px);line-height:.95}
+.asset-inline-body{min-width:0}
+.asset-inline-note{margin-top:14px;padding:13px 15px;border-left:3px solid var(--pink);background:rgba(202,25,93,.10);border-radius:0 12px 12px 0;color:var(--muted);font-size:13px;line-height:1.45}
+/* Existing modal components are reused inside the inline preview, with tighter dimensions. */
+.asset-inline-preview .ig-layout,.asset-inline-preview .modal-grid{grid-template-columns:1fr!important}
+.asset-inline-preview .ig-mock{max-height:520px;overflow:auto}
+.asset-inline-preview .ig-side{padding-top:10px}
+.asset-inline-preview .cluster-mock,.asset-inline-preview .news-mock{grid-template-columns:1fr!important}
+.asset-inline-preview img{max-width:100%;height:auto}
+.asset-inline-preview .recipe-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.asset-inline-preview .email-preview{padding:18px!important}
+
+/* Keep the key note outside the diagnostic content's visual footprint. */
+#s03 .wrap{grid-template-rows:auto minmax(0,1fr) auto!important;row-gap:14px!important}
+#s03 .keynote{margin-top:0!important;background:rgba(255,255,255,.72)!important}
+
+@media(max-width:1180px){
+  #s03 .diag-line-2{font-size:.68em}
+  #s03 .asset-logic-inline{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important}
+}
+
+@media(max-width:860px){
+  .hero-provocation-v2{max-width:100%!important}
+  .hero-provocation-v2 .hero-softline{white-space:normal}
+  #s03 .diag-line-1,#s03 .diag-line-2,#s03 .diag-sub-line{white-space:normal}
+  #s03 .diag-line-2{font-size:.82em}
+  #s03 .asset-logic-inline{grid-template-columns:1fr!important;height:auto!important;overflow:visible!important}
+  #s03 .content{overflow:visible!important}
+  .asset-inline-preview{min-height:520px;max-height:none}
+  .keynote>span{font-size:17px!important}
+}
