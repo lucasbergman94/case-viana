@@ -1320,18 +1320,34 @@ h4{font-size:21px;line-height:1;font-weight:800}
 .lt-fase{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:14px;height:100%;min-height:0}
 .lt-fase>*{min-height:0;overflow:hidden}
 .lt-entregas{display:grid;grid-template-rows:auto 1fr;gap:8px;align-content:start;padding:16px 18px}
-.lt-entregas ul{margin:0;padding-left:18px;font-size:14.5px;line-height:1.6}
-.paper .lt-entregas ul{color:rgba(21,18,18,.72)}
-.lt-entregas li{margin-bottom:4px}
+/* Cada entrega tem rotulo e uma linha dizendo o que ela entrega na pratica.
+   As cinco dividem a altura do card em faixas iguais, como a lista do painel
+   04, entao o card deixa de ter 300px de vazio embaixo em telas altas. */
+.lt-entregas ul{
+  margin:0;padding:0;list-style:none;display:grid;
+  grid-template-rows:repeat(5,minmax(0,1fr));gap:2px;min-height:0;
+}
+.lt-entregas li{
+  margin:0;display:grid;align-content:center;gap:2px;min-height:0;
+  padding:7px 0;border-top:1px solid var(--hair);
+}
+.lt-entregas li:first-child{border-top:0;padding-top:0}
+.lt-entregas li b{font-size:14.5px;line-height:1.16;font-weight:700}
+.lt-entregas li span{font-size:12.5px;line-height:1.38;color:var(--muted)}
+.paper .lt-entregas li{border-top-color:rgba(42,37,38,.14)}
+.paper .lt-entregas li b{color:var(--paper-copy)}
+.paper .lt-entregas li span{color:var(--paper-muted)}
+/* O portao tem duas frases curtas num card da altura das entregas. Com a nota
+   presa embaixo sobravam 370px de vazio no meio; agora o conjunto centraliza. */
 .lt-gate{
-  display:grid;grid-template-rows:auto auto 1fr;gap:8px;align-content:start;padding:16px 18px;
+  display:grid;grid-template-rows:auto auto auto;gap:8px;align-content:center;padding:16px 18px;
   border-color:rgba(202,25,93,.4)!important;
   background:linear-gradient(180deg,rgba(202,25,93,.10),rgba(202,25,93,.025))!important;
 }
 .lt-gate .mini{color:var(--pink);font-weight:800}
 .lt-gate p{margin:0;font-size:14.5px;line-height:1.5}
 .paper .lt-gate p{color:rgba(21,18,18,.82)}
-.lt-gate .lt-gate-nota{font-size:11.5px;align-self:end}
+.lt-gate .lt-gate-nota{font-size:11.5px;margin-top:4px}
 .paper .lt-gate .lt-gate-nota{color:rgba(21,18,18,.5)}
 
 @media(max-width:1100px){
@@ -1375,7 +1391,9 @@ h4{font-size:21px;line-height:1;font-weight:800}
   #s12 .owners{gap:9px}
   #s12 .owners .card,#s12 .owners>*{padding:13px}
   .lt-entregas,.lt-gate{padding:13px 15px}
-  .lt-entregas ul{font-size:13.5px;line-height:1.5}
+  .lt-entregas li{padding:4px 0;gap:1px}
+  .lt-entregas li b{font-size:12.5px;line-height:1.14}
+  .lt-entregas li span{font-size:11px;line-height:1.3}
   .lt-gate p{font-size:13.5px}
 }
 
@@ -1682,10 +1700,13 @@ h4{font-size:21px;line-height:1;font-weight:800}
 .entrega h3{margin:0;font-family:var(--fD);text-transform:uppercase;font-size:19px;line-height:1}
 .entrega p{margin:4px 0 0;font-size:13.5px;line-height:1.44;color:var(--muted)}
 
-/* a oferta ocupa a camada inteira, com os quatro blocos lado a lado */
+/* A oferta ocupa a largura da camada, mas nao a altura. Esticados, os quatro
+   blocos ficavam com 522px de caixa para 100px de texto em 1920x1080. Agora a
+   linha tem a altura do bloco mais alto e o conjunto centraliza na camada. */
 #s04 .camada[data-camada="oferta"] .price-strip{
   display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
-  gap:14px!important;height:100%;min-height:0;align-items:stretch;margin:0!important;
+  grid-template-rows:auto;gap:14px!important;height:100%;min-height:0;
+  align-content:center;align-items:stretch;margin:0!important;
 }
 #s04 .price-block{padding:20px 22px!important;align-content:start;min-height:0;overflow:hidden}
 #s04 .price-block b{font-size:clamp(30px,2.6vw,44px)}
