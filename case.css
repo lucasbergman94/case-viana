@@ -884,9 +884,8 @@ h4{font-size:21px;line-height:1;font-weight:800}
 
 /* Final polish — context + diagnosis */
 
-/* Hero: use the approved high-resolution duo artwork already embedded in hero-art.css. */
-
-.hero-full-bg>img{display:none!important}
+/* Capa: a arte aprovada e a <img> do HTML (img/mbv/hero-duo.webp).
+   O enquadramento e o degrade que a escurece estao no fim deste arquivo. */
 .hero-provocation-v2{max-width:min(980px,70vw)!important;display:grid;gap:10px}
 .hero-provocation-v2 .hero-softline{
   display:block;
@@ -1066,6 +1065,7 @@ h4{font-size:21px;line-height:1;font-weight:800}
 
 /* Capa: estilos que ficavam injetados por JS (mesma posicao na cascata) */
 #s01.hero-full .hero-full-bg img{
+  display:block!important;opacity:1!important;
   inset:0!important;width:100%!important;height:100%!important;max-width:none!important;
   object-fit:cover!important;object-position:center 48%!important;
   filter:saturate(1.03) contrast(1.04)!important;
@@ -1082,4 +1082,4 @@ h4{font-size:21px;line-height:1;font-weight:800}
 #s01 .sub{max-width:74ch!important;font-size:clamp(17px,1.18vw,20px)!important;line-height:1.48!important;color:rgba(244,239,232,.80)!important;text-wrap:pretty}
 #s01 .hero-leadin{margin-top:4px!important}
 @media(max-width:1100px){#s01 .hero-full-copy{max-width:70vw!important}#s01 .hero-question{max-width:25ch;font-size:clamp(32px,4vw,46px)}}
-@media(max-width:860px){#s01.hero-full .hero-full-bg img{object-position:58% center!important}#s01 .hero-full-copy{max-width:100%!important;padding-top:34vh!important}#s01 .hero-softline{white-space:normal}#s01 .hero-question{max-width:22ch;font-size:clamp(30px,8vw,43px)}#s01 .sub{max-width:54ch!important}}
+@media(max-width:860px){#s01.hero-full .hero-full-bg img{object-position:68% center!important}#s01 .hero-full-copy{max-width:100%!important;padding-top:34vh!important}#s01 .hero-softline{white-space:normal}#s01 .hero-question{max-width:22ch;font-size:clamp(30px,8vw,43px)}#s01 .sub{max-width:54ch!important}}
