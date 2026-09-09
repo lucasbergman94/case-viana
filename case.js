@@ -489,7 +489,7 @@ const assetExamples={
         <div class="deg-argumento">
           <div>
             <h4>Um salto de 11x ninguém sobe</h4>
-            <p>Quem compra um ebook está comprando autonomia. Quem contrata a Consultoria está comprando delegação. São trabalhos opostos, e por isso a migração direta roda entre 1% e 3%. A meta de 5% que o plano declara para janeiro não se atinge empurrando mais e-mail: ela precisa de um degrau no meio.</p>
+            <p>Quem compra um ebook está comprando autonomia. Quem contrata acompanhamento está comprando delegação. São trabalhos opostos, e por isso a migração direta roda entre 1% e 3%. A meta de 5% que o plano declara para janeiro não se atinge empurrando mais e-mail: ela precisa de um degrau no meio. E o catálogo tem dois degraus acima do MBV, não um: a individualizada com especialista e o acompanhamento direto com o Marcos.</p>
           </div>
           <p class="deg-conta">Sem o degrau do meio, 260 compradoras rendem 6 alunas. Com ele, 31 sobem para a Turma, 18% delas migram, e o resultado é <b>10 alunas mais R$7.400 de margem no caminho</b>. É isso que transforma a tese de produto-ponte de afirmação em conta.</p>
         </div>
@@ -497,7 +497,7 @@ const assetExamples={
           <h4>As três pontes, e todas já existem no plano</h4>
           <article class="ponte">
             <span class="ponte-n">01</span>
-            <div><b>Crédito de 90 dias</b><p>Os R$97 abatem na Turma ou na Consultoria até 90 dias depois da compra. Quem sobe não paga duas vezes pela mesma decisão, e a casa compra a segunda conversão pelo custo da primeira.</p></div>
+            <div><b>Crédito de 90 dias</b><p>Os R$97 abatem na Turma ou na individualizada até 90 dias depois da compra. Quem sobe não paga duas vezes pela mesma decisão, e a casa compra a segunda conversão pelo custo da primeira.</p></div>
           </article>
           <article class="ponte">
             <span class="ponte-n">02</span>
@@ -512,7 +512,8 @@ const assetExamples={
           <div class="rung"><span class="rung-price">Grátis</span><b>Conteúdo</b><span class="rung-desc">Feed, diagnóstico e newsletter</span></div>
           <div class="rung rung--now"><span class="rung-price">R$97</span><b>MBV</b><span class="rung-desc">O método por escrito, para aplicar sozinha</span><span class="rung-flag">este lançamento</span></div>
           <div class="rung rung--gap"><span class="rung-price">R$397</span><b>Turma MBV</b><span class="rung-desc">8 semanas, 4 encontros em grupo, correção por vídeo</span><span class="rung-flag">o degrau que falta</span></div>
-          <div class="rung"><span class="rung-price">R$1.099</span><b>Consultoria</b><span class="rung-desc">Acompanhamento individual</span></div>
+          <div class="rung"><span class="rung-price">R$1.099</span><b>Individualizada</b><span class="rung-desc">3 meses com especialista do time, a Batalha dos Shapes</span></div>
+          <div class="rung rung--topo"><span class="rung-price">High-ticket</span><b>Direto com o Marcos</b><span class="rung-desc">Acompanhamento com ele, acima da individualizada</span><span class="rung-flag">o topo</span></div>
         </div>
       </div>`,
     note:'Proposta para o horizonte 2, não para este lançamento. Mas é ela que transforma a tese de produto-ponte de afirmação em conta, e por isso entra no plano desde já como hipótese a validar com os primeiros compradores.'

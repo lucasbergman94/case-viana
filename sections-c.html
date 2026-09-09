@@ -1,59 +1,49 @@
 <section class="panel" id="s09" data-slide="09">
   <div class="wrap">
     <div class="intro"><p class="eyebrow">08 · CRM, ManyChat, e-mail e app</p><h2><span>Ela comenta MBV uma vez.</span><span class="pink">Seis canais passam a saber quem ela é.</span></h2><p class="sub">A automação não existe para aumentar volume de mensagem. Existe para guardar contexto: de onde ela veio, qual trava declarou, quanto interesse demonstrou e qual é o próximo comportamento relevante.</p></div>
-    <div class="content content-stack"><div class="camadas">
-      <div class="camadas-tabs" role="tablist" aria-label="Camadas do painel de CRM">
-        <button class="camada-tab is-active" type="button" role="tab" aria-selected="true" data-alvo="esteira">A esteira dos seis canais</button>
-        <button class="camada-tab" type="button" role="tab" aria-selected="false" data-alvo="crm">O que o CRM guarda</button>
-        <button class="camada-tab" type="button" role="tab" aria-selected="false" data-alvo="email">E-mail pronto e sequências</button>
+    <div class="content content-stack"><div class="crm-mesa">
+      <div class="crm-esteira">
+        <span class="eyebrow">Um comentário, seis canais, na ordem em que acontecem</span>
+        <div class="lifecycle">
+          <article class="node"><small>1 · Entrada</small><b>Instagram</b><span>Comentário "MBV", sticker nos Stories ou bio. O sticker existe porque a DM para quem não segue cai em Solicitações.</span></article>
+          <article class="node"><small>2 · Qualificação</small><b>ManyChat</b><span>Diagnóstico de 5 perguntas em botão, sem texto livre. O perfil sai de graça antes de pedir o e-mail.</span></article>
+          <article class="node"><small>3 · Memória</small><b>CRM</b><span>Os dez campos ficam disponíveis para todo contato seguinte, em qualquer canal.</span></article>
+          <article class="node"><small>4 · Nutrição</small><b>E-mail</b><span>A régua muda pelo perfil declarado, não pela data de entrada.</span></article>
+          <article class="node"><small>5 · Conversão</small><b>LP e checkout</b><span>Oferta, prova, FAQ e preço, medidos ponto a ponto até a compra.</span></article>
+          <article class="node"><small>6 · Ativação</small><b>App</b><span>Quem compra sai do comercial na hora e entra em uso, suporte e progressão.</span></article>
+        </div>
       </div>
-      <div class="camadas-corpo">
-
-      <div class="camada is-active" data-camada="esteira">
-      <div class="lifecycle">
-        <article class="node"><small>Entrada</small><b>Instagram</b><span>Comentário "MBV", sticker de link nos Stories ou bio. O sticker existe porque a DM para quem não segue cai em Solicitações.</span></article>
-        <article class="node"><small>Qualificação</small><b>ManyChat</b><span>Diagnóstico de 5 perguntas em botão, sem campo de texto livre. O perfil sai de graça antes de pedir o e-mail.</span></article>
-        <article class="node"><small>Memória</small><b>CRM</b><span>Origem, tempo de treino, registro, trava, perfil e etapa ficam disponíveis para todo contato seguinte.</span></article>
-        <article class="node"><small>Nutrição</small><b>E-mail</b><span>Resultado, educação, método, objeção e oferta mudam conforme o perfil e o comportamento.</span></article>
-        <article class="node"><small>Conversão</small><b>LP + checkout</b><span>Oferta, prova, FAQ e preço numa jornada medida ponto a ponto.</span></article>
-        <article class="node"><small>Ativação</small><b>App / onboarding</b><span>Quem compra sai do comercial na hora e entra em uso, suporte e progressão.</span></article>
-      </div>
-      </div>
-
-      <div class="camada" data-camada="crm">
-      <div class="crm-grid">
-        <article class="card"><h3>O que o CRM guarda</h3><div class="field-grid"><code>origem</code><code>campanha</code><code>conteudo</code><code>tempo_treino</code><code>registro</code><code>trava</code><code>perfil</code><code>etapa</code><code>comprou</code></div><p class="caption" style="margin-top:9px">Mesma nomenclatura do plano de tracking: minúsculas, sem acento, separadas por underline. Um nome só para cada coisa, do ManyChat ao GA4.</p></article>
-        <article class="card"><h3>Os desvios que fazem diferença</h3><div class="rule-list">
-          <div><b>Abandonou o diagnóstico</b><span>Uma mensagem em 20h, dentro da janela da Meta, com o resultado parcial e uma pergunta só. Recupera de 15% a 30%, e é o maior grupo do funil.</span></div>
-          <div><b>É aluna da Consultoria</b><span>Sai da comunicação comercial e recebe o MBV de graça. Quem paga R$1.099 não recebe e-mail vendendo um ebook de R$77.</span></div>
-          <div><b>Assina a Cozinha</b><span>Prioridade na pré-venda. E quem compra o MBV recebe a oferta da Cozinha no dia 14, quando bate na parede da alimentação.</span></div>
-          <div><b>Comprou</b><span>Sai do fluxo comercial imediatamente e entra em onboarding. Sem <code>ebook_aberto</code> em 72h, push e e-mail. Sem <code>treino1_registrado</code> em 10 dias, mensagem da Kati.</span></div>
-        </div></article>
-      </div>
-      </div>
-
-      <div class="camada" data-camada="email">
-      <div class="mail-strip">
-      <article class="card mail-card"><div class="eyebrow">E-mail D+1 do nurture · pronto para enviar</div>
-        <p class="mail-subject"><b>Assunto:</b> Quanto você levantava em março?</p>
-        <p class="mail-pre"><b>Pré-header:</b> Se travou para responder, o diagnóstico de ontem já explicou o motivo.</p>
-        <div class="mail-body">
-          <p>Ontem você respondeu 5 perguntas sobre o seu treino e caiu no <b>perfil B</b>. É o mais comum aqui: mais de um ano de treino, frequência boa, e nenhuma forma de provar que ficou mais forte.</p>
-          <p>A pergunta do assunto é o teste que a Kati Santana aplica em toda avaliação. Quase ninguém responde, e o motivo raramente é memória ruim. O treino nunca foi anotado, e o que não foi anotado não tem com o que ser comparado.</p>
-          <p>Antes de olhar qual exercício você faz, ela olha três coisas: carga e repetições das últimas quatro semanas, há quantas semanas cada exercício está no treino, e se a série termina por decisão ou por cansaço.</p>
-          <p>Quinta-feira ela mostra em vídeo os quatro critérios que usa antes de mexer em qualquer treino de glúteo. Até lá, um pedido: no próximo treino, anote a carga e as repetições do primeiro exercício. Você vai precisar desse número.</p>
-          <p class="mail-cta-line"><span class="cta">Baixar o tracker de 4 semanas</span></p>
-          <p class="mail-ps"><b>P.S.</b> Se você já anota tudo e mesmo assim a carga não sobe, responde esse e-mail com o print. A Kati separa alguns casos por semana para responder nos Stories.</p>
+      <article class="card crm-col">
+        <h3>O que fica gravado</h3>
+        <p class="crm-col-lead">Cada resposta vira campo. É isso que separa um lead de um nome numa lista.</p>
+        <div class="field-grid"><code>origem</code><code>campanha</code><code>conteudo</code><code>tempo_treino</code><code>registro</code><code>trava</code><code>perfil</code><code>etapa</code><code>comprou</code><code>ativou</code></div>
+        <p class="caption">Mesma nomenclatura do plano de tracking: minúsculas, sem acento, com underline. Um nome só para cada coisa, do ManyChat ao GA4.</p>
+      </article>
+      <article class="card crm-col">
+        <h3>O que decide a próxima mensagem</h3>
+        <p class="crm-col-lead">Quatro desvios. Fora deles, a régua padrão roda.</p>
+        <div class="rule-list">
+          <div><b>Abandonou o diagnóstico</b><span>Uma mensagem em 20 h, dentro da janela da Meta, com o resultado parcial e uma pergunta só. Recupera de 15% a 30%.</span></div>
+          <div><b>É aluna da Consultoria</b><span>Sai do comercial e recebe o MBV de graça. Quem paga R$1.099 não recebe e-mail vendendo um ebook de R$77.</span></div>
+          <div><b>Assina a Cozinha</b><span>Prioridade na pré-venda de 04/11. E quem compra o MBV recebe a oferta da Cozinha no dia 14 pós-compra.</span></div>
+          <div><b>Comprou</b><span>Sai do fluxo comercial na hora. Sem <code>ebook_aberto</code> em 72 h, push e e-mail. Sem <code>treino1_registrado</code> em 10 dias, mensagem da Kati.</span></div>
         </div>
       </article>
-      <div class="mail-seq">
-        <article class="card"><h4>Nutrição · 5 e-mails</h4><p>E0 resultado do diagnóstico · E1 "Quanto você levantava em março?" · E2 o erro que parece evolução · E3 os 4 critérios da Kati · E4 do princípio à aplicação.</p></article>
-        <article class="card"><h4>Venda · 7 e-mails</h4><p>V0 pré-venda 04/11 · V1 abertura 10/11 · V2 o que tem dentro · V3 objeção "treino em casa" · V4 FAQ para quem visitou a LP · V5 aula ao vivo · V6 fecha hoje 23h59. Mais checkout abandonado em 1h e 24h.</p></article>
-        <article class="card"><h4>App · 3 pushes</h4><ul class="topicos"><li><b>04/11</b>Pré-venda para lista de espera, alunas e assinantes da Cozinha</li><li><b>10/11 · 8h</b>Abertura</li><li><b>16/11 · 19h</b>Últimas horas</li><li><b>Pós-compra</b>Onboarding, fora da régua comercial</li></ul><p class="caption">Se a plataforma não permitir push segmentado, o mesmo texto vai por e-mail com link rastreado.</p></article>
-      </div>
-      </div>
-
-      </div>
+      <article class="card crm-col">
+        <h3>O que sai, e quando</h3>
+        <p class="crm-col-lead">Quinze disparos na janela inteira, todos condicionados a comportamento.</p>
+        <div class="crm-reguas">
+          <div><b>Nutrição · 5</b><span>E0 resultado do diagnóstico · E1 "Quanto você levantava em março?" · E2 o erro que parece evolução · E3 os 4 critérios da Kati · E4 do princípio à aplicação.</span></div>
+          <div><b>Venda · 7</b><span>V0 pré-venda 04/11 · V1 abertura 10/11 · V2 o que tem dentro · V3 objeção "treino em casa" · V4 FAQ para quem visitou a LP · V5 aula ao vivo · V6 fecha hoje. Mais checkout abandonado em 1 h e 24 h.</span></div>
+          <div><b>App · 3</b><span>04/11 pré-venda · 10/11 às 8h abertura · 16/11 às 19h últimas horas. Mais o pós-compra, que já é onboarding.</span></div>
+        </div>
+        <div class="crm-mail">
+          <span class="crm-mail-tag">E1, pronto para enviar</span>
+          <b>Quanto você levantava em março?</b>
+          <span class="crm-mail-pre">Se travou para responder, o diagnóstico de ontem já explicou o motivo.</span>
+          <span class="crm-mail-cta">Baixar o tracker de 4 semanas</span>
+        </div>
+      </article>
     </div></div>
     <div class="keynote"><b>Key note</b><span>O lead deixa de ser nome e e-mail e passa a carregar contexto. É esse contexto que permite usar o MBV como porta de entrada sem tratar 88 mil pessoas da mesma forma. <a class="anexo-link" href="anexos/03-plano-de-tracking.html">Os 10 eventos e o padrão de UTM por canal ↗</a></span></div>
   </div>
