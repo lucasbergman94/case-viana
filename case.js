@@ -131,7 +131,7 @@ const assetExamples={
           <div class="ig-det-copy">
             <span class="ig-det-meta">Prova · Post em colaboração · 21/10</span>
             <h4>A Kati está no time há 3 anos. Quando o Marcos decidiu que a Consultoria teria um protocolo de glúteo, não teve reunião para escolher quem assinaria.</h4>
-            <p>É a peça mais importante da campanha: transfere autoridade de um perfil de 217 mil para uma especialista com 108 seguidores.</p>
+            <p>É a peça mais importante da campanha: transfere autoridade de um perfil de 219 mil para uma especialista com 108 seguidores.</p>
             <div class="ig-det-linhas">
               <div><span>CTA único</span><b>Comente MBV</b></div>
               <div><span>Etapa da jornada</span><b>Não conheço quem assina</b></div>
@@ -285,15 +285,15 @@ const assetExamples={
             <span class="ba-meta">Treino · 22/10 · 11 min de leitura</span>
             <h4>Treino de glúteo: o guia completo para quem já treina e parou de ver resultado</h4>
             <span class="ba-assina">Por Marcos Viana · palavra-chave <code>treino de glúteo</code></span>
-            <p>Existe um ponto em que o treino de glúteo para de responder. Não é falta de esforço e quase nunca é falta de frequência. É que o treino mudou muitas vezes e progrediu poucas.</p>
-            <p>Este guia é para quem treina há mais de seis meses, já testou quase todo exercício que aparece no feed e mesmo assim não consegue dizer quanto levantava em março. Se você está começando agora, ele não serve: o seu problema é outro e é mais fácil de resolver.</p>
+            <p>Existe um ponto em que o treino de glúteo para de responder. Não é falta de esforço e quase nunca é falta de frequência. É que o treino mudou muitas vezes e progrediu poucas, e essas duas coisas são confundidas o tempo todo.</p>
+            <p>Glúteo é um músculo grande e responde ao mesmo princípio dos outros: tensão com carga subindo ao longo das semanas. O que muda é que quase ninguém trata o treino de glúteo assim. Trata como coreografia, com exercício novo toda semana, e chama isso de estímulo.</p><p>Este guia é para quem treina há mais de seis meses, já testou quase todo exercício que aparece no feed e mesmo assim não consegue dizer quanto levantava em março. Se você está começando agora, ele não serve: o seu problema é outro e é mais fácil de resolver.</p>
           </div>
           <div class="ba-lado">
             <div class="ba-estrutura">
               <span class="ba-rotulo">O resto do artigo</span>
               <ol><li>Por que o treino de glúteo estagna</li><li>Os três erros que mais aparecem</li><li>O que olhar antes de trocar um exercício</li><li>Como saber se a carga deve subir</li><li>O que registrar, e por quanto tempo</li><li>Quando o resultado aparece de verdade</li></ol>
             </div>
-            <div class="ba-nota"><b>Por que essa pauta existe</b><p>Assinado pelo Marcos porque artigo pilar carrega o ponto de vista da casa, e é o perfil de 217 mil que traz o primeiro tráfego para ele. Publica 22/10, antes do aquecimento, para o cluster já ter autoridade quando a campanha começar.</p></div>
+            <div class="ba-nota"><b>Por que essa pauta existe</b><p>Assinado pelo Marcos porque artigo pilar carrega o ponto de vista da casa, e é o perfil de 219 mil que traz o primeiro tráfego para ele. Publica 22/10, antes do aquecimento, para o cluster já ter autoridade quando a campanha começar.</p></div>
           </div>
         </article>
         <article class="blog-art" data-art="a2" hidden>
@@ -301,8 +301,8 @@ const assetExamples={
             <span class="ba-meta">Treino · 05/11 · 8 min de leitura</span>
             <h4>Progressão de carga no glúteo: quando subir, quanto subir e quando esperar</h4>
             <span class="ba-assina">Por Kati Santana · palavra-chave <code>progressão de carga glúteo</code></span>
-            <p>A pergunta que mais chega no meu direct não é qual exercício fazer. É quando subir a carga. E quase ninguém consegue responder isso, porque não anotou o que fez na semana passada.</p>
-            <p>Progressão não é subir peso toda semana. É ter um critério para subir, um critério para manter e um critério para esperar. Sem os três, o que existe é tentativa.</p>
+            <p>A pergunta que mais chega no meu direct não é qual exercício fazer. É quando subir a carga. E quase ninguém consegue responder, porque não anotou o que fez na semana passada.</p>
+            <p>Progressão não é subir peso toda semana. É ter um critério para subir, um critério para manter e um critério para esperar. Sem os três, o que existe é tentativa.</p><p>O critério que eu uso com as alunas é simples de aplicar e difícil de aceitar: só sobe quem fechou todas as séries na faixa de repetição combinada, com a mesma execução, em duas semanas seguidas. Fechou uma semana só? Repete. Fechou as duas mas a execução piorou? Repete também. É por isso que a maioria acha que travou quando na verdade nunca completou um ciclo.</p>
           </div>
           <div class="ba-lado">
             <div class="ba-estrutura">
@@ -318,7 +318,7 @@ const assetExamples={
             <h4>O que 15 alunas mudaram no treino em 8 semanas</h4>
             <span class="ba-assina">Por Consultoria do Viana · palavra-chave <code>resultado treino de glúteo 8 semanas</code></span>
             <p>Quinze alunas da Consultoria receberam o protocolo do MBV em 12 de outubro e passaram oito semanas registrando carga, repetições e execução. Nenhuma mudou de academia, de frequência ou de rotina.</p>
-            <p>O que mudou foi o que elas anotavam. Este texto mostra o que apareceu nos registros, incluindo o que não melhorou.</p>
+            <p>O que mudou foi o que elas anotavam. Este texto mostra o que apareceu nos registros, incluindo o que não melhorou.</p><p>O recorte importa: são 15 alunas que já treinavam, não iniciantes, e o período é curto para hipertrofia. Então o que está aqui não é foto de antes e depois. É o que oito semanas de registro revelam sobre um treino que a pessoa achava que conhecia.</p>
           </div>
           <div class="ba-lado">
             <div class="ba-estrutura">
@@ -350,11 +350,14 @@ const assetExamples={
           <div class="mail-corpo">
             <div class="subject">Você trocou de treino quantas vezes esse ano?</div>
             <p class="preheader">A Kati diz que a troca quase nunca é o problema certo.</p>
-            <p>Trocar de exercício é a coisa mais fácil de fazer na academia. É também a primeira coisa que a gente faz quando o resultado trava.</p>
-            <p>A Kati Santana atende alunas da Consultoria há três anos e começa toda avaliação pelo mesmo lugar. Antes de olhar qual exercício você faz, ela pergunta quanto você levantava nele quatro semanas atrás. Quase ninguém sabe responder. E quando ninguém sabe responder, não dá para dizer se o exercício falhou ou se ele nunca chegou a ser testado.</p>
-            <p>Hoje o pedido é pequeno. No próximo treino de glúteo, anote a carga e as repetições de dois exercícios. Só isso.</p>
-            <span class="cta">Fazer o diagnóstico de 5 perguntas</span>
-            <p class="fineprint">Leva 2 minutos, acontece no direct do Instagram e termina dizendo qual dos três perfis é o seu.</p>
+            <p>Trocar de exercício é a coisa mais fácil de fazer na academia. É também a primeira coisa que a gente faz quando o resultado trava. E é quase sempre a errada.</p>
+            <p>A Kati Santana é atleta IFBB e atende alunas da Consultoria há três anos. Ela começa toda avaliação pelo mesmo lugar: antes de olhar qual exercício você faz, pergunta quanto você levantava nele quatro semanas atrás.</p>
+            <p>Quase ninguém sabe responder. E aqui está o problema: quando não existe o número de quatro semanas atrás, não dá para dizer se o exercício falhou ou se ele nunca chegou a ser testado. Trocar vira chute. O treino muda todo mês e a carga fica parada.</p>
+            <p>Glúteo responde a tensão com carga subindo ao longo das semanas. Não a variedade. Trocar de exercício reinicia a conta, e quem reinicia a conta toda semana nunca chega ao ponto em que o estímulo vira resultado.</p>
+            <p>Hoje o pedido é pequeno. No próximo treino, anote a carga e as repetições de dois exercícios. Só isso. Semana que vem você já tem com o que comparar.</p>
+            <p class="mail-fecho"><b>Se você travou na pergunta do assunto, não precisa esperar quatro semanas para descobrir o motivo.</b> São 5 perguntas, e no fim elas dizem qual dos três perfis é o seu e o que a Kati ajustaria primeiro no seu caso.</p>
+            <span class="cta">Descobrir o meu perfil em 2 minutos</span>
+            <p class="fineprint">Acontece no direct do Instagram, em botão, sem formulário. O resultado sai antes de a gente pedir qualquer coisa.</p>
           </div>
           <div class="mail-footer">Consultoria do Viana · <b>o CTA da Consultoria continua aqui no rodapé</b>, nas cinco edições</div>
         </div>
@@ -393,10 +396,14 @@ const assetExamples={
           <div class="bubble user">Bora.</div>
           <div class="bubble">1 de 5. Há quanto tempo você treina glúteo com constância?</div>
           <div class="bubble user">Mais de 2 anos.</div>
+          <div class="bubble">2 de 5. Quantas vezes por semana?</div>
+          <div class="bubble user">Três.</div>
           <div class="bubble">3 de 5. Você anota carga e repetições?</div>
           <div class="bubble user">Às vezes.</div>
           <div class="bubble">4 de 5. O que mais te trava hoje?</div>
           <div class="bubble user">Não sei se estou progredindo.</div>
+          <div class="bubble">5 de 5. Onde você treina?</div>
+          <div class="bubble user">Academia completa.</div>
           <div class="bubble">Pronto. Você é <b>perfil B</b>: treina há mais de um ano, não falta, e mesmo assim não consegue provar que ficou mais forte. Quer o resultado completo, com os 3 ajustes por escrito e o tracker de 4 semanas? Me manda o seu melhor e-mail.</div>
         </div>
         <div class="crm-side">
@@ -405,6 +412,7 @@ const assetExamples={
             <div class="crm-fields">
               <code>origem = instagram</code><code>campanha = mbv_lancamento</code>
               <code>tempo_treino = 2a+</code><code>registro = as_vezes</code>
+              <code>frequencia = 3x</code><code>local = academia</code>
               <code>trava = progressao</code><code>perfil = b</code>
               <code>etapa = diagnostico</code><code>comprou = nao</code>
             </div>
@@ -483,39 +491,45 @@ const assetExamples={
   },
   consultoria:{
     eyebrow:'Consultoria · Maior personalização',
-    title:'O degrau que falta entre R$97 e R$1.099',
+    title:'Os dois degraus que faltam entre R$97 e R$1.099',
     body:`
       <div class="deg-layout">
-        <div class="deg-argumento">
-          <div>
-            <h4>Um salto de 11x ninguém sobe</h4>
-            <p>Quem compra um ebook está comprando autonomia. Quem contrata acompanhamento está comprando delegação. São trabalhos opostos, e por isso a migração direta roda entre 1% e 3%. A meta de 5% que o plano declara para janeiro não se atinge empurrando mais e-mail: ela precisa de um degrau no meio. E o catálogo tem dois degraus acima do MBV, não um: a individualizada com especialista e o acompanhamento direto com o Marcos.</p>
-          </div>
-          <p class="deg-conta">Sem o degrau do meio, 260 compradoras rendem 6 alunas. Com ele, 31 sobem para a Turma, 18% delas migram, e o resultado é <b>10 alunas mais R$7.400 de margem no caminho</b>. É isso que transforma a tese de produto-ponte de afirmação em conta.</p>
-        </div>
-        <div class="deg-pontes">
-          <h4>As três pontes, e todas já existem no plano</h4>
-          <article class="ponte">
-            <span class="ponte-n">01</span>
-            <div><b>Crédito de 90 dias</b><p>Os R$97 abatem na Turma ou na individualizada até 90 dias depois da compra. Quem sobe não paga duas vezes pela mesma decisão, e a casa compra a segunda conversão pelo custo da primeira.</p></div>
-          </article>
-          <article class="ponte">
-            <span class="ponte-n">02</span>
-            <div><b>O tracker vira laudo</b><p>Oito semanas de carga anotada é o único histórico que essa aluna tem na vida. Na semana 8 o MBV devolve a leitura do ciclo e mostra, com o número dela, o que só uma avaliação individual responde.</p></div>
-          </article>
-          <article class="ponte">
-            <span class="ponte-n">03</span>
-            <div><b>O segmento já está no CRM</b><p><code>comprou = sim</code> mais <code>treino1_registrado</code> e carga subindo. É a lista mais quente da casa e é exatamente o público do e-mail de janeiro, que o Anexo 1 já tem marcado.</p></div>
-          </article>
-        </div>
         <div class="ladder">
           <div class="rung"><span class="rung-price">Grátis</span><b>Conteúdo</b><span class="rung-desc">Feed, diagnóstico e newsletter</span></div>
           <div class="rung rung--now"><span class="rung-price">R$97</span><b>MBV</b><span class="rung-desc">O método por escrito, para aplicar sozinha</span><span class="rung-flag">este lançamento</span></div>
-          <div class="rung rung--gap"><span class="rung-price">R$397</span><b>Turma MBV</b><span class="rung-desc">8 semanas, 4 encontros em grupo, correção por vídeo</span><span class="rung-flag">o degrau que falta</span></div>
+          <div class="rung rung--gap"><span class="rung-price">R$197</span><b>Passe Métodos</b><span class="rung-desc">Todos os Métodos conforme saem, em vez de um a um</span><span class="rung-flag">proposta</span></div>
+          <div class="rung rung--gap"><span class="rung-price">R$397</span><b>Turma MBV</b><span class="rung-desc">O mesmo protocolo, com correção e grupo</span><span class="rung-flag">proposta</span></div>
           <div class="rung"><span class="rung-price">R$1.099</span><b>Individualizada</b><span class="rung-desc">3 meses com especialista do time, a Batalha dos Shapes</span></div>
           <div class="rung rung--topo"><span class="rung-price">High-ticket</span><b>Direto com o Marcos</b><span class="rung-desc">Acompanhamento com ele, acima da individualizada</span><span class="rung-flag">o topo</span></div>
         </div>
-      </div>`,
+        <div class="deg-propostas">
+          <article class="deg-proposta">
+            <span class="dp-tag">Proposta 1 · horizonte 2</span>
+            <div class="dp-topo"><b>Turma MBV</b><span class="dp-preco">R$397</span></div>
+            <p class="dp-oque">O mesmo protocolo do MBV, com correção e grupo. Oito semanas, quatro encontros ao vivo.</p>
+            <ul class="topicos">
+              <li><b>Turma</b>30 alunas por vez, com abertura a cada 8 semanas</li>
+              <li><b>Ao vivo</b>4 encontros de 60 min com a Kati, um a cada duas semanas</li>
+              <li><b>Correção</b>A aluna manda o vídeo da execução e recebe a devolutiva em 48 h</li>
+              <li><b>Crédito</b>Quem comprou o MBV abate os R$97 até 90 dias depois</li>
+            </ul>
+            <p class="dp-conta">Sem esse degrau, 260 compradoras rendem 6 alunas na individualizada. Com ele, 31 sobem para a Turma, 18% delas migram, e o resultado é <b>10 alunas mais R$7.400 de margem no caminho</b>.</p>
+          </article>
+          <article class="deg-proposta">
+            <span class="dp-tag">Proposta 2 · horizonte 2</span>
+            <div class="dp-topo"><b>Passe Métodos Viana</b><span class="dp-preco">R$197 <em>ou R$19 por mês</em></span></div>
+            <p class="dp-oque">Acesso a todos os Métodos Viana conforme eles saem, em vez de comprar um a um.</p>
+            <ul class="topicos">
+              <li><b>Catálogo</b>Começa no MBV e recebe cada Método novo sem pagar de novo</li>
+              <li><b>Cinco</b>Glúteo, abdômen, superiores, mobilidade e manutenção</li>
+              <li><b>Onde mora</b>Na área de membros da Cozinha, ao lado da prateleira de receitas</li>
+              <li><b>Upgrade</b>Quem já comprou o MBV entra pagando a diferença</li>
+            </ul>
+            <p class="dp-conta">Transforma compra avulsa em relação recorrente e responde de onde o próximo Método nasce sem custo de aquisição: <b>ele nasce na base que já paga</b>.</p>
+          </article>
+        </div>
+      </div>
+      `,
     note:'Proposta para o horizonte 2, não para este lançamento. Mas é ela que transforma a tese de produto-ponte de afirmação em conta, e por isso entra no plano desde já como hipótese a validar com os primeiros compradores.'
   }
 };
