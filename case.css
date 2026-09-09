@@ -3550,3 +3550,102 @@ h4{font-size:21px;line-height:1;font-weight:800}
   background-image:linear-gradient(90deg,var(--paper) 0%,rgba(244,239,232,.97) 42%,rgba(244,239,232,.86) 68%,rgba(244,239,232,.42) 100%),url('img/mbv/kati-retrato.webp');
   background-position:center,right center;background-size:100% 100%,58% auto;opacity:.55;
 }
+
+/* --- Painel 09: as tres reguas passavam por cima uma da outra ---------------
+   .crm-reguas divide o card em tres faixas iguais e os blocos nao tinham
+   overflow declarado. Quando o texto do app cresceu, ele nao cortou: passou
+   por cima do bloco de baixo, e nenhuma ferramenta via, porque scrollHeight
+   so denuncia quem tem overflow diferente de visible. */
+.crm-reguas div{min-height:0;overflow:hidden}
+
+/* --- Painel 06: o topo dos cards estava sendo cortado ----------------------
+   .content-stack herda align-content:center da base. Com as linhas pedindo
+   498px numa caixa de 404, o excesso saia metade para cima, e o overflow do
+   proprio .content-stack cortava a metade de cima dos numeros. O scrollHeight
+   nao denuncia transbordo para cima, entao nenhuma ferramenta via.
+   As duas linhas passam a dividir a altura em proporcao, e o alinhamento
+   deixa de centralizar. */
+#s06 .content-stack{align-content:stretch!important}
+@media(min-width:1101px) and (max-height:1010px){
+  #s06 .content-stack{grid-template-rows:minmax(0,1.58fr) minmax(0,1fr)!important;gap:12px!important}
+}
+@media(min-width:1101px) and (max-height:820px){
+  #s06 .content-stack{grid-template-rows:minmax(0,1.52fr) minmax(0,1fr)!important;gap:10px!important}
+}
+
+/* --- Painel 09: o card "o que sai, e quando" estava com quatro coisas ------
+   h3, chamada, tres reguas e um preview do e-mail E1. As reguas pediam 160px
+   numa faixa de 86 e passavam por cima uma da outra. O preview saiu: ele
+   repetia o assunto do E1, que ja esta escrito na propria regua de nutricao,
+   e a peca da newsletter no painel 02 mostra um e-mail inteiro renderizado.
+   As tres reguas passam a ter altura natural. */
+#s09 .crm-col:last-child{grid-template-rows:auto auto minmax(0,1fr)}
+
+/* --- Peca do CRM: as duas legendas com a mesma estrutura ------------------- */
+.crm-leg-2col{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px}
+.crm-legenda>.crm-leg{align-content:start}
+.crm-reguas div{padding:7px 10px}
+@media(min-width:1101px) and (max-height:900px){ .crm-reguas div{padding:5px 9px} .crm-reguas{gap:6px} }
+@media(min-width:1101px) and (max-height:820px){ .crm-reguas div{padding:4px 8px} .crm-reguas{gap:5px} }
+.crm-reguas span{margin-top:2px}
+.crm-reguas div{padding:6px 10px}
+.crm-reguas b{line-height:.96}
+@media(min-width:1101px) and (max-height:900px){ .crm-reguas div{padding:4px 9px} }
+@media(min-width:1101px) and (max-height:820px){ .crm-reguas div{padding:3px 8px} }
+@media(min-width:1101px) and (max-height:900px){ .crm-reguas div{padding:3px 9px} .crm-reguas{gap:5px} }
+@media(min-width:1101px) and (max-height:820px){ .crm-reguas div{padding:2px 8px} .crm-reguas{gap:4px} }
+
+/* A causa raiz do corte no painel 06: .audience-grid e item de grade sem
+   min-height:0. O tamanho minimo automatico dele e o min-content, 336px, que
+   ignora a faixa de 240 e estoura. Com align-content:center herdado da base, o
+   estouro saia metade para cima, onde o overflow:hidden cortava os numeros. */
+#s06 .audience-grid{min-height:0;overflow:hidden}
+
+/* .content tem align-items:center desde a base. Todo item de grade mais alto
+   que a propria faixa era centralizado e transbordava metade para cima, onde
+   o overflow:hidden cortava sem que scrollHeight denunciasse. Era isso que
+   cortava o topo dos numeros do painel 06. */
+.content-stack{align-items:stretch}
+#s06 .content-stack{align-items:stretch!important}
+
+/* densidade do painel 06 em tela baixa: o numero decorativo encolhe antes do
+   texto, que e o que a escala unica manda */
+@media(min-width:1101px) and (max-height:960px){
+  #s06 .aud{padding:11px 13px!important}
+  #s06 .aud-num{font-size:clamp(24px,1.9vw,32px)!important}
+  #s06 .aud b{font-size:13.5px}
+  #s06 .aud .topicos{gap:3px;margin-top:4px}
+  #s06 .aud .topicos li{padding:3px 0}
+  #s06 .aud-meta{margin-top:4px}
+  #s06 .camadas--baixa .card{padding:9px 12px}
+  #s06 .camadas--baixa .topicos{gap:5px;margin-top:4px}
+  #s06 .camadas--baixa .topicos li{padding:5px 7px}
+}
+@media(min-width:1101px) and (max-height:820px){
+  #s06 .aud{padding:9px 11px!important}
+  #s06 .aud-num{font-size:clamp(21px,1.6vw,27px)!important}
+  #s06 .aud .topicos li{padding:2px 0}
+}
+@media(min-width:1101px) and (max-height:960px){
+  #s06 .content-stack{grid-template-rows:minmax(0,1.42fr) minmax(0,1fr)!important;gap:10px!important}
+}
+
+/* mesma causa raiz no painel 08: o card do roteiro centraliza o conteudo e,
+   quando ele e mais alto que a caixa, a parte de cima sai para fora e some */
+#s08 .script-example--solo>.card{align-content:start}
+#s08 .script-example .card{align-content:start}
+@media(min-width:1101px) and (max-height:960px){
+  #s06 .camadas--baixa .topicos--excecao li{padding:5px 8px}
+  .crm-mock .chat-preview{padding:7px;gap:3px}
+  .crm-mock .bubble{padding:4px 8px}
+  .mail-corpo{gap:5px;padding:12px}
+}
+@media(min-width:1101px) and (max-height:960px){ #s06 .aud{padding:10px 12px!important} #s06 .aud .topicos li{padding:2px 0} }
+
+/* a camada de midia paga tem um item so: ele nao pode herdar as tres colunas
+   da camada vizinha, senao 80 caracteres viram tres linhas num terco da caixa */
+#s06 .camada[data-camada="a2"] .topicos{grid-template-columns:1fr}
+@media(min-width:1101px) and (max-height:820px){ #s06 .camadas--baixa .card{padding:7px 10px} #s06 .camadas--baixa .topicos{margin-top:3px} }
+@media(min-width:1101px) and (min-height:790px) and (max-height:830px){ #s06 .aud{padding:8px 11px!important} }
+@media(min-width:1101px) and (max-width:1340px) and (max-height:830px){ #s06 .aud{padding:7px 10px!important} #s06 .aud b{font-size:12.5px} }
+@media(min-width:1101px) and (max-width:1340px) and (max-height:830px){ #s06 .aud .topicos{gap:2px;margin-top:3px} }

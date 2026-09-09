@@ -442,7 +442,13 @@ const assetExamples={
           </div>
           <div class="crm-leg">
             <span class="crm-leg-rot">A régua de nutrição, E0 a E4</span>
-            <p class="crm-regua"><b>E0</b> resultado do diagnóstico <b>E1</b> quanto você levantava em março <b>E2</b> o erro que parece evolução <b>E3</b> os 4 critérios da Kati <b>E4</b> do princípio à aplicação</p>
+            <ul class="crm-leg-2col">
+              <li><b>E0</b>Resultado do diagnóstico</li>
+              <li><b>E1</b>Quanto você levantava em março</li>
+              <li><b>E2</b>O erro que parece evolução</li>
+              <li><b>E3</b>Os 4 critérios da Kati</li>
+              <li><b>E4</b>Do princípio à aplicação</li>
+            </ul>
           </div>
         </div>
       </div>
