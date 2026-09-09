@@ -86,7 +86,7 @@ const assetExamples={
           <div class="ig-tabs"><span class="on">Publicações</span><span>Reels</span><span>Marcadas</span></div>
           <div class="ig-grid">
             <figure class="ig-post" data-peca="p1" role="button" tabindex="0"><img src="img/mbv/peca-diagnostico.webp" alt="" loading="lazy" decoding="async"><span class="ig-kind">Reel</span><figcaption>Seu treino evoluiu ou só mudou?</figcaption></figure>
-            <figure class="ig-post ig-post--txt ig-post--marcos" data-peca="p2" role="button" tabindex="0"><span class="ig-kind">Colab</span><div class="ig-txt">Não teve reunião para escolher quem assinaria</div><figcaption>Chancela do Marcos · 21/10</figcaption></figure>
+            <figure class="ig-post" data-peca="p2" role="button" tabindex="0"><img src="img/mbv/peca-chancela.webp" alt="" loading="lazy" decoding="async"><span class="ig-kind">Colab</span><figcaption>Chancela do Marcos · 21/10</figcaption></figure>
             <figure class="ig-post" data-peca="p3" role="button" tabindex="0"><img src="img/mbv/peca-carrossel.webp" alt="" loading="lazy" decoding="async"><span class="ig-kind">Carrossel</span><figcaption>5 sinais de piloto automático</figcaption></figure>
             <figure class="ig-post" data-peca="p4" role="button" tabindex="0"><img src="img/mbv/peca-queimou.webp" alt="" loading="lazy" decoding="async"><span class="ig-kind">Reel</span><figcaption>Desmistificação · Reel 03</figcaption></figure>
             <figure class="ig-post" data-peca="p5" role="button" tabindex="0"><img src="img/mbv/kati-retrato.webp" alt="" loading="lazy" decoding="async"><span class="ig-kind">Reel</span><figcaption>A Kati olha 3 coisas antes de trocar</figcaption></figure>
@@ -127,7 +127,7 @@ const assetExamples={
           </div>
         </article>
         <article class="ig-det" data-det="p2" hidden>
-          <div class="ig-det-arte"><div class="ig-det-txt ig-post--marcos">Não teve reunião para escolher quem assinaria</div></div>
+          <div class="ig-det-arte"><img src="img/mbv/peca-chancela.webp" alt="" loading="lazy" decoding="async"></div>
           <div class="ig-det-copy">
             <span class="ig-det-meta">Prova · Post em colaboração · 21/10</span>
             <h4>A Kati está no time há 3 anos. Quando o Marcos decidiu que a Consultoria teria um protocolo de glúteo, não teve reunião para escolher quem assinaria.</h4>
