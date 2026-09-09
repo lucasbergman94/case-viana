@@ -237,25 +237,101 @@ const assetExamples={
     eyebrow:'Blog · Busca + profundidade',
     title:'O cluster que continua vendendo em janeiro',
     body:`
-      <div class="cluster-mock">
-        <article class="cl-pillar">
-          <span class="cl-tag">Artigo pilar · categoria Treino</span>
-          <b>Treino de glúteo: o guia completo para quem já treina e parou de ver resultado</b>
-          <p>O recorte "para quem já treina" abre mão de volume e ganha qualificação. O blog alimenta o diagnóstico, não o pageview. Publica 22/10, antes do aquecimento.</p>
-          <div class="cl-flow"><span>Google</span><i></i><span>Artigo</span><i></i><span>Diagnóstico</span><i></i><span>CRM</span><i></i><span>MBV</span></div>
-        </article>
-        <div class="cl-sats">
-          <article class="cl-sat"><b>Quantas vezes por semana treinar glúteo?</b><span class="cl-meta">Treino · busca de dúvida · alto volume</span><span class="cl-obj">Captura topo e manda para o diagnóstico</span></article>
-          <article class="cl-sat"><b>Progressão de carga no glúteo: quando subir e quanto</b><span class="cl-meta">Treino · alta aderência à tese</span><span class="cl-obj">É o artigo que mais qualifica: quem busca isso é o ICP</span></article>
-          <article class="cl-sat"><b>Sinto mais a coxa do que o glúteo: o que ajustar</b><span class="cl-meta">Treino · dor específica</span><span class="cl-obj">Dor nomeada, conversão de lead mais alta do cluster</span></article>
-          <article class="cl-sat"><b>Treino de glúteo em casa dá resultado?</b><span class="cl-meta">Treino · objeção nº 1 do direct</span><span class="cl-obj">Responde a dúvida que mais apareceu, antes de virar reembolso</span></article>
-          <article class="cl-sat"><b>Hip thrust ou agachamento: o critério da Kati</b><span class="cl-meta">Treino · comparativo, muito buscado</span><span class="cl-obj">Comparativo puxa link e posiciona a especialista</span></article>
-          <article class="cl-sat"><b>Quanto tempo demora para ver diferença no glúteo?</b><span class="cl-meta">Treino · a pergunta mais buscada do nicho</span><span class="cl-obj">Traz volume frio e ensina a expectativa certa</span></article>
-          <article class="cl-sat cl-sat--alt"><b>O que 15 alunas mudaram no treino em 8 semanas</b><span class="cl-meta">Cases de Sucesso · publica 19/11</span><span class="cl-obj">Usa a categoria que estava sobrando e vira prova social</span></article>
-          <article class="cl-sat cl-sat--alt"><b>Método Bumbum Viana: o que é, para quem é e o que tem dentro</b><span class="cl-meta">Treino · fundo de funil</span><span class="cl-obj">Captura quem busca a marca depois de ver um Reel</span></article>
+      <div class="blog-mock">
+        <div class="blog-cards">
+          <article class="blog-card" data-post="a1" role="button" tabindex="0">
+            <span class="bc-tag">Artigo pilar</span>
+            <b>Treino de glúteo: o guia completo para quem já treina e parou de ver resultado</b>
+            <span class="bc-assina">Marcos Viana · 22/10 · 11 min</span>
+            <p>O recorte "para quem já treina" abre mão de volume de busca e ganha qualificação.</p>
+            <span class="bc-abrir">Ler a abertura</span>
+          </article>
+          <article class="blog-card" data-post="a2" role="button" tabindex="0">
+            <span class="bc-tag">O que mais qualifica</span>
+            <b>Progressão de carga no glúteo: quando subir, quanto subir e quando esperar</b>
+            <span class="bc-assina">Kati Santana · 05/11 · 8 min</span>
+            <p>Quem busca progressão de carga já entendeu que o problema não é o exercício.</p>
+            <span class="bc-abrir">Ler a abertura</span>
+          </article>
+          <article class="blog-card" data-post="a3" role="button" tabindex="0">
+            <span class="bc-tag">Prova</span>
+            <b>O que 15 alunas mudaram no treino em 8 semanas</b>
+            <span class="bc-assina">Consultoria do Viana · 19/11 · 6 min</span>
+            <p>Publica depois do fechamento e vira prova social do evergreen.</p>
+            <span class="bc-abrir">Ler a abertura</span>
+          </article>
         </div>
-      </div>`,
-    note:'Oito pautas, duas categorias. O Search Console devolve as queries que viram a pauta seguinte e, se o modelo provar valor, o próximo Método. Instagram gera o pico; isto aqui continua encontrando gente em fevereiro.'
+        <div class="blog-leitura">
+        <article class="blog-art blog-art--cluster" data-art="cluster">
+          <div class="ba-abertura">
+            <span class="ba-meta">Oito pautas · duas categorias · um funil</span>
+            <h4>O cluster que continua vendendo em janeiro</h4>
+            <div class="cl-flow"><span>Google</span><i></i><span>Artigo</span><i></i><span>Diagnóstico</span><i></i><span>CRM</span><i></i><span>MBV</span></div>
+            <p>Instagram gera o pico e acaba. O blog continua encontrando gente em fevereiro, e o Search Console devolve as queries que viram a pauta seguinte e, se o modelo provar valor, o próximo Método.</p>
+            <p class="caption">Três pautas em destaque acima. As outras cinco fecham o cluster.</p>
+          </div>
+          <div class="ba-lado">
+            <div class="cl-sats">
+              <article class="cl-sat"><b>Quantas vezes por semana treinar glúteo?</b><span class="cl-meta">Treino · busca de dúvida, alto volume</span><span class="cl-obj">Captura topo e manda para o diagnóstico</span></article>
+              <article class="cl-sat"><b>Sinto mais a coxa do que o glúteo: o que ajustar</b><span class="cl-meta">Treino · dor específica</span><span class="cl-obj">Dor nomeada, a maior conversão de lead do cluster</span></article>
+              <article class="cl-sat"><b>Treino de glúteo em casa dá resultado?</b><span class="cl-meta">Treino · objeção nº 1 do direct</span><span class="cl-obj">Responde antes de a dúvida virar reembolso</span></article>
+              <article class="cl-sat"><b>Hip thrust ou agachamento: o critério da Kati</b><span class="cl-meta">Treino · comparativo muito buscado</span><span class="cl-obj">Comparativo puxa link e posiciona a especialista</span></article>
+              <article class="cl-sat"><b>Método Bumbum Viana: o que é, para quem é e o que tem dentro</b><span class="cl-meta">Treino · fundo de funil</span><span class="cl-obj">Captura quem busca a marca depois de ver um Reel</span></article>
+            </div>
+          </div>
+        </article>
+        <article class="blog-art" data-art="a1" hidden>
+          <div class="ba-abertura">
+            <span class="ba-meta">Treino · 22/10 · 11 min de leitura</span>
+            <h4>Treino de glúteo: o guia completo para quem já treina e parou de ver resultado</h4>
+            <span class="ba-assina">Por Marcos Viana · palavra-chave <code>treino de glúteo</code></span>
+            <p>Existe um ponto em que o treino de glúteo para de responder. Não é falta de esforço e quase nunca é falta de frequência. É que o treino mudou muitas vezes e progrediu poucas.</p>
+            <p>Este guia é para quem treina há mais de seis meses, já testou quase todo exercício que aparece no feed e mesmo assim não consegue dizer quanto levantava em março. Se você está começando agora, ele não serve: o seu problema é outro e é mais fácil de resolver.</p>
+          </div>
+          <div class="ba-lado">
+            <div class="ba-estrutura">
+              <span class="ba-rotulo">O resto do artigo</span>
+              <ol><li>Por que o treino de glúteo estagna</li><li>Os três erros que mais aparecem</li><li>O que olhar antes de trocar um exercício</li><li>Como saber se a carga deve subir</li><li>O que registrar, e por quanto tempo</li><li>Quando o resultado aparece de verdade</li></ol>
+            </div>
+            <div class="ba-nota"><b>Por que essa pauta existe</b><p>Assinado pelo Marcos porque artigo pilar carrega o ponto de vista da casa, e é o perfil de 217 mil que traz o primeiro tráfego para ele. Publica 22/10, antes do aquecimento, para o cluster já ter autoridade quando a campanha começar.</p></div>
+          </div>
+        </article>
+        <article class="blog-art" data-art="a2" hidden>
+          <div class="ba-abertura">
+            <span class="ba-meta">Treino · 05/11 · 8 min de leitura</span>
+            <h4>Progressão de carga no glúteo: quando subir, quanto subir e quando esperar</h4>
+            <span class="ba-assina">Por Kati Santana · palavra-chave <code>progressão de carga glúteo</code></span>
+            <p>A pergunta que mais chega no meu direct não é qual exercício fazer. É quando subir a carga. E quase ninguém consegue responder isso, porque não anotou o que fez na semana passada.</p>
+            <p>Progressão não é subir peso toda semana. É ter um critério para subir, um critério para manter e um critério para esperar. Sem os três, o que existe é tentativa.</p>
+          </div>
+          <div class="ba-lado">
+            <div class="ba-estrutura">
+              <span class="ba-rotulo">O resto do artigo</span>
+              <ol><li>O que progressão de carga significa no glúteo</li><li>A regra das 3 semanas</li><li>Quanto subir: os incrementos que funcionam</li><li>Quando não subir, mesmo dando</li><li>Como registrar sem virar planilha complicada</li></ol>
+            </div>
+            <div class="ba-nota"><b>Por que essa pauta existe</b><p>Assinado pela Kati porque é onde a credencial IFBB vale: critério técnico, não opinião. É o artigo que mais qualifica do cluster, e o que mais alimenta o diagnóstico com gente pronta para comprar.</p></div>
+          </div>
+        </article>
+        <article class="blog-art" data-art="a3" hidden>
+          <div class="ba-abertura">
+            <span class="ba-meta">Cases de Sucesso · 19/11 · 6 min de leitura</span>
+            <h4>O que 15 alunas mudaram no treino em 8 semanas</h4>
+            <span class="ba-assina">Por Consultoria do Viana · palavra-chave <code>resultado treino de glúteo 8 semanas</code></span>
+            <p>Quinze alunas da Consultoria receberam o protocolo do MBV em 12 de outubro e passaram oito semanas registrando carga, repetições e execução. Nenhuma mudou de academia, de frequência ou de rotina.</p>
+            <p>O que mudou foi o que elas anotavam. Este texto mostra o que apareceu nos registros, incluindo o que não melhorou.</p>
+          </div>
+          <div class="ba-lado">
+            <div class="ba-estrutura">
+              <span class="ba-rotulo">O resto do artigo</span>
+              <ol><li>O que foi medido, e o que não foi</li><li>A mudança que apareceu em 12 das 15</li><li>O caso da Camila: de 50 para 60 kg no hip thrust</li><li>O que não melhorou em 8 semanas</li><li>O que mudamos no protocolo por causa disso</li></ol>
+            </div>
+            <div class="ba-nota"><b>Por que essa pauta existe</b><p>Assinado pela Consultoria e não por uma pessoa, porque o que sustenta o texto é o dado de 15 alunas. Publica 19/11, depois do carrinho fechar, e vira a prova social que o evergreen usa o ano inteiro.</p></div>
+          </div>
+        </article>
+        </div>
+      </div>
+      `,
+    note:'Quem assina não é detalhe de vaidade. O Marcos assina o pilar porque ele carrega o ponto de vista da casa e traz o primeiro tráfego. A Kati assina o técnico porque é onde a credencial IFBB vale. E a prova é assinada pela Consultoria, porque o que sustenta o texto é o dado de 15 alunas.'
   },
   newsletter:{
     eyebrow:'Newsletter · Recorrência editorial',
