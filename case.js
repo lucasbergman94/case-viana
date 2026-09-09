@@ -85,42 +85,152 @@ const assetExamples={
           </div>
           <div class="ig-tabs"><span class="on">Publicações</span><span>Reels</span><span>Marcadas</span></div>
           <div class="ig-grid">
-            <figure class="ig-post"><img src="img/mbv/kati-execucao.webp" alt=""><span class="ig-kind">Reel</span><figcaption>Seu treino evoluiu ou só mudou?</figcaption></figure>
-            <figure class="ig-post ig-post--txt ig-post--marcos"><span class="ig-kind">Colab</span><div class="ig-txt">Não teve reunião para escolher quem assinaria</div><figcaption>Chancela do Marcos · 21/10</figcaption></figure>
-            <figure class="ig-post"><img src="img/mbv/peca-carrossel.webp" alt=""><span class="ig-kind">Carrossel</span><figcaption>5 sinais de piloto automático</figcaption></figure>
-            <figure class="ig-post ig-post--txt"><span class="ig-kind">Reel</span><div class="ig-txt">Queimou = funcionou?</div><figcaption>Desmistificação · Reel 03</figcaption></figure>
-            <figure class="ig-post"><img src="img/mbv/kati-retrato.webp" alt=""><span class="ig-kind">Reel</span><figcaption>A Kati olha 3 coisas antes de trocar</figcaption></figure>
-            <figure class="ig-post ig-post--txt"><span class="ig-kind">Enquete</span><div class="ig-txt">Você anota carga e repetições?</div><figcaption>Story · research e engajamento</figcaption></figure>
-            <figure class="ig-post ig-post--txt ig-post--proof"><span class="ig-kind">Carrossel</span><div class="ig-txt">De 50 para 60 kg no hip thrust em 5 semanas</div><figcaption>Prova · beta com 15 alunas</figcaption></figure>
-            <figure class="ig-post"><img src="img/mbv/capa-digital.webp" alt=""><span class="ig-kind">Feed</span><figcaption>O MBV abriu · 10/11</figcaption></figure>
-            <figure class="ig-post ig-post--txt ig-post--excl"><span class="ig-kind">Carrossel</span><div class="ig-txt">Treina há menos de 6 meses? Ainda não é para você</div><figcaption>Objeção · vende recusando</figcaption></figure>
+            <figure class="ig-post" data-peca="p1" role="button" tabindex="0"><img src="img/mbv/peca-diagnostico.webp" alt="" loading="lazy" decoding="async"><span class="ig-kind">Reel</span><figcaption>Seu treino evoluiu ou só mudou?</figcaption></figure>
+            <figure class="ig-post ig-post--txt ig-post--marcos" data-peca="p2" role="button" tabindex="0"><span class="ig-kind">Colab</span><div class="ig-txt">Não teve reunião para escolher quem assinaria</div><figcaption>Chancela do Marcos · 21/10</figcaption></figure>
+            <figure class="ig-post" data-peca="p3" role="button" tabindex="0"><img src="img/mbv/peca-carrossel.webp" alt="" loading="lazy" decoding="async"><span class="ig-kind">Carrossel</span><figcaption>5 sinais de piloto automático</figcaption></figure>
+            <figure class="ig-post" data-peca="p4" role="button" tabindex="0"><img src="img/mbv/peca-queimou.webp" alt="" loading="lazy" decoding="async"><span class="ig-kind">Reel</span><figcaption>Desmistificação · Reel 03</figcaption></figure>
+            <figure class="ig-post" data-peca="p5" role="button" tabindex="0"><img src="img/mbv/kati-retrato.webp" alt="" loading="lazy" decoding="async"><span class="ig-kind">Reel</span><figcaption>A Kati olha 3 coisas antes de trocar</figcaption></figure>
+            <figure class="ig-post" data-peca="p6" role="button" tabindex="0"><img src="img/mbv/peca-enquete.webp" alt="" loading="lazy" decoding="async"><span class="ig-kind">Enquete</span><figcaption>Story · research e engajamento</figcaption></figure>
+            <figure class="ig-post" data-peca="p7" role="button" tabindex="0"><img src="img/mbv/peca-progressao.webp" alt="" loading="lazy" decoding="async"><span class="ig-kind">Carrossel</span><figcaption>Prova · beta com 15 alunas</figcaption></figure>
+            <figure class="ig-post" data-peca="p8" role="button" tabindex="0"><img src="img/mbv/capa-digital.webp" alt="" loading="lazy" decoding="async"><span class="ig-kind">Feed</span><figcaption>O MBV abriu · 10/11</figcaption></figure>
+            <figure class="ig-post" data-peca="p9" role="button" tabindex="0"><img src="img/mbv/peca-objecao.webp" alt="" loading="lazy" decoding="async"><span class="ig-kind">Carrossel</span><figcaption>Objeção · vende recusando</figcaption></figure>
           </div>
+          <p class="ig-dica">Clique em uma peça para abrir do lado.</p>
         </div>
-        <div class="ig-side">
-          <div class="ig-legend">
-            <h4>Mix por pilar nas 6 semanas</h4>
+        <div class="ig-detalhe">
+        <article class="ig-det ig-det--mix" data-det="mix">
+          <span class="ig-det-meta">Seis semanas, quatro estados mentais</span>
+          <h4>Um CTA por vez, e o pilar Produto nunca em dois dias seguidos</h4>
+          <div class="ig-bars">
             <div class="bar"><i style="--w:30%"></i><span>Diagnóstico <b>30%</b></span></div>
             <div class="bar"><i style="--w:20%"></i><span>Desmistificação <b>20%</b></span></div>
             <div class="bar"><i style="--w:20%"></i><span>Método <b>20%</b></span></div>
             <div class="bar"><i style="--w:15%"></i><span>Prova <b>15%</b></span></div>
             <div class="bar"><i style="--w:15%"></i><span>Produto <b>15%</b></span></div>
-            <p class="caption">Um feed por dia útil no aquecimento, dois na semana de lançamento. Produto nunca em dois dias seguidos.</p>
           </div>
-          <h4>Legenda pronta · post 3 do feed</h4>
-          <div class="copy-piece">
-            <p><b>5 sinais de que o seu treino de glúteo está no piloto automático.</b></p>
-            <p>1. Você treina glúteo há mais de um ano e não sabe dizer quanto levantava em março.<br>
-               2. Troca de exercício quando enjoa dele, e não quando ele para de entregar.<br>
-               3. Termina a série olhando o relógio, não a repetição que ainda dava.<br>
-               4. Escolhe o exercício da semana pelo que apareceu no feed.<br>
-               5. Mede se o treino foi bom pela queimação e pela dor do dia seguinte.</p>
-            <p>A Kati Santana atende alunas da Consultoria há três anos e diz que o item 1 é o que mais aparece. Não porque a aluna treina pouco. É porque ninguém ensinou que treino sem registro não tem como ser comparado, e sem comparação o treino muda todo mês enquanto a carga fica parada.</p>
-            <p>O teste é rápido. Pega o seu treino de glúteo de hoje e responde três coisas: quanto você levantou, há quantas semanas esse exercício está aí, e o que precisa acontecer para você trocar.</p>
-            <p>Travou em duas? Você não está sozinha, e dá para arrumar em três semanas.</p>
-            <p>Comenta <b>MBV</b> que a gente te manda no direct o diagnóstico de 5 perguntas. No fim ele diz qual dos três perfis é o seu e o que a Kati ajustaria primeiro.</p>
+          <div class="ig-regras">
+            <div><b>Ritmo</b><span>Um feed por dia útil no aquecimento, dois na semana de lançamento. Stories todo dia.</span></div>
+            <div><b>Resposta</b><span>Todo comentário respondido em até 1 hora nas duas primeiras horas do post.</span></div>
+            <div><b>Sticker</b><span>O link nos Stories existe porque a DM para quem não segue cai em Solicitações.</span></div>
           </div>
+        </article>
+        <article class="ig-det" data-det="p1" hidden>
+          <div class="ig-det-arte"><img src="img/mbv/peca-diagnostico.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="ig-det-copy">
+            <span class="ig-det-meta">Diagnóstico · Reel · 40 s · 22/10</span>
+            <h4>Você ainda faz o treino de glúteo que não traz resultado?</h4>
+            <p>Abre a campanha pelo problema, não pelo produto. Ninguém compra método antes de aceitar que o treino parou.</p>
+            <div class="ig-det-linhas">
+              <div><span>CTA único</span><b>Comente MBV</b></div>
+              <div><span>Etapa da jornada</span><b>Não percebi o problema</b></div>
+            </div>
+          </div>
+        </article>
+        <article class="ig-det" data-det="p2" hidden>
+          <div class="ig-det-arte"><div class="ig-det-txt ig-post--marcos">Não teve reunião para escolher quem assinaria</div></div>
+          <div class="ig-det-copy">
+            <span class="ig-det-meta">Prova · Post em colaboração · 21/10</span>
+            <h4>A Kati está no time há 3 anos. Quando o Marcos decidiu que a Consultoria teria um protocolo de glúteo, não teve reunião para escolher quem assinaria.</h4>
+            <p>É a peça mais importante da campanha: transfere autoridade de um perfil de 217 mil para uma especialista com 108 seguidores.</p>
+            <div class="ig-det-linhas">
+              <div><span>CTA único</span><b>Comente MBV</b></div>
+              <div><span>Etapa da jornada</span><b>Não conheço quem assina</b></div>
+            </div>
+          </div>
+        </article>
+        <article class="ig-det" data-det="p3" hidden>
+          <div class="ig-det-arte"><img src="img/mbv/peca-carrossel.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="ig-det-copy">
+            <span class="ig-det-meta">Diagnóstico · Carrossel · 6 telas · 23/10</span>
+            <h4>5 sinais de que o seu treino de glúteo está no piloto automático.</h4>
+            <p>A leitora se reconhece em pelo menos um sinal. É a peça com mais salvamento do aquecimento.</p>
+            <div class="ig-det-linhas">
+              <div><span>CTA único</span><b>Comente MBV</b></div>
+              <div><span>Etapa da jornada</span><b>Percebi o problema</b></div>
+            </div>
+            <div class="ig-legenda">
+              <span class="ig-legenda-tag">Legenda pronta para publicar</span>
+              <p>1. Você treina glúteo há mais de um ano e não sabe dizer quanto levantava em março.<br>2. Troca de exercício quando enjoa dele, e não quando ele para de entregar.<br>3. Termina a série olhando o relógio, não a repetição que ainda dava.<br>4. Escolhe o exercício da semana pelo que apareceu no feed.<br>5. Mede se o treino foi bom pela queimação e pela dor do dia seguinte.</p>
+              <p>A Kati atende alunas da Consultoria há três anos e diz que o item 1 é o que mais aparece. Não porque a aluna treina pouco: é porque ninguém ensinou que treino sem registro não tem como ser comparado.</p>
+              <p>Comenta <b>MBV</b> que a gente te manda no direct o diagnóstico de 5 perguntas.</p>
+            </div>
+          </div>
+        </article>
+        <article class="ig-det" data-det="p4" hidden>
+          <div class="ig-det-arte"><img src="img/mbv/peca-queimou.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="ig-det-copy">
+            <span class="ig-det-meta">Desmistificação · Reel · 40 s · 26/10</span>
+            <h4>Queimou = funcionou?</h4>
+            <p>Derruba a crença que sustenta o treino ruim. É o roteiro do Anexo 6, e é onde a Kati mostra critério técnico.</p>
+            <div class="ig-det-linhas">
+              <div><span>CTA único</span><b>Comente MBV</b></div>
+              <div><span>Etapa da jornada</span><b>Entendi que media errado</b></div>
+            </div>
+          </div>
+        </article>
+        <article class="ig-det" data-det="p5" hidden>
+          <div class="ig-det-arte"><img src="img/mbv/kati-retrato.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="ig-det-copy">
+            <span class="ig-det-meta">Método · Reel · 40 s · 28/10</span>
+            <h4>Antes de trocar um exercício, a Kati olha três coisas. O exercício é a última delas.</h4>
+            <p>Mostra o método sem entregar o protocolo. Quem quiser a ordem completa precisa do produto.</p>
+            <div class="ig-det-linhas">
+              <div><span>CTA único</span><b>Comente MBV</b></div>
+              <div><span>Etapa da jornada</span><b>Existe um método</b></div>
+            </div>
+          </div>
+        </article>
+        <article class="ig-det" data-det="p6" hidden>
+          <div class="ig-det-arte"><img src="img/mbv/peca-enquete.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="ig-det-copy">
+            <span class="ig-det-meta">Diagnóstico · Story com enquete · 24/10 e 21/11</span>
+            <h4>Você anota carga e repetições? Sempre, às vezes ou nunca.</h4>
+            <p>Coleta o dado que a newsletter de 17/11 vai publicar. Roda duas vezes: antes e depois da campanha.</p>
+            <div class="ig-det-linhas">
+              <div><span>CTA único</span><b>Sticker do diagnóstico</b></div>
+              <div><span>Etapa da jornada</span><b>Percebi o problema</b></div>
+            </div>
+          </div>
+        </article>
+        <article class="ig-det" data-det="p7" hidden>
+          <div class="ig-det-arte"><img src="img/mbv/peca-progressao.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="ig-det-copy">
+            <span class="ig-det-meta">Prova · Carrossel · 5 telas · 06/11</span>
+            <h4>De 50 para 60 kg no hip thrust em 5 semanas.</h4>
+            <p>Prova com número e com nome, saída do beta. Não promete resultado: mostra o que o registro permitiu enxergar.</p>
+            <div class="ig-det-linhas">
+              <div><span>CTA único</span><b>Link na bio (pré-venda)</b></div>
+              <div><span>Etapa da jornada</span><b>Funciona para gente como eu</b></div>
+            </div>
+          </div>
+        </article>
+        <article class="ig-det" data-det="p8" hidden>
+          <div class="ig-det-arte"><img src="img/mbv/capa-digital.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="ig-det-copy">
+            <span class="ig-det-meta">Produto · Post de abertura · 10/11</span>
+            <h4>O MBV está aberto. 8 semanas de glúteo com método, assinadas pela Kati Santana.</h4>
+            <p>Único post do lançamento que abre com a oferta. Tudo antes dele construiu o contexto que faz esse post fazer sentido.</p>
+            <div class="ig-det-linhas">
+              <div><span>CTA único</span><b>Link na bio (página do MBV)</b></div>
+              <div><span>Etapa da jornada</span><b>Quero comprar</b></div>
+            </div>
+          </div>
+        </article>
+        <article class="ig-det" data-det="p9" hidden>
+          <div class="ig-det-arte"><img src="img/mbv/peca-objecao.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="ig-det-copy">
+            <span class="ig-det-meta">Oferta e objeção · Carrossel · 4 telas · 13/11</span>
+            <h4>Treina há menos de 6 meses? Ainda não é para você.</h4>
+            <p>Vende recusando. Corta a compradora errada antes do checkout, que é mais barato do que reembolsar depois.</p>
+            <div class="ig-det-linhas">
+              <div><span>CTA único</span><b>Link na bio</b></div>
+              <div><span>Etapa da jornada</span><b>Serve para mim ou não</b></div>
+            </div>
+          </div>
+        </article>
         </div>
-      </div>`,
+      </div>
+      `,
     note:'O feed não vira catálogo. Ele leva a leitora do "não percebi o problema" até "quero saber se isso serve para mim", e o CTA único do aquecimento é sempre o mesmo: comentar MBV.'
   },
   blog:{

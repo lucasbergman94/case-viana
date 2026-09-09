@@ -137,6 +137,19 @@
     requestAnimationFrame(()=>{ajustarNav(palco);ajustarEscala(palco)});
   }
 
+  /* Peca do painel 02, Instagram: o quadro clicado abre do lado direito. O
+     conteudo dos nove detalhes esta no HTML da peca, nao aqui: o JS so troca
+     qual deles esta visivel. Clicar de novo no mesmo quadro volta para o mix. */
+  function abrirPeca(id){
+    const palco=document.getElementById('assetInlinePreview');
+    if(!palco) return;
+    const jaAberta=palco.querySelector('.ig-post.is-aberta[data-peca="'+id+'"]');
+    const alvo=jaAberta?'mix':id;
+    palco.querySelectorAll('.ig-det').forEach(d=>{d.hidden=d.dataset.det!==alvo});
+    palco.querySelectorAll('.ig-post').forEach(f=>f.classList.toggle('is-aberta',f.dataset.peca===alvo));
+    ajustarEscala(palco);
+  }
+
   function moverPasso(palco,dir){
     const passos=[...palco.querySelectorAll('.palco-passo')];
     if(passos.length<2) return;
@@ -187,10 +200,18 @@
       if(e.target.closest('[data-fechar-palco]')){fecharPalco();return}
       const seta=e.target.closest('.palco-seta');
       if(seta){moverPasso(document.getElementById('assetInlinePreview'),+seta.dataset.dir);return}
+      const quadro=e.target.closest('.ig-post[data-peca]');
+      if(quadro){abrirPeca(quadro.dataset.peca);return}
       const btn=e.target.closest('.asset-trigger');
       if(!btn) return;
       if(btn.classList.contains('chip')) abrirPalco(btn);
       renderInlineAsset(btn.dataset.asset);
+    });
+    diagnosis.addEventListener('keydown',e=>{
+      const quadro=e.target.closest && e.target.closest('.ig-post[data-peca]');
+      if(!quadro) return;
+      if(e.key!=='Enter' && e.key!==' ') return;
+      abrirPeca(quadro.dataset.peca); e.preventDefault();
     });
     document.addEventListener('keydown',e=>{
       if(!palcoAberto()) return;
