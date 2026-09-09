@@ -330,6 +330,27 @@
       if(ativo) renderInlineAsset(ativo.dataset.asset);
     },200);
   });
+  /* Indice do celular: um botao abre a lista inteira das secoes. A tira que
+     rolava na horizontal mostrava dois atalhos de cada vez. */
+  function initIndice(){
+    const botao=document.getElementById('navAbrir');
+    const nav=document.getElementById('navSecoes');
+    if(!botao||!nav) return;
+    const fechar=()=>{
+      document.body.classList.remove('indice-aberto');
+      botao.setAttribute('aria-expanded','false');
+    };
+    botao.addEventListener('click',()=>{
+      const abrir=!document.body.classList.contains('indice-aberto');
+      document.body.classList.toggle('indice-aberto',abrir);
+      botao.setAttribute('aria-expanded',abrir?'true':'false');
+    });
+    nav.addEventListener('click',e=>{ if(e.target.closest('a')) fechar() });
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') fechar() });
+    window.addEventListener('resize',()=>{ if(innerWidth>1100) fechar() });
+  }
+
   initCamadas();
   initEconomia();
+  initIndice();
 })();

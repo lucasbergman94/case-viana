@@ -3649,3 +3649,125 @@ h4{font-size:21px;line-height:1;font-weight:800}
 @media(min-width:1101px) and (min-height:790px) and (max-height:830px){ #s06 .aud{padding:8px 11px!important} }
 @media(min-width:1101px) and (max-width:1340px) and (max-height:830px){ #s06 .aud{padding:7px 10px!important} #s06 .aud b{font-size:12.5px} }
 @media(min-width:1101px) and (max-width:1340px) and (max-height:830px){ #s06 .aud .topicos{gap:2px;margin-top:3px} }
+
+/* --- Peca do CRM: legenda na mesma grade dos cards de cima -----------------
+   A faixa de legenda tinha colunas proprias, .1fr/1.15fr, e nao batia com a
+   conversa e os cards. Agora ela herda a mesma grade e o mesmo gap, entao o
+   card dos perfis tem a largura da conversa e o da regua tem a largura da
+   coluna da direita. A conversa distribui as bolhas na altura que sobra. */
+.crm-legenda{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:16px}
+.crm-topo>.chat-preview{align-content:space-between}
+@media(max-width:1100px){ .crm-legenda{grid-template-columns:1fr;gap:10px} }
+
+/* ==========================================================================
+   BLOCO 11 - MOBILE
+   O deck foi desenhado para caber numa tela por painel, e para isso quase todo
+   container tem linha de grade fixa, height:100% e min-height:0. No celular o
+   painel vira altura automatica, mas essas travas continuavam valendo: o
+   conteudo era espremido numa linha curta e, com overflow:visible, escorria
+   para dentro do painel seguinte. Era ate 16.857px de invasao no painel 05.
+   Abaixo de 1100px nada tem altura fixa: tudo flui.
+   ========================================================================== */
+@media(max-width:1100px){
+  .wrap{height:auto!important;min-height:0!important}
+  .content,.content-stack{
+    height:auto!important;min-height:0!important;
+    grid-template-rows:none!important;grid-template-columns:1fr!important;
+    align-content:start!important;align-items:start!important;
+  }
+  .camadas,.camadas-corpo{height:auto!important;min-height:0!important;overflow:visible!important}
+  .camada.is-active{height:auto!important;min-height:0!important;overflow:visible!important;display:grid}
+  .camada .card,.camadas .card{height:auto!important;min-height:0!important;overflow:visible!important}
+  .camada-grid{height:auto!important}
+
+  /* as grades internas de duas ou tres colunas viram uma coluna */
+  .econ-layout,.crm-mesa,.editorial,.seo-layout,.script-layout,.news-layout,
+  .report-layout,.thesis-grid,.vitrine,.lt-fase,.crm-mock,.crm-topo,.crm-legenda,
+  .deg-layout,.audience-grid,.price-strip,.kpi-strip,.anexo-grid,.ops,
+  .scenario-wrap,.mail-strip,.news-layout,.crm-esteira{
+    grid-template-columns:1fr!important;grid-template-rows:none!important;
+    height:auto!important;min-height:0!important;
+  }
+  .aud,.card,.glass,.price-block,.kpi-card,.topic,.node,.lane-cell,.step,.opportunity{
+    height:auto!important;min-height:0!important;overflow:visible!important;
+  }
+  .formula,.econ-cenarios,.crm-col,.crm-side,.crm-bloco,.news-side,.news-bloco,
+  .crm-auto,.crm-reguas,.rule-list,.field-grid,.mindset,.hera,.brief-cheio,
+  .topicos,.econ-be,.scenario-table,.mix-linha{
+    height:auto!important;min-height:0!important;grid-template-rows:none!important;
+  }
+  .crm-auto,.crm-reguas,.rule-list{grid-template-rows:none!important}
+  .crm-reguas div{overflow:visible!important}
+  .lane{grid-template-rows:none!important}
+  .keynote{margin-top:6px}
+}
+
+/* No mobile o deck usava "empilha tudo, sem abas". Com as camadas empilhadas o
+   painel 05 pedia 18.000px e a cadeia de linhas 1fr aninhadas nao crescia:
+   sobrava conteudo escorrendo para o painel seguinte. Duas decisoes:
+   1. as abas voltam. Sao botoes, funcionam melhor no toque do que uma parede
+      de 5 blocos sem rotulo, e devolvem o painel a um tamanho navegavel.
+   2. os containers de altura viram coluna flex, sem linha de grade nenhuma,
+      porque fr aninhado em altura indefinida nao resolve para o conteudo. */
+@media(max-width:1100px){
+  .camada{display:none!important}
+  .camada.is-active{display:block!important}
+  .camadas-tabs{display:flex!important;flex-wrap:wrap;gap:7px}
+  .camadas--trilho .camadas-tabs{display:flex!important}
+  .wrap,.content,.content-stack,.camadas,.camadas-corpo{
+    display:flex!important;flex-direction:column;
+    height:auto!important;min-height:0!important;
+  }
+  .wrap>*,.content>*,.content-stack>*,.camadas>*,.camadas-corpo>*{flex:0 0 auto;width:100%}
+  .camadas{gap:12px}
+  .camadas-corpo{gap:0}
+}
+
+/* --- Indice do celular: botao e lista, em vez de tira que rola --------------
+   A barra de secoes virava uma tira horizontal de 14 atalhos que so aparecia
+   dois de cada vez e precisava ser arrastada para achar qualquer coisa. Agora
+   e um botao no topo que abre a lista inteira, numerada, com o painel atual
+   marcado. Acima de 1100px nada muda. */
+.nav-abrir{display:none}
+@media(max-width:1100px){
+  .topbar{gap:10px;padding-right:14px}
+  .nav-abrir{
+    display:grid;gap:4px;align-content:center;justify-items:end;
+    width:42px;height:34px;padding:7px 8px;margin-left:auto;
+    border:1px solid rgba(244,239,232,.2);border-radius:11px;
+    background:rgba(255,255,255,.05);cursor:pointer;
+  }
+  .nav-abrir span{display:block;height:2px;width:20px;border-radius:2px;background:var(--ink);transition:transform .18s,opacity .18s}
+  .nav-abrir span:nth-child(2){width:14px}
+  .nav-abrir[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav-abrir[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .nav-abrir[aria-expanded="true"] span:nth-child(3){width:20px;transform:translateY(-6px) rotate(-45deg)}
+
+  .nav{
+    display:grid!important;position:fixed;left:0;right:0;top:56px;
+    max-height:calc(100svh - 56px);overflow-y:auto;overscroll-behavior:contain;
+    grid-template-columns:1fr 1fr;gap:8px;padding:14px 16px 22px;
+    background:rgba(7,8,7,.97);border-top:1px solid rgba(244,239,232,.12);
+    backdrop-filter:blur(14px);z-index:95;
+    mask-image:none;
+    opacity:0;visibility:hidden;transform:translateY(-8px);
+    transition:opacity .18s,transform .18s,visibility .18s;
+  }
+  body.indice-aberto .nav{opacity:1;visibility:visible;transform:none}
+  body.indice-aberto{overflow:hidden}
+  .nav a{
+    display:grid;grid-template-columns:auto 1fr;gap:9px;align-items:baseline;
+    padding:11px 12px;border:1px solid rgba(244,239,232,.12);border-radius:12px;
+    font-size:13px;white-space:normal;background:rgba(255,255,255,.03);
+  }
+  .nav a::before{
+    content:attr(data-n);font-family:var(--fD);font-weight:900;font-size:12px;
+    letter-spacing:.06em;color:var(--pink);
+  }
+  .nav a.active{border-color:var(--pink);background:rgba(228,53,111,.14)}
+  .nav a.nav-anexos{grid-column:1/-1;border-color:rgba(228,53,111,.45)}
+}
+@media(max-width:560px){
+  .nav a{font-size:12.5px;padding:10px 11px}
+  .brand{font-size:14px}
+}

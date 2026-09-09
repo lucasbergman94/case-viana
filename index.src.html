@@ -17,21 +17,24 @@
 <div id="progress"></div>
 <header class="topbar">
   <a class="brand" href="#s01"><b>MBV</b> · Case</a>
-  <nav class="nav" aria-label="Seções do case">
-    <a href="#s02">Diagnóstico</a>
-    <a href="#s03">Tese</a>
-    <a href="#s04">Produto</a>
-    <a href="#s05">GTM</a>
-    <a href="#s06">Audiência</a>
-    <a href="#s07">Conteúdo</a>
-    <a href="#s08">Produção</a>
-    <a href="#s09">CRM</a>
-    <a href="#s10">News</a>
-    <a href="#s11">SEO</a>
-    <a href="#s12">Operação</a>
-    <a href="#s13">Economia</a>
-    <a href="#s14">Legado</a>
-    <a href="#anexos" class="nav-anexos">Anexos</a>
+  <button class="nav-abrir" type="button" id="navAbrir" aria-expanded="false" aria-controls="navSecoes" aria-label="Abrir o índice das seções">
+    <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+  </button>
+  <nav class="nav" id="navSecoes" aria-label="Seções do case">
+    <a href="#s02" data-n="01">Diagnóstico</a>
+    <a href="#s03" data-n="02">Tese</a>
+    <a href="#s04" data-n="03">Produto</a>
+    <a href="#s05" data-n="04">GTM</a>
+    <a href="#s06" data-n="05">Audiência</a>
+    <a href="#s07" data-n="06">Conteúdo</a>
+    <a href="#s08" data-n="07">Produção</a>
+    <a href="#s09" data-n="08">CRM</a>
+    <a href="#s10" data-n="09">News</a>
+    <a href="#s11" data-n="10">SEO</a>
+    <a href="#s12" data-n="11">Operação</a>
+    <a href="#s13" data-n="12">Economia</a>
+    <a href="#s14" data-n="13">Legado</a>
+    <a href="#anexos" class="nav-anexos" data-n="14">Anexos</a>
   </nav>
 </header>
 <div class="counter"><b id="current">01</b> / 15</div>
