@@ -2184,3 +2184,10 @@ h4{font-size:21px;line-height:1;font-weight:800}
   .deg-layout .rung-price{font-size:19px} .deg-layout .rung b{font-size:13px}
   .deg-layout .rung-desc{font-size:10.5px;line-height:1.3}
 }
+
+/* --- Titulo: cada cor em sua propria linha ---------------------------------
+   O rosa comecava no meio da linha da frase preta e a leitura quebrava no
+   lugar errado, como em "Dez semanas ate abrir. Depois / disso, a pagina fica
+   o ano inteiro". Os paineis 02, 03 e 04 ja faziam isso com spans proprios;
+   agora vale para os quinze. */
+.intro h2>span{display:block}
