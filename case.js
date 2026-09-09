@@ -188,9 +188,9 @@ const assetExamples={
     eyebrow:'CRM / ManyChat · Memória + intenção',
     title:'Do comentário a um lead com contexto',
     body:`
-      <div class="modal-grid">
+      <div class="crm-mock">
         <div class="chat-preview">
-          <div class="bubble">Oi! Aqui é do Instagram da Consultoria. São 5 perguntas rápidas sobre o seu treino de glúteo e no fim eu digo qual é o seu perfil e o que a Kati ajustaria primeiro. Menos de 2 minutos. Bora?</div>
+          <div class="bubble">Oi! Aqui é do Instagram da Consultoria. São 5 perguntas rápidas sobre o seu treino de glúteo e no fim eu digo qual é o seu perfil. Menos de 2 minutos. Bora?</div>
           <div class="bubble user">Bora.</div>
           <div class="bubble">1 de 5. Há quanto tempo você treina glúteo com constância?</div>
           <div class="bubble user">Mais de 2 anos.</div>
@@ -198,20 +198,30 @@ const assetExamples={
           <div class="bubble user">Às vezes.</div>
           <div class="bubble">4 de 5. O que mais te trava hoje?</div>
           <div class="bubble user">Não sei se estou progredindo.</div>
-          <div class="bubble">Pronto. Você é <b>perfil B</b>, o mais comum aqui: treina há mais de um ano, não falta, e mesmo assim não consegue provar que ficou mais forte. O que a Kati faria primeiro: escolher 2 exercícios, anotar carga e repetições por 3 semanas e não trocar nada nesse período.<br><br>Quer o resultado completo, com os 3 ajustes por escrito e o tracker de 4 semanas? Me manda o seu melhor e-mail.</div>
+          <div class="bubble">Pronto. Você é <b>perfil B</b>: treina há mais de um ano, não falta, e mesmo assim não consegue provar que ficou mais forte. Quer o resultado completo, com os 3 ajustes por escrito e o tracker de 4 semanas? Me manda o seu melhor e-mail.</div>
         </div>
-        <div class="modal-copy">
-          <h4>O que fica gravado</h4>
-          <div class="crm-fields">
-            <code>origem = instagram</code><code>campanha = mbv_lancamento</code>
-            <code>tempo_treino = 2a+</code><code>registro = as_vezes</code>
-            <code>trava = progressao</code><code>perfil = b</code>
-            <code>etapa = diagnostico</code><code>comprou = nao</code>
+        <div class="crm-side">
+          <div class="crm-bloco">
+            <h4>O que fica gravado</h4>
+            <div class="crm-fields">
+              <code>origem = instagram</code><code>campanha = mbv_lancamento</code>
+              <code>tempo_treino = 2a+</code><code>registro = as_vezes</code>
+              <code>trava = progressao</code><code>perfil = b</code>
+              <code>etapa = diagnostico</code><code>comprou = nao</code>
+            </div>
+            <p class="caption">Os mesmos nomes do Anexo 3, em minúsculas e sem acento. Um nome só para cada coisa, do ManyChat ao GA4.</p>
           </div>
-          <p>O perfil é entregue de graça antes de pedir o e-mail. O e-mail vira troca por um upgrade real, não pedágio, e quem abandona no meio recebe uma única mensagem de retomada em 20 horas, dentro da janela da Meta.</p>
+          <div class="crm-bloco">
+            <h4>O que dispara depois</h4>
+            <div class="crm-auto">
+              <article><span class="crm-quando">20 h</span><div><b>Abandonou no meio</b><span>Uma mensagem só, com o resultado parcial e uma pergunta. Dentro da janela da Meta. Recupera de 15% a 30% e é o maior grupo do funil.</span></div></article>
+              <article><span class="crm-quando">Na hora</span><div><b>Deixou o e-mail</b><span>Entra na régua E0 a E4 pelo perfil declarado, não pela data de entrada. Perfil B recebe progressão; perfil C recebe base.</span></div></article>
+              <article><span class="crm-quando">Imediato</span><div><b>Comprou</b><span>Sai do fluxo comercial e entra em onboarding. Sem ebook_aberto em 72 h, push e e-mail. Sem treino1_registrado em 10 dias, mensagem da Kati.</span></div></article>
+            </div>
+          </div>
         </div>
       </div>`,
-    note:'Automação aqui não é disparar mais mensagem. É guardar contexto e usar comportamento para decidir qual mensagem faz sentido depois. Os mesmos nomes de campo do Anexo 3, em português e sem acento.'
+    note:'Automação aqui não é disparar mais mensagem. É guardar contexto e usar comportamento para decidir qual mensagem faz sentido depois. O perfil sai de graça antes de pedir o e-mail: o e-mail é troca por um upgrade real, não pedágio.'
   },
   cozinha:{
     eyebrow:'Cozinha do Viana · Cross-sell contextual',
@@ -232,16 +242,35 @@ const assetExamples={
     eyebrow:'Consultoria · Maior personalização',
     title:'O degrau que falta entre R$97 e R$1.099',
     body:`
-      <div class="modal-copy">
-        <h4>Um salto de 11x ninguém sobe</h4>
-        <p>Quem compra um ebook está comprando autonomia. Quem contrata a Consultoria está comprando delegação. São trabalhos opostos, e por isso a migração direta roda entre 1% e 3%, não os 5% que se costuma projetar.</p>
+      <div class="deg-layout">
+        <div class="deg-argumento">
+          <div>
+            <h4>Um salto de 11x ninguém sobe</h4>
+            <p>Quem compra um ebook está comprando autonomia. Quem contrata a Consultoria está comprando delegação. São trabalhos opostos, e por isso a migração direta roda entre 1% e 3%. A meta de 5% que o plano declara para janeiro não se atinge empurrando mais e-mail: ela precisa de um degrau no meio.</p>
+          </div>
+          <p class="deg-conta">Sem o degrau do meio, 260 compradoras rendem 6 alunas. Com ele, 31 sobem para a Turma, 18% delas migram, e o resultado é <b>10 alunas mais R$7.400 de margem no caminho</b>. É isso que transforma a tese de produto-ponte de afirmação em conta.</p>
+        </div>
+        <div class="deg-pontes">
+          <h4>As três pontes, e todas já existem no plano</h4>
+          <article class="ponte">
+            <span class="ponte-n">01</span>
+            <div><b>Crédito de 90 dias</b><p>Os R$97 abatem na Turma ou na Consultoria até 90 dias depois da compra. Quem sobe não paga duas vezes pela mesma decisão, e a casa compra a segunda conversão pelo custo da primeira.</p></div>
+          </article>
+          <article class="ponte">
+            <span class="ponte-n">02</span>
+            <div><b>O tracker vira laudo</b><p>Oito semanas de carga anotada é o único histórico que essa aluna tem na vida. Na semana 8 o MBV devolve a leitura do ciclo e mostra, com o número dela, o que só uma avaliação individual responde.</p></div>
+          </article>
+          <article class="ponte">
+            <span class="ponte-n">03</span>
+            <div><b>O segmento já está no CRM</b><p><code>comprou = sim</code> mais <code>treino1_registrado</code> e carga subindo. É a lista mais quente da casa e é exatamente o público do e-mail de janeiro, que o Anexo 1 já tem marcado.</p></div>
+          </article>
+        </div>
         <div class="ladder">
           <div class="rung"><span class="rung-price">Grátis</span><b>Conteúdo</b><span class="rung-desc">Feed, diagnóstico e newsletter</span></div>
           <div class="rung rung--now"><span class="rung-price">R$97</span><b>MBV</b><span class="rung-desc">O método por escrito, para aplicar sozinha</span><span class="rung-flag">este lançamento</span></div>
           <div class="rung rung--gap"><span class="rung-price">R$397</span><b>Turma MBV</b><span class="rung-desc">8 semanas, 4 encontros em grupo, correção por vídeo</span><span class="rung-flag">o degrau que falta</span></div>
           <div class="rung"><span class="rung-price">R$1.099</span><b>Consultoria</b><span class="rung-desc">Acompanhamento individual</span></div>
         </div>
-        <p>Sem o degrau do meio, 260 compradoras rendem 6 alunas. Com ele, 31 sobem para a Turma, dessas 18% migram para a Consultoria, e o resultado é <b>10 alunas mais R$7.400 de margem no caminho</b>. É isso que transforma a tese de produto-ponte de afirmação em conta.</p>
       </div>`,
     note:'Proposta para o horizonte 2, não para este lançamento. Mas é ela que transforma a tese de produto-ponte de afirmação em conta, e por isso entra no plano desde já como hipótese a validar com os primeiros compradores.'
   }

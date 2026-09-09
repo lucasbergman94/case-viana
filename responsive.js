@@ -38,12 +38,17 @@
      Em vez de rolar, a peca e quebrada em passos ate cada um caber na altura
      disponivel, e a navegacao e por setas. Se nem quebrando couber, o passo e
      reduzido proporcionalmente, com piso para nao ficar ilegivel. */
+  /* Os passos sao declarados no HTML da peca, com data-passo. Antes o corte era
+     automatico pelos filhos da raiz, e o corte caia onde o HTML calhasse de ter
+     irmaos: a peca da Consultoria virava 1 de 4 com um titulo sozinho na tela e
+     a do Blog virava 1 de 2 com meio palco vazio. Sem marcador, a peca e uma
+     tela so, que e o caso da maioria. */
   function blocosDe(html){
     const molde=document.createElement('div');
     molde.innerHTML=html;
-    let partes=[...molde.children];
-    if(partes.length===1 && partes[0].children.length>1) partes=[...partes[0].children];
-    return partes.map(p=>p.outerHTML);
+    const marcados=molde.querySelectorAll('[data-passo]');
+    if(marcados.length) return [...marcados].map(p=>p.outerHTML);
+    return [molde.innerHTML];
   }
 
   function ajustarNav(palco){
