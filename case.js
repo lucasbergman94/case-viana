@@ -424,18 +424,62 @@ const assetExamples={
   },
   cozinha:{
     eyebrow:'Cozinha do Viana · Cross-sell contextual',
-    title:'O fit existe e tem data',
+    title:'O fit existe, tem data e tem prateleira',
     body:`
-      <div class="modal-copy">
-        <h4>Nas duas direções</h4>
-        <div class="modal-list">
-          <div><b>Cozinha → MBV:</b> assinante entra na pré-venda com prioridade em 04/11, antes da abertura pública.</div>
-          <div><b>MBV → Cozinha:</b> quem comprou recebe a oferta no dia 14 pós-compra, quando já aplicou o método e já saiu da janela de reembolso.</div>
+      <div class="cozinha-mock">
+        <div class="cz-app">
+          <div class="cz-top">
+            <span class="cz-marca">Cozinha do Viana</span>
+            <span class="cz-nav">Receitas<i>·</i>Coleções<i>·</i>Planner<i>·</i><b>Métodos</b></span>
+          </div>
+          <div class="cz-corpo">
+            <span class="cz-eyebrow">Proposta · nova prateleira na área de membros</span>
+            <h4>Métodos Viana</h4>
+            <p>A Cozinha resolve o prato, os Métodos resolvem o treino. A assinante já paga a casa todo mês: a prateleira existe para ela não precisar sair do ecossistema para comprar o próximo passo.</p>
+            <div class="cz-cards">
+              <article class="cz-card cz-card--novo">
+                <div class="cz-capa"><img src="img/mbv/capa-digital.webp" alt="" loading="lazy" decoding="async"><span class="cz-selo">Novo</span></div>
+                <b>Método Bumbum Viana</b>
+                <span class="cz-ficha"><i>8 semanas</i><i>tracker</i><i>aula ao vivo</i></span>
+                <span class="cz-preco">R$77 para assinante <em>R$97</em></span>
+              </article>
+              <article class="cz-card cz-card--proximo">
+                <div class="cz-capa cz-capa--vazia">02</div>
+                <b>Método de Abdômen</b>
+                <span class="cz-ficha"><i>a definir</i></span>
+                <span class="cz-preco">Depende do MBV passar de 280</span>
+              </article>
+              <article class="cz-card cz-card--proximo">
+                <div class="cz-capa cz-capa--vazia">03</div>
+                <b>Método de Superiores</b>
+                <span class="cz-ficha"><i>a definir</i></span>
+                <span class="cz-preco">A pauta sai do Search Console</span>
+              </article>
+            </div>
+            <span class="cz-cta">Quero o método</span>
+          </div>
         </div>
-        <p>O dia 14 não é arbitrário. É quando quem está treinando glúteo com carga subindo bate na parede da alimentação, que é exatamente o que a Cozinha resolve.</p>
-        <p><b>Texto do e-mail:</b> "Você subiu carga em dois exercícios nas últimas três semanas. A próxima trava normalmente não é o treino. A Cozinha do Viana tem 13 mil receitas e o filtro de proteína por refeição."</p>
-      </div>`,
-    note:'Cross-sell com timing e argumento, não com "quando houver fit". A Cozinha amplia a relação; o MBV organiza o treino. Um produto reforça o outro sem criar promessa artificial.'
+        <div class="cz-fluxo">
+          <h4>Nas duas direções, e as duas com data</h4>
+          <article class="cz-dir">
+            <span class="cz-dir-n">Cozinha <em>&#8594;</em> MBV</span>
+            <b>Prioridade na pré-venda, 04/11</b>
+            <p>A assinante entra no lote de embaixadoras a R$77 antes da abertura pública. Não é desconto de campanha: é o preço de quem já paga a casa todo mês, e é por isso que ela não se sente passada para trás em 10/11.</p>
+          </article>
+          <article class="cz-dir">
+            <span class="cz-dir-n">MBV <em>&#8594;</em> Cozinha</span>
+            <b>Oferta no dia 14 pós-compra</b>
+            <p>O dia 14 não é arbitrário. É quando quem está treinando glúteo com carga subindo bate na parede da alimentação, e já saiu da janela de reembolso do ebook.</p>
+          </article>
+          <div class="cz-email">
+            <span class="cz-email-tag">O e-mail do dia 14, pronto</span>
+            <p>"Você subiu carga em dois exercícios nas últimas três semanas. A próxima trava normalmente não é o treino. A Cozinha do Viana tem 13 mil receitas com macro pronto e filtro de proteína por refeição."</p>
+          </div>
+          <p class="cz-conta">A prateleira também é a resposta para uma pergunta do painel de Economia: onde o próximo Método nasce sem custo de aquisição. Ele nasce aqui, na base que já paga.</p>
+        </div>
+      </div>
+      `,
+    note:'Cross-sell com timing e argumento, não com "quando houver fit". A prateleira de Métodos usa a mesma gramática dos cards de receita da Cozinha: onde a receita mostra caloria e macro, o método mostra semanas, tracker e aula. Nasce parecendo nativo em vez de enxertado.'
   },
   consultoria:{
     eyebrow:'Consultoria · Maior personalização',
