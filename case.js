@@ -339,35 +339,48 @@ const assetExamples={
     body:`
       <div class="news-mock">
         <div class="email-preview">
-          <div class="mail-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><em>Terça, 20/10 · 08h00</em></div>
-          <div class="subject">Você trocou de treino quantas vezes esse ano?</div>
-          <p class="preheader">A Kati diz que a troca quase nunca é o problema certo.</p>
-          <p>Trocar de exercício é a coisa mais fácil de fazer na academia. É também a primeira coisa que a gente faz quando o resultado trava.</p>
-          <p>A Kati Santana atende alunas da Consultoria há três anos e começa toda avaliação pelo mesmo lugar. Antes de olhar qual exercício você faz, ela pergunta quanto você levantava nele quatro semanas atrás. Quase ninguém sabe responder. E quando ninguém sabe responder, não dá para dizer se o exercício falhou ou se ele nunca chegou a ser testado.</p>
-          <p>Nas próximas três terças ela mostra o que olha antes de mexer em qualquer coisa: o registro, a progressão de carga e o critério que faz um exercício valer a vaga no seu treino.</p>
-          <p>Hoje o pedido é pequeno. No próximo treino de glúteo, anote a carga e as repetições de dois exercícios. Só isso.</p>
-          <span class="cta">Fazer o diagnóstico de 5 perguntas</span>
-          <p class="fineprint">Leva 2 minutos, acontece no direct do Instagram e termina dizendo qual dos três perfis é o seu.</p>
+          <div class="mail-top">
+            <span class="mail-av">V</span>
+            <div class="mail-de">
+              <b>Consultoria do Viana</b>
+              <span>para você · terça, 20/10, 08h00</span>
+            </div>
+            <span class="mail-tag">Edição T-3</span>
+          </div>
+          <div class="mail-corpo">
+            <div class="subject">Você trocou de treino quantas vezes esse ano?</div>
+            <p class="preheader">A Kati diz que a troca quase nunca é o problema certo.</p>
+            <p>Trocar de exercício é a coisa mais fácil de fazer na academia. É também a primeira coisa que a gente faz quando o resultado trava.</p>
+            <p>A Kati Santana atende alunas da Consultoria há três anos e começa toda avaliação pelo mesmo lugar. Antes de olhar qual exercício você faz, ela pergunta quanto você levantava nele quatro semanas atrás. Quase ninguém sabe responder. E quando ninguém sabe responder, não dá para dizer se o exercício falhou ou se ele nunca chegou a ser testado.</p>
+            <p>Hoje o pedido é pequeno. No próximo treino de glúteo, anote a carga e as repetições de dois exercícios. Só isso.</p>
+            <span class="cta">Fazer o diagnóstico de 5 perguntas</span>
+            <p class="fineprint">Leva 2 minutos, acontece no direct do Instagram e termina dizendo qual dos três perfis é o seu.</p>
+          </div>
           <div class="mail-footer">Consultoria do Viana · <b>o CTA da Consultoria continua aqui no rodapé</b>, nas cinco edições</div>
         </div>
         <div class="news-side">
-          <h4>As cinco terças, e o que muda em cada uma</h4>
-          <div class="news-rail">
-            <article class="nw"><span class="nw-date">20/10</span><b>Você trocou de treino quantas vezes esse ano?</b><span class="nw-goal">Problema · o produto não aparece</span></article>
-            <article class="nw"><span class="nw-date">27/10</span><b>3 erros, 500 diagnósticos, o mesmo padrão</b><span class="nw-goal">Captura · dado proprietário puxa o diagnóstico</span></article>
-            <article class="nw"><span class="nw-date">03/11</span><b>O que a Kati olha antes de trocar um exercício</b><span class="nw-goal">Confiança · teaser da pré-venda de amanhã</span></article>
-            <article class="nw nw--hi"><span class="nw-date">10/11</span><b>O MBV abriu: 8 semanas de glúteo, assinadas pela Kati</b><span class="nw-goal">Venda · a única edição que abre com oferta</span></article>
-            <article class="nw"><span class="nw-date">17/11</span><b>2.000 mulheres responderam. 61% travam no mesmo ponto.</b><span class="nw-goal">Reengajar · o dado do lançamento vira conteúdo</span></article>
+          <div class="news-bloco">
+            <h4>As cinco terças, e o que muda em cada uma</h4>
+            <div class="news-rail">
+              <article class="nw "><span class="nw-date">20/10<em>T-3</em></span><b>Você trocou de treino quantas vezes esse ano?</b><span class="nw-goal"><i>Problema</i>O produto não é mencionado nenhuma vez</span></article>
+              <article class="nw "><span class="nw-date">27/10<em>T-2</em></span><b>3 erros, 500 diagnósticos, o mesmo padrão</b><span class="nw-goal"><i>Captura</i>Dado proprietário puxando o diagnóstico</span></article>
+              <article class="nw "><span class="nw-date">03/11<em>T-1</em></span><b>O que a Kati olha antes de trocar um exercício</b><span class="nw-goal"><i>Confiança</i>Autoridade, e o teaser da pré-venda de amanhã</span></article>
+              <article class="nw nw--hi"><span class="nw-date">10/11<em>Abertura</em></span><b>O MBV abriu: 8 semanas de glúteo, assinadas pela Kati</b><span class="nw-goal"><i>Venda</i>A única edição que abre com a oferta</span></article>
+              <article class="nw "><span class="nw-date">17/11<em>T+1</em></span><b>2.000 mulheres responderam. 61% travam no mesmo ponto.</b><span class="nw-goal"><i>Reengajar</i>O dado do lançamento vira conteúdo editorial</span></article>
+            </div>
           </div>
-          <h4>O que não muda</h4>
-          <div class="modal-list">
-            <div>A estrutura fixa de terça continua: mesma abertura, mesmo bloco de leitura, mesmo rodapé.</div>
-            <div>O CTA da Consultoria não sai. O MBV ocupa o bloco principal e a Consultoria segue no rodapé.</div>
-            <div>Quem já comprou o MBV para de receber a régua e passa a receber a trilha de onboarding.</div>
-            <div>Os números de 17/11 só entram depois de existirem. Nenhum percentual é estimado antes.</div>
+          <div class="news-bloco">
+            <h4>O que não muda</h4>
+            <div class="news-regras">
+              <div><b>Estrutura</b><span>Mesma abertura, mesmo bloco de leitura, mesmo rodapé. A leitora de terça não percebe que virou campanha.</span></div>
+              <div><b>Rodapé</b><span>O CTA da Consultoria não sai em nenhuma das cinco. O MBV ocupa o bloco principal, não o canal inteiro.</span></div>
+              <div><b>Quem comprou</b><span>Sai da régua na hora e passa a receber a trilha de onboarding, não mais e-mail de venda.</span></div>
+              <div><b>Números</b><span>Os 61% de 17/11 só entram depois de existirem. Nenhum percentual é estimado antes do dado.</span></div>
+            </div>
           </div>
         </div>
-      </div>`,
+      </div>
+      `,
     note:'A newsletter mantém a estrutura fixa de terça e o CTA da Consultoria no rodapé. O MBV ocupa o bloco principal em cinco edições e sai depois, sem transformar o canal em campanha permanente.'
   },
   crm:{

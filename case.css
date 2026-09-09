@@ -2346,3 +2346,82 @@ h4{font-size:21px;line-height:1;font-weight:800}
   .blog-cards{grid-template-columns:1fr}
   .blog-art{grid-template-columns:1fr}
 }
+
+/* --- Peca da Newsletter: um e-mail com cara de e-mail -----------------------
+   O preview ocupava a largura inteira do palco, que e o que nenhum cliente de
+   e-mail faz, e as cinco tercas estavam escondidas no segundo passo. Agora o
+   e-mail tem largura de leitura, cabecalho de caixa de entrada e rodape, e a
+   direita mostra a regua das cinco edicoes e o que nao muda entre elas. */
+#s02 .palco-passo>.news-mock{
+  display:grid!important;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:18px;height:100%;min-height:0;align-items:stretch;
+}
+#s02 .palco-passo>.news-mock>*{min-height:0}
+#s02 .palco-corpo .email-preview{
+  padding:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:0;
+  max-width:600px;width:100%;justify-self:center;min-height:0;overflow:hidden;
+  box-shadow:0 26px 70px rgba(0,0,0,.4);
+}
+.mail-top{
+  display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:11px;align-items:center;
+  padding:13px 20px;border-bottom:1px solid rgba(37,33,34,.12);background:rgba(37,33,34,.045);
+}
+.mail-av{
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--fD);font-weight:900;font-size:16px;color:#fff;background:var(--grad);
+}
+.mail-de{display:grid;gap:1px;min-width:0}
+.mail-de b{font-size:13.5px;color:#252122;line-height:1.1}
+.mail-de span{font-size:11px;color:rgba(37,33,34,.55)}
+.mail-tag{
+  font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  color:var(--pink-dark,#CA195D);padding:4px 9px;border-radius:999px;border:1px solid rgba(202,25,93,.4);
+}
+.mail-corpo{display:grid;align-content:start;gap:11px;padding:20px;min-height:0;overflow:hidden}
+#s02 .palco-corpo .email-preview .subject{font-size:clamp(22px,1.75vw,30px);line-height:1}
+#s02 .palco-corpo .email-preview .preheader{margin-top:-5px}
+#s02 .palco-corpo .email-preview p{font-size:13.5px;line-height:1.56}
+#s02 .palco-corpo .email-preview .cta{
+  margin-top:3px;padding:12px 18px;border-radius:999px;font-size:12px;letter-spacing:.08em;
+}
+#s02 .palco-corpo .email-preview .mail-footer{
+  margin:0;padding:12px 20px;border-top:1px solid rgba(37,33,34,.14);background:rgba(37,33,34,.04);
+}
+
+.news-side{display:grid;grid-template-rows:minmax(0,1.32fr) minmax(0,1fr);gap:14px;align-content:stretch;min-height:0}
+.news-bloco{display:grid;grid-template-rows:auto minmax(0,1fr);gap:9px;min-height:0}
+.news-bloco h4{margin:0;font-size:clamp(16px,1.25vw,21px)}
+.news-rail{display:grid;grid-template-rows:repeat(5,minmax(0,1fr));gap:7px;min-height:0}
+.nw{align-content:center;min-height:0}
+.nw-date{display:flex;align-items:baseline;gap:8px}
+.nw-date em{font-style:normal;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);font-weight:600}
+.nw b{font-size:13px;line-height:1.22;color:var(--ink)}
+.nw-goal{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.nw-goal i{
+  font-style:normal;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  color:var(--pink);padding:2px 7px;border-radius:999px;background:rgba(228,53,111,.14);
+}
+.news-regras{display:grid;grid-template-rows:repeat(4,minmax(0,1fr));gap:7px;min-height:0}
+.news-regras div{
+  display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;align-items:baseline;align-content:center;
+  padding:8px 12px;border:1px solid var(--hair);border-radius:11px;min-height:0;
+}
+.news-regras b{font-family:var(--fD);text-transform:uppercase;font-size:13px;line-height:1;color:var(--pink)}
+.news-regras span{font-size:11.5px;line-height:1.4;color:var(--muted)}
+
+@media(min-width:1101px) and (max-height:820px){
+  .mail-top{padding:10px 15px}
+  .mail-av{width:29px;height:29px;font-size:14px}
+  .mail-corpo{padding:15px;gap:8px}
+  #s02 .palco-corpo .email-preview p{font-size:12px;line-height:1.48}
+  #s02 .palco-corpo .email-preview .cta{padding:9px 14px;font-size:11px}
+  #s02 .palco-corpo .email-preview .mail-footer{padding:9px 15px;font-size:10.5px}
+  .nw{padding:8px 11px}
+  .nw b{font-size:12px}
+  .news-regras div{padding:6px 10px}
+  .news-regras span{font-size:10.5px;line-height:1.34}
+}
+@media(max-width:1100px){
+  #s02 .palco-passo>.news-mock{grid-template-columns:1fr!important;height:auto}
+  .news-side,.news-rail,.news-regras,.news-bloco{grid-template-rows:none}
+}
