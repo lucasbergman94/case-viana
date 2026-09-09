@@ -549,7 +549,7 @@ h4{font-size:21px;line-height:1;font-weight:800}
   text-wrap:pretty;
 }
 /* titulos curtos podem crescer sem passar de duas linhas */
-#s12 .intro > h2,#s13 .intro > h2,#s10 .intro > h2{max-width:min(100%,36ch)}
+#s12 .intro > h2,#s13 .intro > h2{max-width:min(100%,36ch)}
 
 /* --- 1c. hero: a figura fica de pe ---------------------------
    O fundo aprovado era uma textura sem figura. A foto existia no HTML e
@@ -954,7 +954,7 @@ h4{font-size:21px;line-height:1;font-weight:800}
    livre porque os titulos de 02, 03 e 04 quebram em spans com display:block. */
 #s02 .intro h2,#s03 .intro h2,#s04 .intro h2{max-width:none!important;font-size:clamp(34px,2.9vw,52px)!important;line-height:.97!important}
 #s02 .diag-line-1{display:block;text-wrap:balance}
-#s02 .diag-line-2{display:block;text-wrap:balance;font-size:.72em;line-height:1.02;margin-top:.1em}
+#s02 .diag-line-2{display:block;text-wrap:balance;margin-top:.1em}
 #s02 .intro .sub{max-width:none!important;width:100%;font-size:clamp(17px,1.15vw,20px)!important}
 #s02 .diag-sub-line{display:block;margin-top:4px}
 
@@ -1019,7 +1019,7 @@ h4{font-size:21px;line-height:1;font-weight:800}
 #s04 .intro{gap:8px!important}
 #s04 .product-title-white,#s04 .product-title-pink{display:block}
 #s04 .product-title-white{display:block;text-wrap:balance}
-#s04 .product-title-pink{max-width:30ch}
+#s04 .product-title-pink{max-width:none}
 #s04 .intro .sub{max-width:none!important;font-size:clamp(16px,1.08vw,19px)!important;line-height:1.38!important}
 #s04 .product-sub-line{display:block;margin-top:2px}
 #s04 .content-stack{display:grid!important;grid-template-rows:minmax(0,1fr) auto!important;gap:10px!important;min-height:0!important}
@@ -1039,14 +1039,12 @@ h4{font-size:21px;line-height:1;font-weight:800}
 #s04 .keynote{margin-top:0!important}
 
 @media(max-width:1180px){
-  #s02 .diag-line-2{font-size:.68em}
   #s02 .asset-logic-inline{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important}
   #s04 .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(3,minmax(0,1fr))!important}
   #s04 .price-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 
 @media(max-width:860px){
   .hero-provocation-v2{max-width:100%!important}
-  #s02 .diag-line-2{font-size:.82em}
   #s02 .asset-logic-inline{grid-template-columns:1fr!important;height:auto!important;overflow:visible!important}
   #s02 .content{overflow:visible!important}
   .asset-inline-preview{min-height:520px;max-height:none}
