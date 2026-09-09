@@ -292,7 +292,6 @@
 
     function recalcular(){
       const inv=ler(campoInv);
-      let base=null;
       tabela.querySelectorAll('.sc-row[data-cenario]').forEach(linha=>{
         const iL=linha.querySelector('[data-campo="leads"]');
         const iC=linha.querySelector('[data-campo="conv"]');
@@ -304,7 +303,6 @@
         const celR=linha.querySelector('[data-resultado]');
         if(celC) celC.textContent=compras.toLocaleString('pt-BR');
         if(celR){celR.textContent=econSinal(resultado);celR.className=resultado<0?'neg':'pos'}
-        if(linha.classList.contains('sc-row--base')) base={compras,resultado};
       });
       const escrever=(chave,texto)=>{
         const el=painel.querySelector('[data-econ="'+chave+'"]');
@@ -313,21 +311,10 @@
       escrever('inv','R$'+econNum(inv));
       escrever('be97',econEquilibrio(inv,ECON.mLote,ECON.mCheia).toLocaleString('pt-BR')+' compras');
       escrever('be147',econEquilibrio(inv,ECON.mLote147,ECON.mCheia147).toLocaleString('pt-BR')+' compras');
-      if(base){
-        escrever('base97',econSinal(base.resultado));
-        escrever('base147',econSinal(econMargem(base.compras,ECON.mLote147,ECON.mCheia147)-inv));
-        escrever('veredito',base.resultado<0?'a janela ainda fecha no vermelho':'a janela já fecha no azul');
-      }
     }
 
     painel.addEventListener('input',e=>{
       if(e.target.id==='econInvest'||e.target.classList.contains('sc-input')) recalcular();
-    });
-    painel.addEventListener('click',e=>{
-      const preset=e.target.closest('.econ-preset');
-      if(!preset) return;
-      campoInv.value=preset.dataset.invest;
-      recalcular();
     });
   }
 

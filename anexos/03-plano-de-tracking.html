@@ -103,6 +103,15 @@ footer{border-top:1px solid var(--rule);padding:22px var(--pad);font-family:var(
 <p class="eyebrow">MBV · Método Bumbum Viana · anexo 3</p>
 <h1>Plano de tracking</h1>
 <p class="lead">Dez eventos cobrem o funil inteiro, do primeiro toque no diagnóstico ao primeiro treino registrado. As UTMs dizem de onde cada visita veio. Com isso, a leitura por gargalo do painel de Economia vira número, e o relatório de 30/11 sai sem estimativa.</p>
+<h2>Regras</h2>
+<ul>
+<li>Nomes em minúsculas, sem acento, palavras separadas por underline: <span class="label" style="color:var(--ink)">diagnostico_concluido</span>, nunca "Diagnóstico Concluído".</li>
+<li>Um evento por ação. Se uma ação precisa de dois eventos, o desenho está errado.</li>
+<li>Validar cada evento em celular antes de ir ao ar, porque é lá que a audiência está. Compra de teste com Pix e cartão na semana 6.</li>
+<li>Sem dado pessoal no evento: nada de nome, e-mail ou telefone em propriedade. O CRM guarda a pessoa; o GA4 guarda o comportamento.</li>
+<li>Toda URL que sai de um canal próprio leva as quatro UTMs. Link sem UTM conta como "direto" e some da leitura.</li>
+<li>O plano é revisado no post-mortem de 20/11. Evento que ninguém leu em novembro sai da lista.</li>
+</ul>
 <h2>A. Eventos</h2><div class="tw">
 <table id="t-ev">
 <caption>Eventos do funil do MBV</caption>
@@ -135,16 +144,7 @@ footer{border-top:1px solid var(--rule);padding:22px var(--pad);font-family:var(
 <tr><td>E-mail de nutrição e venda</td><td class="m">email</td><td class="m">email</td><td class="m">mbv_lancamento</td><td class="w">e1_muda_ou_progride, v1_mbv_aberto, v6_ultimas_6h</td></tr>
 </tbody>
 </table>
-</div><h2>Regras</h2>
-<ul>
-<li>Nomes em minúsculas, sem acento, palavras separadas por underline: <span class="label" style="color:var(--ink)">diagnostico_concluido</span>, nunca "Diagnóstico Concluído".</li>
-<li>Um evento por ação. Se uma ação precisa de dois eventos, o desenho está errado.</li>
-<li>Validar cada evento em celular antes de ir ao ar, porque é lá que a audiência está. Compra de teste com Pix e cartão na semana 6.</li>
-<li>Sem dado pessoal no evento: nada de nome, e-mail ou telefone em propriedade. O CRM guarda a pessoa; o GA4 guarda o comportamento.</li>
-<li>Toda URL que sai de um canal próprio leva as quatro UTMs. Link sem UTM conta como "direto" e some da leitura.</li>
-<li>O plano é revisado no post-mortem de 20/11. Evento que ninguém leu em novembro sai da lista.</li>
-</ul>
-</main>
+</div></main>
 <footer>Case preparado por Lucas Bergman, setembro de 2026. Números de resultado são cenários de planejamento.</footer>
 <script>
 

@@ -196,7 +196,7 @@
 </section>
 <section class="panel paper" id="s05" data-slide="05">
   <div class="wrap">
-    <div class="intro"><p class="eyebrow">04 · Go-to-market</p><h2><span>Oito semanas até abrir, dez até fechar o ciclo.</span><span class="pink">Depois disso, a página fica o ano inteiro.</span></h2><p class="sub">Cinco fases com data, e um ponto de decisão fechando cada uma. A quinta é a Preparação, que vem antes do aquecimento: sem ebook escrito, página no ar e tracking testado, as outras quatro não têm o que lançar. Nenhuma fase avança sem bater o número da anterior. A janela respeita a turma da Consultoria individualizada, que começa em 15/10: o MBV fica em silêncio até 20/10 para não competir com a matrícula.</p></div>
+    <div class="intro"><p class="eyebrow">04 · Go-to-market</p><h2><span>Oito semanas até abrir, dez até fechar o ciclo.</span><span class="pink">Depois disso, a página fica o ano inteiro.</span></h2><p class="sub">Cinco fases com data, e um ponto de decisão fechando cada uma. Nenhuma fase avança sem bater o número da anterior. A janela respeita a turma da Consultoria individualizada, que começa em 15/10: o MBV fica em silêncio até 20/10 para não competir com a matrícula.</p></div>
     <div class="content"><div class="camadas camadas--trilho">
       <div class="camadas-tabs lt-trilho" role="tablist" aria-label="Fases do go-to-market">
         <button class="camada-tab lt-marco is-active" type="button" role="tab" aria-selected="true" data-alvo="f1">
@@ -558,8 +558,7 @@
         <div class="eyebrow">Cenários da janela</div>
         <div class="econ-invest">
           <label for="econInvest">Investimento na ação</label>
-          <span class="econ-campo">R$<input id="econInvest" type="number" min="0" max="500000" step="500" value="10000" inputmode="numeric"></span>
-          <button type="button" class="econ-preset" data-invest="18500">usar a premissa do case, R$18.500</button>
+          <span class="econ-campo">R$<input id="econInvest" type="number" min="0" max="500000" step="500" value="10000" inputmode="numeric"></span>
         </div>
       </div>
       <div class="scenario-table" id="econTabela">
@@ -569,8 +568,8 @@
         <div class="sc-row" data-cenario data-leads="4000" data-conv="7"><span>Otimista</span><span>4.000</span><span>7,0%</span><span data-compras>280</span><span data-resultado class="pos">+R$8.570</span></div>
         <div class="sc-row sc-row--novo" data-cenario><span>Novo cenário</span><span><input class="sc-input" data-campo="leads" type="number" min="0" max="1000000" step="100" value="1800" inputmode="numeric" aria-label="Leads do novo cenário"></span><span><input class="sc-input sc-input--pct" data-campo="conv" type="number" min="0" max="100" step="0.1" value="6.5" inputmode="decimal" aria-label="Conversão do novo cenário, em porcento"></span><span data-compras>117</span><span data-resultado class="neg">−R$2.677</span></div>
       </div>
-      <div class="econ-read"><h3>O que essa tabela diz</h3><p>Com <b data-econ="inv">R$10.000</b> de investimento, o equilíbrio a R$97 fica em <b data-econ="be97">156 compras</b>. O cenário base entrega 144, então <b data-econ="veredito">a janela ainda fecha no vermelho</b>.</p><p>A R$147, com o lote a R$97, a margem sobe de R$69 para R$106 e o equilíbrio cai para <b data-econ="be147">112 compras</b>. As mesmas 144 passam de <b data-econ="base97">−R$814</b> para <b data-econ="base147">+R$3.414</b>.</p><p>O retorno não está na janela, está no evergreen. Precisa ser dito antes de começar, e não descoberto em 30/11.</p></div>
-      <p class="caption">Todas as linhas usam o mesmo mix: as 50 primeiras compras a R$77, margem de R$54, e o restante a R$97, margem de R$69. A premissa de produção do case é R$18.500.</p>
+      <div class="econ-read"><h3>Quantas compras a conta precisa</h3><div class="econ-be"><div><span>A R$97</span><b data-econ="be97">156 compras</b><em>margem de R$69 por pedido</em></div><div><span>A R$147</span><b data-econ="be147">112 compras</b><em>margem de R$106, lote a R$97</em></div></div><p>Ponto de equilíbrio com <b data-econ="inv">R$10.000</b> de investimento na ação. Mude o campo acima e os dois se refazem.</p></div>
+      <p class="caption">Todas as linhas usam o mesmo mix: as 50 primeiras compras a R$77, com margem de R$54, e o restante a R$97, com margem de R$69. O investimento na ação entra igual em todas elas.</p>
       </article>
       </div></div>
 

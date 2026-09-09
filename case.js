@@ -391,8 +391,10 @@ const assetExamples={
     title:'Do comentário a um lead com contexto',
     body:`
       <div class="crm-mock">
+        <div class="crm-topo">
         <div class="chat-preview">
-          <div class="bubble">Oi! Aqui é do Instagram da Consultoria. São 5 perguntas rápidas sobre o seu treino de glúteo e no fim eu digo qual é o seu perfil. Menos de 2 minutos. Bora?</div>
+          <div class="bubble user">MBV</div>
+          <div class="bubble">Achei o seu <b>MBV</b> no comentário. São 5 perguntas rápidas e no fim eu digo qual é o seu perfil. Bora?</div>
           <div class="bubble user">Bora.</div>
           <div class="bubble">1 de 5. Há quanto tempo você treina glúteo com constância?</div>
           <div class="bubble user">Mais de 2 anos.</div>
@@ -404,7 +406,7 @@ const assetExamples={
           <div class="bubble user">Não sei se estou progredindo.</div>
           <div class="bubble">5 de 5. Onde você treina?</div>
           <div class="bubble user">Academia completa.</div>
-          <div class="bubble">Pronto. Você é <b>perfil B</b>: treina há mais de um ano, não falta, e mesmo assim não consegue provar que ficou mais forte. Quer o resultado completo, com os 3 ajustes por escrito e o tracker de 4 semanas? Me manda o seu melhor e-mail.</div>
+          <div class="bubble">Pronto, você é <b>perfil B</b>. Quer o resultado completo, com os 3 ajustes e o tracker de 4 semanas? Me manda o seu e-mail.</div>
         </div>
         <div class="crm-side">
           <div class="crm-bloco">
@@ -423,12 +425,28 @@ const assetExamples={
             <h4>O que dispara depois</h4>
             <div class="crm-auto">
               <article><span class="crm-quando">20 h</span><div><b>Abandonou no meio</b><span>Uma mensagem só, com o resultado parcial e uma pergunta. Dentro da janela da Meta. Recupera de 15% a 30% e é o maior grupo do funil.</span></div></article>
-              <article><span class="crm-quando">Na hora</span><div><b>Deixou o e-mail</b><span>Entra na régua E0 a E4 pelo perfil declarado, não pela data de entrada. Perfil B recebe progressão; perfil C recebe base.</span></div></article>
+              <article><span class="crm-quando">Na hora</span><div><b>Deixou o e-mail</b><span>Entra na régua de nutrição, E0 a E4, escolhida pelo perfil declarado e não pela data de entrada. B recebe a versão de progressão; A e C recebem a de base.</span></div></article>
               <article><span class="crm-quando">Imediato</span><div><b>Comprou</b><span>Sai do fluxo comercial e entra em onboarding. Sem ebook_aberto em 72 h, push e e-mail. Sem treino1_registrado em 10 dias, mensagem da Kati.</span></div></article>
             </div>
           </div>
         </div>
-      </div>`,
+        </div>
+        <div class="crm-legenda">
+          <div class="crm-leg">
+            <span class="crm-leg-rot">Os três perfis que o diagnóstico devolve</span>
+            <ul>
+              <li><b>A</b>Menos de 6 meses de treino. Ainda não é o público do MBV.</li>
+              <li><b>B</b>Mais de um ano, constante, e não registra carga. É o público do MBV.</li>
+              <li><b>C</b>Já registra, e mesmo assim travou.</li>
+            </ul>
+          </div>
+          <div class="crm-leg">
+            <span class="crm-leg-rot">A régua de nutrição, E0 a E4</span>
+            <p class="crm-regua"><b>E0</b> resultado do diagnóstico <b>E1</b> quanto você levantava em março <b>E2</b> o erro que parece evolução <b>E3</b> os 4 critérios da Kati <b>E4</b> do princípio à aplicação</p>
+          </div>
+        </div>
+      </div>
+      `,
     note:'Automação aqui não é disparar mais mensagem. É guardar contexto e usar comportamento para decidir qual mensagem faz sentido depois. O perfil sai de graça antes de pedir o e-mail: o e-mail é troca por um upgrade real, não pedágio.'
   },
   cozinha:{
@@ -498,27 +516,15 @@ const assetExamples={
         <div class="ladder">
           <div class="rung"><span class="rung-price">Grátis</span><b>Conteúdo</b><span class="rung-desc">Feed, diagnóstico e newsletter</span></div>
           <div class="rung rung--now"><span class="rung-price">R$97</span><b>MBV</b><span class="rung-desc">O método por escrito, para aplicar sozinha</span><span class="rung-flag">este lançamento</span></div>
-          <div class="rung rung--gap"><span class="rung-price">R$197</span><b>Passe Métodos</b><span class="rung-desc">Todos os Métodos conforme saem, em vez de um a um</span><span class="rung-flag">proposta</span></div>
-          <div class="rung rung--gap"><span class="rung-price">R$397</span><b>Turma MBV</b><span class="rung-desc">O mesmo protocolo, com correção e grupo</span><span class="rung-flag">proposta</span></div>
+          <div class="rung rung--gap"><span class="rung-price">R$397</span><b>Passe Métodos</b><span class="rung-desc">Todos os Métodos conforme saem, em vez de um a um</span><span class="rung-flag">proposta</span></div>
+          <div class="rung rung--gap"><span class="rung-price">R$597</span><b>Turma MBV</b><span class="rung-desc">O mesmo protocolo, com correção e grupo</span><span class="rung-flag">proposta</span></div>
           <div class="rung"><span class="rung-price">R$1.099</span><b>Individualizada</b><span class="rung-desc">3 meses com especialista do time, a Batalha dos Shapes</span></div>
           <div class="rung rung--topo"><span class="rung-price">High-ticket</span><b>Direto com o Marcos</b><span class="rung-desc">Acompanhamento com ele, acima da individualizada</span><span class="rung-flag">o topo</span></div>
         </div>
         <div class="deg-propostas">
           <article class="deg-proposta">
             <span class="dp-tag">Proposta 1 · horizonte 2</span>
-            <div class="dp-topo"><b>Turma MBV</b><span class="dp-preco">R$397</span></div>
-            <p class="dp-oque">O mesmo protocolo do MBV, com correção e grupo. Oito semanas, quatro encontros ao vivo.</p>
-            <ul class="topicos">
-              <li><b>Turma</b>30 alunas por vez, com abertura a cada 8 semanas</li>
-              <li><b>Ao vivo</b>4 encontros de 60 min com a Kati, um a cada duas semanas</li>
-              <li><b>Correção</b>A aluna manda o vídeo da execução e recebe a devolutiva em 48 h</li>
-              <li><b>Crédito</b>Quem comprou o MBV abate os R$97 até 90 dias depois</li>
-            </ul>
-            <p class="dp-conta">Sem esse degrau, 260 compradoras rendem 6 alunas na individualizada. Com ele, 31 sobem para a Turma, 18% delas migram, e o resultado é <b>10 alunas mais R$7.400 de margem no caminho</b>.</p>
-          </article>
-          <article class="deg-proposta">
-            <span class="dp-tag">Proposta 2 · horizonte 2</span>
-            <div class="dp-topo"><b>Passe Métodos Viana</b><span class="dp-preco">R$197 <em>ou R$19 por mês</em></span></div>
+            <div class="dp-topo"><b>Passe Métodos Viana</b><span class="dp-preco">R$397 <em>ou R$39 por mês</em></span></div>
             <p class="dp-oque">Acesso a todos os Métodos Viana conforme eles saem, em vez de comprar um a um.</p>
             <ul class="topicos">
               <li><b>Catálogo</b>Começa no MBV e recebe cada Método novo sem pagar de novo</li>
@@ -527,6 +533,18 @@ const assetExamples={
               <li><b>Upgrade</b>Quem já comprou o MBV entra pagando a diferença</li>
             </ul>
             <p class="dp-conta">Transforma compra avulsa em relação recorrente e responde de onde o próximo Método nasce sem custo de aquisição: <b>ele nasce na base que já paga</b>.</p>
+          </article>
+          <article class="deg-proposta">
+            <span class="dp-tag">Proposta 2 · horizonte 2</span>
+            <div class="dp-topo"><b>Turma MBV</b><span class="dp-preco">R$597</span></div>
+            <p class="dp-oque">O mesmo protocolo do MBV, com correção e grupo. Oito semanas, quatro encontros ao vivo.</p>
+            <ul class="topicos">
+              <li><b>Turma</b>30 alunas por vez, com abertura a cada 8 semanas</li>
+              <li><b>Ao vivo</b>4 encontros de 60 min com a Kati, um a cada duas semanas</li>
+              <li><b>Correção</b>A aluna manda o vídeo da execução em um dia e recebe a devolutiva com os ajustes para a semana seguinte</li>
+              <li><b>Crédito</b>Quem comprou o MBV abate os R$97 até 90 dias depois</li>
+            </ul>
+            <p class="dp-conta">Sem esse degrau, 260 compradoras rendem 6 alunas na individualizada. Com ele, 31 sobem para a Turma, 18% delas migram, e o resultado é <b>10 alunas mais R$11.100 de margem no caminho</b>.</p>
           </article>
         </div>
       </div>
