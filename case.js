@@ -474,7 +474,7 @@ const assetExamples={
                 <div class="cz-capa cz-capa--vazia">02</div>
                 <b>Método de Abdômen</b>
                 <span class="cz-ficha"><i>a definir</i></span>
-                <span class="cz-preco">Depende do MBV passar de 280</span>
+                <span class="cz-preco">Depende do MBV bater o cenário otimista</span>
               </article>
               <article class="cz-card cz-card--proximo">
                 <div class="cz-capa cz-capa--vazia">03</div>
