@@ -1338,7 +1338,7 @@ h4{font-size:21px;line-height:1;font-weight:800}
 /* O portao tem duas frases curtas num card da altura das entregas. Com a nota
    presa embaixo sobravam 370px de vazio no meio; agora o conjunto centraliza. */
 .lt-gate{
-  display:grid;grid-template-rows:auto auto auto;gap:8px;align-content:center;padding:16px 18px;
+  display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;gap:9px;align-content:stretch;padding:16px 18px;
   border-color:rgba(202,25,93,.4)!important;
   background:linear-gradient(180deg,rgba(202,25,93,.10),rgba(202,25,93,.025))!important;
 }
@@ -2614,7 +2614,8 @@ h4{font-size:21px;line-height:1;font-weight:800}
 /* --- Painel 13: os cenarios ocupam a coluna que era das premissas ----------
    O card de premissas saiu. A tabela de cenarios sobe para a camada da conta e
    a leitura desconfortavel vem logo abaixo dela, que e onde ela tem efeito. */
-#s13 .econ-cenarios{display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;gap:11px;align-content:start;min-height:0}
+/* o card nao herdava o padding do .formula e o texto encostava na borda */
+#s13 .econ-cenarios{display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;gap:11px;align-content:start;min-height:0;padding:18px 20px}
 #s13 .econ-cenarios .scenario-table{margin:0}
 #s13 .econ-read{
   padding:12px 14px;border-left:2px solid var(--pink);background:rgba(228,53,111,.07);
@@ -2803,4 +2804,35 @@ h4{font-size:21px;line-height:1;font-weight:800}
   .crm-col .rule-list span{font-size:10.5px;line-height:1.32}
   .crm-col .field-grid code{padding:6px 8px;font-size:10px}
   .crm-col .caption{font-size:10px;line-height:1.32}
+}
+@media(min-height:841px) and (max-height:1010px) and (min-width:1101px){ #s13 .econ-cenarios{padding:14px 16px} }
+@media(min-width:1101px) and (max-height:820px){ #s13 .econ-cenarios{padding:11px 13px} }
+
+/* --- Painel 05: o portao deixa de ser so um numero -------------------------
+   O card tinha uma frase e uma nota, e ficava com 300px de vazio no meio.
+   Agora carrega o criterio de passagem, os quatro marcos datados da fase e o
+   que acontece se o numero nao vier. */
+.lt-gate-num{display:grid;gap:3px}
+.lt-gate-num span{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--pink)}
+.lt-gate-num b{font-family:var(--fD);text-transform:uppercase;font-size:clamp(16px,1.25vw,21px);line-height:1.04}
+.paper .lt-gate-num b{color:var(--paper-copy)}
+.lt-gate-marcos{display:grid;grid-template-rows:auto minmax(0,1fr);gap:5px;min-height:0}
+.lt-gate-rotulo{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:rgba(21,18,18,.42)}
+.lt-gate-marcos ul{list-style:none;margin:0;padding:0;display:grid;grid-auto-rows:minmax(0,1fr);gap:2px;min-height:0}
+.lt-gate-marcos li{
+  display:grid;grid-template-columns:minmax(62px,auto) minmax(0,1fr);gap:10px;align-items:baseline;
+  padding:5px 0;border-top:1px solid rgba(42,37,38,.14);font-size:12px;line-height:1.34;color:rgba(21,18,18,.72);
+}
+.lt-gate-marcos li:first-child{border-top:0}
+.lt-gate-marcos li>b{font-family:var(--fD);font-weight:900;font-size:12.5px;line-height:1.1;color:var(--pink)}
+.lt-gate .lt-gate-nota{align-self:end}
+@media(min-height:841px) and (max-height:1010px) and (min-width:1101px){
+  .lt-gate-marcos li{padding:4px 0;font-size:11px;line-height:1.3}
+  .lt-gate-marcos li>b{font-size:11.5px}
+}
+@media(min-width:1101px) and (max-height:820px){
+  .lt-gate{gap:6px}
+  .lt-gate-num b{font-size:14px}
+  .lt-gate-marcos li{padding:3px 0;font-size:10px;line-height:1.26;gap:8px}
+  .lt-gate-marcos li>b{font-size:10.5px}
 }
