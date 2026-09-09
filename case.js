@@ -102,11 +102,11 @@ const assetExamples={
           <span class="ig-det-meta">Seis semanas, quatro estados mentais</span>
           <h4>Um CTA por vez, e o pilar Produto nunca em dois dias seguidos</h4>
           <div class="ig-bars">
-            <div class="bar"><i style="--w:30%"></i><span>Diagnóstico <b>30%</b></span></div>
-            <div class="bar"><i style="--w:20%"></i><span>Desmistificação <b>20%</b></span></div>
-            <div class="bar"><i style="--w:20%"></i><span>Método <b>20%</b></span></div>
-            <div class="bar"><i style="--w:15%"></i><span>Prova <b>15%</b></span></div>
-            <div class="bar"><i style="--w:15%"></i><span>Produto <b>15%</b></span></div>
+            <div class="bar pil-diag"><i style="--w:30%"></i><span>Diagnóstico <b>30%</b></span></div>
+            <div class="bar pil-desm"><i style="--w:20%"></i><span>Desmistificação <b>20%</b></span></div>
+            <div class="bar pil-metodo"><i style="--w:20%"></i><span>Método <b>20%</b></span></div>
+            <div class="bar pil-prova"><i style="--w:15%"></i><span>Prova <b>15%</b></span></div>
+            <div class="bar pil-produto"><i style="--w:15%"></i><span>Produto <b>15%</b></span></div>
           </div>
           <div class="ig-regras">
             <div><b>Ritmo</b><span>Um feed por dia útil no aquecimento, dois na semana de lançamento. Stories todo dia.</span></div>
@@ -345,7 +345,7 @@ const assetExamples={
               <b>Consultoria do Viana</b>
               <span>para você · terça, 20/10, 08h00</span>
             </div>
-            <span class="mail-tag">Edição T-3</span>
+            <span class="mail-tag">Edição S-3</span>
           </div>
           <div class="mail-corpo">
             <div class="subject">Você trocou de treino quantas vezes esse ano?</div>
@@ -362,11 +362,11 @@ const assetExamples={
           <div class="news-bloco">
             <h4>As cinco terças, e o que muda em cada uma</h4>
             <div class="news-rail">
-              <article class="nw "><span class="nw-date">20/10<em>T-3</em></span><b>Você trocou de treino quantas vezes esse ano?</b><span class="nw-goal"><i>Problema</i>O produto não é mencionado nenhuma vez</span></article>
-              <article class="nw "><span class="nw-date">27/10<em>T-2</em></span><b>3 erros, 500 diagnósticos, o mesmo padrão</b><span class="nw-goal"><i>Captura</i>Dado proprietário puxando o diagnóstico</span></article>
-              <article class="nw "><span class="nw-date">03/11<em>T-1</em></span><b>O que a Kati olha antes de trocar um exercício</b><span class="nw-goal"><i>Confiança</i>Autoridade, e o teaser da pré-venda de amanhã</span></article>
+              <article class="nw "><span class="nw-date">20/10<em>S-3</em></span><b>Você trocou de treino quantas vezes esse ano?</b><span class="nw-goal"><i>Problema</i>O produto não é mencionado nenhuma vez</span></article>
+              <article class="nw "><span class="nw-date">27/10<em>S-2</em></span><b>3 erros, 500 diagnósticos, o mesmo padrão</b><span class="nw-goal"><i>Captura</i>Dado proprietário puxando o diagnóstico</span></article>
+              <article class="nw "><span class="nw-date">03/11<em>S-1</em></span><b>O que a Kati olha antes de trocar um exercício</b><span class="nw-goal"><i>Confiança</i>Autoridade, e o teaser da pré-venda de amanhã</span></article>
               <article class="nw nw--hi"><span class="nw-date">10/11<em>Abertura</em></span><b>O MBV abriu: 8 semanas de glúteo, assinadas pela Kati</b><span class="nw-goal"><i>Venda</i>A única edição que abre com a oferta</span></article>
-              <article class="nw "><span class="nw-date">17/11<em>T+1</em></span><b>2.000 mulheres responderam. 61% travam no mesmo ponto.</b><span class="nw-goal"><i>Reengajar</i>O dado do lançamento vira conteúdo editorial</span></article>
+              <article class="nw "><span class="nw-date">17/11<em>S+1</em></span><b>2.000 mulheres responderam. 61% travam no mesmo ponto.</b><span class="nw-goal"><i>Reengajar</i>O dado do lançamento vira conteúdo editorial</span></article>
             </div>
           </div>
           <div class="news-bloco">

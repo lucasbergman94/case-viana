@@ -24,11 +24,11 @@ main{padding:40px var(--pad) 56px;max-width:1280px;margin:0 auto}
 h1{font-family:var(--f-disp);font-weight:900;font-size:clamp(38px,7vw,76px);line-height:.92;text-transform:uppercase;margin:0 0 18px;text-wrap:balance;letter-spacing:-.005em}
 h2{font-family:var(--f-disp);font-weight:900;font-size:clamp(26px,4vw,38px);line-height:1;text-transform:uppercase;margin:44px 0 14px}
 h3{font-family:var(--f-disp);font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.02em;margin:26px 0 10px}
-p{margin:0 0 14px;max-width:70ch}
+p{margin:0 0 14px;max-width:none}
 .lead{font-size:18px;color:var(--ink2)}
 a{color:var(--viana)}
 strong{font-weight:600}
-ul,ol{margin:0 0 16px;padding-left:20px;max-width:70ch}
+ul,ol{margin:0 0 16px;padding-left:20px;max-width:none}
 li{margin-bottom:6px}
 li::marker{color:var(--ink3)}
 .label{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
@@ -103,7 +103,7 @@ footer{border-top:1px solid var(--rule);padding:22px var(--pad);font-family:var(
 <p class="eyebrow">MBV · Método Bumbum Viana · anexo 1</p>
 <h1>Cronograma completo</h1>
 <p class="lead">Dez semanas mais o que vem depois, do escopo com a Kati ao relatório de 30/11. Cada linha tem dono, entrega e dependência. A semana 1 começa na segunda 14/09; a turma da Consultoria abre 07/10; o lançamento público é terça 10/11. Todos os status começam em "Planejado" e são atualizados no ritual de quarta.</p>
-<div class="toolbar"><button type="button" class="btn" data-csv="t-cron" data-name="mbv-anexo-01-cronograma.csv">Baixar CSV</button><span class="count" data-count="t-cron"></span></div><div class="tw">
+<div class="tw">
 <table id="t-cron">
 <caption>Cronograma do MBV, 14/09 a 30/11/2026</caption>
 <thead><tr><th scope="col">Semana</th><th scope="col">Datas</th><th scope="col">Frente</th><th scope="col">Tarefa</th><th scope="col">Dono</th><th scope="col">Entrega</th><th scope="col">Depende de</th><th scope="col">Status</th></tr></thead>
@@ -137,7 +137,7 @@ footer{border-top:1px solid var(--rule);padding:22px var(--pad);font-family:var(
 <tr><td class="m">6</td><td class="m">19 a 25/10</td><td><span class="tag">Produto</span></td><td class="w">Ajustar texto e tracker com o que o beta pediu; fechar o ebook final</td><td>Kati</td><td>Texto final aprovado, 23/10</td><td>Notas do beta</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">6</td><td class="m">19 a 25/10</td><td><span class="tag">Produto</span></td><td class="w">Diagramação final do ebook e do tracker</td><td>Designer</td><td>PDF final, 25/10</td><td>Ebook final</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">6</td><td class="m">19 a 25/10</td><td><span class="tag">Lançamento</span></td><td class="w">Aprovar os roteiros dos Reels de campanha; ordem de gravação enviada ao videomaker com 72 h de antecedência</td><td>Kati</td><td>Roteiros aprovados, 20/10</td><td>Roteiros dos Reels</td><td><span class="tag">Planejado</span></td></tr>
-<tr><td class="m">6</td><td class="m">19 a 25/10</td><td><span class="tag">Lançamento</span></td><td class="w">Newsletter T-3, 20/10: "Seu treino muda ou progride?", CTA para o diagnóstico</td><td>Marketing</td><td>Edição enviada terça 20/10</td><td>ManyChat no ar</td><td><span class="tag">Planejado</span></td></tr>
+<tr><td class="m">6</td><td class="m">19 a 25/10</td><td><span class="tag">Lançamento</span></td><td class="w">Newsletter S-3, 20/10: "Seu treino muda ou progride?", CTA para o diagnóstico</td><td>Marketing</td><td>Edição enviada terça 20/10</td><td>ManyChat no ar</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">6</td><td class="m">19 a 25/10</td><td><span class="tag">Lançamento</span></td><td class="w">Post de chancela do Marcos com a Kati, 21/10. O "Comente MBV" abre</td><td>Marketing</td><td>Post publicado; diagnóstico recebendo comentários</td><td>Foto do Marcos com a Kati; ManyChat no ar</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">6</td><td class="m">19 a 25/10</td><td><span class="tag">Lançamento</span></td><td class="w">Publicar o hub do blog "Treino de glúteo: guia completo", 22/10, com captura do diagnóstico no fim</td><td>Marketing</td><td>Artigo no ar</td><td>Plano de tracking</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">6</td><td class="m">19 a 25/10</td><td><span class="tag">Lançamento</span></td><td class="w">Shooting day 2, 23/10: 8 Reels de campanha, vídeo da landing (60 s), depoimentos de 3 alunas do beta, stills</td><td>Videomaker</td><td>Edições em 7 dias (30/10), vídeo da landing primeiro</td><td>Roteiros aprovados; 3 alunas confirmadas</td><td><span class="tag">Planejado</span></td></tr>
@@ -146,10 +146,10 @@ footer{border-top:1px solid var(--rule);padding:22px var(--pad);font-family:var(
 <tr><td class="m">6</td><td class="m">19 a 25/10</td><td><span class="tag">Medição</span></td><td class="w">Validar lp_visitada, checkout_iniciado e compra_concluida com a compra de teste</td><td>Marketing</td><td>Eventos no GA4, Pixel e CRM, 25/10</td><td>LP e checkout no ar</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">7</td><td class="m">26/10 a 01/11</td><td><span class="tag">Produto</span></td><td class="w">Editar os depoimentos do beta (3 vídeos) e o vídeo da landing</td><td>Videomaker</td><td>Vídeo da landing 27/10; depoimentos 30/10</td><td>Shooting day 2</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">7</td><td class="m">26/10 a 01/11</td><td><span class="tag">Lançamento</span></td><td class="w">Aquecimento: 1 feed por dia útil, Stories todo dia, "Kati responde" três vezes por semana, comentários respondidos em até 1 hora</td><td>Marketing</td><td>Peças publicadas conforme o calendário</td><td>Calendário editorial</td><td><span class="tag">Planejado</span></td></tr>
-<tr><td class="m">7</td><td class="m">26/10 a 01/11</td><td><span class="tag">Lançamento</span></td><td class="w">Newsletter T-2, 27/10: "Os 3 erros que mais aparecem", com dado dos primeiros 500 diagnósticos</td><td>Marketing</td><td>Edição enviada 27/10</td><td>500 diagnósticos concluídos</td><td><span class="tag">Planejado</span></td></tr>
+<tr><td class="m">7</td><td class="m">26/10 a 01/11</td><td><span class="tag">Lançamento</span></td><td class="w">Newsletter S-2, 27/10: "Os 3 erros que mais aparecem", com dado dos primeiros 500 diagnósticos</td><td>Marketing</td><td>Edição enviada 27/10</td><td>500 diagnósticos concluídos</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">7</td><td class="m">26/10 a 01/11</td><td><span class="tag">Lançamento</span></td><td class="w">Artigos satélites do blog: 29/10 "Quantas vezes por semana treinar glúteo", 05/11 "Progressão de carga no treino de glúteo"</td><td>Marketing</td><td>Artigos no ar nas datas</td><td>Hub publicado</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">7</td><td class="m">26/10 a 01/11</td><td><span class="tag">Lançamento</span></td><td class="w">Sequência de nutrição E0 a E4 rodando; reenvio de E1 com outro assunto para quem não abriu em 48 h</td><td>Marketing</td><td>Automação ativa e monitorada</td><td>E-mails aprovados; CRM integrado</td><td><span class="tag">Planejado</span></td></tr>
-<tr><td class="m">8</td><td class="m">02 a 08/11</td><td><span class="tag">Lançamento</span></td><td class="w">Newsletter T-1, 03/11: "Como a Kati avalia um treino", bastidor do beta, CTA lista de espera</td><td>Marketing</td><td>Edição enviada 03/11</td><td>Depoimentos do beta</td><td><span class="tag">Planejado</span></td></tr>
+<tr><td class="m">8</td><td class="m">02 a 08/11</td><td><span class="tag">Lançamento</span></td><td class="w">Newsletter S-1, 03/11: "Como a Kati avalia um treino", bastidor do beta, CTA lista de espera</td><td>Marketing</td><td>Edição enviada 03/11</td><td>Depoimentos do beta</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">8</td><td class="m">02 a 08/11</td><td><span class="tag">Lançamento</span></td><td class="w">Pré-venda 04/11: e-mail V0 e push 1 para lista de espera, alunas e assinantes da Cozinha. Lote de 50 a R$77</td><td>Marketing</td><td>Disparo 04/11, 9h</td><td>LP com o lote; checkout validado</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">8</td><td class="m">02 a 08/11</td><td><span class="tag">Lançamento</span></td><td class="w">Monitorar o lote de embaixadoras; disparar V0b e trocar o preço na página quando esgotar</td><td>Marketing</td><td>Página a R$97 no minuto em que o lote fechar</td><td>Pré-venda aberta</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">8</td><td class="m">02 a 08/11</td><td><span class="tag">Time</span></td><td class="w">Enviar o briefing 4, fechamento, ao designer: contagem regressiva, última chamada, pós-compra</td><td>Marketing</td><td>Briefing enviado 05/11; entrega 09/11</td><td>Identidade</td><td><span class="tag">Planejado</span></td></tr>
@@ -161,7 +161,7 @@ footer{border-top:1px solid var(--rule);padding:22px var(--pad);font-family:var(
 <tr><td class="m">9</td><td class="m">09 a 15/11</td><td><span class="tag">Medição</span></td><td class="w">Leitura diária do funil: leads, visitas na LP, checkouts, compras, gargalo</td><td>Marketing</td><td>Painel atualizado todo dia às 9h</td><td>Tracking validado</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">10</td><td class="m">16 a 22/11</td><td><span class="tag">Lançamento</span></td><td class="w">Fechamento 16/11: e-mail V6 às 18h, push 3 às 19h, carrinho fecha 23h59. A gravação da aula entra na oferta no lugar da aula ao vivo</td><td>Marketing</td><td>Oferta atualizada 17/11</td><td>Gravação da aula</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">10</td><td class="m">16 a 22/11</td><td><span class="tag">Produto</span></td><td class="w">Onboarding das compradoras: e-mail e push pós-compra, começar pelo capítulo 3</td><td>Marketing</td><td>Ativação medida em 7 dias</td><td>Compras concluídas</td><td><span class="tag">Planejado</span></td></tr>
-<tr><td class="m">10</td><td class="m">16 a 22/11</td><td><span class="tag">Lançamento</span></td><td class="w">Newsletter T+1, 17/11: "O que 2.000 diagnósticos mostraram sobre o treino de glúteo no Brasil"</td><td>Marketing</td><td>Edição enviada 17/11</td><td>Dados do diagnóstico</td><td><span class="tag">Planejado</span></td></tr>
+<tr><td class="m">10</td><td class="m">16 a 22/11</td><td><span class="tag">Lançamento</span></td><td class="w">Newsletter S+1, 17/11: "O que 2.000 diagnósticos mostraram sobre o treino de glúteo no Brasil"</td><td>Marketing</td><td>Edição enviada 17/11</td><td>Dados do diagnóstico</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">10</td><td class="m">16 a 22/11</td><td><span class="tag">Produto</span></td><td class="w">Pesquisa com compradoras: 5 perguntas sobre uso, dúvida e o que faltou</td><td>Marketing</td><td>Respostas consolidadas, 22/11</td><td>Compras</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">10</td><td class="m">16 a 22/11</td><td><span class="tag">Time</span></td><td class="w">Post-mortem 20/11 com Kati, designer e videomaker</td><td>Marketing</td><td>Ata com manter, parar e testar</td><td>Leitura do funil</td><td><span class="tag">Planejado</span></td></tr>
 <tr><td class="m">Depois</td><td class="m">23/11 em diante</td><td><span class="tag">Produto</span></td><td class="w">Versão 1.1 do MBV com o que o beta e as compradoras pediram</td><td>Kati</td><td>v1.1 em dezembro</td><td>Pesquisa com compradoras</td><td><span class="tag">Planejado</span></td></tr>
@@ -181,38 +181,7 @@ footer{border-top:1px solid var(--rule);padding:22px var(--pad);font-family:var(
 </main>
 <footer>Case preparado por Lucas Bergman, setembro de 2026. Números de resultado são cenários de planejamento.</footer>
 <script>
-(function(){
-  function csvFromTable(t){
-    var rows=[];
-    t.querySelectorAll('tr').forEach(function(tr){
-      var cells=[];
-      tr.querySelectorAll('th,td').forEach(function(c){
-        var v=(c.innerText||c.textContent).replace(/\s+/g,' ').trim();
-        if(/[;"\r\n]/.test(v)) v='"'+v.replace(/"/g,'""')+'"';
-        cells.push(v);
-      });
-      rows.push(cells.join(';'));
-    });
-    return rows.join('\r\n');
-  }
-  document.addEventListener('click',function(e){
-    var b=e.target.closest('[data-csv]');
-    if(!b) return;
-    var t=document.getElementById(b.getAttribute('data-csv'));
-    if(!t) return;
-    var blob=new Blob(['\uFEFF'+csvFromTable(t)],{type:'text/csv;charset=utf-8'});
-    var a=document.createElement('a');
-    a.href=URL.createObjectURL(blob);
-    a.download=b.getAttribute('data-name')||'tabela.csv';
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},0);
-  });
-  document.querySelectorAll('[data-count]').forEach(function(el){
-    var t=document.getElementById(el.getAttribute('data-count'));
-    if(t&&t.tBodies[0]) el.textContent=t.tBodies[0].rows.length+' linhas';
-  });
-})();
+
 </script>
 </body>
 </html>

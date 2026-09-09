@@ -24,11 +24,11 @@ main{padding:40px var(--pad) 56px;max-width:1280px;margin:0 auto}
 h1{font-family:var(--f-disp);font-weight:900;font-size:clamp(38px,7vw,76px);line-height:.92;text-transform:uppercase;margin:0 0 18px;text-wrap:balance;letter-spacing:-.005em}
 h2{font-family:var(--f-disp);font-weight:900;font-size:clamp(26px,4vw,38px);line-height:1;text-transform:uppercase;margin:44px 0 14px}
 h3{font-family:var(--f-disp);font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.02em;margin:26px 0 10px}
-p{margin:0 0 14px;max-width:70ch}
+p{margin:0 0 14px;max-width:none}
 .lead{font-size:18px;color:var(--ink2)}
 a{color:var(--viana)}
 strong{font-weight:600}
-ul,ol{margin:0 0 16px;padding-left:20px;max-width:70ch}
+ul,ol{margin:0 0 16px;padding-left:20px;max-width:none}
 li{margin-bottom:6px}
 li::marker{color:var(--ink3)}
 .label{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
@@ -103,7 +103,7 @@ footer{border-top:1px solid var(--rule);padding:22px var(--pad);font-family:var(
 <p class="eyebrow">MBV · Método Bumbum Viana · anexo 3</p>
 <h1>Plano de tracking</h1>
 <p class="lead">Dez eventos cobrem o funil inteiro, do primeiro toque no diagnóstico ao primeiro treino registrado. As UTMs dizem de onde cada visita veio. Com isso, a leitura por gargalo do painel de Economia vira número, e o relatório de 30/11 sai sem estimativa.</p>
-<h2>A. Eventos</h2><div class="toolbar"><button type="button" class="btn" data-csv="t-ev" data-name="mbv-anexo-03-eventos.csv">Baixar CSV</button><span class="count" data-count="t-ev"></span></div><div class="tw">
+<h2>A. Eventos</h2><div class="tw">
 <table id="t-ev">
 <caption>Eventos do funil do MBV</caption>
 <thead><tr><th scope="col">Evento</th><th scope="col">Descrição</th><th scope="col">Propriedades</th><th scope="col">Gatilho</th><th scope="col">Ferramenta</th></tr></thead>
@@ -121,7 +121,7 @@ footer{border-top:1px solid var(--rule);padding:22px var(--pad);font-family:var(
 </tbody>
 </table>
 </div><h2>B. UTMs</h2>
-<p>Uma campanha só, <span class="label" style="color:var(--ink)">mbv_lancamento</span>, para toda a janela. O que muda entre canais é source e medium. O content carrega o nome da peça, e é ele que liga cada venda ao post, ao e-mail ou ao artigo que a gerou.</p><div class="toolbar"><button type="button" class="btn" data-csv="t-utm" data-name="mbv-anexo-03-utms.csv">Baixar CSV</button><span class="count" data-count="t-utm"></span></div><div class="tw">
+<p>Uma campanha só, <span class="label" style="color:var(--ink)">mbv_lancamento</span>, para toda a janela. O que muda entre canais é source e medium. O content carrega o nome da peça, e é ele que liga cada venda ao post, ao e-mail ou ao artigo que a gerou.</p><div class="tw">
 <table id="t-utm">
 <caption>Padrão de UTMs por canal</caption>
 <thead><tr><th scope="col">Canal</th><th scope="col">utm_source</th><th scope="col">utm_medium</th><th scope="col">utm_campaign</th><th scope="col">utm_content (exemplo)</th></tr></thead>
@@ -147,38 +147,7 @@ footer{border-top:1px solid var(--rule);padding:22px var(--pad);font-family:var(
 </main>
 <footer>Case preparado por Lucas Bergman, setembro de 2026. Números de resultado são cenários de planejamento.</footer>
 <script>
-(function(){
-  function csvFromTable(t){
-    var rows=[];
-    t.querySelectorAll('tr').forEach(function(tr){
-      var cells=[];
-      tr.querySelectorAll('th,td').forEach(function(c){
-        var v=(c.innerText||c.textContent).replace(/\s+/g,' ').trim();
-        if(/[;"\r\n]/.test(v)) v='"'+v.replace(/"/g,'""')+'"';
-        cells.push(v);
-      });
-      rows.push(cells.join(';'));
-    });
-    return rows.join('\r\n');
-  }
-  document.addEventListener('click',function(e){
-    var b=e.target.closest('[data-csv]');
-    if(!b) return;
-    var t=document.getElementById(b.getAttribute('data-csv'));
-    if(!t) return;
-    var blob=new Blob(['\uFEFF'+csvFromTable(t)],{type:'text/csv;charset=utf-8'});
-    var a=document.createElement('a');
-    a.href=URL.createObjectURL(blob);
-    a.download=b.getAttribute('data-name')||'tabela.csv';
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},0);
-  });
-  document.querySelectorAll('[data-count]').forEach(function(el){
-    var t=document.getElementById(el.getAttribute('data-count'));
-    if(t&&t.tBodies[0]) el.textContent=t.tBodies[0].rows.length+' linhas';
-  });
-})();
+
 </script>
 </body>
 </html>
