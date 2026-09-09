@@ -260,6 +260,77 @@
     });
   }
 
+  /* Painel 13: a tabela de cenarios vira calculadora.
+     O HTML ja nasce com os numeros do investimento padrao, entao a tabela esta
+     correta com o JS desligado. O script nao "corrige" nada na carga: ele so
+     refaz a conta quando alguem mexe no investimento ou no cenario novo.
+     Modelo: as 50 primeiras compras saem no lote de embaixadoras, o resto no
+     preco cheio, e o investimento na acao e subtraido igual em toda linha. */
+  const ECON={lote:50,mLote:54,mCheia:69,mLote147:69,mCheia147:106};
+
+  function econMargem(compras,mLote,mCheia){
+    if(compras<=ECON.lote) return compras*mLote;
+    return ECON.lote*mLote+(compras-ECON.lote)*mCheia;
+  }
+  function econEquilibrio(inv,mLote,mCheia){
+    const teto=ECON.lote*mLote;
+    if(inv<=teto) return Math.ceil(inv/mLote);
+    return ECON.lote+Math.ceil((inv-teto)/mCheia);
+  }
+  const econNum=n=>Math.round(Math.abs(n)).toLocaleString('pt-BR');
+  const econSinal=n=>(Math.round(n)===0?'':(n<0?'−':'+'))+'R$'+econNum(n);
+
+  function initEconomia(){
+    const painel=document.getElementById('s13');
+    const tabela=document.getElementById('econTabela');
+    const campoInv=document.getElementById('econInvest');
+    if(!painel||!tabela||!campoInv) return;
+    const ler=el=>{
+      const v=parseFloat(String(el.value).replace(',','.'));
+      return isFinite(v)&&v>0?v:0;
+    };
+
+    function recalcular(){
+      const inv=ler(campoInv);
+      let base=null;
+      tabela.querySelectorAll('.sc-row[data-cenario]').forEach(linha=>{
+        const iL=linha.querySelector('[data-campo="leads"]');
+        const iC=linha.querySelector('[data-campo="conv"]');
+        const leads=iL?ler(iL):parseFloat(linha.dataset.leads);
+        const conv=iC?ler(iC):parseFloat(linha.dataset.conv);
+        const compras=Math.round(leads*conv/100);
+        const resultado=econMargem(compras,ECON.mLote,ECON.mCheia)-inv;
+        const celC=linha.querySelector('[data-compras]');
+        const celR=linha.querySelector('[data-resultado]');
+        if(celC) celC.textContent=compras.toLocaleString('pt-BR');
+        if(celR){celR.textContent=econSinal(resultado);celR.className=resultado<0?'neg':'pos'}
+        if(linha.classList.contains('sc-row--base')) base={compras,resultado};
+      });
+      const escrever=(chave,texto)=>{
+        const el=painel.querySelector('[data-econ="'+chave+'"]');
+        if(el) el.textContent=texto;
+      };
+      escrever('inv','R$'+econNum(inv));
+      escrever('be97',econEquilibrio(inv,ECON.mLote,ECON.mCheia).toLocaleString('pt-BR')+' compras');
+      escrever('be147',econEquilibrio(inv,ECON.mLote147,ECON.mCheia147).toLocaleString('pt-BR')+' compras');
+      if(base){
+        escrever('base97',econSinal(base.resultado));
+        escrever('base147',econSinal(econMargem(base.compras,ECON.mLote147,ECON.mCheia147)-inv));
+        escrever('veredito',base.resultado<0?'a janela ainda fecha no vermelho':'a janela já fecha no azul');
+      }
+    }
+
+    painel.addEventListener('input',e=>{
+      if(e.target.id==='econInvest'||e.target.classList.contains('sc-input')) recalcular();
+    });
+    painel.addEventListener('click',e=>{
+      const preset=e.target.closest('.econ-preset');
+      if(!preset) return;
+      campoInv.value=preset.dataset.invest;
+      recalcular();
+    });
+  }
+
   selectors.forEach(sel=>document.querySelectorAll(sel).forEach(makeDraggable));
   initInlineAssets();
   let tRedim;
@@ -273,4 +344,5 @@
     },200);
   });
   initCamadas();
+  initEconomia();
 })();

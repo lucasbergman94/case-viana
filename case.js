@@ -351,9 +351,9 @@ const assetExamples={
             <div class="subject">Você trocou de treino quantas vezes esse ano?</div>
             <p class="preheader">A Kati diz que a troca quase nunca é o problema certo.</p>
             <p>Trocar de exercício é a coisa mais fácil de fazer na academia. É também a primeira coisa que a gente faz quando o resultado trava. E é quase sempre a errada.</p>
-            <p>A Kati Santana é atleta IFBB e atende alunas da Consultoria há três anos. Ela começa toda avaliação pelo mesmo lugar: antes de olhar qual exercício você faz, pergunta quanto você levantava nele quatro semanas atrás.</p>
-            <p>Quase ninguém sabe responder. E aqui está o problema: quando não existe o número de quatro semanas atrás, não dá para dizer se o exercício falhou ou se ele nunca chegou a ser testado. Trocar vira chute. O treino muda todo mês e a carga fica parada.</p>
-            <p>Glúteo responde a tensão com carga subindo ao longo das semanas. Não a variedade. Trocar de exercício reinicia a conta, e quem reinicia a conta toda semana nunca chega ao ponto em que o estímulo vira resultado.</p>
+            <p>A Kati Santana é atleta IFBB e atende alunas da Consultoria há três anos. Ela começa toda avaliação no mesmo lugar: antes de olhar qual exercício você faz, pergunta quanto você levantava nele quatro semanas atrás.</p>
+            <p>Quase ninguém sabe responder. E aqui está o problema: sem o número de quatro semanas atrás, não dá para dizer se o exercício falhou ou se ele nunca chegou a ser testado. Trocar vira chute, o treino muda todo mês e a carga fica parada.</p>
+            <p>Glúteo responde a carga subindo ao longo das semanas, não a variedade. Quem reinicia a conta toda semana nunca chega ao ponto em que o estímulo vira resultado.</p>
             <p>Hoje o pedido é pequeno. No próximo treino, anote a carga e as repetições de dois exercícios. Só isso. Semana que vem você já tem com o que comparar.</p>
             <p class="mail-fecho"><b>Se você travou na pergunta do assunto, não precisa esperar quatro semanas para descobrir o motivo.</b> São 5 perguntas, e no fim elas dizem qual dos três perfis é o seu e o que a Kati ajustaria primeiro no seu caso.</p>
             <span class="cta">Descobrir o meu perfil em 2 minutos</span>
@@ -411,10 +411,11 @@ const assetExamples={
             <h4>O que fica gravado</h4>
             <div class="crm-fields">
               <code>origem = instagram</code><code>campanha = mbv_lancamento</code>
-              <code>tempo_treino = 2a+</code><code>registro = as_vezes</code>
+              <code>conteudo = reel_03_queimar</code><code>tempo_treino = 2a+</code>
               <code>frequencia = 3x</code><code>local = academia</code>
-              <code>trava = progressao</code><code>perfil = b</code>
-              <code>etapa = diagnostico</code><code>comprou = nao</code>
+              <code>registro = as_vezes</code><code>trava = progressao</code>
+              <code>perfil = b</code><code>etapa = diagnostico</code>
+              <code>comprou = nao</code><code>ativou = nao</code>
             </div>
             <p class="caption">Os mesmos nomes do Anexo 3, em minúsculas e sem acento. Um nome só para cada coisa, do ManyChat ao GA4.</p>
           </div>
