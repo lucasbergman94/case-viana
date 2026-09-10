@@ -535,10 +535,9 @@ const assetExamples={
             <ul class="topicos">
               <li><b>Catálogo</b>Começa no MBV e recebe cada Método novo sem pagar de novo</li>
               <li><b>Cinco</b>Glúteo, abdômen, superiores, mobilidade e manutenção</li>
-              <li><b>Onde mora</b>Na área de membros da Cozinha, ao lado da prateleira de receitas</li>
+              <li><b>Onde mora</b>Nova área a ser desenvolvida no site</li>
               <li><b>Upgrade</b>Quem já comprou o MBV entra pagando a diferença</li>
             </ul>
-            <p class="dp-conta">Transforma compra avulsa em relação recorrente e responde de onde o próximo Método nasce sem custo de aquisição: <b>ele nasce na base que já paga</b>.</p>
           </article>
           <article class="deg-proposta">
             <span class="dp-tag">Proposta 2 · horizonte 2</span>
@@ -550,7 +549,6 @@ const assetExamples={
               <li><b>Correção</b>A aluna manda o vídeo da execução em um dia e recebe a devolutiva com os ajustes para a semana seguinte</li>
               <li><b>Crédito</b>Quem comprou o MBV abate os R$97 até 90 dias depois</li>
             </ul>
-            <p class="dp-conta">Sem esse degrau, 260 compradoras rendem 6 alunas na individualizada. Com ele, 31 sobem para a Turma, 18% delas migram, e o resultado é <b>10 alunas mais R$11.100 de margem no caminho</b>.</p>
           </article>
         </div>
       </div>
