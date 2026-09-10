@@ -3790,3 +3790,28 @@ h4{font-size:21px;line-height:1;font-weight:800}
   .lt-gate-marcos li>b{font-size:12.5px}
   .lt-gate-marcos li{padding:2px 0;gap:9px}
 }
+
+/* A meta do card do Marcos quebrava em duas linhas por 9px: o chip do nome do
+   campo e monoespacado e renderiza mais largo que o texto ao lado no mesmo
+   tamanho. Ele encolhe, e a linha fecha inteira. */
+/* O li e uma grade. O chip do nome do campo era filho direto dele, virava
+   item de grade proprio e caia na linha seguinte, por mais larga que fosse
+   a caixa. Agora texto e chip vao num span, que e um item so. */
+#s06 .aud .topicos li>span{display:block;min-width:0}
+#s06 .aud .topicos code{font-size:10.5px;padding:1px 4px;letter-spacing:-.01em}
+/* a trilha do rotulo nos cards de audiencia era mais larga que o rotulo mais
+   longo, "Como testar", que mede 65px. Fixa em 68 e devolve o resto ao texto,
+   sem perder o alinhamento entre as linhas */
+#s06 .aud .topicos li{grid-template-columns:68px minmax(0,1fr);gap:8px}
+/* a linha da meta e a unica com chip de campo. O rotulo dela dispensa a
+   trilha fixa de 68px, que existe para alinhar as datas: com trilha automatica
+   sobram 43px, que e o que falta para o chip ficar na mesma linha */
+#s06 .aud .topicos li.li-meta{grid-template-columns:auto minmax(0,1fr);gap:7px}
+#s06 .aud .topicos li.li-meta code{font-size:10px;padding:1px 4px}
+@media(min-width:1101px) and (max-width:1340px){
+  #s06 .aud{padding:8px 10px!important}
+  #s06 .aud .topicos li.li-meta code{font-size:9px;padding:1px 3px}
+  #s06 .aud .topicos li.li-meta>span{letter-spacing:-.012em}
+  #s06 .aud .topicos li.li-meta{gap:6px}
+}
+@media(min-width:1101px) and (max-height:800px){ #s06 .aud{padding:8px 10px!important} #s06 .aud .topicos{gap:1px} }
